@@ -25,11 +25,7 @@ from model.taskrsrc import TaskRsrc
 
 
 class Reader:
-    ''' This is a wrapper class that read xer and parse its contents to objects
 
-    The class provide users with various helper functions to access xer parsed data
-    :parameter filename is the primavera xer file need to be parsed
-    '''
     current_table = ''
     currencies = []
     obs = []
