@@ -25,7 +25,11 @@ from model.taskrsrc import TaskRsrc
 
 
 class Reader:
+    ''' This is a wrapper class that read xer and parse its contents to objects
 
+    The class provide users with various helper functions to access xer parsed data
+    :parameter filename is the primavera xer file need to be parsed
+    '''
     current_table = ''
     currencies = []
     obs = []
@@ -48,6 +52,16 @@ class Reader:
     udfvalue = []
 
     def create_object(self, object_type, params):
+
+        """
+
+        Args:
+            object_type:
+            params:
+
+        Returns:
+
+        """
         if object_type.strip() == "CURRTYPE":
             obj = Currency(params)
             self.currencies.append(obj)
@@ -133,8 +147,16 @@ class Reader:
         print("task ID search", task_id)
         return Task.find_by_activity_id(task_id, self.task)
 
+    def get_activity_code_by_name(self, code):
+        return ActivityCode.find_by_code(code, self.actvcode)
+
+    def get_activity_code_by_id(self, id):
+        return ActivityCode.find_by_id(id, self.actvcode)
+
+    def get_activity_codes(self):
+        return self.actvcode
+
     def __init__(self, filename):
-        #file = open('SP10 - COST LOADED.xer', 'r')
         file = open(filename, 'r')
         content = file.readlines()
         for line in content:
@@ -146,7 +168,10 @@ class Reader:
 
 
 r = Reader('model/SP10 - COST LOADED.xer')
-print(r)
-print(r.task)
-t = r.get_task_by_id('P1EWCC-FWP03-5710')
-print(t.task_id, t.total_float_hr_cnt, t.task_code, t.get_float(), t.get_duration())
+for code in r.get_activity_codes():
+    print(code)
+
+#print(r.task)
+#actvCode = r.get_activity_code_by_name("DC1B")
+# actvCode = r.get_activity_code_by_id("3175")
+# print(actvCode.actv_code_id, actvCode.short_name, actvCode.actv_code_name, actvCode.seq_num)
