@@ -127,7 +127,12 @@ class Task:
 
     @staticmethod
     def find_by_activity_id(activity_id, tasks_dict):
-        return {k: v for k, v in tasks_dict.items() if v.task_code == activity_id}
+        search = {k: v for k, v in tasks_dict.items() if v.task_code == activity_id}
+        k = list(search.keys())[0]
+        return search[k]
+
+    def get_float(self):
+        return float(self.total_float_hr_cnt)/8.0
 
     def __repr__(self):
         return self.task_code
