@@ -27,102 +27,102 @@ from model.taskrsrc import TaskRsrc
 class Reader:
 
     current_table = ''
-    currencies = dict()
-    obs = dict()
-    rcattype = dict()
-    udftype = dict()
-    rcatval = dict()
-    project = dict()
-    calendar = dict()
-    schedoption = dict()
-    wbs = dict()
-    resource = dict()
-    acttype = dict()
-    rsrcrate = dict()
-    rsrcrcat = dict()
-    task = dict()
-    actvcode = dict()
-    taskpred = dict()
-    taskrsrc = dict()
-    taskactv = dict()
-    udfvalue = dict()
+    currencies = []
+    obs = []
+    rcattype = []
+    udftype = []
+    rcatval = []
+    project = []
+    calendar = []
+    schedoption = []
+    wbs = []
+    resource = []
+    acttype = []
+    rsrcrate = []
+    rsrcrcat = []
+    task = []
+    actvcode = []
+    taskpred = []
+    taskrsrc = []
+    taskactv = []
+    udfvalue = []
 
     def create_object(self, object_type, params):
         if object_type.strip() == "CURRTYPE":
             obj = Currency(params)
-            self.currencies[obj.get_id()] = obj
+            self.currencies.append(obj)
             return obj
         elif object_type.strip() == "OBS":
             obj = OBS(params)
-            self.obs[obj.get_id()] = obj
+            self.obs.append(obj)
             return obj
         elif object_type.strip() == "RCATTYPE":
             obj = RCatType(params)
-            self.rcattype[obj.get_id()] = obj
+            self.rcattype.append(obj)
             return obj
         elif object_type.strip() == "UDFTYPE":
             obj = UDFType(params)
-            self.udftype[obj.get_id()] = obj
+            self.udftype.append(obj)
             return obj
         elif object_type.strip() == "RCATVAL":
             obj = RCatVal(params)
-            self.rcatval[obj.get_id()] = obj
+            self.rcatval.append(obj)
             return obj
         elif object_type.strip() == "PROJECT":
             obj = Project(params)
-            self.project[obj.get_id()] = obj
+            self.project.append(obj)
             return obj
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
-            self.calendar[obj.get_id()] = obj
+            self.calendar.append(obj)
             return obj
         elif object_type.strip() == "SCHEDOPTIONS":
             obj = SchedOption(params)
-            self.schedoption[obj.get_id()] = obj
+            self.schedoption.append(obj)
             return obj
         elif object_type.strip() == "PROJWBS":
             obj = WBS(params)
-            self.wbs[obj.get_id()] = obj
+            self.wbs.append(obj)
             return obj
         elif object_type.strip() == "RSRC":
             obj = Resource(params)
-            self.resource[obj.get_id()] = obj
+            self.resource.append(obj)
             return obj
         elif object_type.strip() == "ACTVTYPE":
             obj = ActType(params)
-            self.acttype[obj.get_id()] = obj
+            self.acttype.append(obj)
             return obj
         elif object_type.strip() == "RSRCRATE":
             obj = ResourceRate(params)
-            self.rsrcrate[obj.get_id()] = obj
+            self.rsrcrate.append(obj)
             return obj
         elif object_type.strip() == "RSRCRCAT":
             obj = ResourceCat(params)
-            self.rsrcrcat[obj.get_id()] = obj
+            self.rsrcrcat.append(obj)
             return obj
         elif object_type.strip() == "TASK":
             obj = Task(params)
-            self.task[obj.get_id()] = obj
+            self.task.append(obj)
             return obj
         elif object_type.strip() == "ACTVCODE":
             obj = ActivityCode(params)
-            self.actvcode[obj.get_id()] = obj
+            self.actvcode.append(obj)
             return obj
         elif object_type.strip() == "TASKPRED":
             obj = TaskPred(params)
-            self.taskpred[obj.get_id()] = obj
+            self.taskpred.append(obj)
             return obj
         elif object_type.strip() == "TASKRSRC":
             obj = TaskRsrc(params)
-            self.taskrsrc[obj.get_id()] = obj
+            self.taskrsrc.append(obj)
             return obj
         elif object_type.strip() == "TASKACTV":
             obj = TaskActv(params)
-            self.taskactv[obj.get_id()] = obj
+            self.taskactv.append(obj)
             return obj
         elif object_type.strip() == "UDFVALUE":
             obj = UDFValue(params)
-            self.udfvalue[obj.get_id()] = obj
+            self.udfvalue.append(obj)
             return obj
 
     def summary(self):
@@ -145,9 +145,8 @@ class Reader:
                 self.create_object(current_table, line_lst[1:])
 
 
-# r = Reader('model/SP10 - COST LOADED.xer')
-# print(r)
-# print(r.task)
-#
-# print(r.get_task_by_id('P1EWCC-FWP03-5710'))
-# print(Task.find_by_activity_id('P1EWCC-FWP03-5710', r.task))
+r = Reader('model/SP10 - COST LOADED.xer')
+print(r)
+print(r.task)
+t = r.get_task_by_id('P1EWCC-FWP03-5710')
+print(t.task_id, t.total_float_hr_cnt, t.task_code, t.get_float(), t.get_duration())

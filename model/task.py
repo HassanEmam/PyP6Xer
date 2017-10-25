@@ -77,13 +77,13 @@ class Task:
         self.task_code = params[13].strip()
         self.task_name = params[14].strip()
         self.rsrc_id = params[15].strip()
-        self.total_float_hr_cnt = params[16].strip()
+        self.total_float_hr_cnt = float(params[16].strip()) if params[16] else None
         self.free_float_hr_cnt = params[17].strip()
-        self.remain_drtn_hr_cnt = params[18].strip()
+        self.remain_drtn_hr_cnt = float(params[18].strip()) if params[18] else None
         self.act_work_qty = params[19].strip()
         self.remain_work_qty = params[20].strip()
         self.target_work_qty = params[21].strip()
-        self.target_drtn_hr_cnt = params[22].strip()
+        self.target_drtn_hr_cnt = float(params[22].strip()) if params[18] else None
         self.target_equip_qty = params[23].strip()
         self.act_equip_qty = params[24].strip()
         self.remain_equip_qty = params[25].strip()
@@ -125,14 +125,28 @@ class Task:
     def get_id(self):
         return self.task_id
 
-    @staticmethod
-    def find_by_activity_id(activity_id, tasks_dict):
-        search = {k: v for k, v in tasks_dict.items() if v.task_code == activity_id}
-        k = list(search.keys())[0]
-        return search[k]
-
     def get_float(self):
-        return float(self.total_float_hr_cnt)/8.0
+        if self.total_float_hr_cnt:
+            tf = float(self.total_float_hr_cnt)/8.0
+        else:
+            return None
+        return tf
+
+    def get_duration(self):
+        dur = None
+        if self.target_drtn_hr_cnt:
+            dur = float(self.target_drtn_hr_cnt)/8.0
+        return dur
+
+    @staticmethod
+    def find_by_activity_id(activity_id, tasks):
+        task = list(filter(lambda x: x.task_code == activity_id, tasks))
+        return task[0]
+
+    @staticmethod
+    def find_by_task_id(activity_id, tasks):
+        task = list(filter(lambda x: x.task_id == activity_id, tasks))
+        return task[0]
 
     def __repr__(self):
         return self.task_code
