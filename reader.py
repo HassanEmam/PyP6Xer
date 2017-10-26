@@ -154,8 +154,9 @@ class Reader:
 r = Reader('model/SP10 - COST LOADED.xer')
 # for acode in r.get_activity_codes():
 #     print(acode)
-t = Task.find_by_code('P1EWCC-PWP06-1500')
-t= t.float_within_range_exclusive(-1,0)
+t = Task.find_by_code('P1EWCC-PWP02-4100')
+print('type', t.cstr_type)
+t= t.activities_with_hard_contratints()
 # print(r.task)
 actvCode = Calendar.find_by_id('639')
 # actvCode = r.get_activity_code_by_id("3175")

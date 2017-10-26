@@ -144,5 +144,11 @@ class Task:
             if obj:
                 return obj
         return obj
+
+    @classmethod
+    def activities_with_hard_contratints(cls):
+        obj = list(filter(lambda x: x.cstr_type == "CS_MEO" or x.cstr_type == "CS_MSO", cls.obj_list))
+        return obj
+
     def __repr__(self):
         return self.task_code
