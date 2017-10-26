@@ -155,7 +155,7 @@ r = Reader('model/SP10 - COST LOADED.xer')
 # for acode in r.get_activity_codes():
 #     print(acode)
 t = Task.find_by_code('P1EWCC-PWP02-4100')
-print('type', t.cstr_type, t.cstr_date, t.rsrc_id)
+print('type', t.cstr_type, t.cstr_date, t.driving_path_flag)
 t = t.obj_list
 # print(r.task)
 actvCode = Calendar.find_by_id('639')
