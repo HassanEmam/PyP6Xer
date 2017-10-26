@@ -1,8 +1,8 @@
 class TaskActv:
-    task_id = ''
-    actv_code_type_id = ''
-    actv_code_id = ''
-    proj_id = ''
+    task_id = None
+    actv_code_type_id = None
+    actv_code_id = None
+    proj_id = None
 
     def __init__(self, params):
         self.task_id = params[0].strip()

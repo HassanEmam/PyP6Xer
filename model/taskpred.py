@@ -1,14 +1,14 @@
 class TaskPred:
-    task_pred_id = ''
-    task_id = ''
-    pred_task_id = ''
-    proj_id = ''
-    pred_proj_id = ''
-    pred_type = ''
-    lag_hr_cnt = ''
-    float_path = ''
-    aref = ''
-    arls = ''
+    task_pred_id = None
+    task_id = None
+    pred_task_id = None
+    proj_id = None
+    pred_proj_id = None
+    pred_type = None
+    lag_hr_cnt = None
+    float_path = None
+    aref = None
+    arls = None
 
     def __init__(self, params):
         self.task_pred_id = params[0].strip()

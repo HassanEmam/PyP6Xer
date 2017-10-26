@@ -1,35 +1,5 @@
 class Resource:
-    rsrc_id = ''
-    parent_rsrc_id = ''
-    clndr_id = ''
-    role_id = ''
-    shift_id = ''
-    user_id = ''
-    pobs_id = ''
-    guid = ''
-    rsrc_seq_num = ''
-    email_addr = ''
-    employee_code = ''
-    office_phone = ''
-    other_phone = ''
-    rsrc_name = ''
-    rsrc_short_name = ''
-    rsrc_title_name = ''
-    def_qty_per_hr = ''
-    cost_qty_type = ''
-    ot_factor = ''
-    active_flag = ''
-    auto_compute_act_flag = ''
-    def_cost_qty_link_flag = ''
-    ot_flag = ''
-    curr_id = ''
-    unit_id = ''
-    rsrc_type = ''
-    location_id = ''
-    rsrc_notes = ''
-    load_tasks_flag = ''
-    level_flag = ''
-    last_checksum = ''
+    obj_list = []
 
     def __init__(self, params):
         self.rsrc_id = params[0].strip()
@@ -63,9 +33,17 @@ class Resource:
         self.load_tasks_flag = params[28].strip()
         self.level_flag = params[29].strip()
         self.last_checksum = params[30].strip()
+        Resource.obj_list.append(self)
 
     def get_id(self):
         return self.rsrc_id
+
+    @classmethod
+    def find_by_id(cls, id):
+        obj = list(filter(lambda x: x.rsrc_id == id, cls.obj_list))
+        if obj:
+            return obj[0]
+        return obj
 
     def __repr__(self):
         return self.rsrc_name

@@ -2,14 +2,14 @@
 
 class UDFType:
 
-    udf_type_id = ''
-    table_name = ''
-    udf_type_name = ''
-    udf_type_label = ''
-    logical_data_type = ''
-    super_flag = ''
-    indicator_expression = ''
-    summary_indicator_expression = ''
+    udf_type_id = None
+    table_name = None
+    udf_type_name = None
+    udf_type_label = None
+    logical_data_type = None
+    super_flag = None
+    indicator_expression = None
+    summary_indicator_expression = None
 
     def __init__(self, params):
 

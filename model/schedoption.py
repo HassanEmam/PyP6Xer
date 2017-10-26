@@ -1,30 +1,6 @@
 
 class SchedOption:
-    schedoptions_id = ''
-    proj_id = ''
-    sched_outer_depend_type = ''
-    sched_open_critical_flag = ''
-    sched_lag_early_start_flag = ''
-    sched_retained_logic = ''
-    sched_setplantoforecast = ''
-    sched_float_type = ''
-    sched_calendar_on_relationship_lag = ''
-    sched_use_expect_end_flag = ''
-    sched_progress_override = ''
-    level_float_thrs_cnt = ''
-    level_outer_assign_flag = ''
-    level_outer_assign_priority = ''
-    level_over_alloc_pct = ''
-    level_within_float_flag = ''
-    level_keep_sched_date_flag = ''
-    level_all_rsrc_flag = ''
-    sched_use_project_end_date_for_float = ''
-    enable_multiple_longest_path_calc = ''
-    limit_multiple_longest_path_calc = ''
-    max_multiple_longest_path = ''
-    use_total_float_multiple_longest_paths = ''
-    key_activity_for_multiple_longest_paths = ''
-    LevelPriorityList = ''
+    obj_list = []
 
     def __init__(self, params):
 
@@ -53,6 +29,7 @@ class SchedOption:
         self.use_total_float_multiple_longest_paths = params[22].strip()
         self.key_activity_for_multiple_longest_paths = params[23].strip()
         self.LevelPriorityList = params[24].strip()
+        SchedOption.obj_list.append(self)
 
     def get_id(self):
         return self.schedoptions_id

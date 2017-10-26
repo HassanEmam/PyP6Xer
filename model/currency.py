@@ -1,17 +1,7 @@
 
 
 class Currency:
-    curr_id = ''
-    decimal_digit_cnt = '' 
-    curr_symbol = '' 
-    decimal_symbol = ''
-    digit_group_symbol = ''
-    pos_curr_fmt_type = ''
-    neg_curr_fmt_type = ''
-    curr_type = ''
-    curr_short_name = ''
-    group_digit_cnt = ''
-    base_exch_rate = ''
+    obj_list = []
 
     def __init__(self, params):
 
@@ -26,9 +16,17 @@ class Currency:
         self.curr_short_name = params[8].strip()
         self.group_digit_cnt = params[9].strip()
         self.base_exch_rate = params[10].strip()
+        Currency.obj_list.append(self)
 
     def get_id(self):
         return self.curr_id
+
+    @classmethod
+    def find_by_id(cls, id):
+        obj = list(filter(lambda x: x.curr_id == id, cls.obj_list))
+        if obj:
+            return obj[0]
+        return obj
 
     def __repr__(self):
         return self.curr_symbol + ' ' + self.curr_type

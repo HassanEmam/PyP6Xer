@@ -1,14 +1,14 @@
 class ResourceRate:
-    rsrc_rate_id = ''
-    rsrc_id = ''
-    max_qty_per_hr = ''
-    cost_per_qty = ''
-    start_date = ''
-    shift_period_id = ''
-    cost_per_qty2 = ''
-    cost_per_qty3 = ''
-    cost_per_qty4 = ''
-    cost_per_qty5 = ''
+    rsrc_rate_id = None
+    rsrc_id = None
+    max_qty_per_hr = None
+    cost_per_qty = None
+    start_date = None
+    shift_period_id = None
+    cost_per_qty2 = None
+    cost_per_qty3 = None
+    cost_per_qty4 = None
+    cost_per_qty5 = None
 
     def __init__(self, params):
         self.rsrc_rate_id = params[0].strip()

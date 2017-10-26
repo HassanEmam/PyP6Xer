@@ -84,6 +84,7 @@ class Reader:
             return obj
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
+            print(params)
             self.calendar.append(obj)
             return obj
         elif object_type.strip() == "SCHEDOPTIONS":
@@ -139,19 +140,6 @@ class Reader:
         print('Number of activities: ', len(self.task))
         print('Number of relationships: ', len(self.taskpred))
 
-    def get_task_by_id(self, task_id):
-        print("task ID search", task_id)
-        return Task.find_by_activity_id(task_id, self.task)
-
-    def get_activity_code_by_name(self, code):
-        return ActivityCode.find_by_code(code, self.actvcode)
-
-    def get_activity_code_by_id(self, id):
-        return ActivityCode.find_by_id(id, self.actvcode)
-
-    def get_activity_codes(self):
-        return self.actvcode
-
     def __init__(self, filename):
         file = open(filename, 'r')
         content = file.readlines()
@@ -164,10 +152,11 @@ class Reader:
 
 
 r = Reader('model/SP10 - COST LOADED.xer')
-for code in r.get_activity_codes():
-    print(code)
-
-#print(r.task)
-#actvCode = r.get_activity_code_by_name("DC1B")
+# for acode in r.get_activity_codes():
+#     print(acode)
+t = Task.find_by_code('P1EWCC-PWP06-1500')
+t= t.float_within_range_exclusive(-1,0)
+# print(r.task)
+actvCode = Calendar.find_by_id('639')
 # actvCode = r.get_activity_code_by_id("3175")
-# print(actvCode.actv_code_id, actvCode.short_name, actvCode.actv_code_name, actvCode.seq_num)
+print(len(t), t)
