@@ -1,64 +1,5 @@
 class Task:
-    task_id = ''
-    proj_id = ''
-    wbs_id = ''
-    clndr_id = ''
-    phys_complete_pct = ''
-    rev_fdbk_flag = ''
-    est_wt = ''
-    lock_plan_flag = ''
-    auto_compute_act_flag = ''
-    complete_pct_type = ''
-    task_type = ''
-    duration_type = ''
-    status_code = ''
-    task_code = ''
-    task_name = ''
-    rsrc_id = ''
-    total_float_hr_cnt = ''
-    free_float_hr_cnt = ''
-    remain_drtn_hr_cnt = ''
-    act_work_qty = ''
-    remain_work_qty = ''
-    target_work_qty = ''
-    target_drtn_hr_cnt = ''
-    target_equip_qty = ''
-    act_equip_qty = ''
-    remain_equip_qty = ''
-    cstr_date = ''
-    act_start_date = ''
-    act_end_date = ''
-    late_start_date = ''
-    late_end_date = ''
-    expect_end_date = ''
-    early_start_date = ''
-    early_end_date = ''
-    restart_date = ''
-    reend_date = ''
-    target_start_date = ''
-    target_end_date = ''
-    rem_late_start_date = ''
-    rem_late_end_date = ''
-    cstr_type = ''
-    priority_type = ''
-    suspend_date = ''
-    resume_date = ''
-    float_path = ''
-    float_path_order = ''
-    guid = ''
-    tmpl_guid = ''
-    cstr_date2 = ''
-    cstr_type2 = ''
-    driving_path_flag = ''
-    act_this_per_work_qty = ''
-    act_this_per_equip_qty = ''
-    external_early_start_date = ''
-    external_late_end_date = ''
-    create_date = ''
-    update_date = ''
-    create_user = ''
-    update_user = ''
-    location_id = ''
+    obj_list = []
 
     def __init__(self, params):
         self.task_id = params[0].strip()
@@ -121,6 +62,7 @@ class Task:
         self.create_user = params[57].strip()
         self.update_user = params[58].strip()
         self.location_id = params[59].strip()
+        Task.obj_list.append(self)
 
     def get_id(self):
         return self.task_id
@@ -138,15 +80,69 @@ class Task:
             dur = float(self.target_drtn_hr_cnt)/8.0
         return dur
 
-    @staticmethod
-    def find_by_activity_id(activity_id, tasks):
-        task = list(filter(lambda x: x.task_code == activity_id, tasks))
-        return task[0]
+    def constraints(self):
+        return {"ConstraintType": self.cstr_type,
+                "ConstrintDate": self.cstr_date}
+    def start_date(self):
+        if self.act_start_date:
+            return self.act_start_date
+        else:
+            return self.target_start_date
+    @classmethod
+    def find_by_id(cls, id):
+        obj = list(filter(lambda x: x.task_id == id, cls.obj_list))
+        if obj:
+            return obj[0]
+        return obj
 
-    @staticmethod
-    def find_by_task_id(activity_id, tasks):
-        task = list(filter(lambda x: x.task_id == activity_id, tasks))
-        return task[0]
+    @classmethod
+    def find_by_code(cls, code):
+        obj = list(filter(lambda x: x.task_code == code, cls.obj_list))
+        if obj:
+            return obj[0]
+        return obj
 
+    @classmethod
+    def duration_greater_than(cls, duration):
+        obj = list(filter(lambda x: x.target_drtn_hr_cnt > duration*8, cls.obj_list))
+        if obj:
+            return obj
+        return obj
+
+    @classmethod
+    def float_less_than(cls, Tfloat):
+        objs = list(filter(lambda x: x.status_code != "TK_Complete" , cls.obj_list))
+        obj = list(filter(lambda x: x.total_float_hr_cnt < Tfloat * 8, objs))
+        if obj:
+            return obj
+        return obj
+
+    @classmethod
+    def float_greater_than(cls, Tfloat):
+        objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
+        obj = list(filter(lambda x: x.total_float_hr_cnt > Tfloat * 8, objs))
+        if obj:
+            return obj
+        return obj
+
+    @classmethod
+    def float_within_range(cls, float1, float2):
+        obj = None
+        objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
+        if float1 < float2:
+            obj = list(filter(lambda x: x.total_float_hr_cnt >= float1 * 8 and x.total_float_hr_cnt <= float2 * 8, objs))
+            if obj:
+                return obj
+        return obj
+
+    @classmethod
+    def float_within_range_exclusive(cls, float1, float2):
+        obj = None
+        objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
+        if float1 < float2:
+            obj = list(filter(lambda x: x.total_float_hr_cnt > float1 * 8 and x.total_float_hr_cnt < float2 * 8, objs))
+            if obj:
+                return obj
+        return obj
     def __repr__(self):
         return self.task_code
