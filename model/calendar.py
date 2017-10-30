@@ -1,4 +1,5 @@
 import re
+from model.calendar_data import CalendarData
 
 class Calendar:
 
@@ -36,33 +37,16 @@ class Calendar:
         self.rsrc_private = params[11].strip()
 
         self.clndr_data = params[12].strip()
+        c = CalendarData(self.clndr_data)
+        self.working_days = c.get_days()
+        self.exceptions = c.get_exceptions()
         Calendar.obj_list.append(self)
+        print(self.clndr_name, self.working_days, '\n', 'Exceptions', self.exceptions, )
         # self.working_hours = self.calendar_workhours()
 
     def get_id(self):
         return self.clndr_id
 
-    def calendar_workhours(self):
-        raw_data = re.findall("DaysOfWeek(.*?)VIEW", self.clndr_data)[0]
-        print(raw_data)
-        # returns 1st part  \(\d\|\|\d\(\)(.*?)\x7f\x7f
-        # returns 2nd part  \(\d\|\|\d\(\w\|(.*?)\)\x7f
-        part1 = re.match('\(\d\|\|\d\(\)(.*?)\x7f\x7f .*', raw_data)
-        part2 = re.findall('\(\d\|\|\d\(\w\|(.*?)\)\x7f', raw_data)
-        print('p1', part1, part2)
-        raw_data = re.split("\)\)\x7f", raw_data)[:7]
-        rm = raw_data[0]
-        rm = rm[4:]
-        raw_data[0] = rm
-        count =0
-        obj = []
-        # print(self.clndr_name, raw_data)
-        for d in raw_data:
-            p1 = re.search('\(\d\|\|\d\(\)', d)
-            if p1:
-                p1 = p1.group(0)
-            #print(p1)
-        return obj
     @classmethod
     def find_by_id(cls, id):
         obj = list(filter(lambda x: x.clndr_id == id, cls.obj_list))
