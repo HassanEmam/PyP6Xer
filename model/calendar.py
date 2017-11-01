@@ -43,8 +43,6 @@ class Calendar:
         self.working_days = c.get_days()
         self.exceptions = c.get_exceptions()
         Calendar.obj_list.append(self)
-        # print(self.clndr_name, self.working_days, '\n', 'Exceptions', self.exceptions, )
-        # self.working_hours = self.calendar_workhours()
 
     def get_id(self):
         return self.clndr_id
