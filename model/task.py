@@ -1,4 +1,5 @@
 from datetime import datetime
+from model.calendar import Calendar
 
 class Task:
     obj_list = []
@@ -178,6 +179,8 @@ class Task:
         self.create_user = params[57].strip()
         self.update_user = params[58].strip()
         self.location_id = params[59].strip()
+        self.calendar = Calendar.find_by_id(self.clndr_id)
+        # print("activity: " + self.task_code + " calendar is " + str(self.calendar.clndr_id) + str(self.calendar.working_days))
         Task.obj_list.append(self)
 
     def get_id(self):
@@ -193,7 +196,7 @@ class Task:
     def get_duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
-            dur = float(self.target_drtn_hr_cnt)/8.0
+            dur = float(self.target_drtn_hr_cnt)/ float(self.calendar.day_hr_cnt)
         return dur
 
     def constraints(self):
@@ -220,15 +223,15 @@ class Task:
 
     @classmethod
     def duration_greater_than(cls, duration):
-        obj = list(filter(lambda x: x.target_drtn_hr_cnt > duration*8, cls.obj_list))
+        obj = list(filter(lambda x: x.target_drtn_hr_cnt > duration * float(self.calendar.day_hr_cnt), cls.obj_list))
         if obj:
             return obj
         return obj
 
     @classmethod
     def float_less_than(cls, Tfloat):
-        objs = list(filter(lambda x: x.status_code != "TK_Complete" , cls.obj_list))
-        obj = list(filter(lambda x: x.total_float_hr_cnt < Tfloat * 8, objs))
+        objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
+        obj = list(filter(lambda x: x.total_float_hr_cnt < Tfloat * float(x.calendar.day_hr_cnt), objs))
         if obj:
             return obj
         return obj
@@ -236,7 +239,7 @@ class Task:
     @classmethod
     def float_greater_than(cls, Tfloat):
         objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
-        obj = list(filter(lambda x: x.total_float_hr_cnt > Tfloat * 8, objs))
+        obj = list(filter(lambda x: x.total_float_hr_cnt > Tfloat * float(x.calendar.day_hr_cnt), objs))
         if obj:
             return obj
         return obj
@@ -246,7 +249,7 @@ class Task:
         obj = None
         objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
         if float1 < float2:
-            obj = list(filter(lambda x: x.total_float_hr_cnt >= float1 * 8 and x.total_float_hr_cnt <= float2 * 8, objs))
+            obj = list(filter(lambda x: x.total_float_hr_cnt >= float1 * float(x.calendar.day_hr_cnt) and x.total_float_hr_cnt <= float2 * float(x.calendar.day_hr_cnt), objs))
             if obj:
                 return obj
         return obj
@@ -256,7 +259,7 @@ class Task:
         obj = None
         objs = list(filter(lambda x: x.status_code != "TK_Complete", cls.obj_list))
         if float1 < float2:
-            obj = list(filter(lambda x: x.total_float_hr_cnt > float1 * 8 and x.total_float_hr_cnt < float2 * 8, objs))
+            obj = list(filter(lambda x: x.total_float_hr_cnt > float1 * float(x.calendar.day_hr_cnt) and x.total_float_hr_cnt < float2 * float(x.calendar.day_hr_cnt), objs))
             if obj:
                 return obj
         return obj

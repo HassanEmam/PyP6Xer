@@ -155,9 +155,13 @@ r = Reader('model/SP10 - COST LOADED.xer')
 # for acode in r.get_activity_codes():
 #     print(acode)
 t = Task.find_by_code('P1EWCC-PWP02-4100')
-print('type', t.cstr_type, t.cstr_date, t.driving_path_flag)
+print('type', t.cstr_type, t.cstr_date, t.driving_path_flag, t.get_duration())
 t = t.obj_list
 # print(r.task)
 actvCode = Calendar.find_by_id('639')
-# actvCode = r.get_activity_code_by_id("3175")
-print(len(t), t)
+
+tasks = Task.float_less_than(0)
+
+for task in tasks:
+    print(task.task_code, task.total_float_hr_cnt/float(task.calendar.day_hr_cnt))
+    print(task.calendar.clndr_name, task.calendar.working_days)

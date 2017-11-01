@@ -51,10 +51,16 @@ class CalendarData:
         return self.exceptions
 
     def get_days(self):
-        first = re.findall("(.*?)\)\x7f\x7f", self.data['DaysOfWeek'])
+        first = re.findall("\(\d\|\|\d\(\)(.*?)\)\)\x7f\x7f", self.data['DaysOfWeek'])
         days = dict()
+        i = 0
         for x in first:
-            second = x.split("()")
-            days[second[0].split("||")[1]] = (len(second[1].strip()) > 0)
+            second = x.split("\x7f\x7f")
+            key = str(i)
+            if len(second) > 1:
+                days[key] = (len(second[1].strip()) > 0)
+            else:
+                days[key] = False
+            i += 1
         self.working_days = days
         return self.working_days
