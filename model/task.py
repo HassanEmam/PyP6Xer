@@ -1,5 +1,6 @@
 from datetime import datetime
 from model.calendar import Calendar
+from model.wbs import WBS
 
 class Task:
     obj_list = []
@@ -180,7 +181,9 @@ class Task:
         self.update_user = params[58].strip()
         self.location_id = params[59].strip()
         self.calendar = Calendar.find_by_id(self.clndr_id)
-        # print("activity: " + self.task_code + " calendar is " + str(self.calendar.clndr_id) + str(self.calendar.working_days))
+        # print(self.wbs_id)
+        self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
+        # print("activity: " + self.task_code + " WBS is: " + str(self.wbs))
         Task.obj_list.append(self)
 
     def get_id(self):
@@ -265,8 +268,18 @@ class Task:
         return obj
 
     @classmethod
+    def activities_by_status(cls, status):
+        objs = list(filter(lambda x: x.status_code == status, cls.obj_list))
+        return objs
+
+    @classmethod
     def activities_with_hard_contratints(cls):
         obj = list(filter(lambda x: x.cstr_type == "CS_MEO" or x.cstr_type == "CS_MSO", cls.obj_list))
+        return obj
+
+    @classmethod
+    def activities_by_type(cls, type):
+        obj = list(filter(lambda x: x.cstr_type == type, cls.obj_list))
         return obj
 
     def __repr__(self):

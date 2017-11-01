@@ -2,7 +2,7 @@
 This file starts the process of reading and parsing xer files
 
 '''
-
+from model.p6codes import *
 from model.calendar import Calendar
 from model.activitycode import ActivityCode
 from model.acttype import ActType
@@ -84,7 +84,7 @@ class Reader:
             return obj
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
-            print(params)
+            # print(params)
             self.calendar.append(obj)
             return obj
         elif object_type.strip() == "SCHEDOPTIONS":
@@ -93,7 +93,7 @@ class Reader:
             return obj
         elif object_type.strip() == "PROJWBS":
             obj = WBS(params)
-            self.wbs.append(obj)
+            # self.wbs.append(obj)
             return obj
         elif object_type.strip() == "RSRC":
             obj = Resource(params)
@@ -151,17 +151,18 @@ class Reader:
                 self.create_object(current_table, line_lst[1:])
 
 
-r = Reader('model/SP10 - COST LOADED.xer')
+r = Reader('model/trial.xer')
 # for acode in r.get_activity_codes():
 #     print(acode)
-t = Task.find_by_code('P1EWCC-PWP02-4100')
-print('type', t.cstr_type, t.cstr_date, t.driving_path_flag, t.get_duration())
-t = t.obj_list
-# print(r.task)
-actvCode = Calendar.find_by_id('639')
+activities = Task.obj_list
+for activity in activities:
+    print(activity, activity.task_name, "is under wbs: ", activity.wbs)
+#
+# tasks = Task.activities_by_status(ActivityStatus.NotStarted)
+#
+# for task in tasks:
+#     print(task, task.task_name, task.get_duration(), task.calendar.exceptions)
 
-tasks = Task.float_less_than(0)
-
-for task in tasks:
-    print(task.task_code, task.total_float_hr_cnt/float(task.calendar.day_hr_cnt))
-    print(task.calendar.clndr_name, task.calendar.working_days)
+# for task in tasks:
+#     print(task.task_code, task.total_float_hr_cnt/float(task.calendar.day_hr_cnt))
+#     print(task.calendar.clndr_name, task.calendar.working_days)

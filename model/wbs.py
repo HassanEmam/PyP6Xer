@@ -1,33 +1,8 @@
 class WBS:
-    wbs_id = None
-    proj_id = None
-    obs_id = None
-    seq_num = None
-    est_wt = None
-    proj_node_flag = None
-    sum_data_flag = None
-    status_code = None
-    wbs_short_name = None
-    wbs_name = None
-    phase_id = None
-    parent_wbs_id = None
-    ev_user_pct = None
-    ev_etc_user_value = None
-    orig_cost = None
-    indep_remain_total_cost = None
-    ann_dscnt_rate_pct = None
-    dscnt_period_type = None
-    indep_remain_work_qty = None
-    anticip_start_date = None
-    anticip_end_date = None
-    ev_compute_type = None
-    ev_etc_compute_type = None
-    guid = None
-    tmpl_guid = None
-    plan_open_state = None
+    obj_list = []
 
     def __init__(self, params):
-        self.wbs_id = params[0].strip()
+        self.wbs_id = int(params[0].strip()) if params[0] else None
         self.proj_id = params[1].strip()
         self.obs_id = params[2].strip()
         self.seq_num = params[3].strip()
@@ -54,8 +29,19 @@ class WBS:
         self.tmpl_guid = params[24].strip()
         self.plan_open_state = params[25].strip()
 
+        WBS.obj_list.append(self)
+
     def get_id(self):
         return self.wbs_id
+
+    @classmethod
+    def find_by_id(cls, ID):
+        obj = list(filter(lambda x: x.wbs_id == ID, cls.obj_list))
+
+        print(obj)
+        if obj:
+            return obj[0]
+        return None
 
     @staticmethod
     def find_by_project_id(project_id, wbs):
