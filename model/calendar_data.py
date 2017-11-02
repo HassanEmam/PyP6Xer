@@ -14,7 +14,6 @@ class CalendarData:
             c2 = c.split("||")[1]
             cal2.append(c2.split("()")[0])
         val = re.split("\(\d\|\|\D+\(\)", text.strip())
-        # print(cal2)
         x = 0
 
         self.data = dict()
@@ -25,7 +24,6 @@ class CalendarData:
 
             else:
                 self.data[cal2[c]] = ''
-        # print(self.data)
         self.exceptions = self.get_exceptions()
         self.working_days = self.get_days()
 
@@ -37,7 +35,6 @@ class CalendarData:
     def get_exceptions(self):
         if self.data['Exceptions']:
             exceptions = self.data['Exceptions'] if self.data['Exceptions'] else None
-            # print("Exceptionssss ",exceptions)
             except1 = re.split("\)\)\x7f\x7f", exceptions)
             clean_exceptions = []
             for e in except1:

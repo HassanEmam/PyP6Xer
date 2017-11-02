@@ -1,6 +1,7 @@
 from datetime import datetime
 from model.calendar import Calendar
 from model.wbs import WBS
+from model.taskpred import TaskPred
 
 class Task:
     obj_list = []
@@ -76,7 +77,7 @@ class Task:
         #  date. The remaining working time is computed using the activity's calendar. Before the activity is
         # started, the remaining duration is the same as the Original Duration. After the activity is completed the
         # remaining duration is zero.
-        self.remain_drtn_hr_cnt = float(params[18].strip()) if params[18] else None
+        self.remain_drtn_hr_cnt = float(params[18].strip()) if params[18] else 0
         # The total actual labor units for all child activities
         self.act_work_qty = float(params[19]) if params[19] else None
         # The remaining units for all labor resources assigned to the activity. The remaining units reflects the work
@@ -90,7 +91,7 @@ class Task:
         # using the calendar determined by the Activity Type. Resource Dependent activities use the resource's
         # calendar; other activity types use the activity's calendar. This is the duration that Timesheets users
         # follow and the schedule variance is measured against.
-        self.target_drtn_hr_cnt = float(params[22].strip()) if params[18] else None
+        self.target_drtn_hr_cnt = float(params[22].strip()) if params[18] else 0.0
         # The planned units for all nonlabor resources assigned to the activity.
         self.target_equip_qty = float(params[23]) if params[23] else None
         # The actual units for all nonlabor resources assigned to the activities under the WBS.
@@ -181,9 +182,7 @@ class Task:
         self.update_user = params[58].strip()
         self.location_id = params[59].strip()
         self.calendar = Calendar.find_by_id(self.clndr_id)
-        # print(self.wbs_id)
         self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
-        # print("activity: " + self.task_code + " WBS is: " + str(self.wbs))
         Task.obj_list.append(self)
 
     def get_id(self):
@@ -199,7 +198,9 @@ class Task:
     def get_duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
-            dur = float(self.target_drtn_hr_cnt)/ float(self.calendar.day_hr_cnt)
+            dur = float(self.target_drtn_hr_cnt) / float(self.calendar.day_hr_cnt)
+        else:
+            dur =0.0
         return dur
 
     def constraints(self):
@@ -270,6 +271,21 @@ class Task:
     @classmethod
     def activities_by_status(cls, status):
         objs = list(filter(lambda x: x.status_code == status, cls.obj_list))
+        return objs
+
+    @classmethod
+    def activities_by_wbs_id(cls, id):
+        objs = list(filter(lambda x: x.wbs_id == id, cls.obj_list))
+        return objs
+
+    @classmethod
+    def no_predecessors(cls):
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], cls.obj_list))
+        return objs
+
+    @classmethod
+    def no_successors(cls):
+        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], cls.obj_list))
         return objs
 
     @classmethod

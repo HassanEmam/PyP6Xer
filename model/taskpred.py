@@ -1,19 +1,11 @@
 class TaskPred:
-    task_pred_id = None
-    task_id = None
-    pred_task_id = None
-    proj_id = None
-    pred_proj_id = None
-    pred_type = None
-    lag_hr_cnt = None
-    float_path = None
-    aref = None
-    arls = None
+
+    obj_list = []
 
     def __init__(self, params):
         self.task_pred_id = params[0].strip()
-        self.task_id = params[1].strip()
-        self.pred_task_id = params[2].strip()
+        self.task_id = int(params[1]) if params[1] else None
+        self.pred_task_id = int(params[2]) if params[2] else None
         self.proj_id = params[3].strip()
         self.pred_proj_id = params[4].strip()
         self.pred_type = params[5].strip()
@@ -21,6 +13,7 @@ class TaskPred:
         self.float_path = params[7].strip()
         self.aref = params[8].strip()
         self.arls = params[9].strip()
+        TaskPred.obj_list.append(self)
 
     def get_id(self):
         return self.task_pred_id
