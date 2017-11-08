@@ -22,30 +22,22 @@ from model.udfvalue import UDFValue
 from model.wbs import WBS
 from model.currency import Currency
 from model.taskrsrc import TaskRsrc
-
+from model.roles import Role
+from model.account import Account
 
 class Reader:
 
     current_table = ''
     currencies = []
     obs = []
-    rcattype = []
-    udftype = []
-    rcatval = []
+
     project = []
     calendar = []
-    schedoption = []
     wbs = []
     resource = []
-    acttype = []
-    rsrcrate = []
-    rsrcrcat = []
+
     task = []
-    actvcode = []
-    taskpred = []
-    taskrsrc = []
-    taskactv = []
-    udfvalue = []
+
 
     def create_object(self, object_type, params):
 
@@ -60,36 +52,34 @@ class Reader:
         """
         if object_type.strip() == "CURRTYPE":
             obj = Currency(params)
-            self.currencies.append(obj)
+            return obj
+        elif object_type.strip() == "ROLES":
+            obj = Role(params)
+            return obj
+        elif object_type.strip() == "ACCOUNT":
+            obj = Account(params)
             return obj
         elif object_type.strip() == "OBS":
             obj = OBS(params)
-            self.obs.append(obj)
             return obj
         elif object_type.strip() == "RCATTYPE":
             obj = RCatType(params)
-            self.rcattype.append(obj)
             return obj
         elif object_type.strip() == "UDFTYPE":
             obj = UDFType(params)
-            self.udftype.append(obj)
             return obj
         elif object_type.strip() == "RCATVAL":
             obj = RCatVal(params)
-            self.rcatval.append(obj)
             return obj
         elif object_type.strip() == "PROJECT":
             obj = Project(params)
-            self.project.append(obj)
             return obj
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
             # print(params)
-            self.calendar.append(obj)
             return obj
         elif object_type.strip() == "SCHEDOPTIONS":
             obj = SchedOption(params)
-            self.schedoption.append(obj)
             return obj
         elif object_type.strip() == "PROJWBS":
             obj = WBS(params)
@@ -97,19 +87,15 @@ class Reader:
             return obj
         elif object_type.strip() == "RSRC":
             obj = Resource(params)
-            self.resource.append(obj)
             return obj
         elif object_type.strip() == "ACTVTYPE":
             obj = ActType(params)
-            self.acttype.append(obj)
             return obj
         elif object_type.strip() == "RSRCRATE":
             obj = ResourceRate(params)
-            self.rsrcrate.append(obj)
             return obj
         elif object_type.strip() == "RSRCRCAT":
             obj = ResourceCat(params)
-            self.rsrcrcat.append(obj)
             return obj
         elif object_type.strip() == "TASK":
             obj = Task(params)
@@ -117,23 +103,18 @@ class Reader:
             return obj
         elif object_type.strip() == "ACTVCODE":
             obj = ActivityCode(params)
-            self.actvcode.append(obj)
             return obj
         elif object_type.strip() == "TASKPRED":
             obj = TaskPred(params)
-            self.taskpred.append(obj)
             return obj
         elif object_type.strip() == "TASKRSRC":
             obj = TaskRsrc(params)
-            self.taskrsrc.append(obj)
             return obj
         elif object_type.strip() == "TASKACTV":
             obj = TaskActv(params)
-            self.taskactv.append(obj)
             return obj
         elif object_type.strip() == "UDFVALUE":
             obj = UDFValue(params)
-            self.udfvalue.append(obj)
             return obj
 
     def summary(self):
@@ -151,18 +132,11 @@ class Reader:
                 self.create_object(current_table, line_lst[1:])
 
 
-r = Reader('model/trial.xer')
-# for acode in r.get_activity_codes():
-#     print(acode)
-activities = Task.obj_list
-for activity in activities:
-    print(activity, activity.task_name, "is under wbs: ", activity.wbs)
-#
-# tasks = Task.activities_by_status(ActivityStatus.NotStarted)
-#
-# for task in tasks:
-#     print(task, task.task_name, task.get_duration(), task.calendar.exceptions)
+r = Reader('model/trial2.xer')
 
-# for task in tasks:
-#     print(task.task_code, task.total_float_hr_cnt/float(task.calendar.day_hr_cnt))
-#     print(task.calendar.clndr_name, task.calendar.working_days)
+activities = Task.no_successors()
+# code_types = ActType.obj_list
+# code_type = ActType.find_by_id(206).get_activity_codes()
+print(Role.obj_list, Account.obj_list)
+# for activity in activities:
+#     print(activity.task_code + '\t\t' + activity.task_name + '\t\t\t\t' + str(activity.get_duration()) + '\t' + str(activity.early_start_date) + '\t\t' + str(activity.early_end_date))
