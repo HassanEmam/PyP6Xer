@@ -31,5 +31,10 @@ class ResourceCurve:
 
         ResourceCurve.obj_list.append(self)
 
+    @classmethod
+    def find_by_id(cls, id):
+        obj = list(filter(lambda x: x.curv_id == id, cls.obj_list))[0]
+        return obj
+
     def __repr__(self):
         return self.curv_name

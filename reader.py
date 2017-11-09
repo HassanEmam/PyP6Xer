@@ -24,6 +24,7 @@ from model.currency import Currency
 from model.taskrsrc import TaskRsrc
 from model.roles import Role
 from model.account import Account
+from model.rolerate import RoleRate
 
 class Reader:
 
@@ -58,6 +59,9 @@ class Reader:
             return obj
         elif object_type.strip() == "ACCOUNT":
             obj = Account(params)
+            return obj
+        elif object_type.strip() == "ROLERATE":
+            obj = RoleRate(params)
             return obj
         elif object_type.strip() == "OBS":
             obj = OBS(params)
@@ -135,8 +139,10 @@ class Reader:
 r = Reader('model/trial2.xer')
 
 activities = Task.no_successors()
+rate = RoleRate.find_by_role_id(1570)
 # code_types = ActType.obj_list
 # code_type = ActType.find_by_id(206).get_activity_codes()
 print(Role.obj_list, Account.obj_list)
+print(rate, rate.role_id, rate.cost_per_qty)
 # for activity in activities:
 #     print(activity.task_code + '\t\t' + activity.task_name + '\t\t\t\t' + str(activity.get_duration()) + '\t' + str(activity.early_start_date) + '\t\t' + str(activity.early_end_date))
