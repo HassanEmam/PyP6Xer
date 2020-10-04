@@ -16,7 +16,7 @@ class ActivityCode:
         # Sequence number for sorting.
         self.seq_num = int(params[5]) if params[5] else None
         self.color = params[6].strip()
-        self.total_assignments = int(params[7]) if params[7] else None
+        self.total_assignments = int(float(params[7].strip())) if params[7].strip() else None
         ActivityCode.obj_list.append(self)
 
     def get_id(self):

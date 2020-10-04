@@ -1,5 +1,3 @@
-from model.activitycode import ActivityCode
-
 class Currency:
     obj_list = []
 

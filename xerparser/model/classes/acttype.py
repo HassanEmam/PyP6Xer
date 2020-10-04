@@ -1,4 +1,4 @@
-from model.activitycode import ActivityCode
+from xerparser.model.classes.activitycode import ActivityCode
 
 class ActType:
     obj_list =[]
@@ -38,8 +38,10 @@ class ActType:
 
         """
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls.obj_list))
-        if obj:
+        if len(obj) > 0:
             return obj[0]
+        else:
+            obj = None
         return obj
 
     def __repr__(self):

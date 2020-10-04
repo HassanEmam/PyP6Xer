@@ -1,5 +1,4 @@
-import re
-from model.calendar_data import CalendarData
+from xerparser.model.classes.calendar_data import CalendarData
 
 
 class Calendar:

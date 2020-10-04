@@ -1,14 +1,13 @@
 class TaskActv:
-    task_id = None
-    actv_code_type_id = None
-    actv_code_id = None
-    proj_id = None
+    obj_list = []
 
     def __init__(self, params):
-        self.task_id = params[0].strip()
+        self.task_id = int(params[0].strip()) if params[0].strip() else None
         self.actv_code_type_id = params[1].strip()
-        self.actv_code_id = params[2].strip()
-        self.proj_id = params[3].strip()
+        self.actv_code_id = int(params[2].strip()) if params[2].strip() else None
+        self.proj_id = int(params[3].strip()) if params[3].strip() else None
+
+        TaskActv.obj_list.append(self)
 
     def get_id(self):
         return self.task_id

@@ -2,29 +2,8 @@
 This file starts the process of reading and parsing xer files
 
 '''
-from model.p6codes import *
-from model.calendar import Calendar
-from model.activitycode import ActivityCode
-from model.acttype import ActType
-from model.obs import OBS
-from model.project import Project
-from model.rcattype import RCatType
-from model.rcatval import RCatVal
-from model.rsrc import Resource
-from model.rsrcrate import ResourceRate
-from model.rsrcrcat import ResourceCat
-from model.schedoption import SchedOption
-from model.task import Task
-from model.taskactv import TaskActv
-from model.taskpred import TaskPred
-from model.udftypes import UDFType
-from model.udfvalue import UDFValue
-from model.wbs import WBS
-from model.currency import Currency
-from model.taskrsrc import TaskRsrc
-from model.roles import Role
-from model.account import Account
-from model.rolerate import RoleRate
+from xerparser import *
+
 
 class Reader:
 
@@ -39,9 +18,7 @@ class Reader:
 
     task = []
 
-
     def create_object(self, object_type, params):
-
         """
 
         Args:
@@ -102,9 +79,9 @@ class Reader:
             obj = ResourceCat(params)
             return obj
         elif object_type.strip() == "TASK":
-            obj = Task(params)
+            self.tasks.add_task(params)
             #self.task.append(obj)
-            return obj
+            # return obj
         elif object_type.strip() == "ACTVCODE":
             obj = ActivityCode(params)
             return obj
@@ -122,11 +99,12 @@ class Reader:
             return obj
 
     def summary(self):
-        print('Number of activities: ', len(self.task))
-        print('Number of relationships: ', len(self.taskpred))
+        print('Number of activities: ', self.tasks.count)
+        print('Number of relationships: ', len(TaskPred.obj_list))
 
     def __init__(self, filename):
         file = open(filename, 'r')
+        self.tasks = Tasks()
         content = file.readlines()
         for line in content:
             line_lst = line.split('\t')
@@ -136,13 +114,3 @@ class Reader:
                 self.create_object(current_table, line_lst[1:])
 
 
-r = Reader('model/trial2.xer')
-
-activities = Task.no_successors()
-rate = RoleRate.find_by_role_id(1570)
-# code_types = ActType.obj_list
-# code_type = ActType.find_by_id(206).get_activity_codes()
-print(Role.obj_list, Account.obj_list)
-print(rate, rate.role_id, rate.cost_per_qty)
-# for activity in activities:
-#     print(activity.task_code + '\t\t' + activity.task_name + '\t\t\t\t' + str(activity.get_duration()) + '\t' + str(activity.early_start_date) + '\t\t' + str(activity.early_end_date))

@@ -21,7 +21,11 @@ class RoleRate:
 
     @classmethod
     def find_by_role_id(cls, id):
-        obj = list(filter(lambda x: x.role_id == id, cls.obj_list))[0]
+        obj = list(filter(lambda x: x.role_id == id, cls.obj_list))
+        if len(obj) > 0:
+            obj = obj[0]
+        else:
+            obj = None
         return obj
 
     def __repr__(self):
