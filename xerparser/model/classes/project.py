@@ -1,11 +1,12 @@
-
+from xerparser.model.wbss import WBSs
+from xerparser.model.tasks import Tasks
 
 class Project:
     obj_list = []
 
     def __init__(self, params):
 
-        self.proj_id = params[0].strip()
+        self.proj_id = int(params[0].strip()) if params[0].strip() else None
         self.fy_start_month_num = params[1].strip()
         self.rsrc_self_add_flag = params[2].strip()
         self.allow_complete_flag = params[3].strip()
@@ -75,15 +76,19 @@ class Project:
         self.trsrcsum_loaded = params[67].strip()
         Project.obj_list.append(self)
 
-    def get_id(self):
+    @property
+    def id(self):
         return self.proj_id
 
-    @classmethod
-    def find_by_id(cls, id):
-        obj = list(filter(lambda x: x.proj_id == id, cls.obj_list))
-        if obj:
-            return obj[0]
-        return obj
+
+    @property
+    def activities(self):
+        return Tasks.get_by_project(self.proj_id)
+
+    @property
+    def wbss(self):
+        return WBSs.get_by_project(self.proj_id)
+
 
     def __repr__(self):
         return self.proj_short_name

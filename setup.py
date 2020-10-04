@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='PyXer',
-    version='1.0',
+    name='PyP6Xer',
+    version='1.01',
     packages=['xerparser', 'xerparser.model'],
     url='',
     license='GNU GENERAL PUBLIC LICENSE',

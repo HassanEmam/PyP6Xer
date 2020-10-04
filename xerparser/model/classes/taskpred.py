@@ -18,9 +18,7 @@ class TaskPred:
     def get_id(self):
         return self.task_pred_id
 
-    @staticmethod
-    def find_by_id(code_id, activity_code_dict):
-        return {k: v for k, v in activity_code_dict.items() if v.actv_code_id == code_id}
+
 
     def __repr__(self):
-        return self.task_id + '->' + self.pred_task_id
+        return str(self.task_id) + '->' + str(self.pred_task_id)

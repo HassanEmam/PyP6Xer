@@ -1,21 +1,24 @@
 from xerparser.model.classes.task import Task
 from xerparser.model.classes.taskpred import TaskPred
 from xerparser.model.classes.taskactv import TaskActv
+from xerparser.model.predecessors import Predecessors
 
 class Tasks:
     """
     This class is a collection of tasks that controls functionalities to search, add, update and delete tasks
     """
+    _tasks = []
+
     def __init__(self):
-        self._tasks = []
+        self.index = 0
 
     def add_task(self, params):
         task = Task(params)
         self._tasks.append(task)
 
     @property
-    def tasks(self):
-        return self.tasks
+    def activities(self):
+        return self._tasks
 
     @property
     def count(self):
@@ -27,22 +30,22 @@ class Tasks:
         return objs
 
     def __repr__(self):
-        return [x.task_code for x in self.tasks]
+        return [x.task_code for x in self._tasks]
 
     def __str__(self):
-        return str([str(x.task_code) for x in self.tasks])
+        return str([str(x.task_code) for x in self._tasks])
 
 
-
-    def find_by_id(self, id):
-        obj = list(filter(lambda x: x.task_id == id, self._tasks))
+    @classmethod
+    def find_by_id(cls, id):
+        obj = list(filter(lambda x: x.task_id == id, cls._tasks))
         if len(obj) > 0:
             return obj[0]
         return obj
 
     @classmethod
     def find_by_code(cls, code):
-        obj = list(filter(lambda x: x.task_code == code, cls.obj_list))
+        obj = list(filter(lambda x: x.task_code == code, cls._tasks))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -89,8 +92,9 @@ class Tasks:
         objs = list(filter(lambda x: x.status_code == status, self._tasks))
         return objs
 
-    def activities_by_wbs_id(self, id):
-        objs = list(filter(lambda x: x.wbs_id == id, self._tasks))
+    @staticmethod
+    def activities_by_wbs_id(id):
+        objs = list(filter(lambda x: x.wbs_id == id, Tasks._tasks))
         return objs
 
 
@@ -117,3 +121,18 @@ class Tasks:
     def activities_by_type(self, type):
         obj = list(filter(lambda x: x.cstr_type == type, self._tasks))
         return obj
+
+    @staticmethod
+    def get_by_project(id):
+        obj = list(filter(lambda x: x.proj_id == id, Tasks._tasks))
+        return obj
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index >= len(self._tasks):
+            raise StopIteration
+        idx = self.index
+        self.index +=1
+        return self._tasks[idx]

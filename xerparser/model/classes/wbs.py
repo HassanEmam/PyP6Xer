@@ -1,9 +1,12 @@
+from xerparser.model.tasks import Tasks
+
+
 class WBS:
     obj_list = []
 
     def __init__(self, params):
         self.wbs_id = int(params[0].strip()) if params[0] else None
-        self.proj_id = params[1].strip()
+        self.proj_id = int(params[1].strip()) if params[1] else None
         self.obs_id = params[2].strip()
         self.seq_num = params[3].strip()
         self.est_wt = params[4].strip()
@@ -69,6 +72,9 @@ class WBS:
     def find_by_project_id(project_id, wbs):
         return {k: v for k, v in wbs.items() if v.proj_id == project_id}
 
+    @property
+    def activities(self):
+        return Tasks.activities_by_wbs_id(self.wbs_id)
 
     def __repr__(self):
         return self.wbs_name

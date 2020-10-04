@@ -53,8 +53,8 @@ class Reader:
             obj = RCatVal(params)
             return obj
         elif object_type.strip() == "PROJECT":
-            obj = Project(params)
-            return obj
+            self.projects.add_project(params)
+
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
             # print(params)
@@ -63,9 +63,7 @@ class Reader:
             obj = SchedOption(params)
             return obj
         elif object_type.strip() == "PROJWBS":
-            obj = WBS(params)
-            # self.wbs.append(obj)
-            return obj
+            self.WBSs.add_wbs(params)
         elif object_type.strip() == "RSRC":
             obj = Resource(params)
             return obj
@@ -86,8 +84,8 @@ class Reader:
             obj = ActivityCode(params)
             return obj
         elif object_type.strip() == "TASKPRED":
-            obj = TaskPred(params)
-            return obj
+            # obj = TaskPred(params)
+            self.predecessors.add_predecessor(params)
         elif object_type.strip() == "TASKRSRC":
             obj = TaskRsrc(params)
             return obj
@@ -105,6 +103,9 @@ class Reader:
     def __init__(self, filename):
         file = open(filename, 'r')
         self.tasks = Tasks()
+        self.predecessors = Predecessors()
+        self.projects = Projects()
+        self.WBSs = WBSs()
         content = file.readlines()
         for line in content:
             line_lst = line.split('\t')

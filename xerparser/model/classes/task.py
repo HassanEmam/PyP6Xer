@@ -1,6 +1,8 @@
 from datetime import datetime
+
+from xerparser.model.predecessors import Predecessors
 from xerparser.model.classes.calendar import Calendar
-from xerparser.model.classes.wbs import WBS
+# from xerparser.model.classes.wbs import WBS
 
 
 class Task:
@@ -182,7 +184,7 @@ class Task:
         self.update_user = params[58].strip()
         self.location_id = params[59].strip()
         self.calendar = Calendar.find_by_id(self.clndr_id)
-        self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
+        # self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
         # Task.obj_list.append(self)
 
     @property
@@ -227,3 +229,11 @@ class Task:
 
     def __repr__(self):
         return self.task_code
+
+    @property
+    def successors(self):
+        succ = []
+        suss = Predecessors.get_successors(self.task_id)
+        for s in suss:
+            succ.append(s.task_id)
+        return succ

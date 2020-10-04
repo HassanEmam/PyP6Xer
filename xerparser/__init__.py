@@ -21,3 +21,6 @@ from xerparser.model.classes.roles import Role
 from xerparser.model.classes.account import Account
 from xerparser.model.classes.rolerate import RoleRate
 from xerparser.model.tasks import Tasks
+from xerparser.model.predecessors import Predecessors
+from xerparser.model.projects import Projects
+from xerparser.model.wbss import WBSs
