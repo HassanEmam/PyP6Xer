@@ -4,12 +4,12 @@ class Account:
     obj_list = []
 
     def __init__(self, params):
-        self.acct_id = int(params[0]) if params[0] else None
-        self.parent_acct_id = int(params[1]) if params[1] else None
-        self.acct_seq_num = int(params[2]) if params[2] else None
-        self.acct_name = params[3]
-        self.acct_short_name = params[4]
-        self.acct_descr = params[5]
+        self.acct_id = int(params.get('acct_id').strip()) if params.get('acct_id') else None
+        self.parent_acct_id = int(params.get('parent_acct_id').strip()) if params.get('parent_acct_id') else None
+        self.acct_seq_num = int(params.get('acct_seq_num').strip()) if params.get('acct_seq_num') else None
+        self.acct_name = params.get('acct_name').strip() if params.get('acct_name') else None
+        self.acct_short_name = params.get('acct_short_name').strip() if params.get('acct_short_name') else None
+        self.acct_descr = params.get('acct_descr').strip() if params.get('acct_descr') else None
         Account.obj_list.append(self)
 
     @classmethod

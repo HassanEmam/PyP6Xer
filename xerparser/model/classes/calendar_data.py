@@ -33,7 +33,7 @@ class CalendarData:
         return temp + delta
 
     def get_exceptions(self):
-        if self.data['Exceptions']:
+        if self.data.get('Exceptions'):
             exceptions = self.data['Exceptions'] if self.data['Exceptions'] else None
             except1 = re.split("\)\)\x7f\x7f", exceptions)
             clean_exceptions = []
@@ -48,7 +48,9 @@ class CalendarData:
         return self.exceptions
 
     def get_days(self):
-        first = re.findall("\(\d\|\|\d\(\)(.*?)\)\)\x7f\x7f", self.data['DaysOfWeek'])
+        if not self.data.get('DaysOfWeek'):
+            return
+        first = re.findall("\(\d\|\|\d\(\)(.*?)\)\)\x7f\x7f", self.data.get('DaysOfWeek'))
         days = dict()
         i = 0
         for x in first:

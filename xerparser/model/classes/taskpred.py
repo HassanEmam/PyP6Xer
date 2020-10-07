@@ -3,16 +3,16 @@ class TaskPred:
     obj_list = []
 
     def __init__(self, params):
-        self.task_pred_id = params[0].strip()
-        self.task_id = int(params[1]) if params[1] else None
-        self.pred_task_id = int(params[2]) if params[2] else None
-        self.proj_id = params[3].strip()
-        self.pred_proj_id = params[4].strip()
-        self.pred_type = params[5].strip()
-        self.lag_hr_cnt = params[6].strip()
-        self.float_path = params[7].strip()
-        self.aref = params[8].strip()
-        self.arls = params[9].strip()
+        self.task_pred_id = params.get('task_pred_id').strip() if params.get('task_pred_id') else None
+        self.task_id = int(params.get('task_id')) if params.get('task_id') else None
+        self.pred_task_id = int(params.get('pred_task_id')) if params.get('pred_task_id') else None
+        self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
+        self.pred_proj_id = params.get('proj_id').strip() if params.get('pred_proj_id') else None
+        self.pred_type = params.get('pred_type').strip() if params.get('pred_type') else None
+        self.lag_hr_cnt = params.get('lag_hr_cnt').strip() if params.get('lag_hr_cnt') else None
+        self.float_path = params.get('float_path').strip() if params.get('float_path') else None
+        self.aref = params.get('aref').strip() if params.get('aref') else None
+        self.arls = params.get('arls').strip() if params.get('arls') else None
         TaskPred.obj_list.append(self)
 
     def get_id(self):

@@ -24,3 +24,5 @@ from xerparser.model.tasks import Tasks
 from xerparser.model.predecessors import Predecessors
 from xerparser.model.projects import Projects
 from xerparser.model.wbss import WBSs
+from xerparser.model.resources import Resources
+from xerparser.model.accounts import Accounts

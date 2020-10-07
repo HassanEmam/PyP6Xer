@@ -5,32 +5,32 @@ class WBS:
     obj_list = []
 
     def __init__(self, params):
-        self.wbs_id = int(params[0].strip()) if params[0] else None
-        self.proj_id = int(params[1].strip()) if params[1] else None
-        self.obs_id = params[2].strip()
-        self.seq_num = params[3].strip()
-        self.est_wt = params[4].strip()
-        self.proj_node_flag = params[5].strip()
-        self.sum_data_flag = params[6].strip()
-        self.status_code = params[7].strip()
-        self.wbs_short_name = params[8].strip()
-        self.wbs_name = params[9].strip()
-        self.phase_id = params[10].strip()
-        self.parent_wbs_id = int(params[11]) if params[11] else None
-        self.ev_user_pct = params[12].strip()
-        self.ev_etc_user_value = params[13].strip()
-        self.orig_cost = params[14].strip()
-        self.indep_remain_total_cost = params[15].strip()
-        self.ann_dscnt_rate_pct = params[16].strip()
-        self.dscnt_period_type = params[17].strip()
-        self.indep_remain_work_qty = params[18].strip()
-        self.anticip_start_date = params[19].strip()
-        self.anticip_end_date = params[20].strip()
-        self.ev_compute_type = params[21].strip()
-        self.ev_etc_compute_type = params[22].strip()
-        self.guid = params[23].strip()
-        self.tmpl_guid = params[24].strip()
-        self.plan_open_state = params[25].strip()
+        self.wbs_id = int(params.get('wbs_id').strip()) if params.get('wbs_id') else None
+        self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
+        self.obs_id = params.get('obs_id').strip()
+        self.seq_num = params.get('seq_num').strip()
+        self.est_wt = params.get('est_wt').strip()
+        self.proj_node_flag = params.get('proj_node_flag').strip()
+        self.sum_data_flag = params.get('sum_data_flag').strip()
+        self.status_code = params.get('status_code').strip()
+        self.wbs_short_name = params.get('wbs_short_name').strip()
+        self.wbs_name = params.get('wbs_name').strip()
+        self.phase_id = params.get('phase_id').strip()
+        self.parent_wbs_id = int(params.get('parent_wbs_id')) if params.get('parent_wbs_id') else None
+        self.ev_user_pct = params.get('ev_user_pct').strip()
+        self.ev_etc_user_value = params.get('ev_etc_user_value').strip()
+        self.orig_cost = params.get('orig_cost').strip()
+        self.indep_remain_total_cost = params.get('indep_remain_total_cost').strip()
+        self.ann_dscnt_rate_pct = params.get('ann_dscnt_rate_pct').strip()
+        self.dscnt_period_type = params.get('dscnt_period_type').strip()
+        self.indep_remain_work_qty = params.get('indep_remain_work_qty').strip()
+        self.anticip_start_date = params.get('anticip_start_date').strip()
+        self.anticip_end_date = params.get('anticip_end_date').strip()
+        self.ev_compute_type = params.get('ev_compute_type').strip()
+        self.ev_etc_compute_type = params.get('ev_etc_compute_type').strip()
+        self.guid = params.get('guid').strip()
+        self.tmpl_guid = params.get('tmpl_guid').strip()
+        self.plan_open_state = params.get('plan_open_state').strip() if params.get('plan_open_state') else None
 
         WBS.obj_list.append(self)
 

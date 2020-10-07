@@ -4,11 +4,11 @@ class RCatVal:
     obj_list = []
 
     def __init__(self, params):
-        self.rsrc_catg_id = params[0].strip()
-        self.rsrc_catg_type_id = params[1].strip()
-        self.rsrc_catg_short_name = params[2].strip()
-        self.rsrc_catg_name = params[3].strip()
-        self.parent_rsrc_catg_id = params[4].strip()
+        self.rsrc_catg_id = params.get('rsrc_catg_id').strip() if params.get('rsrc_catg_id') else None
+        self.rsrc_catg_type_id = params.get('rsrc_catg_type_id').strip() if params.get('rsrc_catg_type_id') else None
+        self.rsrc_catg_short_name = params.get('rsrc_catg_short_name').strip() if params.get('rsrc_catg_short_name') else None
+        self.rsrc_catg_name = params.get('rsrc_catg_name').strip() if params.get('rsrc_catg_name') else None
+        self.parent_rsrc_catg_id = params.get('parent_rsrc_catg_id').strip() if params.get('parent_rsrc_catg_id') else None
         RCatVal.obj_list.append(self)
     def get_id(self):
         return self.rsrc_catg_id

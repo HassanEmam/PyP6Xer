@@ -29,6 +29,9 @@ class Tasks:
         objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
         return objs
 
+    def __len__(self):
+        return len(self._tasks)
+
     def __repr__(self):
         return [x.task_code for x in self._tasks]
 

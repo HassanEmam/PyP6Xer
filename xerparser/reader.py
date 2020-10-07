@@ -2,21 +2,23 @@
 This file starts the process of reading and parsing xer files
 
 '''
+import csv
 from xerparser import *
 
 
 class Reader:
 
     current_table = ''
-    currencies = []
-    obs = []
-
-    project = []
-    calendar = []
-    wbs = []
-    resource = []
-
-    task = []
+    current_headers = []
+    # currencies = []
+    # obs = []
+    #
+    # project = []
+    # calendar = []
+    # wbs = []
+    # resource = []
+    #
+    # task = []
 
     def create_object(self, object_type, params):
         """
@@ -35,8 +37,8 @@ class Reader:
             obj = Role(params)
             return obj
         elif object_type.strip() == "ACCOUNT":
-            obj = Account(params)
-            return obj
+            self._accounts.add_account(params)
+
         elif object_type.strip() == "ROLERATE":
             obj = RoleRate(params)
             return obj
@@ -53,7 +55,7 @@ class Reader:
             obj = RCatVal(params)
             return obj
         elif object_type.strip() == "PROJECT":
-            self.projects.add_project(params)
+            self._projects.add_project(params)
 
         elif object_type.strip() == "CALENDAR":
             obj = Calendar(params)
@@ -63,8 +65,9 @@ class Reader:
             obj = SchedOption(params)
             return obj
         elif object_type.strip() == "PROJWBS":
-            self.WBSs.add_wbs(params)
+            self._wbss.add_wbs(params)
         elif object_type.strip() == "RSRC":
+            self._resources.add_resource(params)
             obj = Resource(params)
             return obj
         elif object_type.strip() == "ACTVTYPE":
@@ -77,7 +80,7 @@ class Reader:
             obj = ResourceCat(params)
             return obj
         elif object_type.strip() == "TASK":
-            self.tasks.add_task(params)
+            self._tasks.add_task(params)
             #self.task.append(obj)
             # return obj
         elif object_type.strip() == "ACTVCODE":
@@ -85,7 +88,7 @@ class Reader:
             return obj
         elif object_type.strip() == "TASKPRED":
             # obj = TaskPred(params)
-            self.predecessors.add_predecessor(params)
+            self._predecessors.add_predecessor(params)
         elif object_type.strip() == "TASKRSRC":
             obj = TaskRsrc(params)
             return obj
@@ -102,16 +105,29 @@ class Reader:
 
     def __init__(self, filename):
         file = open(filename, 'r')
-        self.tasks = Tasks()
-        self.predecessors = Predecessors()
-        self.projects = Projects()
-        self.WBSs = WBSs()
+        self._tasks = Tasks()
+        self._predecessors = Predecessors()
+        self._projects = Projects()
+        self._wbss = WBSs()
+        self._resources = Resources()
+        self._accounts = Accounts()
         content = file.readlines()
-        for line in content:
-            line_lst = line.split('\t')
-            if line_lst[0] == "%T":
-                current_table = line_lst[1]
-            elif line_lst[0] == "%R":
-                self.create_object(current_table, line_lst[1:])
+        with open(filename) as tsvfile:
+            stream = csv.reader(tsvfile, delimiter='\t')
+            for row in stream:
+                if row[0] =="%T":
+                    current_table = row[1]
+                elif row[0] == "%F":
+                    current_headers = [r.strip() for r in row[1:]]
+                elif row[0] == "%R":
+                    zipped_record = dict(zip(current_headers, row[1:]))
+                    print("zipped", zipped_record)
+                    self.create_object(current_table, zipped_record)
+        # for line in content:
+        #     line_lst = line.split('\t')
+        #     if line_lst[0] == "%T":
+        #         current_table = line_lst[1]
+        #     elif line_lst[0] == "%R":
+        #         self.create_object(current_table, line_lst[1:])
 
 

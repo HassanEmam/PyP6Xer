@@ -9,13 +9,13 @@ class UDFValue:
 
     def __init__(self, params):
 
-        self.udf_type_id = params[0].strip()
-        self.fk_id = params[1].strip()
-        self.proj_id = params[2].strip()
-        self.udf_date = params[3].strip()
-        self.udf_number = params[4].strip()
-        self.udf_text = params[5].strip()
-        self.udf_code_id = params[6].strip()
+        self.udf_type_id = params.get('udf_type_id').strip() if params.get('udf_type_id') else None
+        self.fk_id = params.get('fk_id').strip() if params.get('fk_id') else None
+        self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
+        self.udf_date = params.get('udf_date').strip() if params.get('udf_date') else None
+        self.udf_number = params.get('udf_number').strip() if params.get('udf_number') else None
+        self.udf_text = params.get('udf_text').strip() if params.get('udf_text') else None
+        self.udf_code_id = params.get('udf_code_id').strip() if params.get('udf_code_id') else None
 
     def get_id(self):
         return self.udf_type_id

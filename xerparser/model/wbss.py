@@ -14,6 +14,8 @@ class WBSs:
     def get_by_project(id):
         return list(filter(lambda x: x.proj_id == id, WBSs._wbss))
 
+
+
     def __iter__(self):
         return self
 

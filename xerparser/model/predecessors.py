@@ -22,6 +22,13 @@ class Predecessors:
         succ = list(filter(lambda x: x.pred_task_id == act_id, Predecessors.task_pred))
         return succ
 
+    @staticmethod
+    def count():
+        return len(Predecessors.task_pred)
+
+    def __len__(self):
+        return len(self.task_pred)
+
     def __iter__(self):
         return self
 

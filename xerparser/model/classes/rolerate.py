@@ -4,13 +4,13 @@ class RoleRate:
     obj_list = []
 
     def __init__(self, params):
-        self.role_rate_id = int(params[0]) if params[0] else None
-        self.role_id = int(params[1]) if params[1] else None
-        self.cost_per_qty = float(params[2]) if params[2] else None
-        self.cost_per_qty2 = float(params[3])if params[3] else None
-        self.cost_per_qty3 = float(params[4]) if params[4] else None
-        self.cost_per_qty4 = float(params[5]) if params[5] else None
-        self.cost_per_qty5 = None if params[6] == '\n' or params[6] == '' else float(params[6])
+        self.role_rate_id = int(params.get('role_rate_id').strip()) if params.get('role_rate_id') else None
+        self.role_id = int(params.get('role_id').strip()) if params.get('role_id') else None
+        self.cost_per_qty = float(params.get('cost_per_qty').strip()) if params.get('cost_per_qty') else None
+        self.cost_per_qty2 = float(params.get('cost_per_qty2').strip())if params.get('cost_per_qty2') else None
+        self.cost_per_qty3 = float(params.get('cost_per_qty3').strip()) if params.get('cost_per_qty3') else None
+        self.cost_per_qty4 = float(params.get('cost_per_qty4').strip()) if params.get('cost_per_qty4') else None
+        self.cost_per_qty5 = float(params.get('cost_per_qty5').strip()) if params.get('cost_per_qty5') else None
 
         RoleRate.obj_list.append(self)
 
