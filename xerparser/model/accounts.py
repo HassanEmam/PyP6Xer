@@ -5,7 +5,7 @@ class Accounts:
     def __init__(self):
         self.index = 0
 
-    def add_account(self, params):
+    def add(self, params):
         self._accounts.append(Account(params))
 
     @staticmethod

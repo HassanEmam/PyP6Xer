@@ -2,7 +2,6 @@ from xerparser.model.wbss import WBSs
 from xerparser.model.tasks import Tasks
 
 class Project:
-    obj_list = []
 
     def __init__(self, params):
 
@@ -74,7 +73,6 @@ class Project:
         self.close_period_flag = params.get('close_period_flag').strip() if params.get('close_period_flag') else None
         self.sum_refresh_date = params.get('sum_refresh_date').strip() if params.get('sum_refresh_date') else None
         self.trsrcsum_loaded = params.get('trsrcsum_loaded').strip() if params.get('trsrcsum_loaded') else None
-        Project.obj_list.append(self)
 
     @property
     def id(self):

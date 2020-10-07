@@ -6,7 +6,7 @@ class Projects:
     def __init__(self):
         self.index =0
 
-    def add_project(self, params):
+    def add(self, params):
         prj = Project(params)
         self._projects.append(prj)
 

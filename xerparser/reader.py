@@ -3,6 +3,9 @@ This file starts the process of reading and parsing xer files
 
 '''
 import csv
+import mmap
+from tqdm import tqdm
+
 from xerparser import *
 
 
@@ -10,15 +13,6 @@ class Reader:
 
     current_table = ''
     current_headers = []
-    # currencies = []
-    # obs = []
-    #
-    # project = []
-    # calendar = []
-    # wbs = []
-    # resource = []
-    #
-    # task = []
 
     def create_object(self, object_type, params):
         """
@@ -31,73 +25,51 @@ class Reader:
 
         """
         if object_type.strip() == "CURRTYPE":
-            obj = Currency(params)
-            return obj
+            self._currencies.add(params)
         elif object_type.strip() == "ROLES":
-            obj = Role(params)
-            return obj
+            self._roles.add(params)
         elif object_type.strip() == "ACCOUNT":
-            self._accounts.add_account(params)
-
+            self._accounts.add(params)
         elif object_type.strip() == "ROLERATE":
-            obj = RoleRate(params)
-            return obj
+            self._rolerates.add(params)
         elif object_type.strip() == "OBS":
-            obj = OBS(params)
-            return obj
+            self._obss.add(params)
         elif object_type.strip() == "RCATTYPE":
-            obj = RCatType(params)
-            return obj
+            self._rcattypes.add(params)
         elif object_type.strip() == "UDFTYPE":
-            obj = UDFType(params)
-            return obj
+            self._udftypes.add(params)
         elif object_type.strip() == "RCATVAL":
-            obj = RCatVal(params)
-            return obj
+            self._rcatvals.add(params)
         elif object_type.strip() == "PROJECT":
-            self._projects.add_project(params)
-
+            self._projects.add(params)
         elif object_type.strip() == "CALENDAR":
-            obj = Calendar(params)
-            # print(params)
-            return obj
+            self._calendars.add(params)
         elif object_type.strip() == "SCHEDOPTIONS":
-            obj = SchedOption(params)
-            return obj
+            self._schedoptions.add(params)
         elif object_type.strip() == "PROJWBS":
-            self._wbss.add_wbs(params)
+            self._wbss.add(params)
         elif object_type.strip() == "RSRC":
-            self._resources.add_resource(params)
-            obj = Resource(params)
-            return obj
+            self._resources.add(params)
+        elif object_type.strip() == "RSRCCURV":
+            self._rsrcurves.add(params)
         elif object_type.strip() == "ACTVTYPE":
-            obj = ActType(params)
-            return obj
+            self._acttypes.add(params)
         elif object_type.strip() == "RSRCRATE":
-            obj = ResourceRate(params)
-            return obj
+            self._rsrcrates.add(params)
         elif object_type.strip() == "RSRCRCAT":
-            obj = ResourceCat(params)
-            return obj
+            self._rsrccats.add(params)
         elif object_type.strip() == "TASK":
-            self._tasks.add_task(params)
-            #self.task.append(obj)
-            # return obj
+            self._tasks.add(params)
         elif object_type.strip() == "ACTVCODE":
-            obj = ActivityCode(params)
-            return obj
+            self._activitycodes.add(params)
         elif object_type.strip() == "TASKPRED":
-            # obj = TaskPred(params)
-            self._predecessors.add_predecessor(params)
+            self._predecessors.add(params)
         elif object_type.strip() == "TASKRSRC":
-            obj = TaskRsrc(params)
-            return obj
+            self._activityresources.add(params)
         elif object_type.strip() == "TASKACTV":
-            obj = TaskActv(params)
-            return obj
+            self._activitycodes.add(params)
         elif object_type.strip() == "UDFVALUE":
-            obj = UDFValue(params)
-            return obj
+            self._udfvalues.add(params)
 
     def summary(self):
         print('Number of activities: ', self.tasks.count)
@@ -105,6 +77,12 @@ class Reader:
 
     @property
     def projects(self):
+        """
+        Projects
+
+        Returns: list of all projects contained in the xer file
+
+        """
         return self._projects
 
     @property
@@ -127,6 +105,69 @@ class Reader:
     def accounts(self):
         return self._accounts
 
+    @property
+    def activitycodes(self):
+        return self._activitycodes
+
+    @property
+    def acttypes(self):
+        return self._acttypes
+
+    @property
+    def calendars(self):
+        return self._calendars
+
+    @property
+    def currencies(self):
+        return self._currencies
+
+    @property
+    def obss(self):
+        return self._obss
+    @property
+    def rcattypes(self):
+        return self.rcattypes
+
+    @property
+    def rcatvals(self):
+        return self._rcatvals
+
+    @property
+    def rolerates(self):
+        return self._rolerates
+
+    @property
+    def roles(self):
+        return self._roles
+
+    @property
+    def resourcecurves(self):
+        return self._rsrcurves
+
+    @property
+    def resourcerates(self):
+        return self._rsrcrates
+
+    @property
+    def resourcecategories(self):
+        return self._rsrccats
+
+    @property
+    def scheduleoptions(self):
+        return self._schedoptions
+
+    @property
+    def activityresources(self):
+        return self._activityresources
+
+    @property
+    def udfvalues(self):
+        return self._udfvalues
+
+    @property
+    def udftypes(self):
+        return self._udftypes
+
     def __init__(self, filename):
         file = open(filename, 'r')
         self._tasks = Tasks()
@@ -135,10 +176,26 @@ class Reader:
         self._wbss = WBSs()
         self._resources = Resources()
         self._accounts = Accounts()
-        content = file.readlines()
+        self._activitycodes = ActivityCodes()
+        self._acttypes = ActTypes()
+        self._calendars = Calendars()
+        self._currencies = Currencies()
+        self._obss = OBSs()
+        self._rcatvals = RCatVals()
+        self._rcattypes = RCatTypes()
+        self._rolerates = RoleRates()
+        self._roles = Roles()
+        self._rsrcurves = ResourceCurves()
+        self._rsrcrates = ResourceRates()
+        self._rsrccats = ResourceCategories()
+        self._schedoptions = SchedOptions()
+        self._activityresources = ActivityResources()
+        self._udftypes = UDFTypes()
+        self._udfvalues = UDFValues()
         with open(filename) as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
-            for row in stream:
+            #for row in stream:
+            for row in tqdm(stream, total=self.get_num_lines(filename)):
                 if row[0] =="%T":
                     current_table = row[1]
                 elif row[0] == "%F":
@@ -146,6 +203,7 @@ class Reader:
                 elif row[0] == "%R":
                     zipped_record = dict(zip(current_headers, row[1:]))
                     self.create_object(current_table, zipped_record)
+
         # for line in content:
         #     line_lst = line.split('\t')
         #     if line_lst[0] == "%T":
@@ -153,4 +211,10 @@ class Reader:
         #     elif line_lst[0] == "%R":
         #         self.create_object(current_table, line_lst[1:])
 
-
+    def get_num_lines(self, file_path):
+        fp = open(file_path, "r+")
+        buf = mmap.mmap(fp.fileno(), 0)
+        lines = 0
+        while buf.readline():
+            lines += 1
+        return lines

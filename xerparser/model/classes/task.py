@@ -2,8 +2,7 @@ from datetime import datetime
 
 from xerparser.model.predecessors import Predecessors
 from xerparser.model.classes.calendar import Calendar
-# from xerparser.model.classes.wbs import WBS
-
+from xerparser.model.activitiyresources import ActivityResources
 
 class Task:
     # obj_list = []
@@ -195,12 +194,16 @@ class Task:
         return self.task_id
 
     @property
-    def float(self):
+    def totalfloat(self):
         if self.total_float_hr_cnt:
             tf = float(self.total_float_hr_cnt)/8.0
         else:
             return None
         return tf
+
+    @property
+    def resources(self):
+        return ActivityResources.find_by_activity_id(self.task_id)
 
     @property
     def duration(self):

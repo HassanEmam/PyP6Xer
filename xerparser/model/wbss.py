@@ -6,7 +6,7 @@ class WBSs:
     def __init__(self):
         self.index = 0
 
-    def add_wbs(self, params):
+    def add(self, params):
         wbs = WBS(params)
         self._wbss.append(wbs)
 

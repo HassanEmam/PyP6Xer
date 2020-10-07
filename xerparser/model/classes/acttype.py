@@ -1,4 +1,3 @@
-from xerparser.model.classes.activitycode import ActivityCode
 
 class ActType:
     obj_list =[]
@@ -23,10 +22,6 @@ class ActType:
     def get_id(self):
         return self.actv_code_type_id
 
-    def get_activity_codes(self):
-        obj = list(filter(lambda x: x.actv_code_type_id == self.actv_code_type_id, ActivityCode.obj_list))
-        return obj
-
     @classmethod
     def find_by_id(cls, id):
         """ Function to search list of activity code type by an ID
@@ -43,6 +38,7 @@ class ActType:
         else:
             obj = None
         return obj
+
 
     def __repr__(self):
         return self.actv_code_type

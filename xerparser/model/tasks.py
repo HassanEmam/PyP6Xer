@@ -12,7 +12,7 @@ class Tasks:
     def __init__(self):
         self.index = 0
 
-    def add_task(self, params):
+    def add(self, params):
         task = Task(params)
         self._tasks.append(task)
 

@@ -9,7 +9,7 @@ class WBS:
         self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
         self.obs_id = params.get('obs_id').strip()
         self.seq_num = params.get('seq_num').strip()
-        self.est_wt = params.get('est_wt').strip()
+        self.est_wt = params.get('est_wt')
         self.proj_node_flag = params.get('proj_node_flag').strip()
         self.sum_data_flag = params.get('sum_data_flag').strip()
         self.status_code = params.get('status_code').strip()

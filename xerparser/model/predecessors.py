@@ -13,7 +13,7 @@ class Predecessors:
             obj = None
         return obj
 
-    def add_predecessor(self, params):
+    def add(self, params):
         pred = TaskPred(params)
         self.task_pred.append(pred)
 

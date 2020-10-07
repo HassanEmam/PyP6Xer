@@ -7,7 +7,7 @@ class Resources:
     def __init__(self):
         self.index = 0
 
-    def add_resource(self, params):
+    def add(self, params):
         rsrc = Resource(params)
         self._rsrcs.append(rsrc)
 

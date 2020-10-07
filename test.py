@@ -5,7 +5,7 @@ from xerparser.reader import Reader
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('xerparser/model/trial6.xer')
+r = Reader('xerparser/model/trial10.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
 # trial4 trial12
@@ -71,6 +71,7 @@ start_time = time.time()
 # pp.pprint(tree)
 
 # pp.pprint(data)
-
+for t in r.tasks:
+    print(t.task_id, t, t.resources)
 print("time to read the file only {}".format(elapsed_time1))
 # print("Time to create tree file", elapsed_time, "activities: ", len(r.tasks), "rels ", len(r.relations))
