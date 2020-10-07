@@ -4,8 +4,10 @@ from xerparser import *
 from xerparser.reader import Reader
 from collections import defaultdict
 
-r = Reader('xerparser/model/trial12.xer')
-
+start_time = time.time()
+r = Reader('xerparser/model/trial6.xer')
+elapsed_time1 = time.time() - start_time
+print(elapsed_time1)
 # trial4 trial12
 
 # for p in r.projects:
@@ -51,23 +53,24 @@ r = Reader('xerparser/model/trial12.xer')
 # print(tree)
 
 start_time = time.time()
-
-data = {}
-for p in r._projects:
-    for wbs in p.wbss:
-        if p.proj_id in data:
-            data[p.proj_id][wbs] = wbs.activities
-        else:
-            data = defaultdict(dict)
-            data[p.proj_id][wbs] = wbs.activities
+#
+# data = {}
+# for p in r._projects:
+#     for wbs in p.wbss:
+#         if p.proj_id in data:
+#             data[p.proj_id][wbs] = wbs.activities
+#         else:
+#             data = defaultdict(dict)
+#             data[p.proj_id][wbs] = wbs.activities
         # for act in wbs.activities:
         #     data[p.proj_id][wbs].append(act)
-elapsed_time = time.time() - start_time
-
-import pprint
-pp = pprint.PrettyPrinter(depth=4)
+# elapsed_time = time.time() - start_time
+#
+# import pprint
+# pp = pprint.PrettyPrinter(depth=4)
 # pp.pprint(tree)
 
-pp.pprint(data)
+# pp.pprint(data)
 
-print("Time to parse file", elapsed_time, "activities: ", len(r._tasks), "rels ", len(r._predecessors))
+print("time to read the file only {}".format(elapsed_time1))
+# print("Time to create tree file", elapsed_time, "activities: ", len(r.tasks), "rels ", len(r.relations))

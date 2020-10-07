@@ -103,6 +103,30 @@ class Reader:
         print('Number of activities: ', self.tasks.count)
         print('Number of relationships: ', len(TaskPred.obj_list))
 
+    @property
+    def projects(self):
+        return self._projects
+
+    @property
+    def tasks(self):
+        return self._tasks
+
+    @property
+    def wbss(self):
+        return self._wbss
+
+    @property
+    def relations(self):
+        return self._predecessors
+
+    @property
+    def resources(self):
+        return self._resources
+
+    @property
+    def accounts(self):
+        return self._accounts
+
     def __init__(self, filename):
         file = open(filename, 'r')
         self._tasks = Tasks()
@@ -121,7 +145,6 @@ class Reader:
                     current_headers = [r.strip() for r in row[1:]]
                 elif row[0] == "%R":
                     zipped_record = dict(zip(current_headers, row[1:]))
-                    print("zipped", zipped_record)
                     self.create_object(current_table, zipped_record)
         # for line in content:
         #     line_lst = line.split('\t')

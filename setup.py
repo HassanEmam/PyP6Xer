@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='PyP6Xer',
-    version='1.011',
+    version='1.011.01',
     packages=['xerparser', 'xerparser.model', 'xerparser.model.classes'],
     url='',
     license='GNU GENERAL PUBLIC LICENSE',
