@@ -11,6 +11,12 @@ from xerparser import *
 
 class Reader:
 
+    """
+    Reader class is the main parser for xer files. It takes a file path as a parameter.
+    The read records are parsed into classes depending on their types like activities, wbs,etc.
+
+    """
+
     current_table = ''
     current_headers = []
 
