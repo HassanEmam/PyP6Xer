@@ -1,5 +1,6 @@
 from xerparser.model.classes.activitycode import ActivityCode
 
+
 class ActivityCodes:
 
     _activitycodes = []

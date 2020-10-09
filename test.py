@@ -71,7 +71,17 @@ start_time = time.time()
 # pp.pprint(tree)
 
 # pp.pprint(data)
-for t in r.tasks:
-    print(t.task_id, t, t.resources)
-print("time to read the file only {}".format(elapsed_time1))
+# for t in r.tasks:
+#     print(t.task_id, t, t.resources)
+# print("time to read the file only {}".format(elapsed_time1))
 # print("Time to create tree file", elapsed_time, "activities: ", len(r.tasks), "rels ", len(r.relations))
+
+for cal in r.calendars:
+    print(cal)
+
+for a in r.activities:
+    print(a.resources)
+
+# print(Reader.activities.__doc__)
+# print(Reader.__doc__)
+# print(help(Reader))

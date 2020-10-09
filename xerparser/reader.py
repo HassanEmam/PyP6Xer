@@ -15,6 +15,13 @@ class Reader:
     Reader class is the main parser for xer files. It takes a file path as a parameter.
     The read records are parsed into classes depending on their types like activities, wbs,etc.
 
+    :param <file>: is an xer file that need to be parsed
+    :return: Reader object that contains collection of parsed records
+    :Example:
+
+    from xerparser.reader import Reader
+    file = Reader('file.xer')
+
     """
 
     current_table = ''
@@ -86,33 +93,65 @@ class Reader:
         """
         Projects
 
-        Returns: list of all projects contained in the xer file
+        :return: list of all projects contained in the xer file
+
+        todo:: text
 
         """
         return self._projects
 
     @property
-    def tasks(self):
+    def activities(self):
+        """
+        Property to retrieve list of tasks
+        Returns: list of tasks
+        """
         return self._tasks
 
     @property
     def wbss(self):
+        """
+        Property to return all wbs elements in the parsed file
+        Returns:
+            list of wbs elements
+        """
         return self._wbss
 
     @property
     def relations(self):
+        """
+        Property to retrieve relationships from parsed file
+        Returns:
+            list of relations
+        """
         return self._predecessors
 
     @property
     def resources(self):
+        """
+        Property to return a list of resources from parsed file
+        Returns:
+            list of resources of type Resources
+        """
         return self._resources
 
     @property
     def accounts(self):
+        """
+        Property to return a list of accounts from parsed files
+        Returns:
+            list of accounts of type Accounts
+        """
         return self._accounts
 
     @property
     def activitycodes(self):
+        """
+        Property to return a list of activity codes from parsed files
+        Returns:
+            list of accounts of type ActivityCode
+
+        """
         return self._activitycodes
 
     @property
@@ -200,7 +239,6 @@ class Reader:
         self._udfvalues = UDFValues()
         with open(filename) as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
-            #for row in stream:
             for row in tqdm(stream, total=self.get_num_lines(filename)):
                 if row[0] =="%T":
                     current_table = row[1]

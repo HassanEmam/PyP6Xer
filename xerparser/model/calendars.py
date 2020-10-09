@@ -28,8 +28,8 @@ class Calendars:
         return self
 
     def __next__(self):
-        if self.index >= len(self._activitytypes):
+        if self.index >= len(self._calendars):
             raise StopIteration
         idx = self.index
         self.index += 1
-        return self._activitytypes[idx]
+        return self._calendars[idx]
