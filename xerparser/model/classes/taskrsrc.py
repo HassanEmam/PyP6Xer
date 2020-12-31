@@ -1,3 +1,4 @@
+from xerparser.model.resources import Resources
 class TaskRsrc:
     taskrsrc_id = None
     task_id = None
@@ -98,6 +99,9 @@ class TaskRsrc:
 
     def get_id(self):
         return self.taskrsrc_id
+    @property
+    def resource(self):
+        return Resources.get_resource_by_id(self.rsrc_id)
 
     @staticmethod
     def find_by_id(code_id, activity_code_dict):
