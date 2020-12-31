@@ -5,6 +5,7 @@ This file starts the process of reading and parsing xer files
 import csv
 import mmap
 from tqdm import tqdm
+import codecs
 
 from xerparser import *
 
@@ -237,7 +238,7 @@ class Reader:
         self._activityresources = ActivityResources()
         self._udftypes = UDFTypes()
         self._udfvalues = UDFValues()
-        with open(filename) as tsvfile:
+        with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in tqdm(stream, total=self.get_num_lines(filename)):
                 if row[0] =="%T":
