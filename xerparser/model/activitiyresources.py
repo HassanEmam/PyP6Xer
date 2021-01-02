@@ -23,7 +23,7 @@ class ActivityResources:
         obj = list(filter(lambda x: x.task_id == id and x.rsrc_id, cls._taskrsrc))
         obj1 = [{Resource.find_by_id(x.rsrc_id): {"BL_QTY":x.target_qty, "ACT_QTY": x.act_reg_qty,\
                                                   "REM_QTY": x.remain_qty}} for x in obj]
-        return obj1
+        return obj
 
     @property
     def count(self):

@@ -241,7 +241,7 @@ class Task:
         if self.act_end_date:
             return self.act_end_date
         else:
-            return self.target_start_date
+            return self.target_end_date
 
     @property
     def successors(self):

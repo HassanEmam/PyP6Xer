@@ -80,7 +80,7 @@ class Reader:
         elif object_type.strip() == "TASKRSRC":
             self._activityresources.add(params)
         elif object_type.strip() == "TASKACTV":
-            self._taskactvs.add(params)
+            self._activitycodes.add(params)
         elif object_type.strip() == "UDFVALUE":
             self._udfvalues.add(params)
 
@@ -156,11 +156,6 @@ class Reader:
 
     @property
     def acttypes(self):
-        """
-        Property to return activity code values
-        Returns:
-            list of activity codes in the parsed xer file
-        """
         return self._acttypes
 
     @property
@@ -242,8 +237,7 @@ class Reader:
         self._activityresources = ActivityResources()
         self._udftypes = UDFTypes()
         self._udfvalues = UDFValues()
-        self._taskactvs = TaskActvs()
-        with open(filename, encoding='Windows-1252') as tsvfile:
+        with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in tqdm(stream, total=self.get_num_lines(filename)):
                 if row[0] =="%T":
