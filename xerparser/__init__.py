@@ -42,3 +42,4 @@ from xerparser.model.schedoptions import SchedOptions
 from xerparser.model.activitiyresources import ActivityResources
 from xerparser.model.udfvalues import UDFValues
 from xerparser.model.udftypes import UDFTypes
+from xerparser.model.taskactvs import TaskActvs

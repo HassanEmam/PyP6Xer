@@ -29,6 +29,11 @@ class Tasks:
         objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
         return objs
 
+    @property
+    def has_no_predecessor(self):
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
+        return objs
+
     def __len__(self):
         return len(self._tasks)
 
@@ -38,7 +43,11 @@ class Tasks:
     def __str__(self):
         return str([str(x.task_code) for x in self._tasks])
 
-
+    @property
+    def constraints(self):
+        lst = [x.constraints if x.constraints is not None else None for x in self._tasks]
+        # print(lst)
+        return list(filter(lambda x: x is not None, lst))
     @classmethod
     def find_by_id(cls, id):
         obj = list(filter(lambda x: x.task_id == id, cls._tasks))

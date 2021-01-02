@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from xerparser.model.taskactvs import TaskActvs
+
 from xerparser.model.predecessors import Predecessors
 from xerparser.model.classes.calendar import Calendar
 from xerparser.model.activitiyresources import ActivityResources
@@ -151,7 +153,7 @@ class Task:
         # 'Mandatory Start'.  Finish date constraints are 'Finish On', 'Finish On or Before', 'Finish On or After'
         # and 'Mandatory Finish'.  Another type of constraint, 'As Late as Possible', schedules the activity as late
         # as possible based on the available free float.
-        self.cstr_type = params.get('rem_late_end_date').strip() if params.get('rem_late_end_date') else None
+        self.cstr_type = params.get('cstr_type').strip() if params.get('cstr_type') else None
         self.priority_type = params.get('priority_type').strip() if params.get('priority_type') else None
         # The date progress is suspended on an activity.
         self.suspend_date = datetime.strptime(params.get('suspend_date').strip(), '%Y-%m-%d %H:%M') if params.get('suspend_date') else None
@@ -166,7 +168,7 @@ class Task:
         # The second constraint date for the activity, if the activity has a constraint.
         self.cstr_date2 = datetime.strptime(params.get('cstr_date2'), '%Y-%m-%d %H:%M') if params.get('cstr_date2') else None
         # The second type of constraint applied to the activity start or finish date.
-        self.cstr_type2 = params.get('cstr_date2').strip() if params.get('cstr_date2') else None
+        self.cstr_type2 = params.get('cstr_type2').strip() if params.get('cstr_type2') else None
         self.driving_path_flag = bool(params.get('driving_path_flag')) if params.get('driving_path_flag') else None
         # The actual this period units for all labor resources assigned to the activity.
         self.act_this_per_work_qty = float(params.get('act_this_per_work_qty')) if params.get('act_this_per_work_qty') else None
@@ -206,6 +208,11 @@ class Task:
         return ActivityResources.find_by_activity_id(self.task_id)
 
     @property
+    def activitycodes(self):
+        return TaskActvs.find_by_activity_id(self.task_id)
+
+
+    @property
     def duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
@@ -216,8 +223,11 @@ class Task:
 
     @property
     def constraints(self):
+        if self.cstr_type == None or self.cstr_date == None:
+            return  None
         return {"ConstraintType": self.cstr_type,
-                "ConstrintDate": self.cstr_date}
+                "ConstrintDate": self.cstr_date
+               }
 
     @property
     def start_date(self):
@@ -233,13 +243,16 @@ class Task:
         else:
             return self.target_start_date
 
+    @property
+    def successors(self):
+        suss = Predecessors.get_successors(self.task_id)
+        return suss
+
+    @property
+    def predecessors(self):
+        return Predecessors.get_predecessors(self.task_id)
+
     def __repr__(self):
         return self.task_code
 
-    @property
-    def successors(self):
-        succ = []
-        suss = Predecessors.get_successors(self.task_id)
-        for s in suss:
-            succ.append(s.task_id)
-        return succ
+

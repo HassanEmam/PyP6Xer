@@ -17,9 +17,25 @@ class Predecessors:
         pred = TaskPred(params)
         self.task_pred.append(pred)
 
+    @property
+    def relations(self):
+        return self.task_pred
+
+    @property
+    def leads(self):
+        return list(filter(lambda x: x.lag_hr_cnt < 0 if x.lag_hr_cnt else None, self.task_pred))
+
+    @property
+    def finish_to_start(self):
+        return list(filter(lambda x: x.pred_type == 'PR_FS', self.task_pred))
     @staticmethod
     def get_successors(act_id):
         succ = list(filter(lambda x: x.pred_task_id == act_id, Predecessors.task_pred))
+        return succ
+
+    @staticmethod
+    def get_predecessors(act_id):
+        succ = list(filter(lambda x: x.task_id == act_id, Predecessors.task_pred))
         return succ
 
     @staticmethod

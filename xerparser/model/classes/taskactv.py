@@ -17,4 +17,4 @@ class TaskActv:
         return {k: v for k, v in activity_code_dict.items() if v.actv_code_id == code_id}
 
     def __repr__(self):
-        return self.task_id + '->' + self.actv_code_id
+        return str(self.task_id) + '->' + str(self.actv_code_id)

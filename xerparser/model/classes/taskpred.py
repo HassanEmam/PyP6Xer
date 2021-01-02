@@ -9,7 +9,7 @@ class TaskPred:
         self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
         self.pred_proj_id = params.get('proj_id').strip() if params.get('pred_proj_id') else None
         self.pred_type = params.get('pred_type').strip() if params.get('pred_type') else None
-        self.lag_hr_cnt = params.get('lag_hr_cnt').strip() if params.get('lag_hr_cnt') else None
+        self.lag_hr_cnt = float(params.get('lag_hr_cnt').strip()) if params.get('lag_hr_cnt') else None
         self.float_path = params.get('float_path').strip() if params.get('float_path') else None
         self.aref = params.get('aref').strip() if params.get('aref') else None
         self.arls = params.get('arls').strip() if params.get('arls') else None
@@ -18,7 +18,5 @@ class TaskPred:
     def get_id(self):
         return self.task_pred_id
 
-
-
     def __repr__(self):
-        return str(self.task_id) + '->' + str(self.pred_task_id)
+        return str(self.task_id) + '- ' + self.pred_type + ' ->' + str(self.pred_task_id) + ' lag: ' + str(self.lag_hr_cnt)

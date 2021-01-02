@@ -2,19 +2,22 @@ import time
 
 from xerparser import *
 from xerparser.reader import Reader
+from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('xerparser/model/trial10.xer')
+r = Reader('xerparser/model/trial3.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
 # trial4 trial12
 
+
+# get wbs elements and activities for all projects in a single xer file
+# =====================================================================
 # for p in r.projects:
 #     for wbs in p.wbss:
 #         for act in wbs.activities:
-#             for rel in act.successors:
-#                 print("Project", p, "\t\t WBS: ", wbs, "\t\t\tActivity: ", act.task_code, "\t\tRel:", rel)
+#             print(act, act.activitycodes)
 #
 # print("Project has {} activities".format(r.tasks.count))
 # resor = []
@@ -62,8 +65,8 @@ start_time = time.time()
 #         else:
 #             data = defaultdict(dict)
 #             data[p.proj_id][wbs] = wbs.activities
-        # for act in wbs.activities:
-        #     data[p.proj_id][wbs].append(act)
+# for act in wbs.activities:
+#     data[p.proj_id][wbs].append(act)
 # elapsed_time = time.time() - start_time
 #
 # import pprint
@@ -76,12 +79,26 @@ start_time = time.time()
 # print("time to read the file only {}".format(elapsed_time1))
 # print("Time to create tree file", elapsed_time, "activities: ", len(r.tasks), "rels ", len(r.relations))
 
-for cal in r.calendars:
-    print(cal)
-
-for a in r.activities:
-    print(a.resources)
+# for cal in r.calendars:
+#     print(cal)
+#
+# for a in r.activities:
+#     print(a.resources)
 
 # print(Reader.activities.__doc__)
 # print(Reader.__doc__)
 # print(help(Reader))
+# print(r.projects)
+
+health = DCMA14(r)
+health.analysis()
+#print(health.no_successors_cnt, health.no_successors)
+#print(health.no_predecessors_cnt, health.no_predecessors)
+
+import pprint
+pp = pprint.PrettyPrinter(depth=4)
+# print(r.relations.relations)
+#print(health.results['analysis']['lags'])
+#print(health.results['analysis']['leads'])
+
+pp.pprint(health.results['analysis']['constraints'])

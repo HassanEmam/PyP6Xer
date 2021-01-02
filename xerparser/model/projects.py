@@ -16,6 +16,9 @@ class Projects:
             return obj[0]
         return obj
 
+    def __repr__(self):
+        return str(self._projects)
+
     def __iter__(self):
         return self
 
