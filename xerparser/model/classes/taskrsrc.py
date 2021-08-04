@@ -108,4 +108,4 @@ class TaskRsrc:
         return {k: v for k, v in activity_code_dict.items() if v.actv_code_id == code_id}
 
     def __repr__(self):
-        return str(self.task_id) + '->' + str(self.rsrc_id) + ' = ' #+ self.target_qty
+        return str(self.task_id) + '->' + str(self.rsrc_id) + ' = ' + str(self.target_qty)

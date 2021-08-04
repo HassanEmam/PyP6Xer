@@ -6,11 +6,21 @@ from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('xerparser/model/trial3.xer')
+r = Reader('test.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
 # trial4 trial12
 
+for taskact in r.actvcodes:
+    print(taskact)
+
+for resource in r.resources:
+    print(resource)
+
+for rsrc in r.activityresources:
+    task = r.activities.find_by_id(rsrc.rsrc_id)
+    resource = r.resources.get_resource_by_id(rsrc.task_id)
+    print(rsrc, task, resource)
 
 # get wbs elements and activities for all projects in a single xer file
 # =====================================================================

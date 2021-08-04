@@ -5,7 +5,7 @@ This file starts the process of reading and parsing xer files
 import csv
 import mmap
 from tqdm import tqdm
-
+import codecs
 from xerparser import *
 
 
@@ -74,7 +74,7 @@ class Reader:
         elif object_type.strip() == "TASK":
             self._tasks.add(params)
         elif object_type.strip() == "ACTVCODE":
-            self._activitycodes.add(params)
+            self._actvcodes.add(params)
         elif object_type.strip() == "TASKPRED":
             self._predecessors.add(params)
         elif object_type.strip() == "TASKRSRC":
@@ -153,7 +153,9 @@ class Reader:
 
         """
         return self._activitycodes
-
+    @property
+    def actvcodes(self):
+        return self._actvcodes
     @property
     def acttypes(self):
         return self._acttypes
@@ -221,7 +223,8 @@ class Reader:
         self._wbss = WBSs()
         self._resources = Resources()
         self._accounts = Accounts()
-        self._activitycodes = ActivityCodes()
+        self._actvcodes = ActivityCodes()
+        self._activitycodes = TaskActvs()
         self._acttypes = ActTypes()
         self._calendars = Calendars()
         self._currencies = Currencies()

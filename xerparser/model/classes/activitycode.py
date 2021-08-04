@@ -61,4 +61,4 @@ class ActivityCode:
         return ActTypes.find_by_id(self.actv_code_type_id)
 
     def __repr__(self):
-        return str(self.actv_code_id) + ' - ' + self.short_name + ' - ' + self.actv_code_name
+        return str(self.actv_code_id) + ' - ' + self.short_name if self.short_name else '' + ' - ' + self.actv_code_name if self.actv_code_name else ''
