@@ -15,6 +15,13 @@ class ActivityCodes:
     def count():
         return len(ActivityCodes._activitycodes)
 
+    @staticmethod
+    def find_by_id(id):
+        obj = list(filter(lambda x: x.actv_code_id == id, ActivityCode.obj_list))
+        if obj:
+            return obj[0]
+        return obj
+    
     def __len__(self):
         return len(ActivityCodes._activitycodes)
 
