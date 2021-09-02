@@ -11,7 +11,7 @@ class RCatVals:
         self._rcatvals.append(RCatVal(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> RCatVal:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._rcatvals))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class RCatVals:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> RCatVal:
         if self.index >= len(self._rcatvals):
             raise StopIteration
         idx = self.index

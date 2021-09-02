@@ -11,14 +11,14 @@ class TaskActvs:
         self._taskactvs.append(TaskActv(params))
 
     @classmethod
-    def find_by_code_id(cls, id):
+    def find_by_code_id(cls, id) -> TaskActv:
         obj = list(filter(lambda x: x.actv_code_id == id, cls._taskactvs))
         if len(obj) > 0:
             return obj
         return obj
 
     @classmethod
-    def find_by_activity_id(cls, id):
+    def find_by_activity_id(cls, id) -> TaskActv:
         obj = list(filter(lambda x: x.task_id == id, cls._taskactvs))
         if len(obj) > 0:
             return obj
@@ -34,7 +34,7 @@ class TaskActvs:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> TaskActv:
         if self.index >= len(self._taskactvs):
             raise StopIteration
         idx = self.index

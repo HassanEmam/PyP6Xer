@@ -1,11 +1,12 @@
 from xerparser.model.classes.taskpred import TaskPred
+from typing import List
 
 class Predecessors:
     task_pred = []
     def __init__(self):
         self.index=0
 
-    def find_by_id(self, code_id):
+    def find_by_id(self, code_id) -> TaskPred:
         obj = list(filter(lambda x: x.task_pred_id == code_id, self.task_pred))
         if len(obj) > 0:
             obj[0]
@@ -18,7 +19,7 @@ class Predecessors:
         self.task_pred.append(pred)
 
     @property
-    def relations(self):
+    def relations(self) -> List[TaskPred]:
         return self.task_pred
 
     @property
@@ -26,8 +27,9 @@ class Predecessors:
         return list(filter(lambda x: x.lag_hr_cnt < 0 if x.lag_hr_cnt else None, self.task_pred))
 
     @property
-    def finish_to_start(self):
+    def finish_to_start(self) -> List[TaskPred]:
         return list(filter(lambda x: x.pred_type == 'PR_FS', self.task_pred))
+    
     @staticmethod
     def get_successors(act_id):
         succ = list(filter(lambda x: x.pred_task_id == act_id, Predecessors.task_pred))
@@ -48,7 +50,7 @@ class Predecessors:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> TaskPred:
         if self.index >= len(self.task_pred):
             raise StopIteration
         idx = self.index

@@ -1,4 +1,6 @@
 from xerparser.model.classes.wbs import WBS
+from typing import List
+
 
 class WBSs:
     _wbss = []
@@ -11,7 +13,7 @@ class WBSs:
         self._wbss.append(wbs)
 
     @staticmethod
-    def get_by_project(id):
+    def get_by_project(id) -> List[WBS]:
         return list(filter(lambda x: x.proj_id == id, WBSs._wbss))
 
 
@@ -19,7 +21,7 @@ class WBSs:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> WBS:
         if self.index >= len(self._wbss):
             raise StopIteration
         idx = self.index

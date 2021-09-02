@@ -11,7 +11,7 @@ class Calendars:
         self._calendars.append(Calendar(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> Calendar:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._calendars))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class Calendars:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Calendar:
         if self.index >= len(self._calendars):
             raise StopIteration
         idx = self.index

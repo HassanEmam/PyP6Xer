@@ -11,7 +11,7 @@ class UDFValues:
         self._udfvalues.append(UDFValue(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> UDFValue:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._udfvalues))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class UDFValues:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> UDFValue:
         if self.index >= len(self._udfvalues):
             raise StopIteration
         idx = self.index

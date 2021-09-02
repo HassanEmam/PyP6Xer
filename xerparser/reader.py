@@ -7,7 +7,7 @@ import mmap
 from tqdm import tqdm
 import codecs
 from xerparser import *
-
+from typing import List
 
 class Reader:
 
@@ -89,7 +89,7 @@ class Reader:
         print('Number of relationships: ', len(TaskPred.obj_list))
 
     @property
-    def projects(self):
+    def projects(self) -> List[Project]:
         """
         Projects
 
@@ -101,7 +101,7 @@ class Reader:
         return self._projects
 
     @property
-    def activities(self):
+    def activities(self) -> Tasks:
         """
         Property to retrieve list of tasks
         Returns: list of tasks
@@ -109,7 +109,7 @@ class Reader:
         return self._tasks
 
     @property
-    def wbss(self):
+    def wbss(self) -> WBSs:
         """
         Property to return all wbs elements in the parsed file
         Returns:
@@ -118,7 +118,7 @@ class Reader:
         return self._wbss
 
     @property
-    def relations(self):
+    def relations(self) -> Predecessors:
         """
         Property to retrieve relationships from parsed file
         Returns:
@@ -127,7 +127,7 @@ class Reader:
         return self._predecessors
 
     @property
-    def resources(self):
+    def resources(self) -> Resources:
         """
         Property to return a list of resources from parsed file
         Returns:
@@ -136,7 +136,7 @@ class Reader:
         return self._resources
 
     @property
-    def accounts(self):
+    def accounts(self) -> Accounts:
         """
         Property to return a list of accounts from parsed files
         Returns:
@@ -145,7 +145,7 @@ class Reader:
         return self._accounts
 
     @property
-    def activitycodes(self):
+    def activitycodes(self) -> ActivityCodes:
         """
         Property to return a list of activity codes from parsed files
         Returns:
@@ -154,65 +154,65 @@ class Reader:
         """
         return self._activitycodes
     @property
-    def actvcodes(self):
+    def actvcodes(self) -> TaskActvs:
         return self._actvcodes
     @property
-    def acttypes(self):
+    def acttypes(self) -> ActTypes:
         return self._acttypes
 
     @property
-    def calendars(self):
+    def calendars(self) -> Calendars:
         return self._calendars
 
     @property
-    def currencies(self):
+    def currencies(self) -> Currencies:
         return self._currencies
 
     @property
-    def obss(self):
+    def obss(self) -> OBSs:
         return self._obss
     @property
-    def rcattypes(self):
+    def rcattypes(self) -> RCatTypes:
         return self.rcattypes
 
     @property
-    def rcatvals(self):
+    def rcatvals(self) -> RCatVals:
         return self._rcatvals
 
     @property
-    def rolerates(self):
+    def rolerates(self) -> RoleRates:
         return self._rolerates
 
     @property
-    def roles(self):
+    def roles(self) -> Roles:
         return self._roles
 
     @property
-    def resourcecurves(self):
+    def resourcecurves(self) -> ResourceCurves:
         return self._rsrcurves
 
     @property
-    def resourcerates(self):
+    def resourcerates(self) -> ResourceRates:
         return self._rsrcrates
 
     @property
-    def resourcecategories(self):
+    def resourcecategories(self) -> ResourceCategories:
         return self._rsrccats
 
     @property
-    def scheduleoptions(self):
+    def scheduleoptions(self) -> SchedOptions:
         return self._schedoptions
 
     @property
-    def activityresources(self):
+    def activityresources(self) -> ActivityResources:
         return self._activityresources
 
     @property
-    def udfvalues(self):
+    def udfvalues(self) -> UDFValues:
         return self._udfvalues
 
     @property
-    def udftypes(self):
+    def udftypes(self) -> UDFTypes:
         return self._udftypes
 
     def __init__(self, filename):

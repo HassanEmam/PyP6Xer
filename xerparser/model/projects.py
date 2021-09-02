@@ -10,7 +10,7 @@ class Projects:
         prj = Project(params)
         self._projects.append(prj)
 
-    def find_by_id(self, id):
+    def find_by_id(self, id) -> Project:
         obj = list(filter(lambda x: x.proj_id == id, Project.obj_list))
         if obj:
             return obj[0]
@@ -22,7 +22,7 @@ class Projects:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Project:
         if self.index >= len(self._projects):
             raise StopIteration
         idx = self.index

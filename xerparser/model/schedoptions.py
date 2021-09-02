@@ -11,7 +11,7 @@ class SchedOptions:
         self._schoptions.append(SchedOption(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> SchedOption:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._schoptions))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class SchedOptions:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> SchedOption:
         if self.index >= len(self._schoptions):
             raise StopIteration
         idx = self.index

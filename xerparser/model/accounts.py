@@ -15,7 +15,7 @@ class Accounts:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Account:
         if self.index >= len(self.task_pred):
             raise StopIteration
         idx = self.index

@@ -12,7 +12,7 @@ class ActivityResources:
         self._taskrsrc.append(TaskRsrc(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> TaskRsrc:
         obj = list(filter(lambda x: x.taskrsrc_id == id , cls._taskrsrc))
         if len(obj) > 0:
             return obj[0]
@@ -20,10 +20,12 @@ class ActivityResources:
 
     @classmethod
     def find_by_activity_id(cls, id):
+        ob = cls()
         obj = list(filter(lambda x: x.task_id == id and x.rsrc_id, cls._taskrsrc))
         obj1 = [{Resource.find_by_id(x.rsrc_id): {"BL_QTY":x.target_qty, "ACT_QTY": x.act_reg_qty,\
-                                                  "REM_QTY": x.remain_qty}} for x in obj]
-        return obj
+                                          "REM_QTY": x.remain_qty}} for x in obj]
+        ob._taskrsrc = obj
+        return ob
 
     @property
     def count(self):
@@ -35,7 +37,7 @@ class ActivityResources:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> TaskRsrc:
         if self.index >= len(self._taskrsrc):
             raise StopIteration
         idx = self.index

@@ -11,7 +11,7 @@ class ResourceCurves:
         self._resourcecurves.append(ResourceCurve(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> ResourceCurve:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._resourcecurves))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class ResourceCurves:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> ResourceCurve:
         if self.index >= len(self._resourcecurves):
             raise StopIteration
         idx = self.index

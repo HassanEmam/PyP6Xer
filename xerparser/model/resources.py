@@ -12,7 +12,7 @@ class Resources:
         self._rsrcs.append(rsrc)
 
     @staticmethod
-    def get_resource_by_id(id):
+    def get_resource_by_id(id) -> Resource:
         rsrc = list(filter(lambda x: x.rsrc_id == id, Resources._rsrcs))
         if len(rsrc) > 0:
             rsrc = rsrc[0]
@@ -21,7 +21,7 @@ class Resources:
         return rsrc
 
     @staticmethod
-    def get_parent(id):
+    def get_parent(id) -> Resource:
         rsrc = list(filter(lambda x: x.rsrc_id == id, Resources._rsrcs))
         if len(rsrc) > 0:
             rsrc = rsrc[0]
@@ -34,7 +34,7 @@ class Resources:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Resource:
         if self.index >= len(self._rsrcs):
             raise StopIteration
         idx = self.index

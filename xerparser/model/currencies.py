@@ -11,7 +11,7 @@ class Currencies:
         self._currencies.append(Currency(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> Currency:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._currencies))
         if len(obj) > 0:
             return obj[0]
@@ -27,7 +27,7 @@ class Currencies:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Currency:
         if self.index >= len(self._currencies):
             raise StopIteration
         idx = self.index

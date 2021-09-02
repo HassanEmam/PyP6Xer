@@ -2,6 +2,8 @@ from xerparser.model.classes.task import Task
 from xerparser.model.classes.taskpred import TaskPred
 from xerparser.model.classes.taskactv import TaskActv
 from xerparser.model.predecessors import Predecessors
+from typing import List
+
 
 class Tasks:
     """
@@ -17,7 +19,7 @@ class Tasks:
         self._tasks.append(task)
 
     @property
-    def activities(self):
+    def activities(self) -> List[Task]:
         return self._tasks
 
     @property
@@ -142,7 +144,7 @@ class Tasks:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> Task:
         if self.index >= len(self._tasks):
             raise StopIteration
         idx = self.index

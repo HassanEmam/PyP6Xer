@@ -11,7 +11,7 @@ class ActTypes:
         self._activitytypes.append(ActType(params))
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, id) -> ActType:
         obj = list(filter(lambda x: x.actv_code_type_id == id, cls._activitytypes))
         if len(obj) > 0:
             return obj[0]
@@ -28,7 +28,7 @@ class ActTypes:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> ActType:
         if self.index >= len(self._activitytypes):
             raise StopIteration
         idx = self.index
