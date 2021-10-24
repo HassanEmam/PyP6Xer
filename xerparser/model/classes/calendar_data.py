@@ -9,11 +9,11 @@ class CalendarData:
     def __init__(self, text):
         self.text = text
         cal2 = []
-        cal = re.findall("\(\d\|\|\D+\(\)", text)
+        cal = re.findall("\(\d\|\|\d+\(\)", text)
         for c in cal:
             c2 = c.split("||")[1]
             cal2.append(c2.split("()")[0])
-        val = re.split("\(\d\|\|\D+\(\)", text.strip())
+        val = re.split("\(\d\|\|\d+\(\)", text.strip())
         x = 0
 
         self.data = dict()
@@ -48,16 +48,17 @@ class CalendarData:
         return self.exceptions
 
     def get_days(self):
-        if not self.data.get('DaysOfWeek'):
+        if not self.data:
             return
-        first = re.findall("\(\d\|\|\d\(\)(.*?)\)\)\x7f\x7f", self.data.get('DaysOfWeek'))
+        first = re.findall("\(\d\|\|\d\(\)(.*?)\)\)", self.text)
         days = dict()
         i = 0
         for x in first:
             second = x.split("\x7f\x7f")
-            key = str(i)
-            if len(second) > 1:
-                days[key] = (len(second[1].strip()) > 0)
+            x = x.replace("(", "").replace(")", "").replace(" ", "").strip()
+            key = str(i + 1)
+            if len(x) > 1:
+                days[key] = (len(x) > 0)
             else:
                 days[key] = False
             i += 1

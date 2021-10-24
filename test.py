@@ -1,26 +1,32 @@
 import time
-
+import re
 from xerparser import *
 from xerparser.reader import Reader
 from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('test.xer')
+r = Reader('school 3.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
+
+for cal in r.calendars:
+    print(cal.clndr_name)
+    print(cal.working_days)
+    print(cal.exceptions)
+    print(dir(cal))
 # trial4 trial12
 
-for taskact in r.actvcodes:
-    print(taskact)
-
-for resource in r.resources:
-    print(resource)
-
-for rsrc in r.activityresources:
-    task = r.activities.find_by_id(rsrc.rsrc_id)
-    resource = r.resources.get_resource_by_id(rsrc.task_id)
-    print(rsrc, task, resource)
+# for taskact in r.actvcodes:
+#     print(taskact)
+# 
+# for resource in r.resources:
+#     print(resource)
+# 
+# for rsrc in r.activityresources:
+#     task = r.activities.find_by_id(rsrc.rsrc_id)
+#     resource = r.resources.get_resource_by_id(rsrc.task_id)
+#     print(rsrc, task, resource)
 
 # get wbs elements and activities for all projects in a single xer file
 # =====================================================================
@@ -100,15 +106,15 @@ start_time = time.time()
 # print(help(Reader))
 # print(r.projects)
 
-health = DCMA14(r)
-health.analysis()
+# health = DCMA14(r)
+# health.analysis()
 #print(health.no_successors_cnt, health.no_successors)
 #print(health.no_predecessors_cnt, health.no_predecessors)
 
-import pprint
-pp = pprint.PrettyPrinter(depth=4)
+# import pprint
+# pp = pprint.PrettyPrinter(depth=4)
 # print(r.relations.relations)
 #print(health.results['analysis']['lags'])
 #print(health.results['analysis']['leads'])
 
-pp.pprint(health.results['analysis']['constraints'])
+# pp.pprint(health.results['analysis']['constraints'])

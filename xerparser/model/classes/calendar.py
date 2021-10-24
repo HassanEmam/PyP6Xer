@@ -38,7 +38,7 @@ class Calendar:
         #
         self.rsrc_private = params.get('rsrc_private').strip() if params.get('rsrc_private') else None
 
-        self.clndr_data = params.get('rsrc_private').strip() if params.get('rsrc_private') else None
+        self.clndr_data = params.get('clndr_data').strip() if params.get('clndr_data') else None
 
         if self.clndr_data:
             c = CalendarData(self.clndr_data)
