@@ -43,6 +43,7 @@ class Calendar:
         if self.clndr_data:
             c = CalendarData(self.clndr_data)
             self.working_days = c.get_days()
+            self.working_hours = c.get_work_pattern()
             self.exceptions = c.get_exceptions()
         Calendar.obj_list.append(self)
 

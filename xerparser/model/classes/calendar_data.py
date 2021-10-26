@@ -32,20 +32,37 @@ class CalendarData:
         delta = datetime.timedelta(days=xldate)
         return temp + delta
 
-    def get_exceptions(self):
-        if self.data.get('Exceptions'):
-            exceptions = self.data['Exceptions'] if self.data['Exceptions'] else None
-            except1 = re.split("\)\)\x7f\x7f", exceptions)
-            clean_exceptions = []
-            for e in except1:
-                if e:
-                    if (len(e.split("||"))) > 1:
-                        clean_exceptions.append(self.xldate_to_datetime(int(re.findall("\d+", e.split("||")[1])[1])))
-                    else:
-                        clean_exceptions = None
+    def get_work_pattern(self):
+        pattern = r"\(\d\|\|\d\(\)\("
+        dayName = {2: "Monday", 3: "Tuesday", 4: "Wednesday", 5: "Thursday", 6: "Friday", 7: "Saturday", 1: "Sunday"}
+        tx = self.text.split("(0||VIEW(ShowTotal|Y)())")
+        days = re.split(pattern, tx[0])
+        dys = re.findall(pattern, self.text)
+        lst_dow = []
+        for day, d in zip(days[1:], dys):
+            dow = int(d.replace("(0||", "").replace(")", "").replace("(", ""))
+            starts = re.findall("s\|\d\d\:\d\d", day)
+            finishes = re.findall("f\|\d\d\:\d\d", day)
 
-            self.exceptions = clean_exceptions
-        return self.exceptions
+            day_dict = {'DayOfWeek': dayName[dow], 'WorkTimes': [], 'ifc': None}
+            for s, f in zip(starts, finishes):
+                s_c = datetime.datetime.strptime(s.replace("s|", ""), "%H:%M").time()
+                f_c = datetime.datetime.strptime(f.replace("f|", ""), "%H:%M").time()
+                day_dict['WorkTimes'].append({"Start": s_c, "Finish": f_c})
+            lst_dow.append(day_dict)
+        return (lst_dow)
+
+    def get_exceptions(self):
+        base_datetime = datetime.datetime(1899, 12, 30)
+        excep_dates = re.findall(r"\d{5,}", self.text)
+        exceptions = []
+        for exc in excep_dates:
+            exc = int(exc)
+            delta = datetime.timedelta(exc)
+            exc_date = base_datetime + delta
+            dt = datetime.datetime.fromtimestamp(exc, tz=datetime.timezone.utc)
+            exceptions.append(exc_date)
+        return exceptions
 
     def get_days(self):
         if not self.data:

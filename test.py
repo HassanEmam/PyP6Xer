@@ -6,13 +6,14 @@ from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('school 3.xer')
+r = Reader('prog.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
 
 for cal in r.calendars:
     print(cal.clndr_name)
     print(cal.working_days)
+    print(cal.working_hours)
     print(cal.exceptions)
     print(dir(cal))
 # trial4 trial12
