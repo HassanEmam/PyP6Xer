@@ -1,18 +1,17 @@
 from xerparser.model.classes.rsrcrcat import ResourceCat
 
-class ResourceCategories:
 
-    _rsrccat = []
+class ResourceCategories:
 
     def __init__(self):
         self.index = 0
+        self._rsrccat = []
 
     def add(self, params):
         self._rsrccat.append(ResourceCat(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> ResourceCat:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._rsrccat))
+    def find_by_id(self, id) -> ResourceCat:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rsrccat))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +21,7 @@ class ResourceCategories:
         return len(self._rsrccat)
 
     def __len__(self):
-        return len(ResourceCategories._rsrccat)
+        return len(self._rsrccat)
 
     def __iter__(self):
         return self

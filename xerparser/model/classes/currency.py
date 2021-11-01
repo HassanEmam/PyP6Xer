@@ -39,4 +39,4 @@ class Currency:
         return obj
 
     def __repr__(self):
-        return self.curr_symbol + ' ' + self.curr_type
+        return self.curr_short_name + ' ' + str(self.curr_type)

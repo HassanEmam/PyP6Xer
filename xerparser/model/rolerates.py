@@ -1,18 +1,17 @@
 from xerparser.model.classes.rolerate import RoleRate
 
-class RoleRates:
 
-    _rolerates = []
+class RoleRates:
 
     def __init__(self):
         self.index = 0
 
     def add(self, params):
         self._rolerates.append(RoleRate(params))
+        self._rolerates = []
 
-    @classmethod
-    def find_by_id(cls, id) -> RoleRate:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._rolerates))
+    def find_by_id(self, id) -> RoleRate:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rolerates))
         if len(obj) > 0:
             return obj[0]
         return obj

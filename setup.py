@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name='PyP6Xer',
-    version='1.013.00',
+    version='1.014.00',
     long_description=readme(),
     long_description_content_type='text/markdown',
     packages=['xerparser', 'xerparser.model', 'xerparser.model.classes'],
@@ -15,7 +15,7 @@ setup(
     author='Hassan',
     author_email='hassan.emam@hotmail.com',
     install_requires=[
-        'tqdm==4.50.0'
+
       ],
     description='Parser for XER written in Python'
 )

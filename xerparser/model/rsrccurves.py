@@ -2,17 +2,17 @@ from xerparser.model.classes.rsrccurv import ResourceCurve
 
 class ResourceCurves:
 
-    _resourcecurves = []
+
 
     def __init__(self):
         self.index = 0
+        self._resourcecurves = []
 
     def add(self, params):
         self._resourcecurves.append(ResourceCurve(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> ResourceCurve:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._resourcecurves))
+    def find_by_id(self, id) -> ResourceCurve:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._resourcecurves))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +22,7 @@ class ResourceCurves:
         return len(self._resourcecurves)
 
     def __len__(self):
-        return len(ResourceCurves._resourcecurves)
+        return len(self._resourcecurves)
 
     def __iter__(self):
         return self

@@ -1,18 +1,17 @@
 from xerparser.model.classes.udftypes import UDFType
 
-class UDFTypes:
 
-    _udftypes = []
+class UDFTypes:
 
     def __init__(self):
         self.index = 0
+        self._udftypes = []
 
     def add(self, params):
         self._udftypes.append(UDFType(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> UDFType:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._udftypes))
+    def find_by_id(self, id) -> UDFType:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._udftypes))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +21,7 @@ class UDFTypes:
         return len(self._udftypes)
 
     def __len__(self):
-        return len(UDFTypes._udftypes)
+        return len(self._udftypes)
 
     def __iter__(self):
         return self

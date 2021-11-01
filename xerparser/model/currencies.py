@@ -2,17 +2,17 @@ from xerparser.model.classes.currency import Currency
 
 class Currencies:
 
-    _currencies = []
+
 
     def __init__(self):
         self.index = 0
+        self._currencies = []
 
     def add(self, params):
         self._currencies.append(Currency(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> Currency:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._currencies))
+    def find_by_id(self, id) -> Currency:
+        obj = list(filter(lambda x: x.curr_id == id, self._currencies))
         if len(obj) > 0:
             return obj[0]
         return obj

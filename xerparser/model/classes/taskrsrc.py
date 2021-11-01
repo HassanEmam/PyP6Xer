@@ -49,7 +49,7 @@ class TaskRsrc:
     taskrsrc_sum_id = None
 
     def __init__(self, params):
-        self.taskrsrc_id = params.get('taskrsrc_id').strip() if params.get('taskrsrc_id') else None
+        self.taskrsrc_id = int(params.get('taskrsrc_id').strip()) if params.get('taskrsrc_id') else None
         self.task_id = int(params.get('task_id').strip()) if params.get('task_id') else None
         self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
         self.cost_qty_link_flag = params.get('cost_qty_link_flag').strip() if params.get('cost_qty_link_flag') else None

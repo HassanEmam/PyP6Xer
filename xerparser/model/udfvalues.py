@@ -1,18 +1,18 @@
 from xerparser.model.classes.udfvalue import UDFValue
 
+
 class UDFValues:
 
-    _udfvalues = []
 
     def __init__(self):
         self.index = 0
+        self._udfvalues = []
 
     def add(self, params):
         self._udfvalues.append(UDFValue(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> UDFValue:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._udfvalues))
+    def find_by_id(self, id) -> UDFValue:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._udfvalues))
         if len(obj) > 0:
             return obj[0]
         return obj

@@ -6,9 +6,10 @@
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.idea/*
 *.py[cod]
 *$py.class
-
+*.pdf
 # C extensions
 *.so
 

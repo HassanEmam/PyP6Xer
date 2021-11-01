@@ -2,17 +2,17 @@ from xerparser.model.classes.obs import OBS
 
 class OBSs:
 
-    _obss = []
+
 
     def __init__(self):
         self.index = 0
+        self._obss = []
 
     def add(self, params):
         self._obss.append(OBS(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> OBS:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._obss))
+    def find_by_id(self, id) -> OBS:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._obss))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +22,7 @@ class OBSs:
         return len(self._obss)
 
     def __len__(self):
-        return len(OBSs._obss)
+        return len(self._obss)
 
     def __iter__(self):
         return self

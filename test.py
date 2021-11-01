@@ -9,13 +9,41 @@ start_time = time.time()
 r = Reader('prog.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
+#
+# for actrsrc in r._activityresources:
+#     print(actrsrc, actrsrc.taskrsrc_id)
+#
+# print(r.activityresources.find_by_id(5157763))
 
-for cal in r.calendars:
-    print(cal.clndr_name)
-    print(cal.working_days)
-    print(cal.working_hours)
-    print(cal.exceptions)
-    print(dir(cal))
+# for actcode in r.actvcodes:
+#     print(actcode, actcode.actv_code_type_id)
+# print("Code", r.actvcodes.find_by_id(798526))
+# print("Code", r.actvcodes.find_by_type_id(87933))
+
+# for type in r.acttypes:
+#     print(type, type.actv_code_type_id)
+# print(r.acttypes.find_by_id(87934))
+
+# for cal in r.calendars:
+#     print(cal.clndr_id, cal)
+# print(r.calendars.find_by_id(94905))
+
+# for cur in r.currencies:
+#     print(cur.curr_id, cur)
+# print(r.currencies.find_by_id(51))
+
+# for pred in r.relations:
+#     print(pred, pred.task_pred_id, pred.pred_task_id)
+# print(r.relations.get_predecessors(9478273))
+
+
+
+# for cal in r.calendars:
+#     print(cal.clndr_name)
+#     print(cal.working_days)
+#     print(cal.working_hours)
+#     print(cal.exceptions)
+#     print(dir(cal))
 # trial4 trial12
 
 # for taskact in r.actvcodes:

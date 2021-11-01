@@ -9,10 +9,11 @@ class Tasks:
     """
     This class is a collection of tasks that controls functionalities to search, add, update and delete tasks
     """
-    _tasks = []
+    
 
     def __init__(self):
         self.index = 0
+        self._tasks = []
 
     def add(self, params):
         task = Task(params)
@@ -50,16 +51,15 @@ class Tasks:
         lst = [x.constraints if x.constraints is not None else None for x in self._tasks]
         # print(lst)
         return list(filter(lambda x: x is not None, lst))
-    @classmethod
-    def find_by_id(cls, id):
-        obj = list(filter(lambda x: x.task_id == id, cls._tasks))
+
+    def find_by_id(self, id):
+        obj = list(filter(lambda x: x.task_id == id, self._tasks))
         if len(obj) > 0:
             return obj[0]
         return obj
 
-    @classmethod
-    def find_by_code(cls, code):
-        obj = list(filter(lambda x: x.task_code == code, cls._tasks))
+    def find_by_code(self, code):
+        obj = list(filter(lambda x: x.task_code == code, self._tasks))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -106,11 +106,9 @@ class Tasks:
         objs = list(filter(lambda x: x.status_code == status, self._tasks))
         return objs
 
-    @staticmethod
-    def activities_by_wbs_id(id):
-        objs = list(filter(lambda x: x.wbs_id == id, Tasks._tasks))
+    def activities_by_wbs_id(self, id):
+        objs = list(filter(lambda x: x.wbs_id == id, self._tasks))
         return objs
-
 
     def activities_by_activity_code_id(self, id):
         objs = list(filter(lambda x: x.actv_code_id == id, TaskActv.obj_list))
@@ -119,7 +117,6 @@ class Tasks:
             activities.append(self.find_by_id(obj.task_id))
         return activities
 
-    
     def no_predecessors(self):
         objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
         return objs
@@ -136,9 +133,8 @@ class Tasks:
         obj = list(filter(lambda x: x.cstr_type == type, self._tasks))
         return obj
 
-    @staticmethod
-    def get_by_project(id):
-        obj = list(filter(lambda x: x.proj_id == id, Tasks._tasks))
+    def get_by_project(self, id):
+        obj = list(filter(lambda x: x.proj_id == id, self._tasks))
         return obj
 
     def __iter__(self):

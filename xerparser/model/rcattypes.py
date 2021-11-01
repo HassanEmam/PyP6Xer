@@ -2,17 +2,17 @@ from xerparser.model.classes.rcattype import RCatType
 
 class RCatTypes:
 
-    _rcattypes = []
+
 
     def __init__(self):
         self.index = 0
+        self._rcattypes = []
 
     def add(self, params):
         self._rcattypes.append(RCatType(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> RCatType:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._rcattypes))
+    def find_by_id(self, id) -> RCatType:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rcattypes))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +22,7 @@ class RCatTypes:
         return len(self._rcattypes)
 
     def __len__(self):
-        return len(RCatTypes._rcattypes)
+        return len(self._rcattypes)
 
     def __iter__(self):
         return self

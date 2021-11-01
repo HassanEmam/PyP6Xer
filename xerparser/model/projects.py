@@ -1,17 +1,18 @@
 from xerparser.model.classes.project import Project
 
 class Projects:
-    _projects = []
+
 
     def __init__(self):
         self.index =0
+        self._projects = []
 
     def add(self, params):
         prj = Project(params)
         self._projects.append(prj)
 
     def find_by_id(self, id) -> Project:
-        obj = list(filter(lambda x: x.proj_id == id, Project.obj_list))
+        obj = list(filter(lambda x: x.proj_id == id, self._projects))
         if obj:
             return obj[0]
         return obj

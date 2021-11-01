@@ -1,8 +1,9 @@
 from xerparser.model.classes.account import Account
 
 class Accounts:
-    _accounts = []
+
     def __init__(self):
+        self._accounts = []
         self.index = 0
 
     def add(self, params):

@@ -3,27 +3,28 @@ from xerparser.model.classes.activitycode import ActivityCode
 
 class ActivityCodes:
 
-    _activitycodes = []
-
     def __init__(self):
         self.index = 0
+        self._activitycodes = []
 
     def add(self, params):
         self._activitycodes.append(ActivityCode(params))
 
-    @staticmethod
-    def count():
-        return len(ActivityCodes._activitycodes)
+    def count(self):
+        return len(self._activitycodes)
 
-    @staticmethod
-    def find_by_id(id) -> ActivityCode:
-        obj = list(filter(lambda x: x.actv_code_id == id, ActivityCode.obj_list))
+    def find_by_id(self, id) -> ActivityCode:
+        obj = list(filter(lambda x: x.actv_code_id == id, self._activitycodes))
         if obj:
             return obj[0]
         return obj
+
+    def find_by_type_id(self, id):
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._activitycodes))
+        return obj
     
     def __len__(self):
-        return len(ActivityCodes._activitycodes)
+        return len(self._activitycodes)
 
     def __iter__(self):
         return self

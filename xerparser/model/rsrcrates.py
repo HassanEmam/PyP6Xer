@@ -2,17 +2,15 @@ from xerparser.model.classes.rsrcrate import ResourceRate
 
 class ResourceRates:
 
-    _rsrcrates = []
-
     def __init__(self):
         self.index = 0
+        self._rsrcrates = []
 
     def add(self, params):
         self._rsrcrates.append(ResourceRate(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> ResourceRate:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._rsrcrates))
+    def find_by_id(self, id) -> ResourceRate:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rsrcrates))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -22,7 +20,7 @@ class ResourceRates:
         return len(self._rsrcrates)
 
     def __len__(self):
-        return len(ResourceRates._rsrcrates)
+        return len(self._rsrcrates)
 
     def __iter__(self):
         return self

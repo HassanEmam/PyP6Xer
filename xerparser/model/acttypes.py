@@ -2,28 +2,27 @@ from xerparser.model.classes.acttype import ActType
 
 class ActTypes:
 
-    _activitytypes = []
+
 
     def __init__(self):
         self.index = 0
+        self._activitytypes = []
 
     def add(self, params):
         self._activitytypes.append(ActType(params))
 
-    @classmethod
-    def find_by_id(cls, id) -> ActType:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, cls._activitytypes))
+    def find_by_id(self, id) -> ActType:
+        obj = list(filter(lambda x: x.actv_code_type_id == id, self._activitytypes))
         if len(obj) > 0:
             return obj[0]
         return obj
 
 
-    @staticmethod
-    def count():
-        return len(ActTypes._activitytypes)
+    def count(self):
+        return len(self._activitytypes)
 
     def __len__(self):
-        return len(ActTypes._activitytypes)
+        return len(self._activitytypes)
 
     def __iter__(self):
         return self
