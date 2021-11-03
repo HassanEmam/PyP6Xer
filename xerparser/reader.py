@@ -62,7 +62,7 @@ class Reader:
             self._wbss.add(params)
         elif object_type.strip() == "RSRC":
             self._resources.add(params)
-        elif object_type.strip() == "RSRCCURV":
+        elif object_type.strip() == "RSRCCURVDATA":
             self._rsrcurves.add(params)
         elif object_type.strip() == "ACTVTYPE":
             self._acttypes.add(params)
@@ -172,7 +172,7 @@ class Reader:
         return self._obss
     @property
     def rcattypes(self) -> RCatTypes:
-        return self.rcattypes
+        return self._rcattypes
 
     @property
     def rcatvals(self) -> RCatVals:

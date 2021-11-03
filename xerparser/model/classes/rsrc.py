@@ -40,6 +40,18 @@ class Resource:
     def get_id(self):
         return self.rsrc_id
 
+    def get_tsv(self):
+        tsv = ['%R', self.rsrc_id, self.parent_rsrc_id, self.clndr_id,
+               self.role_id, self.shift_id, self.user_id, self.pobs_id,
+               self.guid, self.rsrc_seq_num, self.email_addr, self.employee_code,
+               self.office_phone, self.other_phone, self.rsrc_name, self.rsrc_short_name,
+               self.rsrc_title_name, self.def_qty_per_hr, self.cost_qty_type, self.ot_factor,
+               self.active_flag, self.auto_compute_act_flag, self.def_cost_qty_link_flag,
+               self.ot_flag, self.curr_id, self.unit_id, self.rsrc_type, self.location_id, self.rsrc_notes,
+               self.load_tasks_flag, self.level_flag, self.last_checksum
+        ]
+        return tsv
+
     @classmethod
     def find_by_id(cls, id):
         obj = list(filter(lambda x: x.rsrc_id == id, cls.obj_list))

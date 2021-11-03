@@ -44,7 +44,23 @@ class Resources:
         for res in self._rsrcs:
             resor.append((res.rsrc_id, res.parent_rsrc_id))
         return resor
-
+    
+    def get_tsv(self):
+        tsv = []
+        if len(self._rsrcs) > 0:
+            tsv.append(['%T', 'RSRC'])
+            tsv.append(['%F', 'rsrc_id', 'parent_rsrc_id', 'clndr_id',
+               'role_id', 'shift_id', 'user_id', 'pobs_id',
+               'guid', 'rsrc_seq_num', 'email_addr', 'employee_code',
+               'office_phone', 'other_phone', 'rsrc_name', 'rsrc_short_name',
+               'rsrc_title_name', 'def_qty_per_hr', 'cost_qty_type', 'ot_factor',
+               'active_flag', 'auto_compute_act_flag', 'def_cost_qty_link_flag',
+               'ot_flag', 'curr_id', 'unit_id', 'rsrc_type', 'location_id', 'rsrc_notes',
+               'load_tasks_flag', 'level_flag', 'last_checksum'])
+            for rsr in self._rsrcs:
+                tsv.append(rsr.get_tsv())
+        return tsv
+    
     def build_tree(self):
         # pass 1: create nodes dictionary
         a = self._get_list()

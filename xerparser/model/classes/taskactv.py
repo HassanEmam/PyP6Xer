@@ -9,6 +9,10 @@ class TaskActv:
 
         TaskActv.obj_list.append(self)
 
+    def get_tsv(self):
+        tsv = ['%R', self.task_id, self.actv_code_type_id, self.actv_code_id, self.proj_id]
+        return tsv
+
     def get_id(self):
         return self.task_id
 

@@ -37,6 +37,15 @@ class WBS:
     def get_id(self):
         return self.wbs_id
 
+    def get_tsv(self):
+        tsv = ['%R', self.wbs_id, self.proj_id, self.obs_id, self.seq_num, self.est_wt,
+               self.proj_node_flag, self.sum_data_flag, self.status_code, self.wbs_short_name,
+               self.wbs_name, self.phase_id, self.parent_wbs_id, self.ev_user_pct, self.ev_etc_user_value,
+               self.orig_cost, self.indep_remain_total_cost, self.ann_dscnt_rate_pct, self.dscnt_period_type,
+               self.indep_remain_work_qty, self.anticip_start_date, self.anticip_end_date, self.ev_compute_type,
+               self.ev_etc_compute_type, self.guid, self.tmpl_guid, self.plan_open_state]
+        return tsv
+
     @classmethod
     def get_json(cls):
         root_nodes = list(filter(lambda x: WBS.find_by_id(x.parent_wbs_id) is None, cls.obj_list))

@@ -17,6 +17,16 @@ class ActTypes:
             return obj[0]
         return obj
 
+    def get_tsv(self):
+        if len(self._activitytypes) > 0:
+            tsv = []
+            tsv.append(['%T', 'ACTVTYPE'])
+            tsv.append(['%f', 'actv_code_type_id', 'actv_short_len', 'seq_num',
+                        'actv_code_type', 'proj_id', 'wbs_id', 'actv_code_type_scope'])
+            for acttyp in self._activitytypes:
+                tsv.append(acttyp.get_tsv())
+            return tsv
+        return []
 
     def count(self):
         return len(self._activitytypes)

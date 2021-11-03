@@ -17,6 +17,13 @@ class ResourceRate:
     def get_id(self):
         return self.rsrc_rate_id
 
+
+    def get_tsv(self):
+        tsv =['%R', self.rsrc_rate_id, self.rsrc_id, self.max_qty_per_hr, self.cost_per_qty,
+              self.start_date, self.shift_period_id, self.cost_per_qty2, self.cost_per_qty3,
+              self.cost_per_qty4, self.cost_per_qty5]
+        return tsv
+
     @classmethod
     def find_by_id(cls, id):
         obj = list(filter(lambda x: x.rsrc_rate_id == id, cls.obj_list))

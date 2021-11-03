@@ -17,5 +17,11 @@ class Role:
 
         Role.obj_list.append(self)
 
+    def get_tsv(self):
+        tsv = ['%R', self.role_id, self.parent_role_id, self.seq_num, self.role_name,
+               self.role_short_name, self.pobs_id, self.def_cost_qty_link_flag, self.cost_qty_type,
+               self.role_descr, self.last_checksum]
+        return tsv
+
     def __repr__(self):
         return self.role_name

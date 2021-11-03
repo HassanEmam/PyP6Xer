@@ -11,6 +11,17 @@ class RCatTypes:
     def add(self, params):
         self._rcattypes.append(RCatType(params))
 
+    def get_tsv(self):
+        if len(self._rcattypes) > 0:
+            tsv = []
+            tsv.append(['%T', 'RCATTYPE'])
+            tsv.append(['%F', 'rsrc_catg_type_id','seq_num', 'rsrc_catg_short_len',
+                        'rsrc_catg_type'])
+            for rcat in self._rcattypes:
+                tsv.append(rcat.get_tsv())
+            return tsv
+        return []
+
     def find_by_id(self, id) -> RCatType:
         obj = list(filter(lambda x: x.actv_code_type_id == id, self._rcattypes))
         if len(obj) > 0:

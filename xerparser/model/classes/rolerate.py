@@ -19,6 +19,11 @@ class RoleRate:
         obj = list(filter(lambda x: x.role_rate_id == id, cls.obj_list))[0]
         return obj
 
+    def get_tsv(self):
+        tsv = ['%R', self.role_rate_id, self.role_id, self.cost_per_qty, self.cost_per_qty2,
+               self.cost_per_qty3, self.cost_per_qty4, self.cost_per_qty5]
+        return tsv
+
     @classmethod
     def find_by_role_id(cls, id):
         obj = list(filter(lambda x: x.role_id == id, cls.obj_list))

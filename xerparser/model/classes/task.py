@@ -191,6 +191,22 @@ class Task:
         # self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
         # Task.obj_list.append(self)
 
+    def get_tsv(self):
+        tsv = ['%R', self.task_id, self.proj_id, self.wbs_id, self.clndr_id, self.phys_complete_pct, self.rev_fdbk_flag,
+               self.est_wt, self.lock_plan_flag, self.auto_compute_act_flag, self.complete_pct_type, self.task_type,
+               self.duration_type, self.status_code, self.task_code, self.task_name, self.rsrc_id,
+               self.total_float_hr_cnt, self.free_float_hr_cnt, self.remain_drtn_hr_cnt, self.act_work_qty,
+               self.remain_work_qty, self.target_work_qty, self.target_drtn_hr_cnt, self.target_equip_qty,
+               self.act_equip_qty, self.remain_equip_qty, self.cstr_date, self.act_start_date, self.act_end_date,
+               self.late_start_date, self.late_end_date, self.expect_end_date, self.early_start_date,
+               self.early_end_date, self.restart_date, self.reend_date, self.target_start_date, self.target_end_date,
+               self.rem_late_start_date, self.rem_late_end_date, self.cstr_type, self.priority_type, self.suspend_date,
+               self.resume_date, self.float_path, self.float_path_order, self.guid, self.tmpl_guid, self.cstr_date2,
+               self.cstr_type2, self.driving_path_flag, self.act_this_per_work_qty, self.act_this_per_equip_qty,
+               self.external_early_start_date, self.external_late_end_date, self.create_date, self.update_date,
+               self.create_user, self.update_user, self.location_id]
+        return tsv
+
     @property
     def id(self):
         return self.task_id

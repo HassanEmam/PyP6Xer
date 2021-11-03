@@ -16,7 +16,17 @@ class Predecessors:
         else:
             obj = None
         return obj
-
+    
+    def get_tsv(self):
+        tsv = []
+        if len(self.task_pred) > 0:
+            tsv.append(['%T', 'TASKPRED'])
+            tsv.append(['%F', 'task_pred_id', 'task_id', 'pred_task_id', 'proj_id', 'pred_proj_id',
+               'pred_type', 'lag_hr_cnt', 'float_path', 'aref', 'arls'])
+            for pred in self.task_pred:
+                tsv.append(pred.get_tsv())
+        return tsv
+        
     def add(self, params):
         pred = TaskPred(params)
         self.task_pred.append(pred)

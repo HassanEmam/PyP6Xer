@@ -132,6 +132,27 @@ class Tasks:
     def activities_by_type(self, type):
         obj = list(filter(lambda x: x.cstr_type == type, self._tasks))
         return obj
+    
+    def get_tsv(self):
+        tsv = []
+        if len(self._tasks) > 0:
+            tsv.append(['%T', 'TASK'])
+            tsv.append(['%F', 'task_id', 'proj_id', 'wbs_id', 'clndr_id', 'phys_complete_pct', 'rev_fdbk_flag',
+               'est_wt', 'lock_plan_flag', 'auto_compute_act_flag', 'complete_pct_type', 'task_type',
+               'duration_type', 'status_code', 'task_code', 'task_name', 'rsrc_id',
+               'total_float_hr_cnt', 'free_float_hr_cnt', 'remain_drtn_hr_cnt', 'act_work_qty',
+               'remain_work_qty', 'target_work_qty', 'target_drtn_hr_cnt', 'target_equip_qty',
+               'act_equip_qty', 'remain_equip_qty', 'cstr_date', 'act_start_date', 'act_end_date',
+               'late_start_date', 'late_end_date', 'expect_end_date', 'early_start_date',
+               'early_end_date', 'restart_date', 'reend_date', 'target_start_date', 'target_end_date',
+               'rem_late_start_date', 'rem_late_end_date', 'cstr_type', 'priority_type', 'suspend_date',
+               'resume_date', 'float_path', 'float_path_order', 'guid', 'tmpl_guid', 'cstr_date2',
+               'cstr_type2', 'driving_path_flag', 'act_this_per_work_qty', 'act_this_per_equip_qty',
+               'external_early_start_date', 'external_late_end_date', 'create_date', 'update_date',
+               'create_user', 'update_user', 'location_id'])
+            for task in self._tasks:
+                tsv.append(task.get_tsv())
+        return tsv
 
     def get_by_project(self, id):
         obj = list(filter(lambda x: x.proj_id == id, self._tasks))

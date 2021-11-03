@@ -16,6 +16,20 @@ class ResourceCurves:
         if len(obj) > 0:
             return obj[0]
         return obj
+    
+    def get_tsv(self):
+        tsv = []
+        if len(self._resourcecurves) > 0:
+            tsv.append(['%T', 'RSRCCURVDATA'])
+            tsv.append(['%F', 'curv_id', 'curv_name', 'default_flag', 'pct_usage_0',
+               'pct_usage_1', 'pct_usage_2', 'pct_usage_3', 'pct_usage_4',
+               'pct_usage_5', 'pct_usage_6', 'pct_usage_7', 'pct_usage_8',
+               'pct_usage_9', 'pct_usage_10', 'pct_usage_11', 'pct_usage_12',
+               'pct_usage_13', 'pct_usage_14', 'pct_usage_15', 'pct_usage_16',
+               'pct_usage_17', 'pct_usage_18', 'pct_usage_19', 'pct_usage_20'])
+            for rcurv in self._resourcecurves:
+                tsv.append(rcurv.get_tsv())
+        return tsv
 
     @property
     def count(self):

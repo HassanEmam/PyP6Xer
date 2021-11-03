@@ -13,6 +13,17 @@ class ActivityCodes:
     def count(self):
         return len(self._activitycodes)
 
+    def get_tsv(self):
+        if len(self._activitycodes) > 0:
+            tsv = []
+            tsv.append(['%T', 'ACTVCODE'])
+            tsv.append(['%F', 'actv_code_id', 'parent_actv_code_id', 'actv_code_type_id',
+                        'actv_code_name', 'short_name', 'seq_num', 'color', 'total_assignments'])
+            for code in self._activitycodes:
+                tsv.append(code.get_tsv())
+            return tsv
+        return []
+
     def find_by_id(self, id) -> ActivityCode:
         obj = list(filter(lambda x: x.actv_code_id == id, self._activitycodes))
         if obj:

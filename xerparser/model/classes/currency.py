@@ -30,7 +30,11 @@ class Currency:
     def get_id(self):
         return self.curr_id
 
-
+    def get_tsv(self):
+        tsv = ['%R', self.curr_id, self.decimal_digit_cnt, self.curr_symbol, self.decimal_symbol,
+               self.digit_group_symbol, self.pos_curr_fmt_type, self.curr_type, self.curr_short_name,
+               self.group_digit_cnt, self.base_exch_rate]
+        return tsv
     @classmethod
     def find_by_id(cls, id):
         obj = list(filter(lambda x: x.curr_id == id, cls.obj_list))

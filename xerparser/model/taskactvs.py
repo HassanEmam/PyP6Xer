@@ -9,7 +9,16 @@ class TaskActvs:
 
     def add(self, params):
         self._taskactvs.append(TaskActv(params))
-
+    
+    def get_tsv(self):
+        tsv = []
+        if len(self._taskactvs) > 0:
+            tsv.append(['%T', 'TASKACTV'])
+            tsv.append(['%F', 'task_id', 'actv_code_type_id', 'actv_code_id', 'proj_id'])
+            for taskact in self._taskactvs:
+                tsv.append(taskact.get_tsv())
+        return tsv
+    
     def find_by_code_id(self, id) -> TaskActv:
         obj = list(filter(lambda x: x.actv_code_id == id, self._taskactvs))
         if len(obj) > 0:

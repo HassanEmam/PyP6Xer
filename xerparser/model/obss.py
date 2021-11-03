@@ -16,7 +16,18 @@ class OBSs:
         if len(obj) > 0:
             return obj[0]
         return obj
-
+    
+    def get_tsv(self):
+        if len(self._obss) > 0:
+            tsv = []
+            tsv.append(['%T', 'OBS'])
+            tsv.append(['%F', 'obs_id', 'parent_obs_id', 'guid', 'seq_num',
+                        'obs_name', 'obs_descr'])
+            for obs in self._obss:
+                tsv.append(obs.get_tsv())
+            return tsv
+        return []
+    
     @property
     def count(self):
         return len(self._obss)

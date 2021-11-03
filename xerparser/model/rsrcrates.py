@@ -15,6 +15,17 @@ class ResourceRates:
             return obj[0]
         return obj
 
+    def get_tsv(self):
+        tsv = []
+        if len(self._rsrcrates) > 0:
+            tsv.append(['%T', 'RSRCRATE'])
+            tsv.append(['%F', 'rsrc_rate_id', 'rsrc_id', 'max_qty_per_hr', 'cost_per_qty',
+              'start_date', 'shift_period_id', 'cost_per_qty2', 'cost_per_qty3',
+              'cost_per_qty4', 'cost_per_qty5'])
+            for rr in self._rsrcrates:
+                tsv.append(rr.get_tsv())
+        return tsv
+
     @property
     def count(self):
         return len(self._rsrcrates)

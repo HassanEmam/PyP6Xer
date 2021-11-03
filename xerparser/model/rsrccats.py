@@ -7,6 +7,15 @@ class ResourceCategories:
         self.index = 0
         self._rsrccat = []
 
+    def get_tsv(self):
+        tsv = []
+        if len(self._rsrccat) > 0:
+            tsv.append(['%T', 'RSRCRCAT'])
+            tsv.append(['%F', 'rsrc_id', 'rsrc_catg_type_id', 'rsrc_catg_id'])
+            for rc in self._rsrccat:
+                tsv.append(rc.get_tsv())
+        return tsv
+
     def add(self, params):
         self._rsrccat.append(ResourceCat(params))
 

@@ -16,6 +16,18 @@ class Currencies:
         if len(obj) > 0:
             return obj[0]
         return obj
+    
+    def get_tsv(self):
+        if len(self._currencies) > 0:
+            tsv = []
+            tsv.append(['%T', 'CURR'])
+            tsv.append(['%F', 'curr_id', 'decimal_digit_cnt', 'curr_symbol', 'decimal_symbol',
+                   'digit_group_symbol', 'pos_curr_fmt_type', 'curr_type', 'curr_short_name',
+                   'group_digit_cnt', 'base_exch_rate'])
+            for cur in self._currencies:
+                tsv.append(cur.get_tsv())
+            return tsv
+        return []
 
     @property
     def count(self):

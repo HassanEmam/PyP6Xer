@@ -9,6 +9,11 @@ class RCatType:
         self.rsrc_catg_type = params.get('rsrc_catg_type').strip() if params.get('rsrc_catg_type') else None
         RCatType.obj_list.append(self)
 
+    def get_tsv(self):
+        tsv = ['%R', self.rsrc_catg_type_id,self.seq_num, self.rsrc_catg_short_len,
+               self.rsrc_catg_type]
+        return tsv
+
     def get_id(self):
         return self.rsrc_catg_type_id
 

@@ -5,7 +5,7 @@ class ResourceCurve:
 
     def __init__(self, params):
         self.curv_id = int(params.get('curv_id')) if params.get('curv_id') else None
-        self.curv_name = params.get('curv_id').strip() if params.get('curv_id') else None
+        self.curv_name = params.get('curv_name').strip() if params.get('curv_id') else None
         self.default_flag = params.get('default_flag') if params.get('default_flag') else None
         self.pct_usage_0 = float(params.get('pct_usage_0')) if params.get('pct_usage_0') else None
         self.pct_usage_1 = float(params.get('pct_usage_1')) if params.get('pct_usage_1') else None
@@ -30,6 +30,15 @@ class ResourceCurve:
         self.pct_usage_20 = float(params.get('pct_usage_20')) if params.get('pct_usage_20') else None
 
         ResourceCurve.obj_list.append(self)
+
+    def get_tsv(self):
+        tsv = ['%R', self.curv_id, self.curv_name, self.default_flag, self.pct_usage_0,
+               self.pct_usage_1, self.pct_usage_2, self.pct_usage_3, self.pct_usage_4,
+               self.pct_usage_5, self.pct_usage_6, self.pct_usage_7, self.pct_usage_8,
+               self.pct_usage_9, self.pct_usage_10, self.pct_usage_11, self.pct_usage_12,
+               self.pct_usage_13, self.pct_usage_14, self.pct_usage_15, self.pct_usage_16,
+               self.pct_usage_17, self.pct_usage_18, self.pct_usage_19, self.pct_usage_20]
+        return tsv
 
     @classmethod
     def find_by_id(cls, id):

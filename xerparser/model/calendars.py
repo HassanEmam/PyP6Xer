@@ -11,6 +11,20 @@ class Calendars:
     def add(self, params):
         self._calendars.append(Calendar(params))
 
+    def get_tsv(self):
+        if len(self._calendars) > 0:
+            tsv = []
+            tsv.append(['%T', 'CALENDAR'])
+            tsv.append(
+                ['%F', 'clndr_id', 'default_flag', 'clndr_name', 'proj_id',
+                   'base_clndr_id', 'last_chng_date', 'clndr_type', 'day_hr_cnt',
+                   'week_hr_cnt', 'month_hr_cnt', 'year_hr_cnt', 'rsrc_private',
+                   'clndr_data'])
+            for cal in self._calendars:
+                tsv.append(cal.get_tsv())
+            return tsv
+        return []
+
     def find_by_id(self, id) -> Calendar:
         obj = list(filter(lambda x: x.clndr_id == id, self._calendars))
         if len(obj) > 0:

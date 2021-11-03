@@ -19,6 +19,10 @@ class OBS:
 
         OBS.obj_list.append(self)
 
+    def get_tsv(self):
+        tsv = ['%R', self.obs_id, self.parent_obs_id, self.guid, self.seq_num,
+               self.obs_name, self.obs_descr]
+        return tsv
     @classmethod
     def get_json(cls):
         root_nodes = list(filter(lambda x: x.parent_obs_id is None, cls.obj_list))

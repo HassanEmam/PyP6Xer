@@ -22,6 +22,10 @@ class ActType:
     def get_id(self):
         return self.actv_code_type_id
 
+    def get_tsv(self):
+        tsv = ['%R', self.actv_code_type_id, self.actv_short_len, self.seq_num,
+               self.actv_code_type, self.proj_id, self.wbs_id, self.actv_code_type_scope]
+        return tsv
     @classmethod
     def find_by_id(cls, id):
         """ Function to search list of activity code type by an ID

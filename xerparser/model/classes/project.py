@@ -78,6 +78,26 @@ class Project:
     def id(self):
         return self.proj_id
 
+    def get_tsv(self):
+        tsv = ['%R', self.proj_id, self.fy_start_month_num, self.rsrc_self_add_flag,
+               self.allow_complete_flag, self.rsrc_multi_assign_flag, self.checkout_flag,
+               self.project_flag, self.step_complete_flag, self.cost_qty_recalc_flag,
+               self.batch_sum_flag, self.name_sep_char, self.def_complete_pct_type, self.proj_short_name,
+               self.acct_id, self.orig_proj_id, self.source_proj_id, self.base_type_id, self.clndr_id,
+               self.sum_base_proj_id, self.task_code_base, self.task_code_step, self.priority_num,
+               self.wbs_max_sum_level, self.strgy_priority_num, self.last_checksum, self.critical_drtn_hr_cnt,
+               self.def_cost_per_qty, self.last_recalc_date, self.plan_start_date, self.plan_end_date,
+               self.scd_end_date, self.add_date, self.last_tasksum_date, self.fcst_start_date, self.def_duration_type,
+               self.task_code_prefix, self.guid, self.def_qty_type, self.add_by_name, self.web_local_root_path,
+               self.proj_url, self.def_rate_type, self.add_act_remain_flag, self.act_this_per_link_flag,
+               self.def_task_type, self.act_pct_link_flag, self.critical_path_type, self.task_code_prefix_flag,
+               self.def_rollup_dates_flag, self.use_project_baseline_flag, self.rem_target_link_flag,
+               self.reset_planned_flag, self.allow_neg_act_flag, self.sum_assign_level, self.last_fin_dates_id,
+               self.last_baseline_update_date, self.cr_external_key, self.apply_actuals_date, self.location_id,
+               self.loaded_scope_level, self.export_flag, self.new_fin_dates_id, self.baselines_to_export,
+               self.baseline_names_to_export, self.next_data_date, self.close_period_flag, self.sum_refresh_date,
+               self.trsrcsum_loaded]
+        return tsv
 
     @property
     def activities(self):

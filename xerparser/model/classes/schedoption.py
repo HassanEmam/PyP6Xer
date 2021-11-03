@@ -27,12 +27,25 @@ class SchedOption:
         self.limit_multiple_longest_path_calc = params.get('limit_multiple_longest_path_calc').strip() if params.get('limit_multiple_longest_path_calc') else None
         self.max_multiple_longest_path = params.get('max_multiple_longest_path').strip() if params.get('max_multiple_longest_path') else None
         self.use_total_float_multiple_longest_paths = params.get('use_total_float_multiple_longest_paths').strip() if params.get('use_total_float_multiple_longest_paths') else None
-        self.key_activity_for_multiple_longest_paths = params.get('use_total_float_multiple_longest_paths').strip() if params.get('use_total_float_multiple_longest_paths') else None
+        self.key_activity_for_multiple_longest_paths = params.get('key_activity_for_multiple_longest_paths').strip() if params.get('use_total_float_multiple_longest_paths') else None
         self.LevelPriorityList = params.get('LevelPriorityList').strip() if params.get('LevelPriorityList') else None
         SchedOption.obj_list.append(self)
 
     def get_id(self):
         return self.schedoptions_id
+
+    def get_tsv(self):
+        tsv = ['%R', self.schedoptions_id, self.proj_id, self.sched_outer_depend_type, self.sched_open_critical_flag,
+               self.sched_lag_early_start_flag, self.sched_retained_logic, self.sched_setplantoforecast,
+               self.sched_float_type, self.sched_calendar_on_relationship_lag, self.sched_use_expect_end_flag,
+               self.sched_progress_override, self.level_float_thrs_cnt, self.level_outer_assign_flag,
+               self.level_outer_assign_priority, self.level_over_alloc_pct, self.level_within_float_flag,
+               self.level_keep_sched_date_flag, self.level_all_rsrc_flag, self.sched_use_project_end_date_for_float,
+               self.enable_multiple_longest_path_calc, self.limit_multiple_longest_path_calc,
+               self.max_multiple_longest_path, self.use_total_float_multiple_longest_paths,
+               self.key_activity_for_multiple_longest_paths, self.LevelPriorityList
+               ]
+        return tsv
 
     def __repr__(self):
         return self.proj_id
