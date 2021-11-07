@@ -29,10 +29,10 @@ class Projects:
                    'def_task_type', 'act_pct_link_flag', 'critical_path_type', 'task_code_prefix_flag',
                    'def_rollup_dates_flag', 'use_project_baseline_flag', 'rem_target_link_flag',
                    'reset_planned_flag', 'allow_neg_act_flag', 'sum_assign_level', 'last_fin_dates_id',
-                   'last_baseline_update_date', 'cr_external_key', 'apply_actuals_date', 'location_id',
+                   'last_baseline_update_date', 'cr_external_key', 'apply_actuals_date', 'fintmpl_id', 'location_id',
                    'loaded_scope_level', 'export_flag', 'new_fin_dates_id', 'baselines_to_export',
                    'baseline_names_to_export', 'next_data_date', 'close_period_flag', 'sum_refresh_date',
-                   'trsrcsum_loaded'])
+                   'trsrcsum_loaded', 'sumtask_loaded'])
             for prj in self._projects:
                 tsv.append(prj.get_tsv())
             return tsv

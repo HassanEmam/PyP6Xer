@@ -20,9 +20,9 @@ class Currencies:
     def get_tsv(self):
         if len(self._currencies) > 0:
             tsv = []
-            tsv.append(['%T', 'CURR'])
+            tsv.append(['%T', 'CURRTYPE'])
             tsv.append(['%F', 'curr_id', 'decimal_digit_cnt', 'curr_symbol', 'decimal_symbol',
-                   'digit_group_symbol', 'pos_curr_fmt_type', 'curr_type', 'curr_short_name',
+                   'digit_group_symbol', 'pos_curr_fmt_type', 'neg_curr_fmt_type', 'curr_type', 'curr_short_name',
                    'group_digit_cnt', 'base_exch_rate'])
             for cur in self._currencies:
                 tsv.append(cur.get_tsv())

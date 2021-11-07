@@ -7,7 +7,7 @@ class Currency:
         # The number of decimal places displayed.
         self.decimal_digit_cnt = int(params.get('decimal_digit_cnt')) if params.get('decimal_digit_cnt') else None
         # The symbol used to identify each defined currency.
-        self.curr_symbol = params.get('curr_symbol').strip() if params.get('curr_symbol') else None
+        self.curr_symbol = params.get('curr_symbol') if params.get('curr_symbol') else None
         # The decimal symbol displayed.
         self.decimal_symbol = params.get('decimal_symbol').strip() if params.get('decimal_symbol') else None
         # The symbol used to group the numbers.
@@ -32,8 +32,8 @@ class Currency:
 
     def get_tsv(self):
         tsv = ['%R', self.curr_id, self.decimal_digit_cnt, self.curr_symbol, self.decimal_symbol,
-               self.digit_group_symbol, self.pos_curr_fmt_type, self.curr_type, self.curr_short_name,
-               self.group_digit_cnt, self.base_exch_rate]
+               self.digit_group_symbol, self.pos_curr_fmt_type, self.neg_curr_fmt_type,
+               self.curr_type, self.curr_short_name, self.group_digit_cnt, self.base_exch_rate]
         return tsv
     @classmethod
     def find_by_id(cls, id):

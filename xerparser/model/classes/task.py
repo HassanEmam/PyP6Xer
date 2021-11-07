@@ -20,24 +20,24 @@ class Task:
         self.clndr_id = int(params.get('clndr_id')) if params.get('clndr_id') else None
         # The physical percent complete can either be user entered or calculated from the activity's weighted steps.
         #  There is a project setting specifying this.
-        self.phys_complete_pct = float(params.get('phys_complete_pct')) if params.get('phys_complete_pct') else None
+        self.phys_complete_pct = int(params.get('phys_complete_pct')) if params.get('phys_complete_pct') else None
         # Indicates that the primary resource has sent feedback notes about this activity which have not been
         # reviewed yet.
-        self.rev_fdbk_flag = bool(params.get('rev_fdbk_flag')) if params.get('rev_fdbk_flag') else None
+        self.rev_fdbk_flag = params.get('rev_fdbk_flag') if params.get('rev_fdbk_flag') else None
         # The estimation weight for the activity, used for top-down estimation. Top-down estimation weights are used
         # to calculate the proportion of units that each activity receives in relation to the other activities within
         #  the same WBS. Top-down estimation distributes estimated units in a top-down manner to activities using the
         #  WBS hierarchy.
 
-        self.est_wt = float(params.get('est_wt').strip()) if params.get('est_wt') else None
+        self.est_wt = int(params.get('est_wt').strip()) if params.get('est_wt') else None
         # Indicates that the planned labor and nonlabor units for the activity will not be modified by top-down
         # estimation.
-        self.lock_plan_flag = bool(params.get('lock_plan_flag')) if params.get('lock_plan_flag') else None
+        self.lock_plan_flag = params.get('lock_plan_flag') if params.get('lock_plan_flag') else None
         # Identifies whether the actual and remaining cost for the expense are computed automatically using the
         # planned cost and the activity's schedule percent complete.  If this option is selected,
         # the actual/remaining cost are automatically updated when project actuals are applied.  This assumes the
         # expenses are made according to plan.
-        self.auto_compute_act_flag = bool(params.get('auto_compute_act_flag')) if params.get('auto_compute_act_flag') else None
+        self.auto_compute_act_flag = params.get('auto_compute_act_flag') if params.get('auto_compute_act_flag') else None
         # The activity percent complete type is one of ""Duration"", ""Units"", or ""Physical"". The percent complete
         #  type controls whether the Activity % Complete is tied to the Duration % Complete, the Units % Complete,
         # or the Physical % Complete for the activity. Set the percent complete type to ""Duration"" for activities
@@ -71,39 +71,39 @@ class Task:
         self.task_name = params.get('task_name').strip() if params.get('task_name') else None
         # Resource ID Name
         self.rsrc_id = int(params.get('rsrc_id').strip()) if params.get('rsrc_id') else None
-        # The amount of time the wbs can be delayed before delaying the project finish date. Total float can be
+        # The amount of time the wbs can be delayed before delaying the project finish date. Total int can be
         # computed as Late Start - Early Start or as Late Finish - Early Finish; this option can be set when running
         # the project scheduler.
-        self.total_float_hr_cnt = float(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') else None
+        self.total_float_hr_cnt = int(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') else None
         # The amount of time the activity can be delayed before delaying the start date of any successor activity.
-        self.free_float_hr_cnt = float(params.get('free_float_hr_cnt')) if params.get('free_float_hr_cnt') else None
+        self.free_float_hr_cnt = int(params.get('free_float_hr_cnt')) if params.get('free_float_hr_cnt') else None
         # Remaining duration is the total working time from the activity remaining start date to the remaining finish
         #  date. The remaining working time is computed using the activity's calendar. Before the activity is
         # started, the remaining duration is the same as the Original Duration. After the activity is completed the
         # remaining duration is zero.
-        self.remain_drtn_hr_cnt = float(params.get('remain_drtn_hr_cnt').strip()) if params.get('remain_drtn_hr_cnt') else 0
+        self.remain_drtn_hr_cnt = int(params.get('remain_drtn_hr_cnt').strip()) if params.get('remain_drtn_hr_cnt') else 0
         # The total actual labor units for all child activities
-        self.act_work_qty = float(params.get('act_work_qty')) if params.get('act_work_qty') else None
+        self.act_work_qty = int(params.get('act_work_qty')) if params.get('act_work_qty') else None
         # The remaining units for all labor resources assigned to the activity. The remaining units reflects the work
         #  remaining to be done for the activity. Before the activity is started, the remaining units are the same as
         #  the planned units. After the activity is completed, the remaining units are zero.
-        self.remain_work_qty = float(params.get('remain_work_qty')) if params.get('remain_work_qty') else None
+        self.remain_work_qty = int(params.get('remain_work_qty')) if params.get('remain_work_qty') else None
         # The planned units for all labor resources assigned to the activity.
-        self.target_work_qty = float(params.get('target_work_qty')) if params.get('target_work_qty') else None
+        self.target_work_qty = int(params.get('target_work_qty')) if params.get('target_work_qty') else None
         # Original Duration is the planned working time for the resource assignment on the activity,
         # from the resource's planned start date to the planned finish date. The planned working time is computed
         # using the calendar determined by the Activity Type. Resource Dependent activities use the resource's
         # calendar; other activity types use the activity's calendar. This is the duration that Timesheets users
         # follow and the schedule variance is measured against.
-        self.target_drtn_hr_cnt = float(params.get('target_drtn_hr_cnt').strip()) if params.get('target_drtn_hr_cnt') else None
+        self.target_drtn_hr_cnt = int(params.get('target_drtn_hr_cnt').strip()) if params.get('target_drtn_hr_cnt') else None
         # The planned units for all nonlabor resources assigned to the activity.
-        self.target_equip_qty = float(params.get('target_equip_qty')) if params.get('target_equip_qty') else None
+        self.target_equip_qty = int(params.get('target_equip_qty')) if params.get('target_equip_qty') else None
         # The actual units for all nonlabor resources assigned to the activities under the WBS.
-        self.act_equip_qty = float(params.get('act_equip_qty')) if params.get('act_equip_qty') else None
+        self.act_equip_qty = int(params.get('act_equip_qty')) if params.get('act_equip_qty') else None
         # The remaining units for all nonlabor resources assigned to the activity. The remaining units reflects the
         # work remaining to be done for the activity.  Before the activity is started, the remaining units are the
         # same as the planned units. After the activity is completed, the remaining units are zero.
-        self.remain_equip_qty = float(params.get('remain_equip_qty')) if params.get('remain_equip_qty') else None
+        self.remain_equip_qty = int(params.get('remain_equip_qty')) if params.get('remain_equip_qty') else None
         # The constraint date for the activity, if the activity has a constraint. The activity's constraint type
         # determines whether this is a start date or finish date.  Activity constraints are used by the project
         # scheduler.
@@ -152,28 +152,28 @@ class Task:
         # project scheduler.  Start date constraints are 'Start On', 'Start On or Before', 'Start On or After' and
         # 'Mandatory Start'.  Finish date constraints are 'Finish On', 'Finish On or Before', 'Finish On or After'
         # and 'Mandatory Finish'.  Another type of constraint, 'As Late as Possible', schedules the activity as late
-        # as possible based on the available free float.
+        # as possible based on the available free int.
         self.cstr_type = params.get('cstr_type').strip() if params.get('cstr_type') else None
         self.priority_type = params.get('priority_type').strip() if params.get('priority_type') else None
         # The date progress is suspended on an activity.
         self.suspend_date = datetime.strptime(params.get('suspend_date').strip(), '%Y-%m-%d %H:%M') if params.get('suspend_date') else None
         # The date progress is resumed on an activity.
         self.resume_date = datetime.strptime(params.get('resume_date').strip(), '%Y-%m-%d %H:%M') if params.get('resume_date') else None
-        self.float_path = params.get('float_path').strip() if params.get('float_path') else None
+        self.int_path = params.get('int_path').strip() if params.get('int_path') else None
         # This field is computed by the project scheduler and identifies the order in which the activities were
-        # processed within the float path.
-        self.float_path_order = params.get('float_path_order').strip() if params.get('float_path_order') else None
+        # processed within the int path.
+        self.int_path_order = params.get('int_path_order').strip() if params.get('int_path_order') else None
         self.guid = params.get('guid').strip() if params.get('guid') else None
         self.tmpl_guid = params.get('tmpl_guid').strip() if params.get('tmpl_guid') else None
         # The second constraint date for the activity, if the activity has a constraint.
         self.cstr_date2 = datetime.strptime(params.get('cstr_date2'), '%Y-%m-%d %H:%M') if params.get('cstr_date2') else None
         # The second type of constraint applied to the activity start or finish date.
         self.cstr_type2 = params.get('cstr_type2').strip() if params.get('cstr_type2') else None
-        self.driving_path_flag = bool(params.get('driving_path_flag')) if params.get('driving_path_flag') else None
+        self.driving_path_flag = params.get('driving_path_flag') if params.get('driving_path_flag') else None
         # The actual this period units for all labor resources assigned to the activity.
-        self.act_this_per_work_qty = float(params.get('act_this_per_work_qty')) if params.get('act_this_per_work_qty') else None
+        self.act_this_per_work_qty = int(params.get('act_this_per_work_qty')) if params.get('act_this_per_work_qty') else None
         # The actual this period units for all nonlabor resources assigned to the activity.
-        self.act_this_per_equip_qty = float(params.get('act_this_per_equip_qty')) if params.get('act_this_per_equip_qty') else None
+        self.act_this_per_equip_qty = int(params.get('act_this_per_equip_qty')) if params.get('act_this_per_equip_qty') else None
         # The External Early Start date is the date the external relationship was scheduled to finish.  This date may
         #  be used to calculate the start date of the current activity during scheduling.  This field is populated on
         #  import when an external relationship is lost.
@@ -182,8 +182,8 @@ class Task:
             self.external_late_end_date = datetime.strptime(params.get('external_late_end_date'), '%Y-%m-%d %H:%M') if params.get('external_late_end_date') else None
         except:
             pass
-        self.create_date = params.get('create_date').strip() if params.get('create_date') else None
-        self.update_date = params.get('update_date').strip() if params.get('update_date') else None
+        self.create_date = datetime.strptime(params.get('create_date'), '%Y-%m-%d %H:%M') if params.get('create_date') else None
+        self.update_date = datetime.strptime(params.get('update_date'), '%Y-%m-%d %H:%M') if params.get('update_date') else None
         self.create_user = params.get('create_user').strip() if params.get('create_user') else None
         self.update_user = params.get('update_user').strip() if params.get('update_user') else None
         self.location_id = params.get('location_id').strip() if params.get('location_id') else None
@@ -192,18 +192,37 @@ class Task:
         # Task.obj_list.append(self)
 
     def get_tsv(self):
-        tsv = ['%R', self.task_id, self.proj_id, self.wbs_id, self.clndr_id, self.phys_complete_pct, self.rev_fdbk_flag,
-               self.est_wt, self.lock_plan_flag, self.auto_compute_act_flag, self.complete_pct_type, self.task_type,
+        tsv = ['%R', self.task_id, self.proj_id, self.wbs_id, self.clndr_id, int(self.phys_complete_pct), self.rev_fdbk_flag,
+               int(self.est_wt), self.lock_plan_flag, self.auto_compute_act_flag, self.complete_pct_type, self.task_type,
                self.duration_type, self.status_code, self.task_code, self.task_name, self.rsrc_id,
                self.total_float_hr_cnt, self.free_float_hr_cnt, self.remain_drtn_hr_cnt, self.act_work_qty,
                self.remain_work_qty, self.target_work_qty, self.target_drtn_hr_cnt, self.target_equip_qty,
-               self.act_equip_qty, self.remain_equip_qty, self.cstr_date, self.act_start_date, self.act_end_date,
-               self.late_start_date, self.late_end_date, self.expect_end_date, self.early_start_date,
-               self.early_end_date, self.restart_date, self.reend_date, self.target_start_date, self.target_end_date,
-               self.rem_late_start_date, self.rem_late_end_date, self.cstr_type, self.priority_type, self.suspend_date,
-               self.resume_date, self.float_path, self.float_path_order, self.guid, self.tmpl_guid, self.cstr_date2,
-               self.cstr_type2, self.driving_path_flag, self.act_this_per_work_qty, self.act_this_per_equip_qty,
-               self.external_early_start_date, self.external_late_end_date, self.create_date, self.update_date,
+               self.act_equip_qty, self.remain_equip_qty,
+               self.cstr_date.strftime('%Y-%m-%d %H:%M') if self.cstr_date else None,
+               self.act_start_date.strftime('%Y-%m-%d %H:%M') if self.act_start_date else None,
+               self.act_end_date.strftime('%Y-%m-%d %H:%M') if self.act_end_date else None,
+               self.late_start_date.strftime('%Y-%m-%d %H:%M') if self.late_start_date else None,
+               self.late_end_date.strftime('%Y-%m-%d %H:%M') if self.late_end_date else None,
+               self.expect_end_date.strftime('%Y-%m-%d %H:%M') if self.expect_end_date else None,
+               self.early_start_date.strftime('%Y-%m-%d %H:%M') if self.early_start_date else None,
+               self.early_end_date.strftime('%Y-%m-%d %H:%M') if self.early_end_date else None,
+               self.restart_date.strftime('%Y-%m-%d %H:%M') if self.restart_date else None,
+               self.reend_date.strftime('%Y-%m-%d %H:%M') if self.reend_date else None,
+               self.target_start_date.strftime('%Y-%m-%d %H:%M') if self.target_start_date else None,
+               self.target_end_date.strftime('%Y-%m-%d %H:%M') if self.target_end_date else None,
+               self.rem_late_start_date.strftime('%Y-%m-%d %H:%M') if self.rem_late_start_date else None,
+               self.rem_late_end_date.strftime('%Y-%m-%d %H:%M') if self.rem_late_end_date else None,
+               self.cstr_type, self.priority_type,
+               self.suspend_date.strftime('%Y-%m-%d %H:%M') if self.suspend_date else None,
+               self.resume_date.strftime('%Y-%m-%d %H:%M') if self.resume_date else None,
+               self.int_path, self.int_path_order, self.guid, self.tmpl_guid,
+               self.cstr_date2.strftime('%Y-%m-%d %H:%M') if self.cstr_date2 else None,
+               self.cstr_type2, self.driving_path_flag,
+               self.act_this_per_work_qty, self.act_this_per_equip_qty,
+               self.external_early_start_date.strftime('%Y-%m-%d %H:%M') if self.external_early_start_date else None,
+               self.external_late_end_date.strftime('%Y-%m-%d %H:%M') if self.external_late_end_date else None,
+               self.create_date.strftime('%Y-%m-%d %H:%M') if self.create_date else None,
+               self.update_date.strftime('%Y-%m-%d %H:%M') if self.update_date else None,
                self.create_user, self.update_user, self.location_id]
         return tsv
 
@@ -212,9 +231,9 @@ class Task:
         return self.task_id
 
     @property
-    def totalfloat(self):
-        if self.total_float_hr_cnt:
-            tf = float(self.total_float_hr_cnt)/8.0
+    def totalint(self):
+        if self.total_int_hr_cnt:
+            tf = int(self.total_int_hr_cnt)/8.0
         else:
             return None
         return tf
@@ -232,7 +251,7 @@ class Task:
     def duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
-            dur = float(self.target_drtn_hr_cnt) / float(self.calendar.day_hr_cnt)
+            dur = int(self.target_drtn_hr_cnt) / int(self.calendar.day_hr_cnt)
         else:
             dur =0.0
         return dur

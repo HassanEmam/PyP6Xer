@@ -73,6 +73,8 @@ class Project:
         self.close_period_flag = params.get('close_period_flag').strip() if params.get('close_period_flag') else None
         self.sum_refresh_date = params.get('sum_refresh_date').strip() if params.get('sum_refresh_date') else None
         self.trsrcsum_loaded = params.get('trsrcsum_loaded').strip() if params.get('trsrcsum_loaded') else None
+        self.fintmpl_id = int(params.get('fintmpl_id').strip()) if params.get('fintmpl_id') else None
+        self.sumtask_loaded = params.get('sumtask_loaded').strip() if params.get('sumtask_loaded') else None
 
     @property
     def id(self):
@@ -93,10 +95,10 @@ class Project:
                self.def_task_type, self.act_pct_link_flag, self.critical_path_type, self.task_code_prefix_flag,
                self.def_rollup_dates_flag, self.use_project_baseline_flag, self.rem_target_link_flag,
                self.reset_planned_flag, self.allow_neg_act_flag, self.sum_assign_level, self.last_fin_dates_id,
-               self.last_baseline_update_date, self.cr_external_key, self.apply_actuals_date, self.location_id,
-               self.loaded_scope_level, self.export_flag, self.new_fin_dates_id, self.baselines_to_export,
-               self.baseline_names_to_export, self.next_data_date, self.close_period_flag, self.sum_refresh_date,
-               self.trsrcsum_loaded]
+               self.last_baseline_update_date, self.cr_external_key, self.apply_actuals_date, self.fintmpl_id,
+               self.location_id, self.loaded_scope_level, self.export_flag, self.new_fin_dates_id,
+               self.baselines_to_export, self.baseline_names_to_export, self.next_data_date, self.close_period_flag,
+               self.sum_refresh_date, self.trsrcsum_loaded, self.sumtask_loaded]
         return tsv
 
     @property

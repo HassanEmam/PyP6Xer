@@ -7,6 +7,7 @@ import mmap
 import codecs
 from xerparser import *
 from typing import List
+from xerparser.write import writeXER
 
 class Reader:
 
@@ -25,6 +26,11 @@ class Reader:
 
     current_table = ''
     current_headers = []
+
+    def write(self, filename=None):
+        if filename is None:
+            raise Exception("You have to provide the filename")
+        writeXER(self, filename)
 
     def create_object(self, object_type, params):
         """
@@ -71,6 +77,7 @@ class Reader:
         elif object_type.strip() == "RSRCRCAT":
             self._rsrccats.add(params)
         elif object_type.strip() == "TASK":
+            print(params)
             self._tasks.add(params)
         elif object_type.strip() == "ACTVCODE":
             self._actvcodes.add(params)
@@ -155,6 +162,7 @@ class Reader:
     @property
     def actvcodes(self) -> TaskActvs:
         return self._actvcodes
+
     @property
     def acttypes(self) -> ActTypes:
         return self._acttypes
@@ -170,6 +178,7 @@ class Reader:
     @property
     def obss(self) -> OBSs:
         return self._obss
+
     @property
     def rcattypes(self) -> RCatTypes:
         return self._rcattypes
@@ -216,6 +225,7 @@ class Reader:
 
     def __init__(self, filename):
         file = open(filename, 'r')
+        self.file = filename
         self._tasks = Tasks()
         self._predecessors = Predecessors()
         self._projects = Projects()
