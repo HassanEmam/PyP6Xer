@@ -1,3 +1,22 @@
+# PyP6XER
+# Copyright (C) 2020, 2021 Hassan Emam <hassan@constology.com>
+#
+# This file is part of PyP6XER.
+#
+# PyP6XER library is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License v2.1 as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# PyP6XER is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
+
+
 '''
 This file starts the process of reading and parsing xer files
 
@@ -72,12 +91,17 @@ class Reader:
             self._rsrcurves.add(params)
         elif object_type.strip() == "ACTVTYPE":
             self._acttypes.add(params)
+        elif object_type.strip() == "PCATTYPE":
+            self._pcattypes.add(params)
+        elif object_type.strip() == "PROJPCAT":
+            self._projpcats.add(params)
+        elif object_type.strip() == "PCATVAL":
+            self._pcatvals.add(params)
         elif object_type.strip() == "RSRCRATE":
             self._rsrcrates.add(params)
         elif object_type.strip() == "RSRCRCAT":
             self._rsrccats.add(params)
         elif object_type.strip() == "TASK":
-            print(params)
             self._tasks.add(params)
         elif object_type.strip() == "ACTVCODE":
             self._actvcodes.add(params)
@@ -85,10 +109,16 @@ class Reader:
             self._predecessors.add(params)
         elif object_type.strip() == "TASKRSRC":
             self._activityresources.add(params)
+        elif object_type.strip() == "TASKPROC":
+            self._taskprocs.add(params)
         elif object_type.strip() == "TASKACTV":
             self._activitycodes.add(params)
         elif object_type.strip() == "UDFVALUE":
             self._udfvalues.add(params)
+        elif object_type.strip() == "FINTMPL":
+            self._fintmpls.add(params)
+        elif object_type.strip() == "NONWORK":
+            self._nonworks.add(params)
 
     def summary(self):
         print('Number of activities: ', self.tasks.count)
@@ -107,7 +137,7 @@ class Reader:
         return self._projects
 
     @property
-    def activities(self) -> Tasks:
+    def activities(self) -> List[Tasks]:
         """
         Property to retrieve list of tasks
         Returns: list of tasks
@@ -223,6 +253,30 @@ class Reader:
     def udftypes(self) -> UDFTypes:
         return self._udftypes
 
+    @property
+    def pcattypes(self) -> List[PCatTypes]:
+        return self._pcattypes
+
+    @property
+    def pcatvals(self) -> List[PCatVals]:
+        return self._pcatvals
+
+    @property
+    def projpcats(self) -> List[ProjCat]:
+        return self._projpcats
+
+    @property
+    def taskprocs(self) -> List[TaskProc]:
+        return self._taskprocs
+
+    @property
+    def fintmpls(self) -> List[FinTmpl]:
+        return self._fintmpls
+
+    @property
+    def nonworks(self) -> List[NonWork]:
+        return self._nonworks
+
     def __init__(self, filename):
         file = open(filename, 'r')
         self.file = filename
@@ -249,6 +303,12 @@ class Reader:
         self._activityresources = ActivityResources()
         self._udftypes = UDFTypes()
         self._udfvalues = UDFValues()
+        self._pcattypes = PCatTypes()
+        self._pcatvals = PCatVals()
+        self._projpcats = ProjCats()
+        self._taskprocs = TaskProcs()
+        self._fintmpls = FinTmpls()
+        self._nonworks = NonWorks()
         with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in stream:

@@ -17,21 +17,22 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-class ResourceCat:
-    obj_list = []
+class FinTmpl:
+
 
     def __init__(self, params):
-        self.rsrc_id = int(params.get('rsrc_id').strip()) if params.get('rsrc_id') else None
-        self.rsrc_catg_type_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        self.rsrc_catg_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        ResourceCat.obj_list.append(self)
 
-    def get_tsv(self):
-        tsv = ['%R', self.rsrc_id, self.rsrc_catg_type_id, self.rsrc_catg_id]
-        return tsv
+        self.fintmpl_id = params.get('fintmpl_id').strip() if params.get('fintmpl_id') else None
+        self.fintmpl_name = params.get('fintmpl_name').strip() if params.get('fintmpl_name') else None
+        self.default_flag = params.get('default_flag').strip() if params.get('default_flag') else None
 
     def get_id(self):
-        return self.rsrc_id
+        return self.fintmpl_id
+
+    def get_tsv(self):
+        tsv = ["%R", self.fintmpl_id, self.fintmpl_name, self.default_flag]
+        return tsv
+
 
     def __repr__(self):
-        return self.rsrc_id + ' has been assign category ' + self.rsrc_catg_id
+        return self.proc_id + '->' + self.task_id

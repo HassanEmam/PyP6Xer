@@ -17,49 +17,46 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-from xerparser.model.classes.role import Role
+from xerparser.model.classes.projcat import ProjCat
 
 
-class Roles:
+class ProjCats:
 
     def __init__(self):
         self.index = 0
-        self._roles = []
-
-    def get_tsv(self):
-        if len(self._roles) > 0:
-            tsv = []
-            tsv.append(['%T', 'ROLE'])
-            tsv.append(['%F', 'role_id', 'parent_role_id', 'seq_num', 'role_name',
-                   'role_short_name', 'pobs_id', 'def_cost_qty_link_flag', 'cost_qty_type',
-                   'role_descr', 'last_checksum'])
-            for role in self._roles:
-                tsv.append(role.get_tsv())
-            return tsv
-        return []
+        self._ProjCats = []
 
     def add(self, params):
-        self._roles.append(Role(params))
+        self._ProjCats.append(ProjCat(params))
 
-    def find_by_id(self, id) -> Role:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._roles))
-        if len(obj) > 0:
-            return obj[0]
-        return obj
+    def get_tsv(self):
+        tsv = []
+        if len(self._ProjCats) > 0:
+            tsv.append(['%T', 'PROJPCAT'])
+            tsv.append(['%F', 'proj_id', 'proj_catg_type_id', 'proj_catg_id'])
+            for pcatval in self._ProjCats:
+                tsv.append(pcatval.get_tsv())
+        return tsv
+
+    # def find_by_id(self, id) -> ProjCat:
+    #     obj = list(filter(lambda x: x.proj_catg_id == id, self._ProjCats))
+    #     if len(obj) > 0:
+    #         return obj[0]
+    #     return obj
 
     @property
     def count(self):
-        return len(self._roles)
+        return len(self._ProjCats)
 
     def __len__(self):
-        return len(self._roles)
+        return len(self._ProjCats)
 
     def __iter__(self):
         return self
 
-    def __next__(self) -> Role:
-        if self.index >= len(self._roles):
+    def __next__(self) -> ProjCat:
+        if self.index >= len(self._ProjCats):
             raise StopIteration
         idx = self.index
         self.index += 1
-        return self._roles[idx]
+        return self._ProjCats[idx]

@@ -17,49 +17,53 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-from xerparser.model.classes.role import Role
+from xerparser.model.classes.taskproc import TaskProc
 
 
-class Roles:
+class TaskProcs:
+
 
     def __init__(self):
         self.index = 0
-        self._roles = []
+        self._TaskProcs = []
+
+    def add(self, params):
+        self._TaskProcs.append(TaskProc(params))
 
     def get_tsv(self):
-        if len(self._roles) > 0:
+        if len(self._TaskProcs) > 0:
             tsv = []
-            tsv.append(['%T', 'ROLE'])
-            tsv.append(['%F', 'role_id', 'parent_role_id', 'seq_num', 'role_name',
-                   'role_short_name', 'pobs_id', 'def_cost_qty_link_flag', 'cost_qty_type',
-                   'role_descr', 'last_checksum'])
-            for role in self._roles:
-                tsv.append(role.get_tsv())
+            tsv.append(['%T', 'TASKPROC'])
+            tsv.append(["%F", 'proc_id', 'task_id', 'proj_id', 'seq_num', 'proc_name', 'complete_flag',
+               'proc_wt', 'complete_pct', 'proc_descr'])
+            for taskproc in self._TaskProcs:
+                tsv.append(taskproc.get_tsv())
             return tsv
         return []
 
-    def add(self, params):
-        self._roles.append(Role(params))
-
-    def find_by_id(self, id) -> Role:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._roles))
+    def find_by_id(self, id) -> TaskProc:
+        obj = list(filter(lambda x: x.proc_id == id, self._TaskProcs))
         if len(obj) > 0:
             return obj[0]
         return obj
 
+    def find_by_activity_id(self, id):
+        objs = list(filter(lambda x: x.task_id == id, self._TaskProcs))
+        return objs
+
     @property
     def count(self):
-        return len(self._roles)
+        return len(self._TaskProcs)
 
     def __len__(self):
-        return len(self._roles)
+        return len(self._TaskProcs)
 
     def __iter__(self):
         return self
 
-    def __next__(self) -> Role:
-        if self.index >= len(self._roles):
+    def __next__(self) -> TaskProc:
+        if self.index >= len(self._TaskProcs):
             raise StopIteration
         idx = self.index
         self.index += 1
-        return self._roles[idx]
+        return self._TaskProcs[idx]

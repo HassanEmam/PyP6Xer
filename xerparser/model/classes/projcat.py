@@ -17,21 +17,21 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-class ResourceCat:
-    obj_list = []
+class ProjCat:
 
     def __init__(self, params):
-        self.rsrc_id = int(params.get('rsrc_id').strip()) if params.get('rsrc_id') else None
-        self.rsrc_catg_type_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        self.rsrc_catg_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        ResourceCat.obj_list.append(self)
+        # %F	proj_id	proj_catg_type_id	proj_catg_id
+        self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
+        self.proj_catg_type_id = params.get('proj_catg_type_id').strip() if params.get('proj_catg_type_id') else None
+        self.proj_catg_id = params.get('proj_catg_id').strip() if params.get('proj_catg_id') else None
 
-    def get_tsv(self):
-        tsv = ['%R', self.rsrc_id, self.rsrc_catg_type_id, self.rsrc_catg_id]
-        return tsv
 
     def get_id(self):
-        return self.rsrc_id
+        return self.proj_id
+
+    def get_tsv(self):
+        tsv = ['%R', self.proj_id, self.proj_catg_type_id, self.proj_catg_id]
+        return tsv
 
     def __repr__(self):
-        return self.rsrc_id + ' has been assign category ' + self.rsrc_catg_id
+        return self.proj_catg_name

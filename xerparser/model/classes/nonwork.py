@@ -17,21 +17,23 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-class ResourceCat:
-    obj_list = []
+class NonWork:
+
 
     def __init__(self, params):
-        self.rsrc_id = int(params.get('rsrc_id').strip()) if params.get('rsrc_id') else None
-        self.rsrc_catg_type_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        self.rsrc_catg_id = int(params.get('rsrc_catg_type_id').strip()) if params.get('rsrc_catg_type_id') else None
-        ResourceCat.obj_list.append(self)
 
-    def get_tsv(self):
-        tsv = ['%R', self.rsrc_id, self.rsrc_catg_type_id, self.rsrc_catg_id]
-        return tsv
+        self.nonwork_type_id = params.get('nonwork_type_id').strip() if params.get('nonwork_type_id') else None
+        self.seq_num = params.get('seq_num').strip() if params.get('seq_num') else None
+        self.nonwork_code = params.get('nonwork_code').strip() if params.get('nonwork_code') else None
+        self.nonwork_type = params.get('nonwork_type').strip() if params.get('nonwork_type') else None
 
     def get_id(self):
-        return self.rsrc_id
+        return self.nonwork_type_id
+
+    def get_tsv(self):
+        tsv = ["%R", self.nonwork_type_id, self.seq_num, self.nonwork_code, self.nonwork_type]
+        return tsv
+
 
     def __repr__(self):
-        return self.rsrc_id + ' has been assign category ' + self.rsrc_catg_id
+        return self.nonwork_type_id + '->' + self.nonwork_type

@@ -1,3 +1,22 @@
+# PyP6XER
+# Copyright (C) 2020, 2021 Hassan Emam <hassan@constology.com>
+#
+# This file is part of PyP6XER.
+#
+# PyP6XER library is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License v2.1 as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# PyP6XER is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
+
+
 from xerparser.model.resources import Resources
 class TaskRsrc:
     taskrsrc_id = None
@@ -94,6 +113,7 @@ class TaskRsrc:
         self.cost_per_qty_source_type = params.get('cost_per_qty_source_type').strip() if params.get('cost_per_qty_source_type') else None
         self.create_user = params.get('create_user').strip() if params.get('create_user') else None
         self.create_date = params.get('create_date').strip() if params.get('create_date') else None
+        self.cbs_id = params.get('cbs_id').strip() if params.get('cbs_id') else None
         self.has_rsrchours = params.get('has_rsrchours').strip() if params.get('has_rsrchours') else None
         self.taskrsrc_sum_id = params.get('taskrsrc_sum_id').strip() if params.get('taskrsrc_sum_id') else None
 
@@ -103,9 +123,18 @@ class TaskRsrc:
     def resource(self):
         return Resources.get_resource_by_id(self.rsrc_id)
 
-    @staticmethod
-    def find_by_id(code_id, activity_code_dict):
-        return {k: v for k, v in activity_code_dict.items() if v.actv_code_id == code_id}
+    def get_tsv(self):
+        tsv = ['%R', self.taskrsrc_id, self.task_id, self.proj_id, self.cost_qty_link_flag, self.role_id, self.acct_id,
+               self.rsrc_id, self.pobs_id, self.skill_level, self.remain_qty, self.target_qty, self.remain_qty_per_hr,
+               self.target_lag_drtn_hr_cnt, self.target_qty_per_hr, self.act_ot_qty, self.act_reg_qty,
+               self.relag_drtn_hr_cnt, self.ot_factor, self.cost_per_qty, self.target_cost, self.act_reg_cost,
+               self.act_ot_cost, self.remain_cost, self.act_start_date, self.act_end_date, self.restart_date,
+               self.reend_date, self.target_start_date, self.target_end_date, self.rem_late_start_date,
+               self.rem_late_end_date, self.rollup_dates_flag, self.target_crv, self.remain_crv, self.actual_crv,
+               self.ts_pend_act_end_flag, self.guid, self.rate_type, self.act_this_per_cost, self.act_this_per_qty,
+               self.curv_id, self.rsrc_type, self.cost_per_qty_source_type, self.create_user, self.create_date,
+               self.cbs_id, self.has_rsrchours, self.taskrsrc_sum_id]
+        return tsv
 
     def __repr__(self):
         return str(self.task_id) + '->' + str(self.rsrc_id) + ' = ' + str(self.target_qty)
