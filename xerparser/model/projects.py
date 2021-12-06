@@ -18,6 +18,7 @@
 
 
 from xerparser.model.classes.project import Project
+from xerparser.model.classes.data import Data
 
 class Projects:
 
@@ -26,8 +27,8 @@ class Projects:
         self.index =0
         self._projects = []
 
-    def add(self, params):
-        prj = Project(params)
+    def add(self, params, data):
+        prj = Project(params, data)
         self._projects.append(prj)
 
     def get_tsv(self):

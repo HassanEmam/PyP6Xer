@@ -67,8 +67,8 @@ class Calendar:
 
     def get_tsv(self):
         tsv = ['%R', self.clndr_id, self.default_flag, self.clndr_name, self.proj_id,
-               self.base_clndr_id, self.last_chng_date, self.clndr_type, int(self.day_hr_cnt),
-               int(self.week_hr_cnt), int(self.month_hr_cnt), int(self.year_hr_cnt), self.rsrc_private,
+               self.base_clndr_id, self.last_chng_date, self.clndr_type, self.day_hr_cnt,
+               self.week_hr_cnt, self.month_hr_cnt, self.year_hr_cnt, self.rsrc_private,
                self.clndr_data]
         return tsv
 

@@ -23,12 +23,13 @@ from typing import List
 
 class WBSs:
 
-    def __init__(self):
+    def __init__(self, data=None):
         self.index = 0
         self._wbss = []
+        self.data = data
 
-    def add(self, params):
-        wbs = WBS(params)
+    def add(self, params, data):
+        wbs = WBS(params, data)
         self._wbss.append(wbs)
     
     def get_tsv(self):

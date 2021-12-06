@@ -26,8 +26,8 @@ class TaskActvs:
         self.index = 0
         self._taskactvs = []
 
-    def add(self, params):
-        self._taskactvs.append(TaskActv(params))
+    def add(self, params, data):
+        self._taskactvs.append(TaskActv(params, data))
     
     def get_tsv(self):
         tsv = []

@@ -23,7 +23,7 @@ from xerparser.model.classes.task import Task
 class WBS:
     obj_list = []
 
-    def __init__(self, params):
+    def __init__(self, params, data=None):
         self.wbs_id = int(params.get('wbs_id').strip()) if params.get('wbs_id') else None
         self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
         self.obs_id = params.get('obs_id').strip()
@@ -50,7 +50,7 @@ class WBS:
         self.guid = params.get('guid').strip()
         self.tmpl_guid = params.get('tmpl_guid').strip()
         self.plan_open_state = params.get('plan_open_state').strip() if params.get('plan_open_state') else None
-
+        self.data = data
         WBS.obj_list.append(self)
 
     def get_id(self):
@@ -102,7 +102,7 @@ class WBS:
 
     @property
     def activities(self):
-        return Task.find_by_wbs_id(self.wbs_id)
+        return self.data.tasks.activities_by_wbs_id(self.wbs_id)
 
     def __repr__(self):
         return self.wbs_name

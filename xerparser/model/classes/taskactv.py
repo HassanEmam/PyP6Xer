@@ -20,12 +20,12 @@
 class TaskActv:
     obj_list = []
 
-    def __init__(self, params):
+    def __init__(self, params, data):
         self.task_id = int(params.get('task_id').strip()) if params.get('task_id') else None
         self.actv_code_type_id = params.get('actv_code_type_id').strip()
         self.actv_code_id = int(params.get('actv_code_id').strip()) if params.get('actv_code_id') else None
         self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
-
+        self.data = data
         TaskActv.obj_list.append(self)
 
     def get_tsv(self):

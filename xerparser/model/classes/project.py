@@ -19,10 +19,11 @@
 
 from xerparser.model.classes.wbs import WBS
 from xerparser.model.tasks import Tasks
+from xerparser.model.wbss import WBSs
 
 class Project:
 
-    def __init__(self, params):
+    def __init__(self, params, data):
 
         self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
         self.fy_start_month_num = params.get('fy_start_month_num').strip() if params.get('fy_start_month_num') else None
@@ -94,6 +95,7 @@ class Project:
         self.trsrcsum_loaded = params.get('trsrcsum_loaded').strip() if params.get('trsrcsum_loaded') else None
         self.fintmpl_id = int(params.get('fintmpl_id').strip()) if params.get('fintmpl_id') else None
         self.sumtask_loaded = params.get('sumtask_loaded').strip() if params.get('sumtask_loaded') else None
+        self.data = data
 
     @property
     def id(self):
@@ -122,12 +124,12 @@ class Project:
 
     @property
     def activities(self):
-        return Tasks.get_by_project(self.proj_id)
+        return self.data.tasks.get_by_project(self.proj_id)
 
     @property
     def wbss(self):
         # wbss = WBSs()
-        return WBS.find_by_project_id(self.proj_id)
+        return self.data.wbss.get_by_project(self.proj_id)
 
     def __repr__(self):
         return self.proj_short_name

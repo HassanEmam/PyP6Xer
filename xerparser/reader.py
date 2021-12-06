@@ -26,6 +26,7 @@ import mmap
 import codecs
 from xerparser import *
 from typing import List
+from xerparser.model.classes.data import Data
 from xerparser.write import writeXER
 
 class Reader:
@@ -78,13 +79,13 @@ class Reader:
         elif object_type.strip() == "RCATVAL":
             self._rcatvals.add(params)
         elif object_type.strip() == "PROJECT":
-            self._projects.add(params)
+            self._projects.add(params, self._data)
         elif object_type.strip() == "CALENDAR":
             self._calendars.add(params)
         elif object_type.strip() == "SCHEDOPTIONS":
             self._schedoptions.add(params)
         elif object_type.strip() == "PROJWBS":
-            self._wbss.add(params)
+            self._wbss.add(params, self._data)
         elif object_type.strip() == "RSRC":
             self._resources.add(params)
         elif object_type.strip() == "RSRCCURVDATA":
@@ -102,17 +103,17 @@ class Reader:
         elif object_type.strip() == "RSRCRCAT":
             self._rsrccats.add(params)
         elif object_type.strip() == "TASK":
-            self._tasks.add(params)
+            self._tasks.add(params, self._data)
         elif object_type.strip() == "ACTVCODE":
             self._actvcodes.add(params)
         elif object_type.strip() == "TASKPRED":
             self._predecessors.add(params)
         elif object_type.strip() == "TASKRSRC":
-            self._activityresources.add(params)
+            self._activityresources.add(params, self._data)
         elif object_type.strip() == "TASKPROC":
             self._taskprocs.add(params)
         elif object_type.strip() == "TASKACTV":
-            self._activitycodes.add(params)
+            self._activitycodes.add(params, self._data)
         elif object_type.strip() == "UDFVALUE":
             self._udfvalues.add(params)
         elif object_type.strip() == "FINTMPL":
@@ -309,6 +310,13 @@ class Reader:
         self._taskprocs = TaskProcs()
         self._fintmpls = FinTmpls()
         self._nonworks = NonWorks()
+        self._data = Data()
+        self._data.projects = self._projects
+        self._data.wbss = self._wbss
+        self._data.tasks = self._tasks
+        self._data.resources = self._resources
+        self._data.taskresource = self._activityresources
+        self._data.taskactvcodes = self._activitycodes
         with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in stream:

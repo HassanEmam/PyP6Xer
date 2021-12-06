@@ -7,49 +7,38 @@ from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('prog.xer')
+r = Reader('wk2 project.xer')
+print("Reader OUTCOME", r)
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
 for prj in r.projects:
     print(len(prj.wbss), prj.wbss)
+    for wbs in prj.wbss:
+        for act in wbs.activities:
+            print(wbs, act.task_name)
+            for res in act.resources:
+                print(res)
+            for actv in act.activitycodes:
+                print(actv)
+
+r = Reader('CONSRTRUCTION.xer')
+print("Reader OUTCOME", r)
+elapsed_time1 = time.time() - start_time
+print(elapsed_time1)
+for prj in r.projects:
+    print(len(prj.wbss), prj.wbss)
+    for wbs in prj.wbss:
+        for act in wbs.activities:
+            print(wbs, act.task_name)
+            for res in act.resources:
+                print(res)
+            for actv in act.activitycodes:
+                print(actv)
 # for account in r.accounts:
 #     print(account)
+
+print(r)
 r.write("hassan.xer")
-# 'ERMHDR'	8.2	2021-08-19	Project	Tom.Wren@mottmac.com	Tom Wren	dbxDatabaseNoName	Project Management Cloud	GBP
-# header = ['ERMHDR', '8.0', '2021-11-02', 'Project',	'admin', 'Primavera', 'Admin', 'dbxDatabaseNoName', 'Project Management', 'U.K.']
-# with open('trial.xer', 'w', newline='', encoding='utf-8') as output:
-#     tsv_writer = csv.writer(output, delimiter='\t')
-#     tsv_writer.writerow(header)
-#     tsv_writer.writerows(r.currencies.get_tsv())
-#     #FINTMPL
-#     #NONWORK
-#     tsv_writer.writerows(r.obss.get_tsv())
-#     #PCATTYPE
-#     tsv_writer.writerows(r.resourcecurves.get_tsv())
-#     #UDFTYPE
-#     tsv_writer.writerows(r.accounts.get_tsv())
-#     #PCATVAL
-#     tsv_writer.writerows(r.projects.get_tsv())
-#     tsv_writer.writerows(r.calendars.get_tsv())
-#     # PROJPCAT
-#     tsv_writer.writerows(r.scheduleoptions.get_tsv())
-#     tsv_writer.writerows(r.wbss.get_tsv())
-#     tsv_writer.writerows(r.resources.get_tsv())
-#     tsv_writer.writerows(r.acttypes.get_tsv())
-#     tsv_writer.writerows(r.resourcerates.get_tsv())
-#     tsv_writer.writerows(r.activities.get_tsv())
-#     tsv_writer.writerows(r.actvcodes.get_tsv())
-#     # PROJCOST
-#     # TASKPRED
-#     tsv_writer.writerows(r.relations.get_tsv())
-#     # TASKPROC
-#     # TASKRSRC
-#     # TASKACTV
-#     tsv_writer.writerows(r.activitycodes.get_tsv())
-#     # UDFVALUE
-#     tsv_writer.writerow(['%E'])
-
-
 
 #
 # for actrsrc in r._activityresources:

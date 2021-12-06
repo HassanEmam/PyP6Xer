@@ -19,55 +19,8 @@
 
 from xerparser.model.resources import Resources
 class TaskRsrc:
-    taskrsrc_id = None
-    task_id = None
-    proj_id = None
-    cost_qty_link_flag = None
-    role_id = None
-    acct_id = None
-    rsrc_id = None
-    pobs_id = None
-    skill_level = None
-    remain_qty = None
-    target_qty = None
-    remain_qty_per_hr = None
-    target_lag_drtn_hr_cnt = None
-    target_qty_per_hr = None
-    act_ot_qty = None
-    act_reg_qty = None
-    relag_drtn_hr_cnt = None
-    ot_factor = None
-    cost_per_qty = None
-    target_cost = None
-    act_reg_cost = None
-    act_ot_cost = None
-    remain_cost = None
-    act_start_date = None
-    act_end_date = None
-    restart_date = None
-    reend_date = None
-    target_start_date = None
-    target_end_date = None
-    rem_late_start_date = None
-    rem_late_end_date = None
-    rollup_dates_flag = None
-    target_crv = None
-    remain_crv = None
-    actual_crv = None
-    ts_pend_act_end_flag = None
-    guid = None
-    rate_type = None
-    act_this_per_cost = None
-    act_this_per_qty = None
-    curv_id = None
-    rsrc_type = None
-    cost_per_qty_source_type = None
-    create_user = None
-    create_date = None
-    has_rsrchours = None
-    taskrsrc_sum_id = None
 
-    def __init__(self, params):
+    def __init__(self, params, data=None):
         self.taskrsrc_id = int(params.get('taskrsrc_id').strip()) if params.get('taskrsrc_id') else None
         self.task_id = int(params.get('task_id').strip()) if params.get('task_id') else None
         self.proj_id = params.get('proj_id').strip() if params.get('proj_id') else None
@@ -116,12 +69,13 @@ class TaskRsrc:
         self.cbs_id = params.get('cbs_id').strip() if params.get('cbs_id') else None
         self.has_rsrchours = params.get('has_rsrchours').strip() if params.get('has_rsrchours') else None
         self.taskrsrc_sum_id = params.get('taskrsrc_sum_id').strip() if params.get('taskrsrc_sum_id') else None
+        self.data = data
 
     def get_id(self):
         return self.taskrsrc_id
     @property
     def resource(self):
-        return Resources.get_resource_by_id(self.rsrc_id)
+        return self.data.resources.get_resource_by_id(self.rsrc_id)
 
     def get_tsv(self):
         tsv = ['%R', self.taskrsrc_id, self.task_id, self.proj_id, self.cost_qty_link_flag, self.role_id, self.acct_id,

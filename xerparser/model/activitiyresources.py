@@ -27,8 +27,8 @@ class ActivityResources:
         self.index = 0
         self._taskrsrc = []
 
-    def add(self, params):
-        self._taskrsrc.append(TaskRsrc(params))
+    def add(self, params, data):
+        self._taskrsrc.append(TaskRsrc(params, data))
 
     def find_by_id(self, id) -> TaskRsrc:
         obj = list(filter(lambda x: x.taskrsrc_id == id, self._taskrsrc))

@@ -34,8 +34,8 @@ class Tasks:
         self.index = 0
         self._tasks = []
 
-    def add(self, params):
-        task = Task(params)
+    def add(self, params, data):
+        task = Task(params, data)
         self._tasks.append(task)
 
     @property
