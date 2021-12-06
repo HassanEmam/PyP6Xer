@@ -18,7 +18,7 @@
 
 
 from xerparser.model.tasks import Tasks
-
+from xerparser.model.classes.task import Task
 
 class WBS:
     obj_list = []
@@ -96,13 +96,13 @@ class WBS:
             return obj[0]
         return None
 
-    @staticmethod
-    def find_by_project_id(project_id, wbs):
-        return {k: v for k, v in wbs.items() if v.proj_id == project_id}
+    @classmethod
+    def find_by_project_id(cls, project_id):
+        return [ v for v in cls.obj_list if v.proj_id == project_id]
 
     @property
     def activities(self):
-        return Tasks.activities_by_wbs_id(self.wbs_id)
+        return Task.find_by_wbs_id(self.wbs_id)
 
     def __repr__(self):
         return self.wbs_name

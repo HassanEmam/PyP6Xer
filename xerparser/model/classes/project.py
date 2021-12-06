@@ -17,7 +17,7 @@
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
 
-from xerparser.model.wbss import WBSs
+from xerparser.model.classes.wbs import WBS
 from xerparser.model.tasks import Tasks
 
 class Project:
@@ -127,7 +127,7 @@ class Project:
     @property
     def wbss(self):
         # wbss = WBSs()
-        return WBSs.get_by_project(self.proj_id)
+        return WBS.find_by_project_id(self.proj_id)
 
     def __repr__(self):
         return self.proj_short_name
