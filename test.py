@@ -10,7 +10,8 @@ start_time = time.time()
 r = Reader('prog.xer')
 elapsed_time1 = time.time() - start_time
 print(elapsed_time1)
-
+for prj in r.projects:
+    print(len(prj.wbss), prj.wbss)
 # for account in r.accounts:
 #     print(account)
 r.write("hassan.xer")

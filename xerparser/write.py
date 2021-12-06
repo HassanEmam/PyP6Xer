@@ -25,9 +25,7 @@ def writeXER(r, filename):
         tsv_writer = csv.writer(output, delimiter='\t')
         tsv_writer.writerow(header)
         tsv_writer.writerows(r.currencies.get_tsv())
-        #FINTMPL
         tsv_writer.writerows(r.fintmpls.get_tsv())
-        #NONWORK
         tsv_writer.writerows(r.nonworks.get_tsv())
         tsv_writer.writerows(r.obss.get_tsv())
         tsv_writer.writerows(r.pcattypes.get_tsv())
