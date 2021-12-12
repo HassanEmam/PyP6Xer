@@ -40,7 +40,7 @@ class Task:
         self.clndr_id = int(params.get('clndr_id')) if params.get('clndr_id') else None
         # The physical percent complete can either be user entered or calculated from the activity's weighted steps.
         #  There is a project setting specifying this.
-        self.phys_complete_pct = float(params.get('phys_complete_pct')) if params.get('phys_complete_pct') else None
+        self.phys_complete_pct = float(params.get('phys_complete_pct')) if 'phys_complete_pct' in params.keys() else None
         # Indicates that the primary resource has sent feedback notes about this activity which have not been
         # reviewed yet.
         self.rev_fdbk_flag = params.get('rev_fdbk_flag') if params.get('rev_fdbk_flag') else None
@@ -49,7 +49,7 @@ class Task:
         #  the same WBS. Top-down estimation distributes estimated units in a top-down manner to activities using the
         #  WBS hierarchy.
 
-        self.est_wt = float(params.get('est_wt').strip()) if params.get('est_wt') else None
+        self.est_wt = float(params.get('est_wt').strip()) if 'est_wt' in params.keys() else None
         # Indicates that the planned labor and nonlabor units for the activity will not be modified by top-down
         # estimation.
         self.lock_plan_flag = params.get('lock_plan_flag') if params.get('lock_plan_flag') else None
@@ -94,7 +94,8 @@ class Task:
         # The amount of time the wbs can be delayed before delaying the project finish date. Total int can be
         # computed as Late Start - Early Start or as Late Finish - Early Finish; this option can be set when running
         # the project scheduler.
-        self.total_float_hr_cnt = float(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') else None
+        self.total_float_hr_cnt = float(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') and \
+            params.get('total_float_hr_cnt') != '' else None
         # The amount of time the activity can be delayed before delaying the start date of any successor activity.
         self.free_float_hr_cnt = float(params.get('free_float_hr_cnt')) if params.get('free_float_hr_cnt') else None
         # Remaining duration is the total working time from the activity remaining start date to the remaining finish
@@ -276,7 +277,10 @@ class Task:
     def duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
-            dur = self.target_drtn_hr_cnt / self.calendar.day_hr_cnt
+            if self.calendar.day_hr_cnt:
+                dur = self.target_drtn_hr_cnt / self.calendar.day_hr_cnt
+            else:
+                dur = self.target_drtn_hr_cnt / 8.0
         else:
             dur =0.0
         return dur

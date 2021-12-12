@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name='PyP6Xer',
-    version='1.014.00',
+    version='1.014.02',
     long_description=readme(),
     long_description_content_type='text/markdown',
     packages=['xerparser', 'xerparser.model', 'xerparser.model.classes'],

@@ -8,37 +8,48 @@ from collections import defaultdict
 
 start_time = time.time()
 r = Reader('wk2 project.xer')
-print("Reader OUTCOME", r)
+# print("Reader OUTCOME", r)
 elapsed_time1 = time.time() - start_time
-print(elapsed_time1)
-for prj in r.projects:
-    print(len(prj.wbss), prj.wbss)
-    for wbs in prj.wbss:
-        for act in wbs.activities:
-            print(wbs, act.task_name)
-            for res in act.resources:
-                print(res)
-            for actv in act.activitycodes:
-                print(actv)
+# # print(elapsed_time1)
+# for prj in r.projects:
+#     # print(len(prj.wbss), prj.wbss)
+#     for wbs in prj.wbss:
+#         for act in wbs.activities:
+#             # print(wbs, act.task_name)
+#             for res in act.resources:
+#                 print(res)
+#             for actv in act.activitycodes:
+#                 print(actv)
 
-r = Reader('CONSRTRUCTION.xer')
-print("Reader OUTCOME", r)
-elapsed_time1 = time.time() - start_time
-print(elapsed_time1)
-for prj in r.projects:
-    print(len(prj.wbss), prj.wbss)
-    for wbs in prj.wbss:
-        for act in wbs.activities:
-            print(wbs, act.task_name)
-            for res in act.resources:
-                print(res)
-            for actv in act.activitycodes:
-                print(actv)
-# for account in r.accounts:
-#     print(account)
+# r = Reader('CONSRTRUCTION.xer')
+# # print("Reader OUTCOME", r)
+# elapsed_time1 = time.time() - start_time
+# # print(elapsed_time1)
+# for prj in r.projects:
+#     # print(len(prj.wbss), prj.wbss)
+#     for wbs in prj.wbss:
+#         for act in wbs.activities:
+#             # print(wbs, act.task_name)
+#             for res in act.resources:
+#                 print(res)
+#             for actv in act.activitycodes:
+#                 print(actv)
+# # for account in r.accounts:
+# #     print(account)
 
-print(r)
-r.write("hassan.xer")
+for act in r.activities:
+    critical = []
+    # print(act.total_float_hr_cnt)
+    if act.total_float_hr_cnt is not None:
+        if act.total_float_hr_cnt <= 0:
+            print("TF FOUND", act.task_code, act.total_float_hr_cnt)
+            
+            critical.append(act)
+    else:
+        print("TF Not found")
+
+# print(r)
+# r.write("hassan.xer")
 
 #
 # for actrsrc in r._activityresources:
@@ -166,8 +177,8 @@ start_time = time.time()
 # print(help(Reader))
 # print(r.projects)
 
-# health = DCMA14(r)
-# health.analysis()
+health = DCMA14(r)
+print(health.analysis())
 #print(health.no_successors_cnt, health.no_successors)
 #print(health.no_predecessors_cnt, health.no_predecessors)
 
