@@ -24,8 +24,9 @@ This file starts the process of reading and parsing xer files
 import csv
 import mmap
 import codecs
+import io
 from xerparser import *
-from typing import List
+from typing import List, Optional
 from xerparser.model.classes.data import Data
 from xerparser.write import writeXER
 
@@ -278,8 +279,8 @@ class Reader:
     def nonworks(self) -> List[NonWork]:
         return self._nonworks
 
-    def __init__(self, filename):
-        file = open(filename, 'r')
+    def __init__(self, filename: Optional[str] = None,
+                       data_as_string: Optional[str] = None):
         self.file = filename
         self._tasks = Tasks()
         self._predecessors = Predecessors()
@@ -317,16 +318,27 @@ class Reader:
         self._data.resources = self._resources
         self._data.taskresource = self._activityresources
         self._data.taskactvcodes = self._activitycodes
-        with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
-            stream = csv.reader(tsvfile, delimiter='\t')
-            for row in stream:
-                if row[0] =="%T":
-                    current_table = row[1]
-                elif row[0] == "%F":
-                    current_headers = [r.strip() for r in row[1:]]
-                elif row[0] == "%R":
-                    zipped_record = dict(zip(current_headers, row[1:]))
-                    self.create_object(current_table, zipped_record)
+
+        if filename is not None:
+            with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
+                self.parse_file(tsvfile)
+        elif data_as_string is not None:
+            with io.StringIO(data_as_string) as input_file:
+                self.parse_file(input_file)
+        else:
+            raise ValueError("No filename or data provided")
+
+
+    def parse_file(self, tsvfile):
+        stream = csv.reader(tsvfile, delimiter='\t')
+        for row in stream:
+            if row[0] =="%T":
+                current_table = row[1]
+            elif row[0] == "%F":
+                current_headers = [r.strip() for r in row[1:]]
+            elif row[0] == "%R":
+                zipped_record = dict(zip(current_headers, row[1:]))
+                self.create_object(current_table, zipped_record)
 
         # for line in content:
         #     line_lst = line.split('\t')
