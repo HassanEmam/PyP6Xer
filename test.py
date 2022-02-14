@@ -7,7 +7,7 @@ from xerparser.dcma14 import DCMA14
 from collections import defaultdict
 
 start_time = time.time()
-r = Reader('wk2 project.xer')
+r = Reader('sample.xer')
 # print("Reader OUTCOME", r)
 elapsed_time1 = time.time() - start_time
 # # print(elapsed_time1)
