@@ -16,6 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
+import locale
 
 class RoleRate:
     obj_list = []
@@ -23,11 +24,11 @@ class RoleRate:
     def __init__(self, params):
         self.role_rate_id = int(params.get('role_rate_id').strip()) if params.get('role_rate_id') else None
         self.role_id = int(params.get('role_id').strip()) if params.get('role_id') else None
-        self.cost_per_qty = float(params.get('cost_per_qty').strip()) if params.get('cost_per_qty') else None
-        self.cost_per_qty2 = float(params.get('cost_per_qty2').strip())if params.get('cost_per_qty2') else None
-        self.cost_per_qty3 = float(params.get('cost_per_qty3').strip()) if params.get('cost_per_qty3') else None
-        self.cost_per_qty4 = float(params.get('cost_per_qty4').strip()) if params.get('cost_per_qty4') else None
-        self.cost_per_qty5 = float(params.get('cost_per_qty5').strip()) if params.get('cost_per_qty5') else None
+        self.cost_per_qty = locale.atof(params.get('cost_per_qty').strip()) if params.get('cost_per_qty') else None
+        self.cost_per_qty2 = locale.atof(params.get('cost_per_qty2').strip())if params.get('cost_per_qty2') else None
+        self.cost_per_qty3 = locale.atof(params.get('cost_per_qty3').strip()) if params.get('cost_per_qty3') else None
+        self.cost_per_qty4 = locale.atof(params.get('cost_per_qty4').strip()) if params.get('cost_per_qty4') else None
+        self.cost_per_qty5 = locale.atof(params.get('cost_per_qty5').strip()) if params.get('cost_per_qty5') else None
 
         RoleRate.obj_list.append(self)
 
