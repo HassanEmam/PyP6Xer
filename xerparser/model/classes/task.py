@@ -25,6 +25,7 @@ from xerparser.model.predecessors import Predecessors
 from xerparser.model.classes.calendar import Calendar
 from xerparser.model.activitiyresources import ActivityResources
 from xerparser.model.taskprocs import TaskProcs
+import locale
 
 class Task:
     obj_list = []
@@ -40,7 +41,7 @@ class Task:
         self.clndr_id = int(params.get('clndr_id')) if params.get('clndr_id') else None
         # The physical percent complete can either be user entered or calculated from the activity's weighted steps.
         #  There is a project setting specifying this.
-        self.phys_complete_pct = float(params.get('phys_complete_pct')) if 'phys_complete_pct' in params.keys() else None
+        self.phys_complete_pct = locale.atof(params.get('phys_complete_pct')) if 'phys_complete_pct' in params.keys() else None
         # Indicates that the primary resource has sent feedback notes about this activity which have not been
         # reviewed yet.
         self.rev_fdbk_flag = params.get('rev_fdbk_flag') if params.get('rev_fdbk_flag') else None
@@ -49,7 +50,7 @@ class Task:
         #  the same WBS. Top-down estimation distributes estimated units in a top-down manner to activities using the
         #  WBS hierarchy.
 
-        self.est_wt = float(params.get('est_wt').strip()) if 'est_wt' in params.keys() else None
+        self.est_wt = locale.atof(params.get('est_wt').strip()) if 'est_wt' in params.keys() else None
         # Indicates that the planned labor and nonlabor units for the activity will not be modified by top-down
         # estimation.
         self.lock_plan_flag = params.get('lock_plan_flag') if params.get('lock_plan_flag') else None
@@ -94,37 +95,37 @@ class Task:
         # The amount of time the wbs can be delayed before delaying the project finish date. Total int can be
         # computed as Late Start - Early Start or as Late Finish - Early Finish; this option can be set when running
         # the project scheduler.
-        self.total_float_hr_cnt = float(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') and \
+        self.total_float_hr_cnt = locale.atof(params.get('total_float_hr_cnt').strip()) if params.get('total_float_hr_cnt') and \
             params.get('total_float_hr_cnt') != '' else None
         # The amount of time the activity can be delayed before delaying the start date of any successor activity.
-        self.free_float_hr_cnt = float(params.get('free_float_hr_cnt')) if params.get('free_float_hr_cnt') else None
+        self.free_float_hr_cnt = locale.atof(params.get('free_float_hr_cnt')) if params.get('free_float_hr_cnt') else None
         # Remaining duration is the total working time from the activity remaining start date to the remaining finish
         #  date. The remaining working time is computed using the activity's calendar. Before the activity is
         # started, the remaining duration is the same as the Original Duration. After the activity is completed the
         # remaining duration is zero.
-        self.remain_drtn_hr_cnt = float(params.get('remain_drtn_hr_cnt').strip()) if params.get('remain_drtn_hr_cnt') else 0
+        self.remain_drtn_hr_cnt = locale.atof(params.get('remain_drtn_hr_cnt').strip()) if params.get('remain_drtn_hr_cnt') else 0
         # The total actual labor units for all child activities
-        self.act_work_qty = float(params.get('act_work_qty')) if params.get('act_work_qty') else None
+        self.act_work_qty = locale.atof(params.get('act_work_qty')) if params.get('act_work_qty') else None
         # The remaining units for all labor resources assigned to the activity. The remaining units reflects the work
         #  remaining to be done for the activity. Before the activity is started, the remaining units are the same as
         #  the planned units. After the activity is completed, the remaining units are zero.
-        self.remain_work_qty = float(params.get('remain_work_qty')) if params.get('remain_work_qty') else None
+        self.remain_work_qty = locale.atof(params.get('remain_work_qty')) if params.get('remain_work_qty') else None
         # The planned units for all labor resources assigned to the activity.
-        self.target_work_qty = float(params.get('target_work_qty')) if params.get('target_work_qty') else None
+        self.target_work_qty = locale.atof(params.get('target_work_qty')) if params.get('target_work_qty') else None
         # Original Duration is the planned working time for the resource assignment on the activity,
         # from the resource's planned start date to the planned finish date. The planned working time is computed
         # using the calendar determined by the Activity Type. Resource Dependent activities use the resource's
         # calendar; other activity types use the activity's calendar. This is the duration that Timesheets users
         # follow and the schedule variance is measured against.
-        self.target_drtn_hr_cnt = float(params.get('target_drtn_hr_cnt').strip()) if params.get('target_drtn_hr_cnt') else None
+        self.target_drtn_hr_cnt = locale.atof(params.get('target_drtn_hr_cnt').strip()) if params.get('target_drtn_hr_cnt') else None
         # The planned units for all nonlabor resources assigned to the activity.
-        self.target_equip_qty = float(params.get('target_equip_qty')) if params.get('target_equip_qty') else None
+        self.target_equip_qty = locale.atof(params.get('target_equip_qty')) if params.get('target_equip_qty') else None
         # The actual units for all nonlabor resources assigned to the activities under the WBS.
-        self.act_equip_qty = float(params.get('act_equip_qty')) if params.get('act_equip_qty') else None
+        self.act_equip_qty = locale.atof(params.get('act_equip_qty')) if params.get('act_equip_qty') else None
         # The remaining units for all nonlabor resources assigned to the activity. The remaining units reflects the
         # work remaining to be done for the activity.  Before the activity is started, the remaining units are the
         # same as the planned units. After the activity is completed, the remaining units are zero.
-        self.remain_equip_qty = float(params.get('remain_equip_qty')) if params.get('remain_equip_qty') else None
+        self.remain_equip_qty = locale.atof(params.get('remain_equip_qty')) if params.get('remain_equip_qty') else None
         # The constraint date for the activity, if the activity has a constraint. The activity's constraint type
         # determines whether this is a start date or finish date.  Activity constraints are used by the project
         # scheduler.
@@ -192,9 +193,9 @@ class Task:
         self.cstr_type2 = params.get('cstr_type2').strip() if params.get('cstr_type2') else None
         self.driving_path_flag = params.get('driving_path_flag') if params.get('driving_path_flag') else None
         # The actual this period units for all labor resources assigned to the activity.
-        self.act_this_per_work_qty = float(params.get('act_this_per_work_qty')) if params.get('act_this_per_work_qty') else None
+        self.act_this_per_work_qty = locale.atof(params.get('act_this_per_work_qty')) if params.get('act_this_per_work_qty') else None
         # The actual this period units for all nonlabor resources assigned to the activity.
-        self.act_this_per_equip_qty = float(params.get('act_this_per_equip_qty')) if params.get('act_this_per_equip_qty') else None
+        self.act_this_per_equip_qty = locale.atof(params.get('act_this_per_equip_qty')) if params.get('act_this_per_equip_qty') else None
         # The External Early Start date is the date the external relationship was scheduled to finish.  This date may
         #  be used to calculate the start date of the current activity during scheduling.  This field is populated on
         #  import when an external relationship is lost.

@@ -18,6 +18,7 @@
 
 
 from xerparser.model.resources import Resources
+import locale
 class TaskRsrc:
 
     def __init__(self, params, data=None):
@@ -30,10 +31,10 @@ class TaskRsrc:
         self.rsrc_id = int(params.get('rsrc_id').strip()) if params.get('rsrc_id') else None
         self.pobs_id = params.get('pobs_id').strip() if params.get('pobs_id') else None
         self.skill_level = params.get('skill_level').strip() if params.get('skill_level') else None
-        self.remain_qty = float(params.get('remain_qty').strip()) if params.get('remain_qty') else None
-        self.target_qty = float(params.get('target_qty').strip()) if params.get('target_qty') else None
-        self.remain_qty_per_hr = float(params.get('remain_qty_per_hr').strip()) if params.get('remain_qty_per_hr') else None
-        self.target_lag_drtn_hr_cnt = float(params.get('target_lag_drtn_hr_cnt').strip()) if params.get('target_lag_drtn_hr_cnt') else None
+        self.remain_qty = locale.atof(params.get('remain_qty').strip()) if params.get('remain_qty') else None
+        self.target_qty = locale.atof(params.get('target_qty').strip()) if params.get('target_qty') else None
+        self.remain_qty_per_hr = locale.atof(params.get('remain_qty_per_hr').strip()) if params.get('remain_qty_per_hr') else None
+        self.target_lag_drtn_hr_cnt = locale.atof(params.get('target_lag_drtn_hr_cnt').strip()) if params.get('target_lag_drtn_hr_cnt') else None
         self.target_qty_per_hr = params.get('target_qty_per_hr').strip() if params.get('target_qty_per_hr') else None
         self.act_ot_qty = params.get('act_ot_qty').strip() if params.get('act_ot_qty') else None
         self.act_reg_qty = params.get('act_reg_qty').strip() if params.get('act_reg_qty') else None
@@ -41,7 +42,7 @@ class TaskRsrc:
         self.ot_factor = params.get('ot_factor').strip() if params.get('ot_factor') else None
         self.cost_per_qty = params.get('cost_per_qty').strip() if params.get('cost_per_qty') else None
         self.target_cost = params.get('target_cost').strip() if params.get('target_cost') else None
-        self.act_reg_cost = float(params.get('act_reg_cost').strip()) if params.get('act_reg_cost') else None
+        self.act_reg_cost = locale.atof(params.get('act_reg_cost').strip()) if params.get('act_reg_cost') else None
         self.act_ot_cost = params.get('act_ot_cost').strip() if params.get('act_ot_cost') else None
         self.remain_cost = params.get('remain_cost').strip() if params.get('remain_cost') else None
         self.act_start_date = params.get('act_start_date').strip() if params.get('act_start_date') else None
