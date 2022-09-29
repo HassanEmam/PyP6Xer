@@ -6,10 +6,10 @@ def readme():
 
 setup(
     name='PyP6Xer',
-    version='1.014.02',
+    version='1.014.03',
     long_description=readme(),
     long_description_content_type='text/markdown',
-    packages=['xerparser', 'xerparser.model', 'xerparser.model.classes'],
+    packages=['xerparser', 'xerparser.dcma14', 'xerparser.model', 'xerparser.model.classes'],
     url='',
     license='GNU GENERAL PUBLIC LICENSE',
     author='Hassan',
