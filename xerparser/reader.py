@@ -126,7 +126,7 @@ class Reader:
         print('Number of relationships: ', len(TaskPred.obj_list))
 
     @property
-    def projects(self) -> List[Project]:
+    def projects(self) -> Projects:
         """
         Projects
 
@@ -138,7 +138,7 @@ class Reader:
         return self._projects
 
     @property
-    def activities(self) -> List[Tasks]:
+    def activities(self) -> Tasks:
         """
         Property to retrieve list of tasks
         Returns: list of tasks
