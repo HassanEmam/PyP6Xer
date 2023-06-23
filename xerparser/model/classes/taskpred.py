@@ -42,5 +42,6 @@ class TaskPred:
         tsv = ['%R', self.task_pred_id, self.task_id, self.pred_task_id, self.proj_id, self.pred_proj_id,
                self.pred_type, self.lag_hr_cnt, self.comments, self.float_path, self.aref, self.arls]
         return tsv
+    
     def __repr__(self):
-        return str(self.task_id) + '- ' + self.pred_type + ' ->' + str(self.pred_task_id) + ' lag: ' + str(self.lag_hr_cnt)
+        return str(self.pred_task_id) + '- ' + self.pred_type + ' ->' + str(self.task_id) + ' lag: ' + str(self.lag_hr_cnt)
