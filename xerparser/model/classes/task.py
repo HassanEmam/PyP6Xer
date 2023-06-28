@@ -310,12 +310,12 @@ class Task:
 
     @property
     def successors(self):
-        suss = Predecessors.get_successors(self.task_id)
+        suss = self.data.predecessors.get_successors(self.task_id)
         return suss
 
     @property
     def predecessors(self):
-        return Predecessors.get_predecessors(self.task_id)
+        return self.data.predecessors.get_predecessors(self.task_id)
 
     @classmethod
     def find_by_wbs_id(cls, wbs_id):

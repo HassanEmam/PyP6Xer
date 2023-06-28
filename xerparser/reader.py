@@ -317,6 +317,7 @@ class Reader:
         self._data.resources = self._resources
         self._data.taskresource = self._activityresources
         self._data.taskactvcodes = self._activitycodes
+        self._data.predecessors = self._predecessors
         with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in stream:
