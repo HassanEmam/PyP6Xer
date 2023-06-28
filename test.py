@@ -37,16 +37,16 @@ elapsed_time1 = time.time() - start_time
 # # for account in r.accounts:
 # #     print(account)
 
-for act in r.activities:
-    critical = []
-    # print(act.total_float_hr_cnt)
-    if act.total_float_hr_cnt is not None:
-        if act.total_float_hr_cnt <= 0:
-            print("TF FOUND", act.task_code, act.total_float_hr_cnt)
+# for act in r.activities:
+#     critical = []
+#     # print(act.total_float_hr_cnt)
+#     if act.total_float_hr_cnt is not None:
+#         if act.total_float_hr_cnt <= 0:
+#             print("TF FOUND", act.task_code, act.total_float_hr_cnt)
             
-            critical.append(act)
-    else:
-        print("TF Not found")
+#             critical.append(act)
+#     else:
+#         print("TF Not found")
 
 # print(r)
 # r.write("hassan.xer")
@@ -142,7 +142,7 @@ for act in r.activities:
 # tree = r.resources.build_tree()
 # print(tree)
 
-start_time = time.time()
+# start_time = time.time()
 #
 # data = {}
 # for p in r._projects:
@@ -177,8 +177,8 @@ start_time = time.time()
 # print(help(Reader))
 # print(r.projects)
 
-health = DCMA14(r)
-print(health.analysis())
+# health = DCMA14(r)
+# print(health.analysis())
 #print(health.no_successors_cnt, health.no_successors)
 #print(health.no_predecessors_cnt, health.no_predecessors)
 
@@ -189,3 +189,8 @@ print(health.analysis())
 #print(health.results['analysis']['leads'])
 
 # pp.pprint(health.results['analysis']['constraints'])
+
+for project in r.projects:
+    print("PROJECT: " + project.proj_short_name + "*****")
+    for activity in project.activities:
+        print("################### Activity ID | ", activity.task_code, " | Activity Name | ", activity.task_name, " | Pred |", activity.predecessors)
