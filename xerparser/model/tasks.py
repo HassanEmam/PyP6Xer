@@ -60,7 +60,7 @@ class Tasks:
         return len(self._tasks)
 
     def __repr__(self):
-        return [x.task_code for x in self._tasks]
+        return str([x.task_code for x in self._tasks])
 
     def __str__(self):
         return str([str(x.task_code) for x in self._tasks])

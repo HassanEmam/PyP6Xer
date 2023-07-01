@@ -62,11 +62,11 @@ class Predecessors:
     def finish_to_start(self) -> List[TaskPred]:
         return list(filter(lambda x: x.pred_type == 'PR_FS', self.task_pred))
     
-    def get_successors(self, act_id):
+    def get_successors(self, act_id) -> List[TaskPred]:
         succ = list(filter(lambda x: x.pred_task_id == act_id, self.task_pred))
         return succ
 
-    def get_predecessors(self, act_id):
+    def get_predecessors(self, act_id) -> List[TaskPred]:
         succ = list(filter(lambda x: x.task_id == act_id, self.task_pred))
         return succ
 
