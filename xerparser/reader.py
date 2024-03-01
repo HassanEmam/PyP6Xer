@@ -279,7 +279,6 @@ class Reader:
         return self._nonworks
 
     def __init__(self, filename):
-        file = open(filename, 'r')
         self.file = filename
         self._tasks = Tasks()
         self._predecessors = Predecessors()
