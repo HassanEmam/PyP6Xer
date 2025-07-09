@@ -91,7 +91,7 @@ class DCMA14():
                                                     } for x in self.fsRel]}
         #5 constraints
         lst = ['CS_MANDFIN', 'CS_MANDFIN']
-        self.constraints = list(filter(lambda x: x.get('ConstraintType') in lst,
+        self.constraints = list(filter(lambda x: x.cstr_type and x.cstr_type in lst,
                                         self.programme.activities))
         self.results['analysis']['constraints'] = {'cstr_cnt': len(self.constraints), 
                                                     'cstrs': [self.get_activity(x.task_id) for x in self.constraints]}

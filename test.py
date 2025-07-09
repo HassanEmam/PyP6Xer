@@ -177,10 +177,10 @@ elapsed_time1 = time.time() - start_time
 # print(help(Reader))
 # print(r.projects)
 
-# health = DCMA14(r)
-# print(health.analysis())
-#print(health.no_successors_cnt, health.no_successors)
-#print(health.no_predecessors_cnt, health.no_predecessors)
+health = DCMA14(r)
+health.analysis()
+print(health.no_successors_cnt)
+print(health.no_predecessors_cnt)
 
 # import pprint
 # pp = pprint.PrettyPrinter(depth=4)
@@ -190,7 +190,7 @@ elapsed_time1 = time.time() - start_time
 
 # pp.pprint(health.results['analysis']['constraints'])
 
-for project in r.projects:
-    print("PROJECT: " + project.proj_short_name + "*****")
-    for activity in project.activities:
-        print("################### Activity ID | ", activity.task_code, " | Activity Name | ", activity.task_name, " | Pred |", activity.predecessors)
+# for project in r.projects:
+#     print("PROJECT: " + project.proj_short_name + "*****")
+#     for activity in project.activities:
+#         print("################### Activity ID | ", activity.task_code, " | Activity Name | ", activity.task_name, " | Pred |", activity.predecessors)
