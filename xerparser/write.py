@@ -36,7 +36,13 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.projects.get_tsv())
         tsv_writer.writerows(r.calendars.get_tsv())
         tsv_writer.writerows(r.projpcats.get_tsv())
-        tsv_writer.writerows(r.scheduleoptions.get_tsv())
+        # Only write SCHEDOPTIONS if it exists and has data
+        try:
+            if hasattr(r, 'scheduleoptions') and r.scheduleoptions and len(r.scheduleoptions) > 0:
+                tsv_writer.writerows(r.scheduleoptions.get_tsv())
+        except (AttributeError, TypeError):
+            # Skip SCHEDOPTIONS if not present or cannot be accessed
+            pass
         tsv_writer.writerows(r.wbss.get_tsv())
         tsv_writer.writerows(r.resources.get_tsv())
         tsv_writer.writerows(r.acttypes.get_tsv())
