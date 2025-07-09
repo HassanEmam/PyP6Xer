@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="PyP6Xer Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-pypi-recommended">From PyPI (Recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-source">From Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-concepts">Basic Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xer-files">XER Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyp6xer-architecture">PyP6Xer Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#your-first-pyp6xer-program">Your First PyP6Xer Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-projects">Working with Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-project-properties">Accessing Project Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-activities">Project Activities</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-activities">Working with Activities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-activity-information">Basic Activity Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activity-relationships">Activity Relationships</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-resources">Working with Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resource-information">Resource Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-assignments">Resource Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-wbs">Working with WBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-calendars">Working with Calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>This guide will help you get up and running with PyP6Xer quickly.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="from-pypi-recommended">
+<h3>From PyPI (Recommended)<a class="headerlink" href="#from-pypi-recommended" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>PyP6XER
+</pre></div>
+</div>
+</section>
+<section id="from-source">
+<h3>From Source<a class="headerlink" href="#from-source" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/HassanEmam/PyP6Xer.git
+<span class="nb">cd</span><span class="w"> </span>PyP6Xer
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="basic-concepts">
+<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Link to this heading"></a></h2>
+<section id="xer-files">
+<h3>XER Files<a class="headerlink" href="#xer-files" title="Link to this heading"></a></h3>
+<p>XER (eXchange ERport) files are tab-delimited text files exported from Primavera P6. They contain comprehensive project data including:</p>
+<ul class="simple">
+<li><p>Project metadata and settings</p></li>
+<li><p>Work Breakdown Structure (WBS)</p></li>
+<li><p>Activities and their properties</p></li>
+<li><p>Resource definitions and assignments</p></li>
+<li><p>Calendar definitions</p></li>
+<li><p>Activity relationships</p></li>
+<li><p>Custom codes and fields</p></li>
+</ul>
+</section>
+<section id="pyp6xer-architecture">
+<h3>PyP6Xer Architecture<a class="headerlink" href="#pyp6xer-architecture" title="Link to this heading"></a></h3>
+<p>PyP6Xer follows an object-oriented design where each XER element type is represented by a Python class:</p>
+<ul class="simple">
+<li><p><strong>Reader</strong>: Main entry point for parsing XER files</p></li>
+<li><p><strong>Project</strong>: Represents a P6 project</p></li>
+<li><p><strong>Task</strong>: Represents project activities</p></li>
+<li><p><strong>Resource</strong>: Represents resources (labor, material, etc.)</p></li>
+<li><p><strong>WBS</strong>: Work Breakdown Structure elements</p></li>
+<li><p><strong>Calendar</strong>: Working time definitions</p></li>
+</ul>
+</section>
+</section>
+<section id="your-first-pyp6xer-program">
+<h2>Your First PyP6Xer Program<a class="headerlink" href="#your-first-pyp6xer-program" title="Link to this heading"></a></h2>
+<p>Here’s a simple example that loads an XER file and displays basic project information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="c1"># Load the XER file</span>
+<span class="n">xer_file</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;sample.xer&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display basic information</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">xer_file</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2"> project(s)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Iterate through projects</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project Name: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finish Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="working-with-projects">
+<h2>Working with Projects<a class="headerlink" href="#working-with-projects" title="Link to this heading"></a></h2>
+<section id="accessing-project-properties">
+<h3>Accessing Project Properties<a class="headerlink" href="#accessing-project-properties" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get first project</span>
+
+<span class="c1"># Basic properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project ID: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Short Name: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Full Name: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Manager: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_mgr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Dates</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">last_recalc_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Start: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Finish: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Status</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project Status: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="project-activities">
+<h3>Project Activities<a class="headerlink" href="#project-activities" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all activities in a project</span>
+<span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Filter activities by status</span>
+<span class="n">active_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">act</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Active&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Active Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">active_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find critical path activities</span>
+<span class="n">critical_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">act</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">driving_path_flag</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">critical_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-activities">
+<h2>Working with Activities<a class="headerlink" href="#working-with-activities" title="Link to this heading"></a></h2>
+<section id="basic-activity-information">
+<h3>Basic Activity Information<a class="headerlink" href="#basic-activity-information" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>  <span class="c1"># First 5 activities</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Activity: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ID: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Duration: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Status: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  % Complete: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Start: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">act_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Finish: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">act_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="activity-relationships">
+<h3>Activity Relationships<a class="headerlink" href="#activity-relationships" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all relationships</span>
+<span class="n">relationships</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">relations</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Relationships: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">relationships</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find predecessors for a specific activity</span>
+<span class="n">activity_id</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="n">predecessors</span> <span class="o">=</span> <span class="p">[</span><span class="n">rel</span> <span class="k">for</span> <span class="n">rel</span> <span class="ow">in</span> <span class="n">relationships</span> <span class="k">if</span> <span class="n">rel</span><span class="o">.</span><span class="n">task_id</span> <span class="o">==</span> <span class="n">activity_id</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predecessors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predecessor: </span><span class="si">{</span><span class="n">pred</span><span class="o">.</span><span class="n">pred_task_id</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">pred</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">pred</span><span class="o">.</span><span class="n">pred_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Lag: </span><span class="si">{</span><span class="n">pred</span><span class="o">.</span><span class="n">lag_hr_cnt</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-resources">
+<h2>Working with Resources<a class="headerlink" href="#working-with-resources" title="Link to this heading"></a></h2>
+<section id="resource-information">
+<h3>Resource Information<a class="headerlink" href="#resource-information" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access all resources</span>
+<span class="n">resources</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">resources</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Resources: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>  <span class="c1"># First 5 resources</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resource: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ID: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Short Name: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="resource-assignments">
+<h3>Resource Assignments<a class="headerlink" href="#resource-assignments" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get activity-resource assignments</span>
+<span class="n">assignments</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">activityresources</span>
+
+<span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>  <span class="c1"># First 5 assignments</span>
+    <span class="n">activity</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">task_id</span>
+    <span class="n">resource</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activity </span><span class="si">{</span><span class="n">activity</span><span class="si">}</span><span class="s2"> -&gt; Resource </span><span class="si">{</span><span class="n">resource</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Budgeted Units: </span><span class="si">{</span><span class="n">assignment</span><span class="o">.</span><span class="n">target_qty</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Actual Units: </span><span class="si">{</span><span class="n">assignment</span><span class="o">.</span><span class="n">act_reg_qty</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-wbs">
+<h2>Working with WBS<a class="headerlink" href="#working-with-wbs" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access Work Breakdown Structure</span>
+<span class="n">wbs_elements</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">wbss</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total WBS Elements: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">wbs_elements</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find root WBS elements (no parent)</span>
+<span class="n">root_elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">wbs</span> <span class="k">for</span> <span class="n">wbs</span> <span class="ow">in</span> <span class="n">wbs_elements</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">wbs</span><span class="o">.</span><span class="n">parent_wbs_id</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">wbs</span> <span class="ow">in</span> <span class="n">root_elements</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Root WBS: </span><span class="si">{</span><span class="n">wbs</span><span class="o">.</span><span class="n">wbs_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Short Name: </span><span class="si">{</span><span class="n">wbs</span><span class="o">.</span><span class="n">wbs_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Project Node: </span><span class="si">{</span><span class="n">wbs</span><span class="o">.</span><span class="n">proj_node_flag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="working-with-calendars">
+<h2>Working with Calendars<a class="headerlink" href="#working-with-calendars" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access calendars</span>
+<span class="n">calendars</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">calendars</span>
+
+<span class="k">for</span> <span class="n">calendar</span> <span class="ow">in</span> <span class="n">calendars</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calendar: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">clndr_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">clndr_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Hours per Day: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Hours per Week: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">week_hr_cnt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<p>Always wrap file operations in try-catch blocks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">xer_file</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File loaded successfully&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XER file not found&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Explore the <a class="reference internal" href="examples.html"><span class="std std-doc">Examples</span></a> for more advanced usage patterns</p></li>
+<li><p>Check the <a class="reference internal" href="api/xerparser/index.html"><span class="std std-doc">API Reference</span></a> for complete class documentation</p></li>
+<li><p>Learn about <a class="reference internal" href="examples.html#filtering-data"><span class="std std-ref">filtering and querying</span></a> techniques</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="PyP6Xer Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

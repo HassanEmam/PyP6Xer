@@ -1,0 +1,60 @@
+xerparser.model.classes.role
+============================
+
+.. py:module:: xerparser.model.classes.role
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.role.Role
+
+
+Module Contents
+---------------
+
+.. py:class:: Role(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: role_id
+
+
+   .. py:attribute:: parent_role_id
+
+
+   .. py:attribute:: seq_num
+
+
+   .. py:attribute:: role_name
+
+
+   .. py:attribute:: role_short_name
+
+
+   .. py:attribute:: pobs_id
+
+
+   .. py:attribute:: def_cost_qty_link_flag
+
+
+   .. py:attribute:: cost_qty_type
+
+
+   .. py:attribute:: role_descr
+
+
+   .. py:attribute:: last_checksum
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: __repr__()
+
+

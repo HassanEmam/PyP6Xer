@@ -1,0 +1,19 @@
+xerparser.write
+===============
+
+.. py:module:: xerparser.write
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   xerparser.write.writeXER
+
+
+Module Contents
+---------------
+
+.. py:function:: writeXER(r, filename)
+

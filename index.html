@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyP6Xer Documentation &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PyP6Xer Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyp6xer-documentation">
+<h1>PyP6Xer Documentation<a class="headerlink" href="#pyp6xer-documentation" title="Link to this heading"></a></h1>
+<p>Welcome to <strong>PyP6Xer</strong>, a powerful Python library for parsing and manipulating Primavera P6 XER files.</p>
+<p><em>Documentation last updated: July 2025</em></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>PyP6Xer is an open-source Python library that provides a comprehensive solution for reading, parsing, and writing Primavera P6 XER (eXchange ERport) files. It allows you to extract project data, activities, resources, calendars, and relationships from P6 exports and work with them programmatically.</p>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Complete XER File Parsing</strong>: Parse all major XER file components including projects, activities, WBS, resources, calendars, and relationships</p></li>
+<li><p><strong>Object-Oriented Design</strong>: Clean, intuitive API with well-structured classes representing P6 entities</p></li>
+<li><p><strong>Data Export</strong>: Write modified data back to XER format</p></li>
+<li><p><strong>Comprehensive Coverage</strong>: Support for activities, resources, calendars, codes, relationships, and more</p></li>
+<li><p><strong>Easy Integration</strong>: Simple Python API that integrates easily into existing workflows</p></li>
+<li><p><strong>Open Source</strong>: Licensed under GNU LGPL v2.1</p></li>
+</ul>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>PyP6XER
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="c1"># Load an XER file</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access projects</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Access activities in the project</span>
+    <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Activity: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Duration: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Status: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access resources</span>
+<span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resource: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access relationships</span>
+<span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">relations</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relationship: </span><span class="si">{</span><span class="n">relation</span><span class="o">.</span><span class="n">pred_task_id</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">relation</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#basic-concepts">Basic Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#your-first-pyp6xer-program">Your First PyP6Xer Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#working-with-projects">Working with Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#working-with-activities">Working with Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#working-with-resources">Working with Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#working-with-wbs">Working with WBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#working-with-calendars">Working with Calendars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#file-operations">File Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#project-analysis">Project Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#filtering-data">Filtering Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#data-export">Data Export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#advanced-examples">Advanced Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_examples.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_examples.html#resource-management">Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_examples.html#progress-tracking">Progress Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_examples.html#quality-assurance">Quality Assurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_examples.html#data-export-and-reporting">Data Export and Reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#common-issues-and-solutions">Common Issues and Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#performance-tips">Performance Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#debugging-tips">Debugging Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/xerparser/index.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/xerparser/index.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/xerparser/index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</div>
+</section>
+<section id="supported-xer-elements">
+<h2>Supported XER Elements<a class="headerlink" href="#supported-xer-elements" title="Link to this heading"></a></h2>
+<p>PyP6Xer supports parsing and manipulation of the following XER file elements:</p>
+<section id="core-project-elements">
+<h3>Core Project Elements<a class="headerlink" href="#core-project-elements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Projects</strong>: Project information, settings, and metadata</p></li>
+<li><p><strong>Activities (Tasks)</strong>: Project activities with durations, dates, and status</p></li>
+<li><p><strong>WBS</strong>: Work Breakdown Structure hierarchy</p></li>
+<li><p><strong>Relationships</strong>: Activity dependencies and logic links</p></li>
+</ul>
+</section>
+<section id="resources-and-assignments">
+<h3>Resources and Assignments<a class="headerlink" href="#resources-and-assignments" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Resources</strong>: Human and material resources</p></li>
+<li><p><strong>Resource Assignments</strong>: Activity-resource assignments</p></li>
+<li><p><strong>Resource Rates</strong>: Cost and pricing information</p></li>
+<li><p><strong>Resource Categories</strong>: Resource classification</p></li>
+</ul>
+</section>
+<section id="scheduling-and-time">
+<h3>Scheduling and Time<a class="headerlink" href="#scheduling-and-time" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Calendars</strong>: Working time definitions and exceptions</p></li>
+<li><p><strong>Schedule Options</strong>: Project scheduling parameters</p></li>
+</ul>
+</section>
+<section id="classification-and-codes">
+<h3>Classification and Codes<a class="headerlink" href="#classification-and-codes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Activity Codes</strong>: Custom activity classification</p></li>
+<li><p><strong>Activity Types</strong>: Predefined activity classifications</p></li>
+<li><p><strong>UDF Types and Values</strong>: User-defined fields</p></li>
+</ul>
+</section>
+<section id="financial">
+<h3>Financial<a class="headerlink" href="#financial" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Accounts</strong>: Cost account structure</p></li>
+<li><p><strong>Currencies</strong>: Multi-currency support</p></li>
+<li><p><strong>Financial Templates</strong>: Cost templates</p></li>
+</ul>
+</section>
+<section id="organizational">
+<h3>Organizational<a class="headerlink" href="#organizational" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>OBS</strong>: Organizational Breakdown Structure</p></li>
+<li><p><strong>Roles</strong>: Resource roles and responsibilities</p></li>
+</ul>
+</section>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<p>The library is organized into several key modules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xerparser.reader</span></code>: Main parsing functionality</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xerparser.writer</span></code>: XER file output functionality</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xerparser.model</span></code>: Core data model classes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xerparser.model.classes</span></code>: Individual entity classes (Project, Task, Resource, etc.)</p></li>
+</ul>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>PyP6Xer is licensed under the GNU Lesser General Public License v2.1. See the <a class="reference internal" href="license.html"><span class="std std-doc">License</span></a> page for full details.</p>
+</section>
+<section id="support-and-contributing">
+<h2>Support and Contributing<a class="headerlink" href="#support-and-contributing" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Issues</strong>: Report bugs and request features on <a class="reference external" href="https://github.com/HassanEmam/PyP6Xer/issues">GitHub Issues</a></p></li>
+<li><p><strong>Contributing</strong>: See the <a class="reference internal" href="contributing.html"><span class="std std-doc">Contributing Guide</span></a></p></li>
+<li><p><strong>Community</strong>: Join discussions on project development</p></li>
+</ul>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and Tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

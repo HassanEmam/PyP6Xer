@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.projects &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.projects</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.projects</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.classes.project</span><span class="w"> </span><span class="kn">import</span> <span class="n">Project</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.classes.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
+
+<div class="viewcode-block" id="Projects">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Projects</span><span class="p">:</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Projects.index">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.index">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span><span class="mi">0</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Projects.add">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.add">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">prj</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prj</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Projects.get_tsv">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">):</span>
+            <span class="n">tsv</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;%T&#39;</span><span class="p">,</span> <span class="s1">&#39;PROJECT&#39;</span><span class="p">])</span>
+            <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">%F</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;proj_id&#39;</span><span class="p">,</span> <span class="s1">&#39;fy_start_month_num&#39;</span><span class="p">,</span> <span class="s1">&#39;rsrc_self_add_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;allow_complete_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;rsrc_multi_assign_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;checkout_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;project_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;step_complete_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;cost_qty_recalc_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;batch_sum_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;name_sep_char&#39;</span><span class="p">,</span> <span class="s1">&#39;def_complete_pct_type&#39;</span><span class="p">,</span> <span class="s1">&#39;proj_short_name&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;acct_id&#39;</span><span class="p">,</span> <span class="s1">&#39;orig_proj_id&#39;</span><span class="p">,</span> <span class="s1">&#39;source_proj_id&#39;</span><span class="p">,</span> <span class="s1">&#39;base_type_id&#39;</span><span class="p">,</span> <span class="s1">&#39;clndr_id&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;sum_base_proj_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_code_base&#39;</span><span class="p">,</span> <span class="s1">&#39;task_code_step&#39;</span><span class="p">,</span> <span class="s1">&#39;priority_num&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;wbs_max_sum_level&#39;</span><span class="p">,</span> <span class="s1">&#39;strgy_priority_num&#39;</span><span class="p">,</span> <span class="s1">&#39;last_checksum&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_drtn_hr_cnt&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;def_cost_per_qty&#39;</span><span class="p">,</span> <span class="s1">&#39;last_recalc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;plan_start_date&#39;</span><span class="p">,</span> <span class="s1">&#39;plan_end_date&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;scd_end_date&#39;</span><span class="p">,</span> <span class="s1">&#39;add_date&#39;</span><span class="p">,</span> <span class="s1">&#39;last_tasksum_date&#39;</span><span class="p">,</span> <span class="s1">&#39;fcst_start_date&#39;</span><span class="p">,</span> <span class="s1">&#39;def_duration_type&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;task_code_prefix&#39;</span><span class="p">,</span> <span class="s1">&#39;guid&#39;</span><span class="p">,</span> <span class="s1">&#39;def_qty_type&#39;</span><span class="p">,</span> <span class="s1">&#39;add_by_name&#39;</span><span class="p">,</span> <span class="s1">&#39;web_local_root_path&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;proj_url&#39;</span><span class="p">,</span> <span class="s1">&#39;def_rate_type&#39;</span><span class="p">,</span> <span class="s1">&#39;add_act_remain_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;act_this_per_link_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;def_task_type&#39;</span><span class="p">,</span> <span class="s1">&#39;act_pct_link_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_path_type&#39;</span><span class="p">,</span> <span class="s1">&#39;task_code_prefix_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;def_rollup_dates_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;use_project_baseline_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;rem_target_link_flag&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;reset_planned_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;allow_neg_act_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sum_assign_level&#39;</span><span class="p">,</span> <span class="s1">&#39;last_fin_dates_id&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;last_baseline_update_date&#39;</span><span class="p">,</span> <span class="s1">&#39;cr_external_key&#39;</span><span class="p">,</span> <span class="s1">&#39;apply_actuals_date&#39;</span><span class="p">,</span> <span class="s1">&#39;fintmpl_id&#39;</span><span class="p">,</span> <span class="s1">&#39;location_id&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;loaded_scope_level&#39;</span><span class="p">,</span> <span class="s1">&#39;export_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;new_fin_dates_id&#39;</span><span class="p">,</span> <span class="s1">&#39;baselines_to_export&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;baseline_names_to_export&#39;</span><span class="p">,</span> <span class="s1">&#39;next_data_date&#39;</span><span class="p">,</span> <span class="s1">&#39;close_period_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sum_refresh_date&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;trsrcsum_loaded&#39;</span><span class="p">,</span> <span class="s1">&#39;sumtask_loaded&#39;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">prj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">:</span>
+                <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prj</span><span class="o">.</span><span class="n">get_tsv</span><span class="p">())</span>
+            <span class="k">return</span> <span class="n">tsv</span>
+        <span class="k">return</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="Projects.find_by_id">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.find_by_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Project</span><span class="p">:</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">proj_id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="Projects.__repr__">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Projects.__iter__">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.__iter__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Projects.__next__">
+<a class="viewcode-back" href="../../../api/xerparser/model/projects/index.html#xerparser.Projects.__next__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Project</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

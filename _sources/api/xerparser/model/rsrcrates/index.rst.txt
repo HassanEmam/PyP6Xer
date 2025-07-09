@@ -1,0 +1,45 @@
+xerparser.model.rsrcrates
+=========================
+
+.. py:module:: xerparser.model.rsrcrates
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.rsrcrates.ResourceRates
+
+
+Module Contents
+---------------
+
+.. py:class:: ResourceRates
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.rsrcrate.ResourceRate
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rsrcrate.ResourceRate
+
+

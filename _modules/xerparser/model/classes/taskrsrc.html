@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.taskrsrc &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.taskrsrc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.taskrsrc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resources</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">locale</span>
+<div class="viewcode-block" id="TaskRsrc">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TaskRsrc</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TaskRsrc.taskrsrc_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.taskrsrc_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">taskrsrc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taskrsrc_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taskrsrc_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.task_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.task_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.cost_qty_link_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.cost_qty_link_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_link_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_link_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_link_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.role_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.role_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.acct_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.acct_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acct_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;acct_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;acct_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rsrc_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rsrc_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.pobs_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.pobs_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pobs_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pobs_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pobs_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.skill_level">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.skill_level">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skill_level</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;skill_level&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;skill_level&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.remain_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.remain_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.remain_qty_per_hr">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.remain_qty_per_hr">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_qty_per_hr</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_qty_per_hr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_qty_per_hr&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_lag_drtn_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_lag_drtn_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_lag_drtn_hr_cnt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_lag_drtn_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_lag_drtn_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_qty_per_hr">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_qty_per_hr">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_qty_per_hr</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_qty_per_hr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_qty_per_hr&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_ot_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_ot_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_ot_qty</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_ot_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_ot_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_reg_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_reg_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_reg_qty</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_reg_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_reg_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.relag_drtn_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.relag_drtn_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relag_drtn_hr_cnt</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;relag_drtn_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;relag_drtn_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.ot_factor">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.ot_factor">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ot_factor</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_factor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_factor&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.cost_per_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.cost_per_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost_per_qty</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_per_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_per_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_cost">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_cost">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_cost</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_reg_cost">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_reg_cost">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_reg_cost</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_reg_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_reg_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_ot_cost">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_ot_cost">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_ot_cost</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_ot_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_ot_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.remain_cost">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.remain_cost">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_cost</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.restart_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.restart_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">restart_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;restart_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;restart_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.reend_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.reend_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reend_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reend_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reend_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rem_late_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rem_late_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_start_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rem_late_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rem_late_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_end_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rollup_dates_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rollup_dates_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rollup_dates_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rollup_dates_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rollup_dates_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.target_crv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.target_crv">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_crv</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_crv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_crv&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.remain_crv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.remain_crv">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_crv</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_crv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_crv&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.actual_crv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.actual_crv">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actual_crv</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actual_crv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actual_crv&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.ts_pend_act_end_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.ts_pend_act_end_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ts_pend_act_end_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ts_pend_act_end_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ts_pend_act_end_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.guid">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.guid">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rate_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rate_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rate_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rate_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_this_per_cost">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_this_per_cost">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_cost</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.act_this_per_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.act_this_per_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_qty</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_cost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_cost&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.curv_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.curv_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curv_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;curv_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;curv_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.rsrc_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.rsrc_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.cost_per_qty_source_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.cost_per_qty_source_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost_per_qty_source_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_per_qty_source_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_per_qty_source_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.create_user">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.create_user">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_user&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_user&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.create_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.create_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.cbs_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.cbs_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cbs_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cbs_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cbs_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.has_rsrchours">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.has_rsrchours">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">has_rsrchours</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;has_rsrchours&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;has_rsrchours&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.taskrsrc_sum_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.taskrsrc_sum_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">taskrsrc_sum_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taskrsrc_sum_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taskrsrc_sum_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TaskRsrc.data">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.data">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="TaskRsrc.get_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.get_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">taskrsrc_id</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="TaskRsrc.resource">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.resource">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resource</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">get_resource_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TaskRsrc.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">taskrsrc_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_link_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">role_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">acct_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pobs_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skill_level</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_qty_per_hr</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">target_lag_drtn_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_qty_per_hr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_ot_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_reg_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">relag_drtn_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ot_factor</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_per_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_cost</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_reg_cost</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">act_ot_cost</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_cost</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">restart_date</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">reend_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_start_date</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rollup_dates_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_crv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_crv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">actual_crv</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">ts_pend_act_end_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">guid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_cost</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">curv_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_per_qty_source_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_date</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">cbs_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_rsrchours</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">taskrsrc_sum_id</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+
+
+<div class="viewcode-block" id="TaskRsrc.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/taskrsrc/index.html#xerparser.TaskRsrc.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&gt;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target_qty</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+xerparser.model.classes.calendar
+================================
+
+.. py:module:: xerparser.model.classes.calendar
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.calendar.Calendar
+
+
+Module Contents
+---------------
+
+.. py:class:: Calendar(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: clndr_id
+
+
+   .. py:attribute:: default_flag
+
+
+   .. py:attribute:: clndr_name
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: base_clndr_id
+
+
+   .. py:attribute:: last_chng_date
+
+
+   .. py:attribute:: clndr_type
+
+
+   .. py:attribute:: day_hr_cnt
+
+
+   .. py:attribute:: week_hr_cnt
+
+
+   .. py:attribute:: month_hr_cnt
+
+
+   .. py:attribute:: year_hr_cnt
+
+
+   .. py:attribute:: rsrc_private
+
+
+   .. py:attribute:: clndr_data
+
+
+   .. py:attribute:: working_days
+
+
+   .. py:attribute:: exceptions
+      :value: []
+
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: find_by_id(id)
+      :staticmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

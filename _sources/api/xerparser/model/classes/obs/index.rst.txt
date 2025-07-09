@@ -1,0 +1,66 @@
+xerparser.model.classes.obs
+===========================
+
+.. py:module:: xerparser.model.classes.obs
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.obs.OBS
+
+
+Module Contents
+---------------
+
+.. py:class:: OBS(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: obs_id
+
+
+   .. py:attribute:: parent_obs_id
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: seq_num
+
+
+   .. py:attribute:: obs_name
+
+
+   .. py:attribute:: obs_descr
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_json()
+      :classmethod:
+
+
+
+   .. py:method:: get_childs(node, level)
+      :classmethod:
+
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

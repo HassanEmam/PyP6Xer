@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.dcma14.analysis &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.dcma14.analysis</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.dcma14.analysis</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">critical</span>
+
+
+<div class="viewcode-block" id="DCMA14">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/index.html#xerparser.dcma14.analysis.DCMA14">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DCMA14</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;DCMA 14-point analysis for project schedule quality assessment.</span>
+<span class="sd">    </span>
+<span class="sd">    This class performs a comprehensive analysis of a project schedule</span>
+<span class="sd">    based on the Defense Contract Management Agency (DCMA) 14-point</span>
+<span class="sd">    assessment criteria.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        programme: The project programme/schedule to analyze</span>
+<span class="sd">        duration_limit (int): Threshold for activity duration analysis (default: 1)</span>
+<span class="sd">        lag_limit (int): Threshold for relationship lag analysis (default: 0)</span>
+<span class="sd">        tf_limit (int): Threshold for total float analysis (default: 0)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Analysis results in the following structure::</span>
+<span class="sd">        </span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;analysis&quot;: {</span>
+<span class="sd">                    &quot;summary&quot;: {&quot;activity_cnt&quot;: int, &quot;relationship_cnt&quot;: int},</span>
+<span class="sd">                    &quot;predecessors&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;successors&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;lags&quot;: {&quot;cnt&quot;: int, &quot;relations&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;leads&quot;: {&quot;cnt&quot;: int, &quot;relations&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;relations&quot;: {&quot;fs_cnt&quot;: int, &quot;relationship&quot;: list},</span>
+<span class="sd">                    &quot;constraints&quot;: {&quot;cstr_cnt&quot;: int, &quot;cstrs&quot;: list},</span>
+<span class="sd">                    &quot;totalfloat&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;negativefloat&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;duration&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;invaliddates&quot;: {&quot;cnt&quot;: int, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;resources&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;slippage&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float},</span>
+<span class="sd">                    &quot;critical&quot;: {&quot;cnt&quot;: int, &quot;activities&quot;: list, &quot;pct&quot;: float}</span>
+<span class="sd">                }</span>
+<span class="sd">            }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">programme</span><span class="p">,</span> <span class="n">duration_limit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">lag_limit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tf_limit</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="DCMA14.count">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.count">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="DCMA14.programme">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.programme">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">programme</span> <span class="o">=</span> <span class="n">programme</span></div>
+
+<div class="viewcode-block" id="DCMA14.dur_limit">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.dur_limit">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dur_limit</span> <span class="o">=</span> <span class="n">duration_limit</span></div>
+
+<div class="viewcode-block" id="DCMA14.lag_limit">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.lag_limit">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lag_limit</span> <span class="o">=</span> <span class="n">lag_limit</span></div>
+
+<div class="viewcode-block" id="DCMA14.tf_limit">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.tf_limit">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_limit</span> <span class="o">=</span> <span class="n">tf_limit</span></div>
+
+<div class="viewcode-block" id="DCMA14.results">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/analysis/index.html#xerparser.dcma14.analysis.DCMA14.results">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="DCMA14.analysis">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/index.html#xerparser.dcma14.analysis.DCMA14.analysis">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">analysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform the complete DCMA 14-point analysis.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Analysis results containing all 14 assessment points</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relation_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">relations</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;activity_cnt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">,</span> <span class="s1">&#39;relationship_cnt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">relation_count</span><span class="p">}</span>
+        <span class="c1"># 1.1 successors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_successors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chk_successors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_successors_cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_successors</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;successors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_successors_cnt</span><span class="p">,</span>
+                                                  <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_successors</span><span class="p">],</span>
+                                                  <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_successors_cnt</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)}</span>
+        <span class="c1">#1.2 predecessors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chk_predessors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors_cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;predecessors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors_cnt</span><span class="p">,</span>
+                                                    <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors</span><span class="p">],</span>
+                                                    <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_predecessors_cnt</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)}</span>
+        <span class="c1">#2 lags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lags</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lag_hr_cnt</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">lag_limit</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">lag_hr_cnt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">relations</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;lags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lags</span><span class="p">),</span>
+                                            <span class="s1">&#39;relations&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> 
+                                                            <span class="s2">&quot;successor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">),</span>
+                                                            <span class="s2">&quot;predecessor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">pred_task_id</span><span class="p">),</span>
+                                                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">pred_type</span><span class="p">,</span>
+                                                            <span class="s2">&quot;lag&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">lag_hr_cnt</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span>
+                                                            <span class="p">}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lags</span><span class="p">],</span>
+                                            <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lags</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relation_count</span><span class="p">)}</span>
+        <span class="c1">#3 leads</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">relations</span><span class="o">.</span><span class="n">leads</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;leads&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leads</span><span class="p">),</span>
+                                             <span class="s1">&#39;relations&#39;</span><span class="p">:</span> <span class="p">[{</span> 
+                                                            <span class="s2">&quot;successor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">),</span>
+                                                            <span class="s2">&quot;predecessor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">pred_task_id</span><span class="p">),</span>
+                                                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">pred_type</span><span class="p">,</span>
+                                                            <span class="s2">&quot;lag&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">lag_hr_cnt</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span>
+                                                            <span class="p">}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">leads</span><span class="p">],</span>
+                                             <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">leads</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relation_count</span><span class="p">)}</span>
+        <span class="c1">#4 relationships</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsRel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">relations</span><span class="o">.</span><span class="n">finish_to_start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;relations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fs_cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fsRel</span><span class="p">),</span> <span class="s1">&#39;relationship&#39;</span><span class="p">:</span> <span class="p">[</span>
+                                                <span class="p">{</span> 
+                                                    <span class="s2">&quot;successor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">),</span>
+                                                    <span class="s2">&quot;predecessor&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">pred_task_id</span><span class="p">),</span>
+                                                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">pred_type</span><span class="p">,</span>
+                                                    <span class="s2">&quot;lag&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">lag_hr_cnt</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span>
+                                                    <span class="p">}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsRel</span><span class="p">]}</span>
+        <span class="c1">#5 constraints</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CS_MANDFIN&#39;</span><span class="p">,</span> <span class="s1">&#39;CS_MANDFIN&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cstr_type</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">cstr_type</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;constraints&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cstr_cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">),</span> 
+                                                    <span class="s1">&#39;cstrs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="p">]}</span>
+        <span class="c1">#6 large total float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalfloat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">/</span><span class="mf">8.0</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_limit</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;totalfloat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalfloat</span><span class="p">),</span>
+                                                <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalfloat</span><span class="p">],</span>
+                                                <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalfloat</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)}</span>
+        <span class="c1">#7 negative total float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">negativefloat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">/</span><span class="mf">8.0</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;negativefloat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">negativefloat</span><span class="p">),</span>
+                                                <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">negativefloat</span><span class="p">],</span>
+                                                <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">negativefloat</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)}</span>
+        <span class="c1">#8 durations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dur_limit</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">),</span>
+                                                <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">],</span>
+                                                <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)}</span>
+        <span class="c1">#9 Check for Invalid Dates</span>
+        <span class="c1"># no actual dates beyong data date</span>
+        <span class="n">data_date</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+            <span class="c1"># Handle empty or None last_recalc_date</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">last_recalc_date</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">last_recalc_date</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">last_recalc_date</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="c1"># If date format is invalid, use current date as fallback</span>
+                    <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># If no date provided, use current date as fallback</span>
+                <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidactualstart</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">act_start_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">act_start_date</span> <span class="o">&gt;</span> <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)],</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidactualfinish</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">act_end_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">act_end_date</span> <span class="o">&gt;</span> <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)],</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidearlystart</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">early_start_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">early_start_date</span> <span class="o">&lt;</span> <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)],</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidearlyfinish</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">early_end_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">early_end_date</span> <span class="o">&lt;</span> <span class="n">data_date</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)],</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invalidactualfinish</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invalidactualstart</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invalidearlystart</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invalidearlyfinish</span><span class="p">)</span>
+        <span class="n">pct</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invaliddates</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;actual_start&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">invalidactualstart</span><span class="p">],</span>
+            <span class="s2">&quot;actual_finish&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">invalidactualfinish</span><span class="p">],</span>
+            <span class="s2">&quot;early_start&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">invalidearlystart</span><span class="p">],</span>
+            <span class="s2">&quot;early_finish&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">invalidearlyfinish</span><span class="p">],</span>
+            <span class="s2">&quot;cnt&quot;</span><span class="p">:</span> <span class="n">cnt</span><span class="p">,</span>
+            <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="n">pct</span>
+            <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;invaliddates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invaliddates</span>
+
+        <span class="c1">#10 Check resource assignments</span>
+        <span class="n">no_resources</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tasks_id</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">t_id</span> <span class="ow">in</span> <span class="n">tasks_id</span><span class="p">:</span>
+            <span class="n">assignments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activityresources</span><span class="o">.</span><span class="n">find_by_activity_id</span><span class="p">(</span><span class="n">t_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">assignments</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">no_resources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">no_resources</span><span class="p">],</span>
+            <span class="s2">&quot;cnt&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">no_resources</span><span class="p">),</span>
+            <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">no_resources</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">no_resources</span><span class="p">)</span>
+
+        <span class="c1">#11 slippage from target</span>
+        <span class="c1"># end dates are later than target end dates</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actualendslippage</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">act_end_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">act_end_date</span> <span class="o">&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">earlyendslippage</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">early_end_date</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">early_end_date</span> <span class="o">&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">))</span>
+        <span class="n">slipped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">actualendslippage</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">earlyendslippage</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SLIPPED&quot;</span><span class="p">,</span> <span class="n">slipped</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;slippage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">task_name</span><span class="p">,</span>
+                <span class="s2">&quot;early_finish&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">early_end_date</span><span class="p">),</span>
+                <span class="s2">&quot;planned_finish&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">slipped</span><span class="p">],</span>
+            <span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">slipped</span><span class="p">),</span>
+            <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">slipped</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1">#12 Critical Path Test</span>
+         
+        
+        <span class="c1">#13 Critical Path Length Index</span>
+        <span class="c1"># calculated as cirical path length + total float / critical path length</span>
+        <span class="c1"># critical = list(filter(lambda x: x.total_float_hr_cnt &lt;= 10.0 if x.total_float_hr_cnt else None, self.programme.activities.activities))</span>
+        <span class="n">critical</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TF FOUND&quot;</span><span class="p">,</span> <span class="n">act</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span> <span class="n">act</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    
+                    <span class="n">critical</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">act</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TF Not found&quot;</span><span class="p">)</span>
+
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;critical&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="n">task</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">early_start_date</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="p">)</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">critical</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;critical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_activity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">critical</span><span class="p">],</span>
+            <span class="s1">&#39;cnt&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">critical</span><span class="p">),</span>
+            <span class="s1">&#39;pct&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">critical</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">activity_count</span>
+        <span class="p">}</span>
+
+        
+
+        <span class="c1">#14 BLEI</span>
+
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="DCMA14.chk_successors">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/index.html#xerparser.dcma14.analysis.DCMA14.chk_successors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">chk_successors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check for activities with no successors.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Activities that have no successor relationships</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">has_no_successor</span></div>
+
+
+<div class="viewcode-block" id="DCMA14.chk_predessors">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/index.html#xerparser.dcma14.analysis.DCMA14.chk_predessors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">chk_predessors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check for activities with no predecessors.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Activities that have no predecessor relationships</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">has_no_predecessor</span></div>
+
+
+<div class="viewcode-block" id="DCMA14.get_activity">
+<a class="viewcode-back" href="../../../api/xerparser/dcma14/index.html#xerparser.dcma14.analysis.DCMA14.get_activity">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get activity information by ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            id: Activity ID to retrieve</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict or None: Activity information including id, name, duration, and total float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">activity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">programme</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="c1"># print(activity)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span> 
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="p">,</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">duration</span><span class="p">,</span>
+                <span class="s2">&quot;tf&quot;</span><span class="p">:</span><span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">/</span> <span class="mf">8.0</span> <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="k">else</span> <span class="mi">0</span>
+                <span class="p">}</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.project &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.project</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.project</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.classes.wbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WBS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tasks</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.wbss</span><span class="w"> </span><span class="kn">import</span> <span class="n">WBSs</span>
+
+<div class="viewcode-block" id="Project">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Project.proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.fy_start_month_num">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.fy_start_month_num">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fy_start_month_num</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fy_start_month_num&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fy_start_month_num&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.rsrc_self_add_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.rsrc_self_add_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_self_add_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_self_add_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_self_add_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.allow_complete_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.allow_complete_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allow_complete_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;allow_complete_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;allow_complete_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.rsrc_multi_assign_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.rsrc_multi_assign_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_multi_assign_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_multi_assign_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_multi_assign_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.checkout_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.checkout_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkout_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;checkout_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;checkout_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.project_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.project_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;project_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;project_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.step_complete_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.step_complete_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_complete_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step_complete_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step_complete_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.cost_qty_recalc_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.cost_qty_recalc_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_recalc_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_recalc_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_recalc_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.batch_sum_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.batch_sum_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_sum_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;batch_sum_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;batch_sum_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.name_sep_char">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.name_sep_char">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_sep_char</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name_sep_char&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name_sep_char&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_complete_pct_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_complete_pct_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_complete_pct_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_complete_pct_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_complete_pct_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.proj_short_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.proj_short_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_short_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_short_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_short_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.acct_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.acct_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acct_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;acct_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;acct_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.orig_proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.orig_proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orig_proj_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;orig_proj_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;orig_proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.source_proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.source_proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_proj_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source_proj_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source_proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.base_type_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.base_type_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_type_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;base_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;base_type_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.clndr_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.clndr_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.sum_base_proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.sum_base_proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_base_proj_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_base_proj_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_base_proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.task_code_base">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.task_code_base">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_code_base</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_base&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_base&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.task_code_step">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.task_code_step">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_code_step</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_step&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_step&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.priority_num">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.priority_num">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority_num</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority_num&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority_num&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.wbs_max_sum_level">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.wbs_max_sum_level">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wbs_max_sum_level</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;wbs_max_sum_level&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;wbs_max_sum_level&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.strgy_priority_num">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.strgy_priority_num">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strgy_priority_num</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;strgy_priority_num&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;strgy_priority_num&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.last_checksum">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.last_checksum">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_checksum</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_checksum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_checksum&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.critical_drtn_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.critical_drtn_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">critical_drtn_hr_cnt</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;critical_drtn_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;critical_drtn_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_cost_per_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_cost_per_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_cost_per_qty</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_cost_per_qty&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_cost_per_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.last_recalc_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.last_recalc_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_recalc_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_recalc_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_recalc_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_recalc_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.plan_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.plan_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plan_start_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_start_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.plan_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.plan_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plan_end_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_end_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plan_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.scd_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.scd_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scd_end_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scd_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scd_end_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scd_end_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Fix for add_date datetime parsing issue - check if not empty before parsing</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_date</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="viewcode-block" id="Project.last_tasksum_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.last_tasksum_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_tasksum_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_tasksum_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_tasksum_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_tasksum_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.fcst_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.fcst_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fcst_start_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fcst_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fcst_start_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fcst_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_duration_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_duration_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_duration_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_duration_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_duration_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.task_code_prefix">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.task_code_prefix">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_code_prefix</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_prefix&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_prefix&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.guid">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.guid">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_qty_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_qty_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_qty_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_qty_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_qty_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.add_by_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.add_by_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_by_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_by_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_by_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.web_local_root_path">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.web_local_root_path">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">web_local_root_path</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;web_local_root_path&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;web_local_root_path&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.proj_url">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.proj_url">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_url</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_url&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_url&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_rate_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_rate_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_rate_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_rate_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_rate_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.add_act_remain_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.add_act_remain_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_act_remain_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_act_remain_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;add_act_remain_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.act_this_per_link_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.act_this_per_link_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_link_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_link_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_link_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_task_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_task_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_task_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_task_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_task_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.act_pct_link_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.act_pct_link_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_pct_link_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_pct_link_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_pct_link_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.critical_path_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.critical_path_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">critical_path_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;critical_path_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;critical_path_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.task_code_prefix_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.task_code_prefix_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_code_prefix_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_prefix_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code_prefix_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.def_rollup_dates_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.def_rollup_dates_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_rollup_dates_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_rollup_dates_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_rollup_dates_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.use_project_baseline_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.use_project_baseline_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_project_baseline_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_project_baseline_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_project_baseline_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.rem_target_link_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.rem_target_link_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem_target_link_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_target_link_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_target_link_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.reset_planned_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.reset_planned_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_planned_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reset_planned_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reset_planned_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.allow_neg_act_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.allow_neg_act_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allow_neg_act_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;allow_neg_act_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;allow_neg_act_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.sum_assign_level">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.sum_assign_level">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_assign_level</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_assign_level&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_assign_level&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.last_fin_dates_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.last_fin_dates_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_fin_dates_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_fin_dates_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_fin_dates_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.last_baseline_update_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.last_baseline_update_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_baseline_update_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_fin_dates_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_fin_dates_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.cr_external_key">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.cr_external_key">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr_external_key</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_external_key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_external_key&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.apply_actuals_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.apply_actuals_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_actuals_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;apply_actuals_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;apply_actuals_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.location_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.location_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.loaded_scope_level">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.loaded_scope_level">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loaded_scope_level</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loaded_scope_level&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loaded_scope_level&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.export_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.export_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;export_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;export_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.new_fin_dates_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.new_fin_dates_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_fin_dates_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;new_fin_dates_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;new_fin_dates_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.baselines_to_export">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.baselines_to_export">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baselines_to_export</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;baselines_to_export&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;baselines_to_export&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.baseline_names_to_export">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.baseline_names_to_export">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline_names_to_export</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;baseline_names_to_export&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;baseline_names_to_export&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.next_data_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.next_data_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_data_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;next_data_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;next_data_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.close_period_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.close_period_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close_period_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;close_period_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;close_period_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.sum_refresh_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.sum_refresh_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_refresh_date</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_refresh_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sum_refresh_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.trsrcsum_loaded">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.trsrcsum_loaded">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trsrcsum_loaded</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;trsrcsum_loaded&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;trsrcsum_loaded&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.fintmpl_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.fintmpl_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fintmpl_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fintmpl_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fintmpl_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.sumtask_loaded">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.sumtask_loaded">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sumtask_loaded</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sumtask_loaded&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sumtask_loaded&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Project.data">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.data">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Project.id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span></div>
+
+
+<div class="viewcode-block" id="Project.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fy_start_month_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_self_add_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">allow_complete_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_multi_assign_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkout_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">project_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_complete_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_recalc_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">batch_sum_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_sep_char</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_complete_pct_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_short_name</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">acct_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_type_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">sum_base_proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_code_base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_code_step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority_num</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">wbs_max_sum_level</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">strgy_priority_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_checksum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">critical_drtn_hr_cnt</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">def_cost_per_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_recalc_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_start_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_end_date</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">scd_end_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_tasksum_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fcst_start_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_duration_type</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">task_code_prefix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">guid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_qty_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_by_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">web_local_root_path</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">proj_url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_rate_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_act_remain_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_link_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">def_task_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_pct_link_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">critical_path_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_code_prefix_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">def_rollup_dates_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_project_baseline_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem_target_link_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">reset_planned_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">allow_neg_act_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum_assign_level</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_fin_dates_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">last_baseline_update_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr_external_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_actuals_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fintmpl_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loaded_scope_level</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_fin_dates_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">baselines_to_export</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseline_names_to_export</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_data_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">close_period_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">sum_refresh_date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trsrcsum_loaded</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sumtask_loaded</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Project.activities">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.activities">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">activities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">get_by_project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Project.wbss">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.wbss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wbss</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># wbss = WBSs()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">wbss</span><span class="o">.</span><span class="n">get_by_project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Project.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/project/index.html#xerparser.Project.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_short_name</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

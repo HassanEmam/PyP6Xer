@@ -1,0 +1,69 @@
+xerparser.model.predecessors
+============================
+
+.. py:module:: xerparser.model.predecessors
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.predecessors.Predecessors
+
+
+Module Contents
+---------------
+
+.. py:class:: Predecessors
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:attribute:: task_pred
+      :value: []
+
+
+
+   .. py:method:: find_by_id(code_id) -> xerparser.model.classes.taskpred.TaskPred
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: add(params)
+
+
+   .. py:property:: relations
+      :type: List[xerparser.model.classes.taskpred.TaskPred]
+
+
+
+   .. py:property:: leads
+
+
+   .. py:property:: finish_to_start
+      :type: List[xerparser.model.classes.taskpred.TaskPred]
+
+
+
+   .. py:method:: get_successors(act_id) -> List[xerparser.model.classes.taskpred.TaskPred]
+
+
+   .. py:method:: get_predecessors(act_id) -> List[xerparser.model.classes.taskpred.TaskPred]
+
+
+   .. py:method:: count()
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.taskpred.TaskPred
+
+

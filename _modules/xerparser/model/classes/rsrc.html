@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.rsrc &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.rsrc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.rsrc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<div class="viewcode-block" id="Resource">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Resource</span><span class="p">:</span>
+<div class="viewcode-block" id="Resource.obj_list">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.obj_list">[docs]</a>
+    <span class="n">obj_list</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="viewcode-block" id="Resource.rsrc_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.parent_rsrc_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.parent_rsrc_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_rsrc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parent_rsrc_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parent_rsrc_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.clndr_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.clndr_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.role_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.role_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.shift_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.shift_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shift_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shift_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shift_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.user_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.user_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.pobs_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.pobs_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pobs_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pobs_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pobs_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.guid">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.guid">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_seq_num">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_seq_num">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_seq_num</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_seq_num&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_seq_num&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.email_addr">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.email_addr">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email_addr</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email_addr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email_addr&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.employee_code">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.employee_code">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">employee_code</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;employee_code&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;employee_code&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.office_phone">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.office_phone">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">office_phone</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;office_phone&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;office_phone&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.other_phone">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.other_phone">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">other_phone</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;other_phone&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;other_phone&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_short_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_short_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_short_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_short_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_short_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_title_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_title_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_title_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_title_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_title_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.def_qty_per_hr">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.def_qty_per_hr">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_qty_per_hr</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_qty_per_hr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_qty_per_hr&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.cost_qty_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.cost_qty_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cost_qty_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.ot_factor">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.ot_factor">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ot_factor</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_factor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_factor&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.active_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.active_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;active_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;active_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.auto_compute_act_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.auto_compute_act_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auto_compute_act_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_compute_act_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_compute_act_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.def_cost_qty_link_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.def_cost_qty_link_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">def_cost_qty_link_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_cost_qty_link_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;def_cost_qty_link_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.ot_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.ot_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ot_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.curr_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.curr_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;curr_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;curr_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.unit_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.unit_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;unit_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;unit_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.location_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.location_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.rsrc_notes">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.rsrc_notes">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_notes</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_notes&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_notes&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.load_tasks_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.load_tasks_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_tasks_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;load_tasks_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;load_tasks_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.level_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.level_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;level_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;level_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Resource.last_checksum">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.last_checksum">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_checksum</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;level_flag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;level_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="n">Resource</span><span class="o">.</span><span class="n">obj_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Resource.get_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.get_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span></div>
+
+
+<div class="viewcode-block" id="Resource.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_rsrc_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">role_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shift_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pobs_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">guid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_seq_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">email_addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">employee_code</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">office_phone</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_phone</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_short_name</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_title_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_qty_per_hr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_qty_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ot_factor</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">active_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_compute_act_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">def_cost_qty_link_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">ot_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_notes</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">load_tasks_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">level_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_checksum</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Resource.find_by_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.find_by_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_by_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">obj_list</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">obj</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Resource.parent">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.parent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_rsrc_id</span></div>
+
+
+<div class="viewcode-block" id="Resource.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_name</span></div>
+
+
+<div class="viewcode-block" id="Resource.__str__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_name</span></div>
+
+
+<div class="viewcode-block" id="Resource.toJson">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/rsrc/index.html#xerparser.Resource.toJson">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

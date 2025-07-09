@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.activitycode &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.activitycode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.activitycode</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.acttypes</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActTypes</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">locale</span>
+
+<div class="viewcode-block" id="ActivityCode">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ActivityCode</span><span class="p">:</span>
+<div class="viewcode-block" id="ActivityCode.obj_list">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.obj_list">[docs]</a>
+    <span class="n">obj_list</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Unique ID generated by the system.</span>
+<div class="viewcode-block" id="ActivityCode.actv_code_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.actv_code_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The parent Activity Code value in the user code value hierarchy.</span>
+<div class="viewcode-block" id="ActivityCode.parent_actv_code_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.parent_actv_code_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_actv_code_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parent_actv_code_id&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parent_actv_code_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The Activity Code type id acts as foreign key to activity code types table</span>
+<div class="viewcode-block" id="ActivityCode.actv_code_type_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.actv_code_type_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_type_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_type_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The description of an Activity Code value.</span>
+<div class="viewcode-block" id="ActivityCode.actv_code_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.actv_code_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actv_code_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The value of the activity code.</span>
+<div class="viewcode-block" id="ActivityCode.short_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.short_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">short_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;short_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;short_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Sequence number for sorting.</span>
+<div class="viewcode-block" id="ActivityCode.seq_num">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.seq_num">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;seq_num&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;seq_num&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="ActivityCode.color">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.color">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="ActivityCode.total_assignments">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.total_assignments">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_assignments</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;total_assignments&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;total_assignments&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="n">ActivityCode</span><span class="o">.</span><span class="n">obj_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ActivityCode.get_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.get_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_id</span></div>
+
+
+<div class="viewcode-block" id="ActivityCode.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_actv_code_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_type_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">short_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq_num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_assignments</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+
+
+    <span class="c1"># @staticmethod</span>
+    <span class="c1"># def find_by_id(id):</span>
+    <span class="c1">#     obj = list(filter(lambda x: x.actv_code_id == id, ActivityCode.obj_list))</span>
+    <span class="c1">#     if obj:</span>
+    <span class="c1">#         return obj[0]</span>
+    <span class="c1">#     return obj</span>
+
+    <span class="c1"># @classmethod</span>
+    <span class="c1"># def find_by_code(cls, code):</span>
+    <span class="c1">#     &quot;&quot;&quot; This Function searches for activity code using ID code</span>
+    <span class="c1">#</span>
+    <span class="c1">#     Args:</span>
+    <span class="c1">#         code: ID code as defined in Primavera and not the database</span>
+    <span class="c1">#         obj_list: list of activity codes that need to be searched</span>
+    <span class="c1">#</span>
+    <span class="c1">#     Returns: an ActivityCode object that matches the supplied code</span>
+    <span class="c1">#</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     actv_code = list(filter(lambda x: x.short_name == code, ActivityCode.obj_list))[0]</span>
+    <span class="c1">#     return actv_code</span>
+    <span class="c1">#</span>
+    <span class="c1"># @classmethod</span>
+    <span class="c1"># def get_parent(cls, id):</span>
+    <span class="c1">#     obj = None</span>
+    <span class="c1">#     c_actv_code = list(filter(lambda x: x.actv_code_id == id, ActivityCode.obj_list))[0]</span>
+    <span class="c1">#     if c_actv_code:</span>
+    <span class="c1">#         obj = cls.find_by_id(c_actv_code.actv_code_id, ActivityCode.obj_list)</span>
+    <span class="c1">#     return obj</span>
+    <span class="c1">#</span>
+    <span class="c1"># @classmethod</span>
+    <span class="c1"># def get_children(cls, id, obj_list):</span>
+    <span class="c1">#     childs = list(filter(lambda x: x.parent_actv_code_id == id, obj_list))</span>
+    <span class="c1">#     return childs</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="ActivityCode.type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ActTypes</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">actv_code_type_id</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ActivityCode.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/activitycode/index.html#xerparser.ActivityCode.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">actv_code_id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; - &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">short_name</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">short_name</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="s1">&#39; - &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_name</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">actv_code_name</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

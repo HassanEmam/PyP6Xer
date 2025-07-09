@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.reader &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.reader</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.reader</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This file starts the process of reading and parsing xer files</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mmap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.classes.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.write</span><span class="w"> </span><span class="kn">import</span> <span class="n">writeXER</span>
+
+<div class="viewcode-block" id="Reader">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Reader</span><span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reader class is the main parser for xer files. It takes a file path as a parameter.</span>
+<span class="sd">    The read records are parsed into classes depending on their types like activities, wbs,etc.</span>
+
+<span class="sd">    :param &lt;file&gt;: is an xer file that need to be parsed</span>
+<span class="sd">    :return: Reader object that contains collection of parsed records</span>
+<span class="sd">    :Example:</span>
+
+<span class="sd">    from xerparser.reader import Reader</span>
+<span class="sd">    file = Reader(&#39;file.xer&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Reader.current_table">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.current_table">[docs]</a>
+    <span class="n">current_table</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="Reader.current_headers">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.current_headers">[docs]</a>
+    <span class="n">current_headers</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="Reader.write">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.write">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;You have to provide the filename&quot;</span><span class="p">)</span>
+        <span class="n">writeXER</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Reader.create_object">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.create_object">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_type</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            object_type:</span>
+<span class="sd">            params:</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CURRTYPE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_currencies</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ROLES&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_roles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ACCOUNT&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_accounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ROLERATE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rolerates</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;OBS&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_obss</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RCATTYPE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rcattypes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;UDFTYPE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_udftypes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RCATVAL&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rcatvals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PROJECT&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CALENDAR&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_calendars</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;SCHEDOPTIONS&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_schedoptions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PROJWBS&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wbss</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RSRC&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RSRCCURVDATA&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcurves</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ACTVTYPE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_acttypes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PCATTYPE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pcattypes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PROJPCAT&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_projpcats</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PCATVAL&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pcatvals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RSRCRATE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcrates</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;RSRCRCAT&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rsrccats</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TASK&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ACTVCODE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_actvcodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TASKPRED&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predecessors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TASKRSRC&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_activityresources</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TASKPROC&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_taskprocs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TASKACTV&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_activitycodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;UDFVALUE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_udfvalues</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;FINTMPL&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fintmpls</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">object_type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;NONWORK&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nonworks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Reader.summary">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of activities: &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of relationships: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">TaskPred</span><span class="o">.</span><span class="n">obj_list</span><span class="p">))</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.projects">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.projects">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">projects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Projects</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Projects</span>
+
+<span class="sd">        :return: list of all projects contained in the xer file</span>
+
+<span class="sd">        todo:: text</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.activities">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.activities">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">activities</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tasks</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to retrieve list of tasks</span>
+<span class="sd">        Returns: list of tasks</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.wbss">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.wbss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wbss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WBSs</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to return all wbs elements in the parsed file</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of wbs elements</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wbss</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.relations">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.relations">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">relations</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Predecessors</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to retrieve relationships from parsed file</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of relations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predecessors</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.resources">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.resources">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resources</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Resources</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to return a list of resources from parsed file</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of resources of type Resources</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.accounts">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.accounts">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">accounts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Accounts</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to return a list of accounts from parsed files</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of accounts of type Accounts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accounts</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.activitycodes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.activitycodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">activitycodes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActivityCodes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Property to return a list of activity codes from parsed files</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of accounts of type ActivityCode</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activitycodes</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.actvcodes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.actvcodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">actvcodes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TaskActvs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_actvcodes</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.acttypes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.acttypes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">acttypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActTypes</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acttypes</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.calendars">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.calendars">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calendars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Calendars</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calendars</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.currencies">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.currencies">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">currencies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Currencies</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_currencies</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.obss">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.obss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">obss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OBSs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obss</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.rcattypes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.rcattypes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rcattypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RCatTypes</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rcattypes</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.rcatvals">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.rcatvals">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rcatvals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RCatVals</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rcatvals</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.rolerates">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.rolerates">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rolerates</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RoleRates</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rolerates</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.roles">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.roles">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Roles</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_roles</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.resourcecurves">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.resourcecurves">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resourcecurves</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ResourceCurves</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcurves</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.resourcerates">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.resourcerates">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resourcerates</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ResourceRates</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcrates</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.resourcecategories">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.resourcecategories">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resourcecategories</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ResourceCategories</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rsrccats</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.scheduleoptions">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.scheduleoptions">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scheduleoptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SchedOptions</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_schedoptions</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.activityresources">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.activityresources">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">activityresources</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActivityResources</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activityresources</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.udfvalues">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.udfvalues">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">udfvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UDFValues</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_udfvalues</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.udftypes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.udftypes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">udftypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UDFTypes</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_udftypes</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.pcattypes">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.pcattypes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pcattypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">PCatTypes</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pcattypes</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.pcatvals">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.pcatvals">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pcatvals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">PCatVals</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pcatvals</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.projpcats">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.projpcats">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">projpcats</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ProjCat</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projpcats</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.taskprocs">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.taskprocs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">taskprocs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TaskProc</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_taskprocs</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.fintmpls">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.fintmpls">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fintmpls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">FinTmpl</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fintmpls</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Reader.nonworks">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.nonworks">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nonworks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NonWork</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nonworks</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="Reader.file">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.file">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">filename</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span> <span class="o">=</span> <span class="n">Tasks</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predecessors</span> <span class="o">=</span> <span class="n">Predecessors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span> <span class="o">=</span> <span class="n">Projects</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wbss</span> <span class="o">=</span> <span class="n">WBSs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span> <span class="o">=</span> <span class="n">Resources</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_accounts</span> <span class="o">=</span> <span class="n">Accounts</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_actvcodes</span> <span class="o">=</span> <span class="n">ActivityCodes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activitycodes</span> <span class="o">=</span> <span class="n">TaskActvs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_acttypes</span> <span class="o">=</span> <span class="n">ActTypes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calendars</span> <span class="o">=</span> <span class="n">Calendars</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_currencies</span> <span class="o">=</span> <span class="n">Currencies</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obss</span> <span class="o">=</span> <span class="n">OBSs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rcatvals</span> <span class="o">=</span> <span class="n">RCatVals</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rcattypes</span> <span class="o">=</span> <span class="n">RCatTypes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rolerates</span> <span class="o">=</span> <span class="n">RoleRates</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_roles</span> <span class="o">=</span> <span class="n">Roles</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcurves</span> <span class="o">=</span> <span class="n">ResourceCurves</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rsrcrates</span> <span class="o">=</span> <span class="n">ResourceRates</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rsrccats</span> <span class="o">=</span> <span class="n">ResourceCategories</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schedoptions</span> <span class="o">=</span> <span class="n">SchedOptions</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_activityresources</span> <span class="o">=</span> <span class="n">ActivityResources</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_udftypes</span> <span class="o">=</span> <span class="n">UDFTypes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_udfvalues</span> <span class="o">=</span> <span class="n">UDFValues</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pcattypes</span> <span class="o">=</span> <span class="n">PCatTypes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pcatvals</span> <span class="o">=</span> <span class="n">PCatVals</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projpcats</span> <span class="o">=</span> <span class="n">ProjCats</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_taskprocs</span> <span class="o">=</span> <span class="n">TaskProcs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fintmpls</span> <span class="o">=</span> <span class="n">FinTmpls</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nonworks</span> <span class="o">=</span> <span class="n">NonWorks</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">projects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_projects</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wbss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wbss</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resources</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">taskresource</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activityresources</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">taskactvcodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activitycodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">predecessors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predecessors</span>
+        <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tsvfile</span><span class="p">:</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">tsvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span><span class="s2">&quot;%T&quot;</span><span class="p">:</span>
+                    <span class="n">current_table</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="si">%F</span><span class="s2">&quot;</span><span class="p">:</span>
+                    <span class="n">current_headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+                <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;%R&quot;</span><span class="p">:</span>
+                    <span class="n">zipped_record</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">current_headers</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">current_table</span><span class="p">,</span> <span class="n">zipped_record</span><span class="p">)</span>
+
+        <span class="c1"># for line in content:</span>
+        <span class="c1">#     line_lst = line.split(&#39;\t&#39;)</span>
+        <span class="c1">#     if line_lst[0] == &quot;%T&quot;:</span>
+        <span class="c1">#         current_table = line_lst[1]</span>
+        <span class="c1">#     elif line_lst[0] == &quot;%R&quot;:</span>
+        <span class="c1">#         self.create_object(current_table, line_lst[1:])</span>
+
+<div class="viewcode-block" id="Reader.get_num_lines">
+<a class="viewcode-back" href="../../api/xerparser/reader/index.html#xerparser.reader.Reader.get_num_lines">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_num_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">mmap</span><span class="o">.</span><span class="n">mmap</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">buf</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
+            <span class="n">lines</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lines</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

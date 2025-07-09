@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.task &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="xerparser.model.classes.taskactv" href="../taskactv/index.html" />
+    <link rel="prev" title="xerparser.model.classes.schedoption" href="../schedoption/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">xerparser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../dcma14/index.html">xerparser.dcma14</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">xerparser.model</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reader/index.html">xerparser.reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../write/index.html">xerparser.write</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">xerparser</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">xerparser.model</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">xerparser.model.classes</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.task</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/api/xerparser/model/classes/task/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-xerparser.model.classes.task">
+<span id="xerparser-model-classes-task"></span><h1>xerparser.model.classes.task<a class="headerlink" href="#module-xerparser.model.classes.task" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#xerparser.model.classes.task.Task" title="xerparser.model.classes.task.Task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Task</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xerparser.model.classes.task.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.obj_list">
+<span class="sig-name descname"><span class="pre">obj_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.obj_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.obj_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.task_id">
+<span class="sig-name descname"><span class="pre">task_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.task_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.task_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.proj_id">
+<span class="sig-name descname"><span class="pre">proj_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.proj_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.proj_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.wbs_id">
+<span class="sig-name descname"><span class="pre">wbs_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.wbs_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.wbs_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.clndr_id">
+<span class="sig-name descname"><span class="pre">clndr_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.clndr_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.clndr_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.phys_complete_pct">
+<span class="sig-name descname"><span class="pre">phys_complete_pct</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.phys_complete_pct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.phys_complete_pct" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.rev_fdbk_flag">
+<span class="sig-name descname"><span class="pre">rev_fdbk_flag</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.rev_fdbk_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.rev_fdbk_flag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.est_wt">
+<span class="sig-name descname"><span class="pre">est_wt</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.est_wt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.est_wt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.lock_plan_flag">
+<span class="sig-name descname"><span class="pre">lock_plan_flag</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.lock_plan_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.lock_plan_flag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.auto_compute_act_flag">
+<span class="sig-name descname"><span class="pre">auto_compute_act_flag</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.auto_compute_act_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.auto_compute_act_flag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.complete_pct_type">
+<span class="sig-name descname"><span class="pre">complete_pct_type</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.complete_pct_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.complete_pct_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.task_type">
+<span class="sig-name descname"><span class="pre">task_type</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.task_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.task_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.duration_type">
+<span class="sig-name descname"><span class="pre">duration_type</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.duration_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.duration_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.status_code">
+<span class="sig-name descname"><span class="pre">status_code</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.status_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.status_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.task_code">
+<span class="sig-name descname"><span class="pre">task_code</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.task_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.task_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.task_name">
+<span class="sig-name descname"><span class="pre">task_name</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.task_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.task_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.rsrc_id">
+<span class="sig-name descname"><span class="pre">rsrc_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.rsrc_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.rsrc_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.total_float_hr_cnt">
+<span class="sig-name descname"><span class="pre">total_float_hr_cnt</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.total_float_hr_cnt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.total_float_hr_cnt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.free_float_hr_cnt">
+<span class="sig-name descname"><span class="pre">free_float_hr_cnt</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.free_float_hr_cnt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.free_float_hr_cnt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.remain_drtn_hr_cnt">
+<span class="sig-name descname"><span class="pre">remain_drtn_hr_cnt</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.remain_drtn_hr_cnt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.remain_drtn_hr_cnt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_work_qty">
+<span class="sig-name descname"><span class="pre">act_work_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_work_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_work_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.remain_work_qty">
+<span class="sig-name descname"><span class="pre">remain_work_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.remain_work_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.remain_work_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.target_work_qty">
+<span class="sig-name descname"><span class="pre">target_work_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.target_work_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.target_work_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.target_drtn_hr_cnt">
+<span class="sig-name descname"><span class="pre">target_drtn_hr_cnt</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.target_drtn_hr_cnt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.target_drtn_hr_cnt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.target_equip_qty">
+<span class="sig-name descname"><span class="pre">target_equip_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.target_equip_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.target_equip_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_equip_qty">
+<span class="sig-name descname"><span class="pre">act_equip_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_equip_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_equip_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.remain_equip_qty">
+<span class="sig-name descname"><span class="pre">remain_equip_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.remain_equip_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.remain_equip_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.cstr_date">
+<span class="sig-name descname"><span class="pre">cstr_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.cstr_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.cstr_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_start_date">
+<span class="sig-name descname"><span class="pre">act_start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_end_date">
+<span class="sig-name descname"><span class="pre">act_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.late_start_date">
+<span class="sig-name descname"><span class="pre">late_start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.late_start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.late_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.late_end_date">
+<span class="sig-name descname"><span class="pre">late_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.late_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.late_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.expect_end_date">
+<span class="sig-name descname"><span class="pre">expect_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.expect_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.expect_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.early_start_date">
+<span class="sig-name descname"><span class="pre">early_start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.early_start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.early_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.early_end_date">
+<span class="sig-name descname"><span class="pre">early_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.early_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.early_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.restart_date">
+<span class="sig-name descname"><span class="pre">restart_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.restart_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.restart_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.reend_date">
+<span class="sig-name descname"><span class="pre">reend_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.reend_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.reend_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.target_start_date">
+<span class="sig-name descname"><span class="pre">target_start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.target_start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.target_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.target_end_date">
+<span class="sig-name descname"><span class="pre">target_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.target_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.target_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.rem_late_start_date">
+<span class="sig-name descname"><span class="pre">rem_late_start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.rem_late_start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.rem_late_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.rem_late_end_date">
+<span class="sig-name descname"><span class="pre">rem_late_end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.rem_late_end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.rem_late_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.cstr_type">
+<span class="sig-name descname"><span class="pre">cstr_type</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.cstr_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.cstr_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.priority_type">
+<span class="sig-name descname"><span class="pre">priority_type</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.priority_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.priority_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.suspend_date">
+<span class="sig-name descname"><span class="pre">suspend_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.suspend_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.suspend_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.resume_date">
+<span class="sig-name descname"><span class="pre">resume_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.resume_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.resume_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.int_path">
+<span class="sig-name descname"><span class="pre">int_path</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.int_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.int_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.int_path_order">
+<span class="sig-name descname"><span class="pre">int_path_order</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.int_path_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.int_path_order" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.guid">
+<span class="sig-name descname"><span class="pre">guid</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.guid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.guid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.tmpl_guid">
+<span class="sig-name descname"><span class="pre">tmpl_guid</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.tmpl_guid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.tmpl_guid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.cstr_date2">
+<span class="sig-name descname"><span class="pre">cstr_date2</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.cstr_date2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.cstr_date2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.cstr_type2">
+<span class="sig-name descname"><span class="pre">cstr_type2</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.cstr_type2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.cstr_type2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.driving_path_flag">
+<span class="sig-name descname"><span class="pre">driving_path_flag</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.driving_path_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.driving_path_flag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_this_per_work_qty">
+<span class="sig-name descname"><span class="pre">act_this_per_work_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_this_per_work_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_this_per_work_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.act_this_per_equip_qty">
+<span class="sig-name descname"><span class="pre">act_this_per_equip_qty</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.act_this_per_equip_qty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.act_this_per_equip_qty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.create_date">
+<span class="sig-name descname"><span class="pre">create_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.create_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.create_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.update_date">
+<span class="sig-name descname"><span class="pre">update_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.update_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.update_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.create_user">
+<span class="sig-name descname"><span class="pre">create_user</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.create_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.create_user" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.update_user">
+<span class="sig-name descname"><span class="pre">update_user</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.update_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.update_user" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.location_id">
+<span class="sig-name descname"><span class="pre">location_id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.location_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.location_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.calendar">
+<span class="sig-name descname"><span class="pre">calendar</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.calendar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.calendar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.get_tsv">
+<span class="sig-name descname"><span class="pre">get_tsv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.get_tsv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.get_tsv" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.id">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.totalint">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">totalint</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.totalint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.totalint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.resources">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resources</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.resources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.resources" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.steps">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">steps</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.steps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.steps" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.activitycodes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activitycodes</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.activitycodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.activitycodes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.duration">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">duration</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.duration" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.constraints">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constraints</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.constraints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.constraints" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.start_date">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.start_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.end_date">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_date</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.end_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.successors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">successors</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.successors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.successors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.predecessors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">predecessors</span></span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.predecessors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.predecessors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.find_by_wbs_id">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_by_wbs_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wbs_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.find_by_wbs_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.find_by_wbs_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.model.classes.task.Task.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/xerparser/model/classes/task.html#Task.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.model.classes.task.Task.__repr__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../schedoption/index.html" class="btn btn-neutral float-left" title="xerparser.model.classes.schedoption" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../taskactv/index.html" class="btn btn-neutral float-right" title="xerparser.model.classes.taskactv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

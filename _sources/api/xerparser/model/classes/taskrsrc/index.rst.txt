@@ -1,0 +1,180 @@
+xerparser.model.classes.taskrsrc
+================================
+
+.. py:module:: xerparser.model.classes.taskrsrc
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.taskrsrc.TaskRsrc
+
+
+Module Contents
+---------------
+
+.. py:class:: TaskRsrc(params, data=None)
+
+   .. py:attribute:: taskrsrc_id
+
+
+   .. py:attribute:: task_id
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: cost_qty_link_flag
+
+
+   .. py:attribute:: role_id
+
+
+   .. py:attribute:: acct_id
+
+
+   .. py:attribute:: rsrc_id
+
+
+   .. py:attribute:: pobs_id
+
+
+   .. py:attribute:: skill_level
+
+
+   .. py:attribute:: remain_qty
+
+
+   .. py:attribute:: target_qty
+
+
+   .. py:attribute:: remain_qty_per_hr
+
+
+   .. py:attribute:: target_lag_drtn_hr_cnt
+
+
+   .. py:attribute:: target_qty_per_hr
+
+
+   .. py:attribute:: act_ot_qty
+
+
+   .. py:attribute:: act_reg_qty
+
+
+   .. py:attribute:: relag_drtn_hr_cnt
+
+
+   .. py:attribute:: ot_factor
+
+
+   .. py:attribute:: cost_per_qty
+
+
+   .. py:attribute:: target_cost
+
+
+   .. py:attribute:: act_reg_cost
+
+
+   .. py:attribute:: act_ot_cost
+
+
+   .. py:attribute:: remain_cost
+
+
+   .. py:attribute:: act_start_date
+
+
+   .. py:attribute:: act_end_date
+
+
+   .. py:attribute:: restart_date
+
+
+   .. py:attribute:: reend_date
+
+
+   .. py:attribute:: target_start_date
+
+
+   .. py:attribute:: target_end_date
+
+
+   .. py:attribute:: rem_late_start_date
+
+
+   .. py:attribute:: rem_late_end_date
+
+
+   .. py:attribute:: rollup_dates_flag
+
+
+   .. py:attribute:: target_crv
+
+
+   .. py:attribute:: remain_crv
+
+
+   .. py:attribute:: actual_crv
+
+
+   .. py:attribute:: ts_pend_act_end_flag
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: rate_type
+
+
+   .. py:attribute:: act_this_per_cost
+
+
+   .. py:attribute:: act_this_per_qty
+
+
+   .. py:attribute:: curv_id
+
+
+   .. py:attribute:: rsrc_type
+
+
+   .. py:attribute:: cost_per_qty_source_type
+
+
+   .. py:attribute:: create_user
+
+
+   .. py:attribute:: create_date
+
+
+   .. py:attribute:: cbs_id
+
+
+   .. py:attribute:: has_rsrchours
+
+
+   .. py:attribute:: taskrsrc_sum_id
+
+
+   .. py:attribute:: data
+      :value: None
+
+
+
+   .. py:method:: get_id()
+
+
+   .. py:property:: resource
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: __repr__()
+
+

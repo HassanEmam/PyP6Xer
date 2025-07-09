@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.reader &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="xerparser.write" href="../write/index.html" />
+    <link rel="prev" title="xerparser.model.wbss" href="../model/wbss/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">xerparser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../dcma14/index.html">xerparser.dcma14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../model/index.html">xerparser.model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">xerparser.reader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../write/index.html">xerparser.write</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">xerparser</a></li>
+      <li class="breadcrumb-item active">xerparser.reader</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/api/xerparser/reader/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-xerparser.reader">
+<span id="xerparser-reader"></span><h1>xerparser.reader<a class="headerlink" href="#module-xerparser.reader" title="Link to this heading"></a></h1>
+<p>This file starts the process of reading and parsing xer files</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#xerparser.reader.Reader" title="xerparser.reader.Reader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Reader</span></code></a></p></td>
+<td><p>Reader class is the main parser for xer files. It takes a file path as a parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="xerparser.reader.Reader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xerparser.reader.</span></span><span class="sig-name descname"><span class="pre">Reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader" title="Link to this definition"></a></dt>
+<dd><p>Reader class is the main parser for xer files. It takes a file path as a parameter.
+The read records are parsed into classes depending on their types like activities, wbs,etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>&lt;file&gt;</strong> – is an xer file that need to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reader object that contains collection of parsed records</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>from xerparser.reader import Reader
+file = Reader(‘file.xer’)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.current_table">
+<span class="sig-name descname"><span class="pre">current_table</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.current_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.current_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.current_headers">
+<span class="sig-name descname"><span class="pre">current_headers</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.current_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.current_headers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.write" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.create_object">
+<span class="sig-name descname"><span class="pre">create_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.create_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.create_object" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_type</strong></p></li>
+<li><p><strong>params</strong></p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.summary" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.projects">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">projects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Projects" title="xerparser.Projects"><span class="pre">xerparser.Projects</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.projects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.projects" title="Link to this definition"></a></dt>
+<dd><p>Projects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of all projects contained in the xer file</p>
+</dd>
+</dl>
+<p>todo:: text</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.activities">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Tasks" title="xerparser.Tasks"><span class="pre">xerparser.Tasks</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.activities" title="Link to this definition"></a></dt>
+<dd><p>Property to retrieve list of tasks
+Returns: list of tasks</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.wbss">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wbss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.WBSs" title="xerparser.WBSs"><span class="pre">xerparser.WBSs</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.wbss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.wbss" title="Link to this definition"></a></dt>
+<dd><p>Property to return all wbs elements in the parsed file
+:returns: list of wbs elements</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.relations">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">relations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Predecessors" title="xerparser.Predecessors"><span class="pre">xerparser.Predecessors</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.relations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.relations" title="Link to this definition"></a></dt>
+<dd><p>Property to retrieve relationships from parsed file
+:returns: list of relations</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.resources">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Resources" title="xerparser.Resources"><span class="pre">xerparser.Resources</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.resources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.resources" title="Link to this definition"></a></dt>
+<dd><p>Property to return a list of resources from parsed file
+:returns: list of resources of type Resources</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.accounts">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accounts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Accounts" title="xerparser.Accounts"><span class="pre">xerparser.Accounts</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.accounts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.accounts" title="Link to this definition"></a></dt>
+<dd><p>Property to return a list of accounts from parsed files
+:returns: list of accounts of type Accounts</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.activitycodes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activitycodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ActivityCodes" title="xerparser.ActivityCodes"><span class="pre">xerparser.ActivityCodes</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.activitycodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.activitycodes" title="Link to this definition"></a></dt>
+<dd><p>Property to return a list of activity codes from parsed files
+:returns: list of accounts of type ActivityCode</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.actvcodes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actvcodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.TaskActvs" title="xerparser.TaskActvs"><span class="pre">xerparser.TaskActvs</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.actvcodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.actvcodes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.acttypes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acttypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ActTypes" title="xerparser.ActTypes"><span class="pre">xerparser.ActTypes</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.acttypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.acttypes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.calendars">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calendars</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Calendars" title="xerparser.Calendars"><span class="pre">xerparser.Calendars</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.calendars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.calendars" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.currencies">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">currencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Currencies" title="xerparser.Currencies"><span class="pre">xerparser.Currencies</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.currencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.currencies" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.obss">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.OBSs" title="xerparser.OBSs"><span class="pre">xerparser.OBSs</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.obss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.obss" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.rcattypes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rcattypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.RCatTypes" title="xerparser.RCatTypes"><span class="pre">xerparser.RCatTypes</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.rcattypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.rcattypes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.rcatvals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rcatvals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.RCatVals" title="xerparser.RCatVals"><span class="pre">xerparser.RCatVals</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.rcatvals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.rcatvals" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.rolerates">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rolerates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.RoleRates" title="xerparser.RoleRates"><span class="pre">xerparser.RoleRates</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.rolerates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.rolerates" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.roles">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">roles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.Roles" title="xerparser.Roles"><span class="pre">xerparser.Roles</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.roles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.roles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.resourcecurves">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resourcecurves</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ResourceCurves" title="xerparser.ResourceCurves"><span class="pre">xerparser.ResourceCurves</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.resourcecurves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.resourcecurves" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.resourcerates">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resourcerates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ResourceRates" title="xerparser.ResourceRates"><span class="pre">xerparser.ResourceRates</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.resourcerates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.resourcerates" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.resourcecategories">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resourcecategories</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ResourceCategories" title="xerparser.ResourceCategories"><span class="pre">xerparser.ResourceCategories</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.resourcecategories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.resourcecategories" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.scheduleoptions">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scheduleoptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.SchedOptions" title="xerparser.SchedOptions"><span class="pre">xerparser.SchedOptions</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.scheduleoptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.scheduleoptions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.activityresources">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activityresources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.ActivityResources" title="xerparser.ActivityResources"><span class="pre">xerparser.ActivityResources</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.activityresources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.activityresources" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.udfvalues">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">udfvalues</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.UDFValues" title="xerparser.UDFValues"><span class="pre">xerparser.UDFValues</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.udfvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.udfvalues" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.udftypes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">udftypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../index.html#xerparser.UDFTypes" title="xerparser.UDFTypes"><span class="pre">xerparser.UDFTypes</span></a></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.udftypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.udftypes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.pcattypes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcattypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.PCatTypes" title="xerparser.PCatTypes"><span class="pre">xerparser.PCatTypes</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.pcattypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.pcattypes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.pcatvals">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcatvals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.PCatVals" title="xerparser.PCatVals"><span class="pre">xerparser.PCatVals</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.pcatvals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.pcatvals" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.projpcats">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">projpcats</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.ProjCat" title="xerparser.ProjCat"><span class="pre">xerparser.ProjCat</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.projpcats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.projpcats" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.taskprocs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">taskprocs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.TaskProc" title="xerparser.TaskProc"><span class="pre">xerparser.TaskProc</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.taskprocs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.taskprocs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.fintmpls">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fintmpls</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.FinTmpl" title="xerparser.FinTmpl"><span class="pre">xerparser.FinTmpl</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.fintmpls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.fintmpls" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.nonworks">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nonworks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../index.html#xerparser.NonWork" title="xerparser.NonWork"><span class="pre">xerparser.NonWork</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.nonworks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.nonworks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xerparser.reader.Reader.get_num_lines">
+<span class="sig-name descname"><span class="pre">get_num_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/xerparser/reader.html#Reader.get_num_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#xerparser.reader.Reader.get_num_lines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../model/wbss/index.html" class="btn btn-neutral float-left" title="xerparser.model.wbss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../write/index.html" class="btn btn-neutral float-right" title="xerparser.write" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

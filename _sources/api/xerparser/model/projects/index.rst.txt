@@ -1,0 +1,42 @@
+xerparser.model.projects
+========================
+
+.. py:module:: xerparser.model.projects
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.projects.Projects
+
+
+Module Contents
+---------------
+
+.. py:class:: Projects
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params, data)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.project.Project
+
+
+   .. py:method:: __repr__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.project.Project
+
+

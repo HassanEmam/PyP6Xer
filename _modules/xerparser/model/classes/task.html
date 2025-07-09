@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.task &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=010e2abe"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.task</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.task</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html&gt;.</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.taskactvs</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskActvs</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.predecessors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Predecessors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.classes.calendar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Calendar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.activitiyresources</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActivityResources</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.model.taskprocs</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaskProcs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">locale</span>
+
+<div class="viewcode-block" id="Task">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">:</span>
+<div class="viewcode-block" id="Task.obj_list">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.obj_list">[docs]</a>
+    <span class="n">obj_list</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Unique ID generated by the system.</span>
+<div class="viewcode-block" id="Task.task_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.task_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># project to which the activity belongs referenced by system generated unique id</span>
+<div class="viewcode-block" id="Task.proj_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.proj_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;proj_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># wbs element activity assigned to referenced by system unique id</span>
+<div class="viewcode-block" id="Task.wbs_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.wbs_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wbs_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;wbs_id&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;wbs_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># calendar assigned to activity referenced by system unique id</span>
+<div class="viewcode-block" id="Task.clndr_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.clndr_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;clndr_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The physical percent complete can either be user entered or calculated from the activity&#39;s weighted steps.</span>
+        <span class="c1">#  There is a project setting specifying this.</span>
+<div class="viewcode-block" id="Task.phys_complete_pct">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.phys_complete_pct">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phys_complete_pct</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phys_complete_pct&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="s1">&#39;phys_complete_pct&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Indicates that the primary resource has sent feedback notes about this activity which have not been</span>
+        <span class="c1"># reviewed yet.</span>
+<div class="viewcode-block" id="Task.rev_fdbk_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.rev_fdbk_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rev_fdbk_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rev_fdbk_flag&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rev_fdbk_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The estimation weight for the activity, used for top-down estimation. Top-down estimation weights are used</span>
+        <span class="c1"># to calculate the proportion of units that each activity receives in relation to the other activities within</span>
+        <span class="c1">#  the same WBS. Top-down estimation distributes estimated units in a top-down manner to activities using the</span>
+        <span class="c1">#  WBS hierarchy.</span>
+
+<div class="viewcode-block" id="Task.est_wt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.est_wt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">est_wt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;est_wt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="s1">&#39;est_wt&#39;</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;est_wt&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Indicates that the planned labor and nonlabor units for the activity will not be modified by top-down</span>
+        <span class="c1"># estimation.</span>
+<div class="viewcode-block" id="Task.lock_plan_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.lock_plan_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock_plan_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lock_plan_flag&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lock_plan_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Identifies whether the actual and remaining cost for the expense are computed automatically using the</span>
+        <span class="c1"># planned cost and the activity&#39;s schedule percent complete.  If this option is selected,</span>
+        <span class="c1"># the actual/remaining cost are automatically updated when project actuals are applied.  This assumes the</span>
+        <span class="c1"># expenses are made according to plan.</span>
+<div class="viewcode-block" id="Task.auto_compute_act_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.auto_compute_act_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auto_compute_act_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_compute_act_flag&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_compute_act_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The activity percent complete type is one of &quot;&quot;Duration&quot;&quot;, &quot;&quot;Units&quot;&quot;, or &quot;&quot;Physical&quot;&quot;. The percent complete</span>
+        <span class="c1">#  type controls whether the Activity % Complete is tied to the Duration % Complete, the Units % Complete,</span>
+        <span class="c1"># or the Physical % Complete for the activity. Set the percent complete type to &quot;&quot;Duration&quot;&quot; for activities</span>
+        <span class="c1"># which are duration driven, for example, administration tasks and training classes.  Set the percent</span>
+        <span class="c1"># complete type to &quot;&quot;Physical&quot;&quot; for activities which are work-product driven, for example, creating a</span>
+        <span class="c1"># document or a product. Set the percent complete type to &quot;&quot;Units&quot;&quot; for activities which are work effort</span>
+        <span class="c1"># driven, for example, providing a consulting service.</span>
+<div class="viewcode-block" id="Task.complete_pct_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.complete_pct_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">complete_pct_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;complete_pct_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;complete_pct_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The type of activity, either  &#39;Task Dependent&#39;, &#39;Resource Dependent&#39;, &#39;Level of Effort&#39;, &#39;Start Milestone&#39;</span>
+        <span class="c1"># or &#39;Finish Milestone&#39;.   A Task Dependent activity is scheduled using the activity&#39;s calendar rather than</span>
+        <span class="c1"># the calendars of the assigned resources.  A Resource Dependent activity is scheduled using the calendars of</span>
+        <span class="c1">#  the assigned resources.  This type is used when several resources are assigned to the activity,</span>
+        <span class="c1"># but they may work separately.  A Start/Finish Milestone is a zero-duration activity, marking a significant</span>
+        <span class="c1"># start/end of project event. A Level of Effort activity has a duration which is determined by its dependent</span>
+        <span class="c1"># activities. Administration-type activities are typically level of effort.</span>
+<div class="viewcode-block" id="Task.task_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.task_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The duration type of the activity. One of &quot;&quot;Fixed Units per Time&quot;&quot;, &quot;&quot;Fixed Duration&quot;&quot;, or &quot;&quot;Fixed Units&quot;&quot;.</span>
+        <span class="c1">#   For Fixed Units per Time activities, the resource units per time are constant when the activity duration</span>
+        <span class="c1"># or units are changed.  This type is used when an activity has fixed resources with fixed productivity</span>
+        <span class="c1"># output per time period.  For Fixed Duration activities, the activity duration is constant as the units or</span>
+        <span class="c1"># resource units per time are changed. This type is used when the activity is to be completed within a fixed</span>
+        <span class="c1"># time period regardless of the resources assigned.  For Fixed Units activities, the activity units are</span>
+        <span class="c1"># constant when the duration or resource units per time are changed. This type is used when the total amount</span>
+        <span class="c1"># of work is fixed, and increasing the resources can decrease the activity duration.</span>
+<div class="viewcode-block" id="Task.duration_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.duration_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;duration_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;duration_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The current status of the activity, either Not Started, In Progress, or Completed.</span>
+<div class="viewcode-block" id="Task.status_code">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.status_code">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status_code&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status_code&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># A short ID which uniquely identifies the activity within the project.</span>
+<div class="viewcode-block" id="Task.task_code">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.task_code">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_code</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_code&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The name of the activity. The activity name does not have to be unique.</span>
+<div class="viewcode-block" id="Task.task_name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.task_name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;task_name&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Resource ID Name</span>
+<div class="viewcode-block" id="Task.rsrc_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.rsrc_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rsrc_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The amount of time the wbs can be delayed before delaying the project finish date. Total int can be</span>
+        <span class="c1"># computed as Late Start - Early Start or as Late Finish - Early Finish; this option can be set when running</span>
+        <span class="c1"># the project scheduler.</span>
+<div class="viewcode-block" id="Task.total_float_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.total_float_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;total_float_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;total_float_hr_cnt&#39;</span><span class="p">)</span> <span class="ow">and</span> \
+            <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;total_float_hr_cnt&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The amount of time the activity can be delayed before delaying the start date of any successor activity.</span>
+<div class="viewcode-block" id="Task.free_float_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.free_float_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">free_float_hr_cnt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;free_float_hr_cnt&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;free_float_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Remaining duration is the total working time from the activity remaining start date to the remaining finish</span>
+        <span class="c1">#  date. The remaining working time is computed using the activity&#39;s calendar. Before the activity is</span>
+        <span class="c1"># started, the remaining duration is the same as the Original Duration. After the activity is completed the</span>
+        <span class="c1"># remaining duration is zero.</span>
+<div class="viewcode-block" id="Task.remain_drtn_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.remain_drtn_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_drtn_hr_cnt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_drtn_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_drtn_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span></div>
+
+        <span class="c1"># The total actual labor units for all child activities</span>
+<div class="viewcode-block" id="Task.act_work_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_work_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_work_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_work_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_work_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The remaining units for all labor resources assigned to the activity. The remaining units reflects the work</span>
+        <span class="c1">#  remaining to be done for the activity. Before the activity is started, the remaining units are the same as</span>
+        <span class="c1">#  the planned units. After the activity is completed, the remaining units are zero.</span>
+<div class="viewcode-block" id="Task.remain_work_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.remain_work_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_work_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_work_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_work_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The planned units for all labor resources assigned to the activity.</span>
+<div class="viewcode-block" id="Task.target_work_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.target_work_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_work_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_work_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_work_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Original Duration is the planned working time for the resource assignment on the activity,</span>
+        <span class="c1"># from the resource&#39;s planned start date to the planned finish date. The planned working time is computed</span>
+        <span class="c1"># using the calendar determined by the Activity Type. Resource Dependent activities use the resource&#39;s</span>
+        <span class="c1"># calendar; other activity types use the activity&#39;s calendar. This is the duration that Timesheets users</span>
+        <span class="c1"># follow and the schedule variance is measured against.</span>
+<div class="viewcode-block" id="Task.target_drtn_hr_cnt">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.target_drtn_hr_cnt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_drtn_hr_cnt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_drtn_hr_cnt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The planned units for all nonlabor resources assigned to the activity.</span>
+<div class="viewcode-block" id="Task.target_equip_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.target_equip_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_equip_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_equip_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_equip_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The actual units for all nonlabor resources assigned to the activities under the WBS.</span>
+<div class="viewcode-block" id="Task.act_equip_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_equip_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_equip_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_equip_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_equip_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The remaining units for all nonlabor resources assigned to the activity. The remaining units reflects the</span>
+        <span class="c1"># work remaining to be done for the activity.  Before the activity is started, the remaining units are the</span>
+        <span class="c1"># same as the planned units. After the activity is completed, the remaining units are zero.</span>
+<div class="viewcode-block" id="Task.remain_equip_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.remain_equip_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_equip_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_equip_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remain_equip_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The constraint date for the activity, if the activity has a constraint. The activity&#39;s constraint type</span>
+        <span class="c1"># determines whether this is a start date or finish date.  Activity constraints are used by the project</span>
+        <span class="c1"># scheduler.</span>
+<div class="viewcode-block" id="Task.cstr_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.cstr_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date on which the activity is actually started.</span>
+<div class="viewcode-block" id="Task.act_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_start_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date on which the activity is actually finished.</span>
+<div class="viewcode-block" id="Task.act_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># the activity late start date</span>
+<div class="viewcode-block" id="Task.late_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.late_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">late_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;late_start_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;late_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The latest possible date the activity must finish without delaying the project finish date. This date is</span>
+        <span class="c1"># computed by the project scheduler based on network logic, schedule constraints, and resource availability.</span>
+<div class="viewcode-block" id="Task.late_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.late_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">late_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;late_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;late_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date the activity is expected to be finished according to the progress made on the activity&#39;s work</span>
+        <span class="c1"># products. The expected finish date is entered manually by people familiar with progress of the activity&#39;s</span>
+        <span class="c1"># work products.</span>
+<div class="viewcode-block" id="Task.expect_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.expect_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expect_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;expect_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;expect_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The earliest possible date the remaining work for the activity can begin. This date is computed by the</span>
+        <span class="c1"># project scheduler based on network logic, schedule constraints, and resource availability.</span>
+<div class="viewcode-block" id="Task.early_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.early_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">early_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;early_start_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;early_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The earliest possible date the activity can finish. This date is computed by the project scheduler based on</span>
+        <span class="c1">#  network logic, schedule constraints, and resource availability.</span>
+<div class="viewcode-block" id="Task.early_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.early_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">early_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;early_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;early_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date the remaining work for the activity is scheduled to begin. This date is computed by the project</span>
+        <span class="c1"># scheduler but can be updated manually by the project manager.  Before the activity is started,</span>
+        <span class="c1"># the remaining start date is the same as the planned start date.  This is the start date that Timesheets</span>
+        <span class="c1"># users follow.</span>
+<div class="viewcode-block" id="Task.restart_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.restart_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">restart_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;restart_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;restart_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date the remaining work for the activity is scheduled to finish. This date is computed by the project</span>
+        <span class="c1"># scheduler but can be updated manually by the project manager. Before the activity is started, the remaining</span>
+        <span class="c1">#  finish date is the same as the planned finish date.  This is the finish date that Timesheets users follow.</span>
+<div class="viewcode-block" id="Task.reend_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.reend_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reend_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reend_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;reend_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date the activity is scheduled to begin. This date is computed by the project scheduler but can be</span>
+        <span class="c1"># updated manually by the project manager. This date is not changed by the project scheduler after the</span>
+        <span class="c1"># activity has been started.</span>
+<div class="viewcode-block" id="Task.target_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.target_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_start_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date the activity is scheduled to finish. This date is computed by the project scheduler but can be</span>
+        <span class="c1"># updated manually by the project manager.  This date is not changed by the project scheduler after the</span>
+        <span class="c1"># activity has been started.</span>
+<div class="viewcode-block" id="Task.target_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.target_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Remaining late start date is calculated by the scheduler.</span>
+<div class="viewcode-block" id="Task.rem_late_start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.rem_late_start_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_start_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># Remaining late end date is calculated by the scheduler.</span>
+<div class="viewcode-block" id="Task.rem_late_end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.rem_late_end_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rem_late_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The type of constraint applied to the activity start or finish date. Activity constraints are used by the</span>
+        <span class="c1"># project scheduler.  Start date constraints are &#39;Start On&#39;, &#39;Start On or Before&#39;, &#39;Start On or After&#39; and</span>
+        <span class="c1"># &#39;Mandatory Start&#39;.  Finish date constraints are &#39;Finish On&#39;, &#39;Finish On or Before&#39;, &#39;Finish On or After&#39;</span>
+        <span class="c1"># and &#39;Mandatory Finish&#39;.  Another type of constraint, &#39;As Late as Possible&#39;, schedules the activity as late</span>
+        <span class="c1"># as possible based on the available free int.</span>
+<div class="viewcode-block" id="Task.cstr_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.cstr_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.priority_type">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.priority_type">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority_type</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority_type&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date progress is suspended on an activity.</span>
+<div class="viewcode-block" id="Task.suspend_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.suspend_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suspend_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;suspend_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;suspend_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The date progress is resumed on an activity.</span>
+<div class="viewcode-block" id="Task.resume_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.resume_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resume_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resume_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resume_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.int_path">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.int_path">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">int_path</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;int_path&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;int_path&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># This field is computed by the project scheduler and identifies the order in which the activities were</span>
+        <span class="c1"># processed within the int path.</span>
+<div class="viewcode-block" id="Task.int_path_order">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.int_path_order">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">int_path_order</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;int_path_order&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;int_path_order&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.guid">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.guid">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">guid</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;guid&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.tmpl_guid">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.tmpl_guid">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmpl_guid</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tmpl_guid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tmpl_guid&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The second constraint date for the activity, if the activity has a constraint.</span>
+<div class="viewcode-block" id="Task.cstr_date2">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.cstr_date2">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_date2&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_date2&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The second type of constraint applied to the activity start or finish date.</span>
+<div class="viewcode-block" id="Task.cstr_type2">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.cstr_type2">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type2</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_type2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cstr_type2&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.driving_path_flag">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.driving_path_flag">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driving_path_flag</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;driving_path_flag&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;driving_path_flag&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The actual this period units for all labor resources assigned to the activity.</span>
+<div class="viewcode-block" id="Task.act_this_per_work_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_this_per_work_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_work_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_work_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_work_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The actual this period units for all nonlabor resources assigned to the activity.</span>
+<div class="viewcode-block" id="Task.act_this_per_equip_qty">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.act_this_per_equip_qty">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_equip_qty</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">atof</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_equip_qty&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;act_this_per_equip_qty&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+        <span class="c1"># The External Early Start date is the date the external relationship was scheduled to finish.  This date may</span>
+        <span class="c1">#  be used to calculate the start date of the current activity during scheduling.  This field is populated on</span>
+        <span class="c1">#  import when an external relationship is lost.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">external_early_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;external_early_start_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;external_early_start_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">external_late_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;external_late_end_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;external_late_end_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+<div class="viewcode-block" id="Task.create_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.create_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.update_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.update_date">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;update_date&#39;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;update_date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.create_user">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.create_user">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_user&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;create_user&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.update_user">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.update_user">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_user</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;update_user&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;update_user&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.location_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.location_id">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;location_id&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Task.calendar">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.calendar">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">)</span></div>
+
+        <span class="c1"># self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)</span>
+        <span class="c1"># Task.obj_list.append(self)</span>
+<div class="viewcode-block" id="Task.data">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.data">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="Task.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;%R&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wbs_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phys_complete_pct</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rev_fdbk_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">est_wt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock_plan_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_compute_act_flag</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">complete_pct_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_type</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">duration_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">free_float_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_drtn_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_work_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">remain_work_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_work_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_equip_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">act_equip_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain_equip_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">late_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">late_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">late_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">late_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">expect_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">expect_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">early_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">early_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">restart_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">restart_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">reend_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reend_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rem_late_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority_type</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">suspend_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">suspend_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">resume_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">int_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">int_path_order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">guid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpl_guid</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date2</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date2</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">driving_path_flag</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_work_qty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_this_per_equip_qty</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">external_early_start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">external_early_start_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">external_late_end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">external_late_end_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">create_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_date</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">location_id</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_id</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.totalint">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.totalint">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">totalint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_int_hr_cnt</span><span class="p">:</span>
+            <span class="n">tf</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_int_hr_cnt</span><span class="p">)</span><span class="o">/</span><span class="mf">8.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">tf</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.resources">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.resources">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">taskresource</span><span class="o">.</span><span class="n">find_by_activity_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.steps">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.steps">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">steps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TaskProcs</span><span class="o">.</span><span class="n">find_by_activity_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.activitycodes">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.activitycodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">activitycodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">taskactvcodes</span><span class="o">.</span><span class="n">find_by_activity_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span></div>
+
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.duration">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.duration">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dur</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span><span class="p">:</span>
+                <span class="n">dur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span> <span class="o">/</span> <span class="mf">8.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dur</span> <span class="o">=</span><span class="mf">0.0</span>
+        <span class="k">return</span> <span class="n">dur</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.constraints">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.constraints">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="kc">None</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ConstraintType&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_type</span><span class="p">,</span>
+                <span class="s2">&quot;ConstrintDate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cstr_date</span>
+               <span class="p">}</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.start_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.start_date">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_start_date</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_start_date</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.end_date">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.end_date">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">end_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">act_end_date</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_end_date</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.successors">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.successors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">successors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">suss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">predecessors</span><span class="o">.</span><span class="n">get_successors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">suss</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Task.predecessors">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.predecessors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predecessors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">predecessors</span><span class="o">.</span><span class="n">get_predecessors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_id</span><span class="p">)</span></div>
+
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Task.find_by_wbs_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.find_by_wbs_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_by_wbs_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">wbs_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">obj_list</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">wbs_id</span> <span class="o">==</span> <span class="n">wbs_id</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Task.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/task/index.html#xerparser.Task.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_code</span></div>
+</div>
+
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

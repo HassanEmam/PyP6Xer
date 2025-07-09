@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Contributing to PyP6Xer" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">[1.015.00] - 2025-01-09</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improved">Improved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">[1.014.00] - 2024-12-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">[1.013.00] - 2024-11-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">[1.012.00] - 2024-10-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">[1.011.00] - 2024-09-10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">[1.010.00] - 2024-08-05</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">[1.009.00] - 2024-07-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">[1.008.00] - 2024-06-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">[1.007.00] - 2024-05-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">[1.006.00] - 2024-04-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id28">[1.005.00] - 2024-03-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">[1.004.00] - 2024-02-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id34">[1.003.00] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">[1.002.00] - 2023-12-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id40">[1.001.00] - 2023-11-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id43">[1.000.00] - 2023-10-01</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#legend">Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<p>All notable changes to PyP6Xer will be documented in this file.</p>
+<p>The format is based on <a class="reference external" href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<section id="id1">
+<h2>[1.015.00] - 2025-01-09<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="added">
+<h3>Added<a class="headerlink" href="#added" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Comprehensive documentation with Sphinx</p></li>
+<li><p>Getting started guide and examples</p></li>
+<li><p>API reference documentation</p></li>
+<li><p>Contributing guidelines</p></li>
+<li><p>Support for writing XER files back to disk</p></li>
+<li><p>Enhanced error handling and validation</p></li>
+<li><p>Object-oriented access to project data</p></li>
+</ul>
+</section>
+<section id="improved">
+<h3>Improved<a class="headerlink" href="#improved" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Code organization and structure</p></li>
+<li><p>Class relationships and data access</p></li>
+<li><p>Documentation coverage</p></li>
+<li><p>Test coverage improvements</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Various parsing edge cases</p></li>
+<li><p>Memory optimization for large files</p></li>
+<li><p>Unicode handling improvements</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>[1.014.00] - 2024-12-15<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Support for additional XER elements</p></li>
+<li><p>Enhanced calendar parsing</p></li>
+<li><p>Resource assignment tracking</p></li>
+<li><p>UDF (User Defined Fields) support</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Fixed<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Date parsing improvements</p></li>
+<li><p>Memory leaks in large file processing</p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h2>[1.013.00] - 2024-11-20<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id6">
+<h3>Added<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>DCMA 14-point analysis module</p></li>
+<li><p>Enhanced relationship parsing</p></li>
+<li><p>Activity code support</p></li>
+<li><p>Financial template parsing</p></li>
+</ul>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved parsing performance</p></li>
+<li><p>Better error messages</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2>[1.012.00] - 2024-10-15<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>Added<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Resource category support</p></li>
+<li><p>Role and role rate parsing</p></li>
+<li><p>Schedule options parsing</p></li>
+<li><p>Non-work time support</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Fixed<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Critical path calculation issues</p></li>
+<li><p>Float calculation improvements</p></li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h2>[1.011.00] - 2024-09-10<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>Added<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Complete WBS hierarchy support</p></li>
+<li><p>Calendar exception handling</p></li>
+<li><p>Project category support</p></li>
+<li><p>Enhanced activity relationships</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Changed<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Refactored class structure for better inheritance</p></li>
+<li><p>Improved data validation</p></li>
+</ul>
+</section>
+</section>
+<section id="id13">
+<h2>[1.010.00] - 2024-08-05<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<section id="id14">
+<h3>Added<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Multi-project support</p></li>
+<li><p>Resource assignments</p></li>
+<li><p>Cost account structure</p></li>
+<li><p>Currency support</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Fixed<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Various parsing edge cases</p></li>
+<li><p>Performance improvements for large files</p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h2>[1.009.00] - 2024-07-01<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="id17">
+<h3>Added<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Activity resource assignments</p></li>
+<li><p>Task procedure support</p></li>
+<li><p>Enhanced calendar data parsing</p></li>
+<li><p>OBS (Organizational Breakdown Structure) support</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Changed<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved object relationships</p></li>
+<li><p>Better memory management</p></li>
+</ul>
+</section>
+</section>
+<section id="id19">
+<h2>[1.008.00] - 2024-06-01<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id20">
+<h3>Added<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Resource rates and categories</p></li>
+<li><p>Enhanced activity codes</p></li>
+<li><p>Project-level settings</p></li>
+<li><p>Financial templates</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>Fixed<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Date handling improvements</p></li>
+<li><p>Encoding issues with international characters</p></li>
+</ul>
+</section>
+</section>
+<section id="id22">
+<h2>[1.007.00] - 2024-05-01<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<section id="id23">
+<h3>Added<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Schedule options parsing</p></li>
+<li><p>Enhanced WBS support</p></li>
+<li><p>Resource calendars</p></li>
+<li><p>Activity types</p></li>
+</ul>
+</section>
+<section id="id24">
+<h3>Changed<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved error handling</p></li>
+<li><p>Better validation of XER file format</p></li>
+</ul>
+</section>
+</section>
+<section id="id25">
+<h2>[1.006.00] - 2024-04-01<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
+<section id="id26">
+<h3>Added<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>User defined field types and values</p></li>
+<li><p>Enhanced project properties</p></li>
+<li><p>Calendar working patterns</p></li>
+<li><p>Resource hierarchies</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>Fixed<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Performance improvements</p></li>
+<li><p>Memory usage optimization</p></li>
+</ul>
+</section>
+</section>
+<section id="id28">
+<h2>[1.005.00] - 2024-03-01<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<section id="id29">
+<h3>Added<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Complete calendar support with exceptions</p></li>
+<li><p>Resource assignments to activities</p></li>
+<li><p>Activity code values</p></li>
+<li><p>Enhanced relationship types</p></li>
+</ul>
+</section>
+<section id="id30">
+<h3>Changed<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Refactored data model for better performance</p></li>
+<li><p>Improved class inheritance structure</p></li>
+</ul>
+</section>
+</section>
+<section id="id31">
+<h2>[1.004.00] - 2024-02-01<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
+<section id="id32">
+<h3>Added<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Account structure support</p></li>
+<li><p>Role definitions</p></li>
+<li><p>Currency types</p></li>
+<li><p>Enhanced activity properties</p></li>
+</ul>
+</section>
+<section id="id33">
+<h3>Fixed<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Various parsing edge cases</p></li>
+<li><p>Improved error messages</p></li>
+</ul>
+</section>
+</section>
+<section id="id34">
+<h2>[1.003.00] - 2024-01-15<a class="headerlink" href="#id34" title="Link to this heading"></a></h2>
+<section id="id35">
+<h3>Added<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>WBS (Work Breakdown Structure) support</p></li>
+<li><p>Resource definitions</p></li>
+<li><p>Basic calendar parsing</p></li>
+<li><p>Activity relationships (predecessors)</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>Changed<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved object-oriented design</p></li>
+<li><p>Better separation of concerns</p></li>
+</ul>
+</section>
+</section>
+<section id="id37">
+<h2>[1.002.00] - 2023-12-01<a class="headerlink" href="#id37" title="Link to this heading"></a></h2>
+<section id="id38">
+<h3>Added<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Enhanced activity parsing</p></li>
+<li><p>Project-level properties</p></li>
+<li><p>Basic resource support</p></li>
+<li><p>OBS structure parsing</p></li>
+</ul>
+</section>
+<section id="id39">
+<h3>Fixed<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>File encoding issues</p></li>
+<li><p>Performance improvements</p></li>
+</ul>
+</section>
+</section>
+<section id="id40">
+<h2>[1.001.00] - 2023-11-01<a class="headerlink" href="#id40" title="Link to this heading"></a></h2>
+<section id="id41">
+<h3>Added<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Basic activity code support</p></li>
+<li><p>Enhanced project metadata</p></li>
+<li><p>Improved error handling</p></li>
+<li><p>Better validation</p></li>
+</ul>
+</section>
+<section id="id42">
+<h3>Changed<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Code structure improvements</p></li>
+<li><p>Documentation updates</p></li>
+</ul>
+</section>
+</section>
+<section id="id43">
+<h2>[1.000.00] - 2023-10-01<a class="headerlink" href="#id43" title="Link to this heading"></a></h2>
+<section id="id44">
+<h3>Added<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Initial release</p></li>
+<li><p>Basic XER file parsing</p></li>
+<li><p>Project and activity extraction</p></li>
+<li><p>Simple data model</p></li>
+<li><p>Basic relationship parsing</p></li>
+</ul>
+</section>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Read XER files exported from Primavera P6</p></li>
+<li><p>Extract project, activity, and basic relationship data</p></li>
+<li><p>Python object model for easy data access</p></li>
+<li><p>Basic error handling and validation</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="legend">
+<h2>Legend<a class="headerlink" href="#legend" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Added</strong> for new features</p></li>
+<li><p><strong>Changed</strong> for changes in existing functionality</p></li>
+<li><p><strong>Deprecated</strong> for soon-to-be removed features</p></li>
+<li><p><strong>Removed</strong> for now removed features</p></li>
+<li><p><strong>Fixed</strong> for any bug fixes</p></li>
+<li><p><strong>Security</strong> for vulnerability fixes</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing to PyP6Xer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

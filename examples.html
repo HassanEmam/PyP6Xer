@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced Examples" href="advanced_examples.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-operations">File Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loading-multiple-xer-files">Loading Multiple XER Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-xer-files">Writing XER Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-analysis">Project Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-summary-report">Project Summary Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#critical-path-analysis">Critical Path Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-data">Filtering Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activity-filtering">Activity Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-export">Data Export</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-to-csv">Export to CSV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-to-json">Export to JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#schedule-analysis">Schedule Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#float-analysis">Float Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendar-analysis">Calendar Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-examples">Advanced Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#earned-value-analysis">Earned Value Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-analysis">Network Analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p>This section provides practical examples of using PyP6Xer for common project management tasks.</p>
+<section id="file-operations">
+<h2>File Operations<a class="headerlink" href="#file-operations" title="Link to this heading"></a></h2>
+<section id="loading-multiple-xer-files">
+<h3>Loading Multiple XER Files<a class="headerlink" href="#loading-multiple-xer-files" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+<span class="c1"># Load all XER files in a directory</span>
+<span class="n">xer_files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.xer&quot;</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">xer_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-xer-files">
+<h3>Writing XER Files<a class="headerlink" href="#writing-xer-files" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="c1"># Load and modify data</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;input.xer&quot;</span><span class="p">)</span>
+
+<span class="c1"># Make modifications to the data...</span>
+<span class="c1"># (See modification examples below)</span>
+
+<span class="c1"># Write to a new file</span>
+<span class="n">xer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;output.xer&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XER file written successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="project-analysis">
+<h2>Project Analysis<a class="headerlink" href="#project-analysis" title="Link to this heading"></a></h2>
+<section id="project-summary-report">
+<h3>Project Summary Report<a class="headerlink" href="#project-summary-report" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project_summary</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a comprehensive project summary.&quot;&quot;&quot;</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">50</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PROJECT SUMMARY: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">50</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Basic info</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project Name: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project Manager: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_mgr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Dates</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">SCHEDULE:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">last_recalc_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Start: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Finish: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Activity statistics</span>
+        <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+        <span class="n">total_activities</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span>
+        
+        <span class="n">not_started</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_NotStart&quot;</span><span class="p">])</span>
+        <span class="n">in_progress</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Active&quot;</span><span class="p">])</span>
+        <span class="n">completed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">])</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ACTIVITIES:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total: </span><span class="si">{</span><span class="n">total_activities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not Started: </span><span class="si">{</span><span class="n">not_started</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;In Progress: </span><span class="si">{</span><span class="n">in_progress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completed: </span><span class="si">{</span><span class="n">completed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Progress calculation</span>
+        <span class="k">if</span> <span class="n">total_activities</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">completion_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">completed</span> <span class="o">/</span> <span class="n">total_activities</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completion: </span><span class="si">{</span><span class="n">completion_pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+<span class="n">project_summary</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="critical-path-analysis">
+<h3>Critical Path Analysis<a class="headerlink" href="#critical-path-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">critical_path_analysis</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze the critical path of a project.&quot;&quot;&quot;</span>
+    
+    <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+    <span class="n">critical_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">driving_path_flag</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">]</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRITICAL PATH ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">critical_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">critical_activities</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">CRITICAL PATH ACTIVITIES:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;ID&#39;</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Name&#39;</span><span class="si">:</span><span class="s2">&lt;40</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Duration&#39;</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Float&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">80</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">critical_activities</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="p">[:</span><span class="mi">40</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;40</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">critical_path_analysis</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="filtering-data">
+<span id="id1"></span><h2>Filtering Data<a class="headerlink" href="#filtering-data" title="Link to this heading"></a></h2>
+<section id="activity-filtering">
+<h3>Activity Filtering<a class="headerlink" href="#activity-filtering" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">filter_activities</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="o">**</span><span class="n">filters</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter activities based on various criteria.&quot;&quot;&quot;</span>
+    
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">activities</span>
+    
+    <span class="c1"># Filter by status</span>
+    <span class="k">if</span> <span class="s1">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">filtered</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">filters</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]]</span>
+    
+    <span class="c1"># Filter by date range</span>
+    <span class="k">if</span> <span class="s1">&#39;start_after&#39;</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">filters</span><span class="p">[</span><span class="s1">&#39;start_after&#39;</span><span class="p">]</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">filtered</span> 
+                   <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">act_start_date</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">act_start_date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">]</span>
+    
+    <span class="c1"># Filter by duration</span>
+    <span class="k">if</span> <span class="s1">&#39;min_duration&#39;</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="n">min_dur</span> <span class="o">=</span> <span class="n">filters</span><span class="p">[</span><span class="s1">&#39;min_duration&#39;</span><span class="p">]</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">filtered</span> 
+                   <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span> <span class="o">&gt;=</span> <span class="n">min_dur</span><span class="p">]</span>
+    
+    <span class="c1"># Filter by WBS</span>
+    <span class="k">if</span> <span class="s1">&#39;wbs_name&#39;</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="n">wbs_name</span> <span class="o">=</span> <span class="n">filters</span><span class="p">[</span><span class="s1">&#39;wbs_name&#39;</span><span class="p">]</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">filtered</span> 
+                   <span class="k">if</span> <span class="n">wbs_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">wbs_name</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+    
+    <span class="k">return</span> <span class="n">filtered</span>
+
+<span class="c1"># Usage examples</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+
+<span class="c1"># Get all active activities</span>
+<span class="n">active</span> <span class="o">=</span> <span class="n">filter_activities</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;TK_Active&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get long-duration activities (&gt; 40 hours)</span>
+<span class="n">long_activities</span> <span class="o">=</span> <span class="n">filter_activities</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="n">min_duration</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="c1"># Get activities in specific WBS</span>
+<span class="n">design_activities</span> <span class="o">=</span> <span class="n">filter_activities</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="n">wbs_name</span><span class="o">=</span><span class="s2">&quot;Design&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="resource-utilization">
+<h3>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resource_utilization_report</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a resource utilization report.&quot;&quot;&quot;</span>
+    
+    <span class="n">resources</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">resources</span>
+    <span class="n">assignments</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">activityresources</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RESOURCE UTILIZATION REPORT&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">50</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
+        <span class="c1"># Find all assignments for this resource</span>
+        <span class="n">resource_assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assignments</span> 
+                              <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">==</span> <span class="n">resource</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">]</span>
+        
+        <span class="n">total_budget</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">target_qty</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">resource_assignments</span><span class="p">)</span>
+        <span class="n">total_actual</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">act_reg_qty</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">resource_assignments</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resource: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Assignments: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">resource_assignments</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Budgeted Hours: </span><span class="si">{</span><span class="n">total_budget</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Actual Hours: </span><span class="si">{</span><span class="n">total_actual</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">total_budget</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">utilization</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_actual</span> <span class="o">/</span> <span class="n">total_budget</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Utilization: </span><span class="si">{</span><span class="n">utilization</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">resource_utilization_report</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-export">
+<h2>Data Export<a class="headerlink" href="#data-export" title="Link to this heading"></a></h2>
+<section id="export-to-csv">
+<h3>Export to CSV<a class="headerlink" href="#export-to-csv" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">export_activities_to_csv</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export activities to CSV format.&quot;&quot;&quot;</span>
+    
+    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;task_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_code&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">,</span> <span class="s1">&#39;status_code&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;target_drtn_hr_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;act_start_date&#39;</span><span class="p">,</span> <span class="s1">&#39;act_end_date&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;phys_complete_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;total_float_hr_cnt&#39;</span>
+    <span class="p">]</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fieldnames</span><span class="p">:</span>
+                <span class="n">row</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exported </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2"> activities to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">export_activities_to_csv</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">,</span> <span class="s2">&quot;activities.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="export-to-json">
+<h3>Export to JSON<a class="headerlink" href="#export-to-json" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">activity_to_dict</span><span class="p">(</span><span class="n">activity</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert activity to dictionary for JSON export.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">serialize_date</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">obj</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;task_id&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_id</span><span class="p">,</span>
+        <span class="s1">&#39;task_code&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="p">,</span>
+        <span class="s1">&#39;task_name&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="p">,</span>
+        <span class="s1">&#39;status_code&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span>
+        <span class="s1">&#39;duration_hours&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_drtn_hr_cnt</span><span class="p">,</span>
+        <span class="s1">&#39;start_date&#39;</span><span class="p">:</span> <span class="n">serialize_date</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">act_start_date</span><span class="p">),</span>
+        <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">serialize_date</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">act_end_date</span><span class="p">),</span>
+        <span class="s1">&#39;percent_complete&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span><span class="p">,</span>
+        <span class="s1">&#39;total_float&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="p">,</span>
+        <span class="s1">&#39;wbs_id&#39;</span><span class="p">:</span> <span class="n">activity</span><span class="o">.</span><span class="n">wbs_id</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">export_project_to_json</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export project data to JSON.&quot;&quot;&quot;</span>
+    
+    <span class="n">project_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;project_info&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">proj_id</span><span class="p">,</span>
+            <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">proj_name</span><span class="p">,</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">status_code</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;activities&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">activity_to_dict</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jsonfile</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">project_data</span><span class="p">,</span> <span class="n">jsonfile</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exported project to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">export_project_to_json</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s2">&quot;project_data.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="schedule-analysis">
+<h2>Schedule Analysis<a class="headerlink" href="#schedule-analysis" title="Link to this heading"></a></h2>
+<section id="float-analysis">
+<h3>Float Analysis<a class="headerlink" href="#float-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">float_analysis</span><span class="p">(</span><span class="n">activities</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze float (slack) in project activities.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Filter activities with float data</span>
+    <span class="n">float_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">float_activities</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No float data available&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="c1"># Calculate statistics</span>
+    <span class="n">floats</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">float_activities</span><span class="p">]</span>
+    <span class="n">critical</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">float_activities</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">near_critical</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">float_activities</span> <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">]</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FLOAT ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">float_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical (0 float): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">critical</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Near Critical (1-8 hrs): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">near_critical</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average Float: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">floats</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">floats</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum Float: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">floats</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># List critical activities</span>
+    <span class="k">if</span> <span class="n">critical</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">CRITICAL ACTIVITIES:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">critical</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>  <span class="c1"># Show first 10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">float_analysis</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="calendar-analysis">
+<h3>Calendar Analysis<a class="headerlink" href="#calendar-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calendar_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze calendar usage and working time.&quot;&quot;&quot;</span>
+    
+    <span class="n">calendars</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">calendars</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CALENDAR ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">calendar</span> <span class="ow">in</span> <span class="n">calendars</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Calendar: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">clndr_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">clndr_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Default: </span><span class="si">{</span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">calendar</span><span class="o">.</span><span class="n">default_flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Y&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;No&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Hours per Day: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Hours per Week: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">week_hr_cnt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Count activities using this calendar</span>
+        <span class="n">activities_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span> 
+                              <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">clndr_id</span> <span class="o">==</span> <span class="n">calendar</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Used by </span><span class="si">{</span><span class="n">activities_count</span><span class="si">}</span><span class="s2"> activities&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">calendar_analysis</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-examples">
+<h2>Advanced Examples<a class="headerlink" href="#advanced-examples" title="Link to this heading"></a></h2>
+<section id="earned-value-analysis">
+<h3>Earned Value Analysis<a class="headerlink" href="#earned-value-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">earned_value_analysis</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform basic earned value analysis.&quot;&quot;&quot;</span>
+    
+    <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+    
+    <span class="c1"># Calculate totals</span>
+    <span class="n">total_budget</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">target_cost</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">)</span>
+    <span class="n">total_actual</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">act_reg_cost</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate earned value (simplified)</span>
+    <span class="n">earned_value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span> <span class="ow">and</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_cost</span><span class="p">:</span>
+            <span class="n">earned_value</span> <span class="o">+=</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_cost</span>
+    
+    <span class="c1"># Calculate variances</span>
+    <span class="n">cost_variance</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">-</span> <span class="n">total_actual</span>
+    <span class="n">schedule_variance</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">-</span> <span class="n">total_budget</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;EARNED VALUE ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Value (PV): $</span><span class="si">{</span><span class="n">total_budget</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Earned Value (EV): $</span><span class="si">{</span><span class="n">earned_value</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Actual Cost (AC): $</span><span class="si">{</span><span class="n">total_actual</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cost Variance (CV): $</span><span class="si">{</span><span class="n">cost_variance</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schedule Variance (SV): $</span><span class="si">{</span><span class="n">schedule_variance</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">total_actual</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">cpi</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">/</span> <span class="n">total_actual</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cost Performance Index (CPI): </span><span class="si">{</span><span class="n">cpi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">total_budget</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">spi</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">/</span> <span class="n">total_budget</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schedule Performance Index (SPI): </span><span class="si">{</span><span class="n">spi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">earned_value_analysis</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="network-analysis">
+<h3>Network Analysis<a class="headerlink" href="#network-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">network_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze the project network structure.&quot;&quot;&quot;</span>
+    
+    <span class="n">activities</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">activities</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
+    <span class="n">relationships</span> <span class="o">=</span> <span class="n">xer_file</span><span class="o">.</span><span class="n">relations</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
+    
+    <span class="c1"># Count relationship types</span>
+    <span class="n">relationship_types</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">rel</span> <span class="ow">in</span> <span class="n">relationships</span><span class="p">:</span>
+        <span class="n">rel_type</span> <span class="o">=</span> <span class="n">rel</span><span class="o">.</span><span class="n">pred_type</span>
+        <span class="n">relationship_types</span><span class="p">[</span><span class="n">rel_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">relationship_types</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rel_type</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="c1"># Find activities with no predecessors (start activities)</span>
+    <span class="n">activity_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">}</span>
+    <span class="n">successor_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">relationships</span><span class="p">}</span>
+    <span class="n">start_activities</span> <span class="o">=</span> <span class="n">activity_ids</span> <span class="o">-</span> <span class="n">successor_ids</span>
+    
+    <span class="c1"># Find activities with no successors (end activities)</span>
+    <span class="n">predecessor_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">pred_task_id</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">relationships</span><span class="p">}</span>
+    <span class="n">end_activities</span> <span class="o">=</span> <span class="n">activity_ids</span> <span class="o">-</span> <span class="n">predecessor_ids</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NETWORK ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Relationships: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">relationships</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">start_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;End Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">end_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relationship Types:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">rel_type</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">relationship_types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">rel_type</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">network_analysis</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These examples demonstrate the flexibility and power of PyP6Xer for project analysis and data manipulation. You can combine and modify these examples to suit your specific needs.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="advanced_examples.html" class="btn btn-neutral float-right" title="Advanced Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

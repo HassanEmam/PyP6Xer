@@ -1,0 +1,714 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation and Troubleshooting &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="xerparser" href="api/xerparser/index.html" />
+    <link rel="prev" title="Advanced Examples" href="advanced_examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-from-source">Install from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-installation">Verify Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues-and-solutions">Common Issues and Solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-loading-issues">File Loading Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-filenotfounderror">Issue: FileNotFoundError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-unicodedecodeerror">Issue: UnicodeDecodeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-empty-or-corrupted-xer-file">Issue: Empty or Corrupted XER File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-issues">Memory Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-memoryerror-with-large-files">Issue: MemoryError with Large Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-access-issues">Data Access Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-attributeerror-for-missing-properties">Issue: AttributeError for Missing Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-none-values-in-calculations">Issue: None Values in Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#date-handling-issues">Date Handling Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-date-parsing-errors">Issue: Date Parsing Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-issues">Performance Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-slow-processing-of-large-projects">Issue: Slow Processing of Large Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#export-issues">Export Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-writing-modified-xer-files">Issue: Writing Modified XER Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-tips">Performance Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#memory-optimization">Memory Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#efficient-data-access">Efficient Data Access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-tips">Debugging Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enable-debug-information">Enable Debug Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-validation">Data Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#community-resources">Community Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-issues">Reporting Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-profiling">Performance Profiling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation and Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/troubleshooting.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-and-troubleshooting">
+<h1>Installation and Troubleshooting<a class="headerlink" href="#installation-and-troubleshooting" title="Link to this heading"></a></h1>
+<p>This guide covers installation, common issues, and troubleshooting for PyP6Xer.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Python 3.7 or higher</p></li>
+<li><p>No external dependencies (PyP6Xer uses only Python standard library)</p></li>
+</ul>
+</section>
+<section id="install-from-pypi">
+<h3>Install from PyPI<a class="headerlink" href="#install-from-pypi" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>PyP6XER
+</pre></div>
+</div>
+</section>
+<section id="install-from-source">
+<h3>Install from Source<a class="headerlink" href="#install-from-source" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/HassanEmam/PyP6Xer.git
+<span class="nb">cd</span><span class="w"> </span>PyP6Xer
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="verify-installation">
+<h3>Verify Installation<a class="headerlink" href="#verify-installation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xerparser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="c1"># Test with a sample XER file</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;sample.xer&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyP6Xer installed successfully!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Projects found: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Installation issue: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-issues-and-solutions">
+<h2>Common Issues and Solutions<a class="headerlink" href="#common-issues-and-solutions" title="Link to this heading"></a></h2>
+<section id="file-loading-issues">
+<h3>File Loading Issues<a class="headerlink" href="#file-loading-issues" title="Link to this heading"></a></h3>
+<section id="issue-filenotfounderror">
+<h4>Issue: FileNotFoundError<a class="headerlink" href="#issue-filenotfounderror" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">FileNotFoundError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">2</span><span class="p">]</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="p">:</span> <span class="s1">&#39;project.xer&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Check if file exists</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">):</span>
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found. Check the file path.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Use absolute path</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\path\to\your\project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-unicodedecodeerror">
+<h4>Issue: UnicodeDecodeError<a class="headerlink" href="#issue-unicodedecodeerror" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">UnicodeDecodeError</span><span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t decode byte 0x92 in position 1234</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong>
+This occurs with XER files that have special characters or were created with different encoding.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># PyP6Xer handles this automatically, but if issues persist:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+
+<span class="c1"># Try different encodings</span>
+<span class="n">encodings_to_try</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s1">&#39;latin-1&#39;</span><span class="p">,</span> <span class="s1">&#39;cp1252&#39;</span><span class="p">,</span> <span class="s1">&#39;iso-8859-1&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">encoding</span> <span class="ow">in</span> <span class="n">encodings_to_try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File readable with </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s2"> encoding&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+        <span class="k">continue</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-empty-or-corrupted-xer-file">
+<h4>Issue: Empty or Corrupted XER File<a class="headerlink" href="#issue-empty-or-corrupted-xer-file" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;NoneType&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;strip&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_xer_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate XER file format.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">first_line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">first_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;ERMHDR&#39;</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: File doesn&#39;t appear to be a valid XER file&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File validation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="c1"># Use validation before loading</span>
+<span class="k">if</span> <span class="n">validate_xer_file</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">):</span>
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid XER file&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="memory-issues">
+<h3>Memory Issues<a class="headerlink" href="#memory-issues" title="Link to this heading"></a></h3>
+<section id="issue-memoryerror-with-large-files">
+<h4>Issue: MemoryError with Large Files<a class="headerlink" href="#issue-memoryerror-with-large-files" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">MemoryError</span><span class="p">:</span> <span class="n">Unable</span> <span class="n">to</span> <span class="n">allocate</span> <span class="n">array</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
+
+<span class="c1"># For very large XER files, monitor memory usage</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_large_xer</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load large XER files with memory management.&quot;&quot;&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading large XER file...&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Force garbage collection before loading</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded successfully: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2"> activities&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">xer</span>
+    <span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File too large for available memory&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consider:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Splitting the XER file&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Using a machine with more RAM&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Processing subsets of data&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="n">xer</span> <span class="o">=</span> <span class="n">load_large_xer</span><span class="p">(</span><span class="s2">&quot;large_project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-access-issues">
+<h3>Data Access Issues<a class="headerlink" href="#data-access-issues" title="Link to this heading"></a></h3>
+<section id="issue-attributeerror-for-missing-properties">
+<h4>Issue: AttributeError for Missing Properties<a class="headerlink" href="#issue-attributeerror-for-missing-properties" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;Task&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;some_property&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Always check if properties exist before accessing</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_get_property</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely get object property.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+
+<span class="c1"># Example usage</span>
+<span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">safe_get_property</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="s1">&#39;target_drtn_hr_cnt&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">safe_get_property</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="s1">&#39;target_start_date&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">start_date</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activity: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">, Start: </span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-none-values-in-calculations">
+<h4>Issue: None Values in Calculations<a class="headerlink" href="#issue-none-values-in-calculations" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;NoneType&#39;</span> <span class="ow">and</span> <span class="s1">&#39;float&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Handle None values in calculations</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_sum</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sum values, treating None as 0.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Example: Calculate total cost</span>
+<span class="n">total_cost</span> <span class="o">=</span> <span class="n">safe_sum</span><span class="p">([</span>
+    <span class="n">assignment</span><span class="o">.</span><span class="n">target_cost</span> <span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span>
+<span class="p">])</span>
+
+<span class="c1"># Or use default values</span>
+<span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span><span class="p">:</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_cost</span> <span class="ow">or</span> <span class="mi">0</span>  <span class="c1"># Use 0 if None</span>
+    <span class="n">hours</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_qty</span> <span class="ow">or</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="date-handling-issues">
+<h3>Date Handling Issues<a class="headerlink" href="#date-handling-issues" title="Link to this heading"></a></h3>
+<section id="issue-date-parsing-errors">
+<h4>Issue: Date Parsing Errors<a class="headerlink" href="#issue-date-parsing-errors" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">time</span> <span class="n">data</span> <span class="s1">&#39;2023-13-45 25:70&#39;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="nb">format</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_parse_date</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="n">format_string</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely parse date strings.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">date_string</span> <span class="ow">or</span> <span class="n">date_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">format_string</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Date parsing error: </span><span class="si">{</span><span class="n">date_string</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Use with activities</span>
+<span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="s1">&#39;target_start_date&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span><span class="p">:</span>
+        <span class="c1"># PyP6Xer handles this automatically, but for custom parsing:</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">safe_parse_date</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="performance-issues">
+<h3>Performance Issues<a class="headerlink" href="#performance-issues" title="Link to this heading"></a></h3>
+<section id="issue-slow-processing-of-large-projects">
+<h4>Issue: Slow Processing of Large Projects<a class="headerlink" href="#issue-slow-processing-of-large-projects" title="Link to this heading"></a></h4>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">optimize_large_project_processing</span><span class="p">(</span><span class="n">xer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Optimize processing for large projects.&quot;&quot;&quot;</span>
+    
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    
+    <span class="c1"># Create lookup dictionaries for faster access</span>
+    <span class="n">activity_lookup</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="o">.</span><span class="n">task_id</span><span class="p">:</span> <span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">}</span>
+    <span class="n">resource_lookup</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">}</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created lookups in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Use lookups instead of iterating</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_activity</span><span class="p">(</span><span class="n">task_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">activity_lookup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_resource</span><span class="p">(</span><span class="n">rsrc_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">resource_lookup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rsrc_id</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">activity_lookup</span><span class="p">,</span> <span class="n">resource_lookup</span>
+
+<span class="c1"># Usage</span>
+<span class="n">activity_lookup</span><span class="p">,</span> <span class="n">resource_lookup</span> <span class="o">=</span> <span class="n">optimize_large_project_processing</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="export-issues">
+<h3>Export Issues<a class="headerlink" href="#export-issues" title="Link to this heading"></a></h3>
+<section id="issue-writing-modified-xer-files">
+<h4>Issue: Writing Modified XER Files<a class="headerlink" href="#issue-writing-modified-xer-files" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span> <span class="n">You</span> <span class="n">have</span> <span class="n">to</span> <span class="n">provide</span> <span class="n">the</span> <span class="n">filename</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Always provide filename for export</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">xer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;modified_project.xer&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Export successful&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Export failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Validate export</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_export</span><span class="p">(</span><span class="n">original_file</span><span class="p">,</span> <span class="n">exported_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate exported XER file.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">original</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">original_file</span><span class="p">)</span>
+        <span class="n">exported</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">exported_file</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exported activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">exported</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">exported</span><span class="o">.</span><span class="n">activities</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Export validation passed&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ Activity count mismatch&quot;</span><span class="p">)</span>
+            
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Export validation failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">xer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;output.xer&quot;</span><span class="p">)</span>
+<span class="n">validate_export</span><span class="p">(</span><span class="s2">&quot;input.xer&quot;</span><span class="p">,</span> <span class="s2">&quot;output.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="performance-tips">
+<h2>Performance Tips<a class="headerlink" href="#performance-tips" title="Link to this heading"></a></h2>
+<section id="memory-optimization">
+<h3>Memory Optimization<a class="headerlink" href="#memory-optimization" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_large_xer_efficiently</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process large XER files efficiently.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Load file</span>
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1"># Process in chunks if needed</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">activities</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">),</span> <span class="n">chunk_size</span><span class="p">):</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">activities</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">chunk_size</span><span class="p">]</span>
+        
+        <span class="c1"># Process chunk</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">chunk</span><span class="p">:</span>
+            <span class="c1"># Your processing here</span>
+            <span class="k">pass</span>
+        
+        <span class="c1"># Force garbage collection after each chunk</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">xer</span>
+</pre></div>
+</div>
+</section>
+<section id="efficient-data-access">
+<h3>Efficient Data Access<a class="headerlink" href="#efficient-data-access" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_efficient_lookups</span><span class="p">(</span><span class="n">xer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create efficient lookup structures.&quot;&quot;&quot;</span>
+    
+    <span class="n">lookups</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;activities_by_project&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;activities_by_wbs&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;resources_by_type&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;assignments_by_activity&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;assignments_by_resource&#39;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Group activities by project</span>
+    <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+        <span class="n">proj_id</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">proj_id</span>
+        <span class="k">if</span> <span class="n">proj_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_project&#39;</span><span class="p">]:</span>
+            <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_project&#39;</span><span class="p">][</span><span class="n">proj_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_project&#39;</span><span class="p">][</span><span class="n">proj_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+    
+    <span class="c1"># Group activities by WBS</span>
+    <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+        <span class="n">wbs_id</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">wbs_id</span>
+        <span class="k">if</span> <span class="n">wbs_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_wbs&#39;</span><span class="p">]:</span>
+            <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_wbs&#39;</span><span class="p">][</span><span class="n">wbs_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_wbs&#39;</span><span class="p">][</span><span class="n">wbs_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+    
+    <span class="c1"># Group resources by type</span>
+    <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+        <span class="n">rsrc_type</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">rsrc_type</span>
+        <span class="k">if</span> <span class="n">rsrc_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;resources_by_type&#39;</span><span class="p">]:</span>
+            <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;resources_by_type&#39;</span><span class="p">][</span><span class="n">rsrc_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;resources_by_type&#39;</span><span class="p">][</span><span class="n">rsrc_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+    
+    <span class="c1"># Group assignments</span>
+    <span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span><span class="p">:</span>
+        <span class="c1"># By activity</span>
+        <span class="n">task_id</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">task_id</span>
+        <span class="k">if</span> <span class="n">task_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_activity&#39;</span><span class="p">]:</span>
+            <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_activity&#39;</span><span class="p">][</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_activity&#39;</span><span class="p">][</span><span class="n">task_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">assignment</span><span class="p">)</span>
+        
+        <span class="c1"># By resource</span>
+        <span class="n">rsrc_id</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span>
+        <span class="k">if</span> <span class="n">rsrc_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_resource&#39;</span><span class="p">]:</span>
+            <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_resource&#39;</span><span class="p">][</span><span class="n">rsrc_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;assignments_by_resource&#39;</span><span class="p">][</span><span class="n">rsrc_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">assignment</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">lookups</span>
+
+<span class="c1"># Usage</span>
+<span class="n">lookups</span> <span class="o">=</span> <span class="n">create_efficient_lookups</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+
+<span class="c1"># Fast access to project activities</span>
+<span class="n">project_activities</span> <span class="o">=</span> <span class="n">lookups</span><span class="p">[</span><span class="s1">&#39;activities_by_project&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="p">,</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="debugging-tips">
+<h2>Debugging Tips<a class="headerlink" href="#debugging-tips" title="Link to this heading"></a></h2>
+<section id="enable-debug-information">
+<h3>Enable Debug Information<a class="headerlink" href="#enable-debug-information" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="c1"># Set up logging for debugging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">debug_xer_loading</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load XER with debug information.&quot;&quot;&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading XER file: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Check file size</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+        <span class="n">file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File size: </span><span class="si">{</span><span class="n">file_size</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Load and report progress</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">load_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded in </span><span class="si">{</span><span class="n">load_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Projects: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resources: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relationships: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">relations</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">xer</span>
+        
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading XER: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
+        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Usage</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">debug_xer_loading</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="data-validation">
+<h3>Data Validation<a class="headerlink" href="#data-validation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_xer_data</span><span class="p">(</span><span class="n">xer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate XER data integrity.&quot;&quot;&quot;</span>
+    
+    <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Check for orphaned activities</span>
+    <span class="n">project_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="o">.</span><span class="n">proj_id</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">proj_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">project_ids</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Orphaned activity: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Check for missing resources</span>
+    <span class="n">resource_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resource_ids</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing resource: </span><span class="si">{</span><span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Check for circular dependencies</span>
+    <span class="c1"># (Simplified check - full implementation would be more complex)</span>
+    
+    <span class="k">if</span> <span class="n">issues</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data validation issues found:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">issues</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>  <span class="c1"># Show first 10</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ... and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">10</span><span class="si">}</span><span class="s2"> more issues&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Data validation passed&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1"># Usage</span>
+<span class="k">if</span> <span class="n">xer</span><span class="p">:</span>
+    <span class="n">validate_xer_data</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<section id="community-resources">
+<h3>Community Resources<a class="headerlink" href="#community-resources" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>GitHub Issues</strong>: Report bugs and request features</p></li>
+<li><p><strong>Documentation</strong>: Latest documentation and examples</p></li>
+<li><p><strong>Stack Overflow</strong>: Use tag <code class="docutils literal notranslate"><span class="pre">pyp6xer</span></code> for questions</p></li>
+</ul>
+</section>
+<section id="reporting-issues">
+<h3>Reporting Issues<a class="headerlink" href="#reporting-issues" title="Link to this heading"></a></h3>
+<p>When reporting issues, please include:</p>
+<ol class="arabic simple">
+<li><p><strong>Python version</strong>: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p></li>
+<li><p><strong>PyP6Xer version</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">show</span> <span class="pre">PyP6XER</span></code></p></li>
+<li><p><strong>Error message</strong>: Full traceback</p></li>
+<li><p><strong>Sample XER file</strong>: If possible (remove sensitive data)</p></li>
+<li><p><strong>Operating system</strong>: Windows, macOS, Linux</p></li>
+</ol>
+</section>
+<section id="performance-profiling">
+<h3>Performance Profiling<a class="headerlink" href="#performance-profiling" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cProfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pstats</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">profile_xer_processing</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Profile XER processing performance.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_xer</span><span class="p">():</span>
+        <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="c1"># Your processing code here</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+            <span class="n">duration</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">duration</span>
+        <span class="k">return</span> <span class="n">xer</span>
+    
+    <span class="c1"># Profile the code</span>
+    <span class="n">profiler</span> <span class="o">=</span> <span class="n">cProfile</span><span class="o">.</span><span class="n">Profile</span><span class="p">()</span>
+    <span class="n">profiler</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="n">process_xer</span><span class="p">()</span>
+    
+    <span class="n">profiler</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+    
+    <span class="c1"># Print results</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="n">profiler</span><span class="p">)</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Top 10 functions</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Usage</span>
+<span class="c1"># xer = profile_xer_processing(&quot;large_project.xer&quot;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="advanced_examples.html" class="btn btn-neutral float-left" title="Advanced Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/xerparser/index.html" class="btn btn-neutral float-right" title="xerparser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

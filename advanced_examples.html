@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Examples &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation and Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#schedule-analysis">Schedule Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#critical-path-analysis">Critical Path Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schedule-performance-analysis">Schedule Performance Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resource-leveling-analysis">Resource Leveling Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-cost-analysis">Resource Cost Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#progress-tracking">Progress Tracking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#earned-value-analysis">Earned Value Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-assurance">Quality Assurance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#schedule-quality-check">Schedule Quality Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-export-and-reporting">Data Export and Reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensive-project-report">Comprehensive Project Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/advanced_examples.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-examples">
+<h1>Advanced Examples<a class="headerlink" href="#advanced-examples" title="Link to this heading"></a></h1>
+<p>This section provides comprehensive examples for complex project management scenarios using PyP6Xer.</p>
+<section id="schedule-analysis">
+<h2>Schedule Analysis<a class="headerlink" href="#schedule-analysis" title="Link to this heading"></a></h2>
+<section id="critical-path-analysis">
+<h3>Critical Path Analysis<a class="headerlink" href="#critical-path-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_critical_path</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Comprehensive critical path analysis.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRITICAL PATH ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+        <span class="n">critical_activities</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">near_critical</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Convert float to days</span>
+                <span class="n">float_days</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">/</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span> <span class="ow">or</span> <span class="mi">8</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">float_days</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">critical_activities</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">activity</span><span class="p">,</span> <span class="n">float_days</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">float_days</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Near critical</span>
+                    <span class="n">near_critical</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">activity</span><span class="p">,</span> <span class="n">float_days</span><span class="p">))</span>
+        
+        <span class="c1"># Sort by float (most negative first)</span>
+        <span class="n">critical_activities</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">near_critical</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Activities (≤0 days float): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">critical_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">activity</span><span class="p">,</span> <span class="n">float_days</span> <span class="ow">in</span> <span class="n">critical_activities</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;●&quot;</span> <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Active&quot;</span> <span class="k">else</span> <span class="s2">&quot;○&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Float: </span><span class="si">{</span><span class="n">float_days</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> days | Duration: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">duration</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Near Critical (1-5 days float): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">near_critical</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">activity</span><span class="p">,</span> <span class="n">float_days</span> <span class="ow">in</span> <span class="n">near_critical</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>  <span class="c1"># Show top 10</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;●&quot;</span> <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Active&quot;</span> <span class="k">else</span> <span class="s2">&quot;○&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Float: </span><span class="si">{</span><span class="n">float_days</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">analyze_critical_path</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="schedule-performance-analysis">
+<h3>Schedule Performance Analysis<a class="headerlink" href="#schedule-performance-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">schedule_performance_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze schedule performance and variance.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SCHEDULE PERFORMANCE ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+        <span class="n">performance_metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;on_time&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;ahead&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;behind&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;not_started_late&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;total_variance_days&#39;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+        
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span> <span class="ow">and</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">:</span>
+                <span class="n">target_start</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span>
+                <span class="n">target_end</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_end_date</span>
+                
+                <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">:</span>
+                    <span class="c1"># Completed activities - check actual vs planned</span>
+                    <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">act_end_date</span><span class="p">:</span>
+                        <span class="n">variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">act_end_date</span> <span class="o">-</span> <span class="n">target_end</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+                        <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;total_variance_days&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">variance</span>
+                        
+                        <span class="k">if</span> <span class="n">variance</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;ahead&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">elif</span> <span class="n">variance</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># Within 3 days</span>
+                            <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;on_time&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;behind&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+                <span class="k">elif</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_NotStart&quot;</span><span class="p">:</span>
+                    <span class="c1"># Not started activities - check if start date has passed</span>
+                    <span class="k">if</span> <span class="n">target_start</span> <span class="o">&lt;</span> <span class="n">today</span><span class="p">:</span>
+                        <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;not_started_late&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># Calculate averages</span>
+        <span class="n">total_analyzed</span> <span class="o">=</span> <span class="p">(</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;on_time&#39;</span><span class="p">]</span> <span class="o">+</span> 
+                         <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;ahead&#39;</span><span class="p">]</span> <span class="o">+</span> 
+                         <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;behind&#39;</span><span class="p">])</span>
+        
+        <span class="k">if</span> <span class="n">total_analyzed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">avg_variance</span> <span class="o">=</span> <span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;total_variance_days&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">total_analyzed</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completed Activities Analysis:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Ahead of Schedule: </span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;ahead&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;ahead&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">total_analyzed</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  On Time (±3 days): </span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;on_time&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;on_time&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">total_analyzed</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Behind Schedule: </span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;behind&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;behind&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">total_analyzed</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Average Variance: </span><span class="si">{</span><span class="n">avg_variance</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not Started (Past Due): </span><span class="si">{</span><span class="n">performance_metrics</span><span class="p">[</span><span class="s1">&#39;not_started_late&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">schedule_performance_analysis</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="resource-management">
+<h2>Resource Management<a class="headerlink" href="#resource-management" title="Link to this heading"></a></h2>
+<section id="resource-leveling-analysis">
+<h3>Resource Leveling Analysis<a class="headerlink" href="#resource-leveling-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resource_leveling_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze resource conflicts and over-allocation.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RESOURCE LEVELING ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+    
+    <span class="c1"># Group assignments by resource and date</span>
+    <span class="n">resource_schedule</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_qty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_start_date</span><span class="p">:</span>
+            <span class="k">continue</span>
+            
+        <span class="c1"># Find the activity to get duration</span>
+        <span class="n">activity</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">task_id</span> <span class="o">==</span> <span class="n">assignment</span><span class="o">.</span><span class="n">task_id</span><span class="p">:</span>
+                <span class="n">activity</span> <span class="o">=</span> <span class="n">task</span>
+                <span class="k">break</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">activity</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_end_date</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Simple daily allocation (assumes even distribution)</span>
+        <span class="n">duration_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">target_end_date</span> <span class="o">-</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+        <span class="k">if</span> <span class="n">duration_days</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">duration_days</span> <span class="o">=</span> <span class="mi">1</span>
+            
+        <span class="n">daily_hours</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_qty</span> <span class="o">/</span> <span class="n">duration_days</span>
+        
+        <span class="c1"># Add to each day in the duration</span>
+        <span class="n">current_date</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_start_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">target_end_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        
+        <span class="k">while</span> <span class="n">current_date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">:</span>
+            <span class="n">resource_schedule</span><span class="p">[</span><span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">][</span><span class="n">current_date</span><span class="p">]</span> <span class="o">+=</span> <span class="n">daily_hours</span>
+            <span class="n">current_date</span> <span class="o">+=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Find over-allocations</span>
+    <span class="n">overallocated_resources</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">rsrc_id</span><span class="p">,</span> <span class="n">schedule</span> <span class="ow">in</span> <span class="n">resource_schedule</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># Find resource details</span>
+        <span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">rsrc_id</span> <span class="o">==</span> <span class="n">rsrc_id</span><span class="p">:</span>
+                <span class="n">resource</span> <span class="o">=</span> <span class="n">r</span>
+                <span class="k">break</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resource</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Assume 8 hours per day max (could use calendar)</span>
+        <span class="n">max_daily_hours</span> <span class="o">=</span> <span class="mi">8</span>
+        
+        <span class="n">overallocation_days</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">hours</span> <span class="ow">in</span> <span class="n">schedule</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">hours</span> <span class="o">&gt;</span> <span class="n">max_daily_hours</span><span class="p">:</span>
+                <span class="n">overallocation_days</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">date</span><span class="p">,</span> <span class="n">hours</span><span class="p">))</span>
+        
+        <span class="k">if</span> <span class="n">overallocation_days</span><span class="p">:</span>
+            <span class="n">overallocated_resources</span><span class="p">[</span><span class="n">resource</span><span class="p">]</span> <span class="o">=</span> <span class="n">overallocation_days</span>
+    
+    <span class="c1"># Report over-allocations</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Over-allocated Resources: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">overallocated_resources</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">resource</span><span class="p">,</span> <span class="n">overallocations</span> <span class="ow">in</span> <span class="n">overallocated_resources</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resource: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Over-allocation Days: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">overallocations</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Show worst days</span>
+        <span class="n">worst_days</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">overallocations</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">hours</span> <span class="ow">in</span> <span class="n">worst_days</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">hours</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hours (excess: </span><span class="si">{</span><span class="n">hours</span><span class="o">-</span><span class="mi">8</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">resource_leveling_analysis</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="resource-cost-analysis">
+<h3>Resource Cost Analysis<a class="headerlink" href="#resource-cost-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resource_cost_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Comprehensive resource cost breakdown.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RESOURCE COST ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+    
+    <span class="n">cost_breakdown</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;planned_cost&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;actual_cost&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;remaining_cost&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;assignments&#39;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">})</span>
+    
+    <span class="n">total_costs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;planned&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;actual&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;remaining&#39;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Analyze each assignment</span>
+    <span class="k">for</span> <span class="n">assignment</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span><span class="p">:</span>
+        <span class="n">rsrc_id</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">rsrc_id</span>
+        
+        <span class="c1"># Get costs</span>
+        <span class="n">planned</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">target_cost</span> <span class="ow">or</span> <span class="mi">0</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="p">(</span><span class="n">assignment</span><span class="o">.</span><span class="n">act_reg_cost</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">assignment</span><span class="o">.</span><span class="n">act_ot_cost</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">remaining</span> <span class="o">=</span> <span class="n">assignment</span><span class="o">.</span><span class="n">remain_cost</span> <span class="ow">or</span> <span class="mi">0</span>
+        
+        <span class="n">cost_breakdown</span><span class="p">[</span><span class="n">rsrc_id</span><span class="p">][</span><span class="s1">&#39;planned_cost&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">planned</span>
+        <span class="n">cost_breakdown</span><span class="p">[</span><span class="n">rsrc_id</span><span class="p">][</span><span class="s1">&#39;actual_cost&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">actual</span>
+        <span class="n">cost_breakdown</span><span class="p">[</span><span class="n">rsrc_id</span><span class="p">][</span><span class="s1">&#39;remaining_cost&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">remaining</span>
+        <span class="n">cost_breakdown</span><span class="p">[</span><span class="n">rsrc_id</span><span class="p">][</span><span class="s1">&#39;assignments&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;planned&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">planned</span>
+        <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;actual&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">actual</span>
+        <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;remaining&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">remaining</span>
+    
+    <span class="c1"># Create resource lookup</span>
+    <span class="n">resource_lookup</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">rsrc_id</span><span class="p">:</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">}</span>
+    
+    <span class="c1"># Sort by planned cost</span>
+    <span class="n">sorted_resources</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">cost_breakdown</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;planned_cost&#39;</span><span class="p">],</span>
+        <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Project Costs:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Planned: $</span><span class="si">{</span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;planned&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Actual: $</span><span class="si">{</span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;actual&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Remaining: $</span><span class="si">{</span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;remaining&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Total (Actual + Remaining): $</span><span class="si">{</span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;actual&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;remaining&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;planned&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;actual&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;remaining&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;planned&#39;</span><span class="p">]</span>
+        <span class="n">variance_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">variance</span> <span class="o">/</span> <span class="n">total_costs</span><span class="p">[</span><span class="s1">&#39;planned&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Variance: $</span><span class="si">{</span><span class="n">variance</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">variance_pct</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Top 10 Resources by Planned Cost:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Resource&#39;</span><span class="si">:</span><span class="s2">&lt;30</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Planned&#39;</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Actual&#39;</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Remaining&#39;</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Variance&#39;</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">rsrc_id</span><span class="p">,</span> <span class="n">costs</span> <span class="ow">in</span> <span class="n">sorted_resources</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+        <span class="n">resource</span> <span class="o">=</span> <span class="n">resource_lookup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rsrc_id</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span> <span class="k">if</span> <span class="n">resource</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;Resource </span><span class="si">{</span><span class="n">rsrc_id</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="n">planned</span> <span class="o">=</span> <span class="n">costs</span><span class="p">[</span><span class="s1">&#39;planned_cost&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">costs</span><span class="p">[</span><span class="s1">&#39;actual_cost&#39;</span><span class="p">]</span>
+        <span class="n">remaining</span> <span class="o">=</span> <span class="n">costs</span><span class="p">[</span><span class="s1">&#39;remaining_cost&#39;</span><span class="p">]</span>
+        <span class="n">variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">actual</span> <span class="o">+</span> <span class="n">remaining</span><span class="p">)</span> <span class="o">-</span> <span class="n">planned</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;30</span><span class="si">}</span><span class="s2"> $</span><span class="si">{</span><span class="n">planned</span><span class="si">:</span><span class="s2">&gt;11,.0f</span><span class="si">}</span><span class="s2"> $</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">&gt;11,.0f</span><span class="si">}</span><span class="s2"> $</span><span class="si">{</span><span class="n">remaining</span><span class="si">:</span><span class="s2">&gt;11,.0f</span><span class="si">}</span><span class="s2"> $</span><span class="si">{</span><span class="n">variance</span><span class="si">:</span><span class="s2">&gt;+11,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">resource_cost_analysis</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="progress-tracking">
+<h2>Progress Tracking<a class="headerlink" href="#progress-tracking" title="Link to this heading"></a></h2>
+<section id="earned-value-analysis">
+<h3>Earned Value Analysis<a class="headerlink" href="#earned-value-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">earned_value_analysis</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate Earned Value Management metrics.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EARNED VALUE ANALYSIS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+        
+        <span class="c1"># Calculate EVM metrics</span>
+        <span class="n">planned_value</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># PV - Budgeted cost of work scheduled</span>
+        <span class="n">earned_value</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># EV - Budgeted cost of work performed  </span>
+        <span class="n">actual_cost</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># AC - Actual cost of work performed</span>
+        
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="c1"># Get resource assignments for this activity</span>
+            <span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">activityresources</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">task_id</span> <span class="o">==</span> <span class="n">activity</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
+            
+            <span class="n">activity_planned</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">target_cost</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">)</span>
+            <span class="n">activity_actual</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">a</span><span class="o">.</span><span class="n">act_reg_cost</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">act_ot_cost</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">)</span>
+            
+            <span class="c1"># Earned value based on physical percent complete</span>
+            <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span><span class="p">:</span>
+                <span class="n">activity_earned</span> <span class="o">=</span> <span class="n">activity_planned</span> <span class="o">*</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">phys_complete_pct</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">activity_earned</span> <span class="o">=</span> <span class="mi">0</span>
+            
+            <span class="n">planned_value</span> <span class="o">+=</span> <span class="n">activity_planned</span>
+            <span class="n">earned_value</span> <span class="o">+=</span> <span class="n">activity_earned</span>
+            <span class="n">actual_cost</span> <span class="o">+=</span> <span class="n">activity_actual</span>
+        
+        <span class="c1"># Calculate EVM metrics</span>
+        <span class="k">if</span> <span class="n">planned_value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">earned_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Schedule Performance Index</span>
+            <span class="n">spi</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">/</span> <span class="n">planned_value</span> <span class="k">if</span> <span class="n">planned_value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            
+            <span class="c1"># Cost Performance Index  </span>
+            <span class="n">cpi</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">/</span> <span class="n">actual_cost</span> <span class="k">if</span> <span class="n">actual_cost</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            
+            <span class="c1"># Schedule Variance</span>
+            <span class="n">sv</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">-</span> <span class="n">planned_value</span>
+            
+            <span class="c1"># Cost Variance</span>
+            <span class="n">cv</span> <span class="o">=</span> <span class="n">earned_value</span> <span class="o">-</span> <span class="n">actual_cost</span>
+            
+            <span class="c1"># Estimate at Completion</span>
+            <span class="n">eac</span> <span class="o">=</span> <span class="n">planned_value</span> <span class="o">/</span> <span class="n">cpi</span> <span class="k">if</span> <span class="n">cpi</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">planned_value</span>
+            
+            <span class="c1"># Estimate to Complete</span>
+            <span class="n">etc</span> <span class="o">=</span> <span class="n">eac</span> <span class="o">-</span> <span class="n">actual_cost</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Budget at Completion (BAC): $</span><span class="si">{</span><span class="n">planned_value</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned Value (PV): $</span><span class="si">{</span><span class="n">planned_value</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Earned Value (EV): $</span><span class="si">{</span><span class="n">earned_value</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Actual Cost (AC): $</span><span class="si">{</span><span class="n">actual_cost</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cost Performance Index (CPI): </span><span class="si">{</span><span class="n">cpi</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schedule Performance Index (SPI): </span><span class="si">{</span><span class="n">spi</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cost Variance (CV): $</span><span class="si">{</span><span class="n">cv</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schedule Variance (SV): $</span><span class="si">{</span><span class="n">sv</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimate at Completion (EAC): $</span><span class="si">{</span><span class="n">eac</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimate to Complete (ETC): $</span><span class="si">{</span><span class="n">etc</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            
+            <span class="c1"># Interpretations</span>
+            <span class="k">if</span> <span class="n">cpi</span> <span class="o">&lt;</span> <span class="mf">0.9</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️  COST PERFORMANCE: Significantly over budget&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cpi</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔶 COST PERFORMANCE: Over budget&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cpi</span> <span class="o">&gt;</span> <span class="mf">1.1</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ COST PERFORMANCE: Significantly under budget&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🟢 COST PERFORMANCE: On budget&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">spi</span> <span class="o">&lt;</span> <span class="mf">0.9</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️  SCHEDULE PERFORMANCE: Significantly behind schedule&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">spi</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔶 SCHEDULE PERFORMANCE: Behind schedule&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">spi</span> <span class="o">&gt;</span> <span class="mf">1.1</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ SCHEDULE PERFORMANCE: Ahead of schedule&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🟢 SCHEDULE PERFORMANCE: On schedule&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">earned_value_analysis</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="quality-assurance">
+<h2>Quality Assurance<a class="headerlink" href="#quality-assurance" title="Link to this heading"></a></h2>
+<section id="schedule-quality-check">
+<h3>Schedule Quality Check<a class="headerlink" href="#schedule-quality-check" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">schedule_quality_check</span><span class="p">(</span><span class="n">xer_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Comprehensive schedule quality assessment following best practices.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SCHEDULE QUALITY CHECK&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+        <span class="n">total_activities</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span>
+        
+        <span class="c1"># Check 1: Activities without predecessors (except start milestones)</span>
+        <span class="n">no_predecessors</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                          <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">predecessors</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">task_type</span> <span class="o">!=</span> <span class="s2">&quot;TT_Mile&quot;</span> 
+                          <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">no_predecessors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple activities without predecessors: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">no_predecessors</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 2: Activities without successors (except finish milestones)</span>
+        <span class="n">no_successors</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">successors</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">task_type</span> <span class="o">!=</span> <span class="s2">&quot;TT_FinMile&quot;</span>
+                        <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">no_successors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple activities without successors: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">no_successors</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 3: Long duration activities (&gt;20 days)</span>
+        <span class="n">long_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                          <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">duration</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mi">20</span> 
+                          <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">task_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;TT_Mile&quot;</span><span class="p">,</span> <span class="s2">&quot;TT_FinMile&quot;</span><span class="p">,</span> <span class="s2">&quot;TT_LOE&quot;</span><span class="p">]]</span>
+        
+        <span class="k">if</span> <span class="n">long_activities</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities with duration &gt;20 days: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">long_activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 4: Activities with excessive float (&gt;30 days)</span>
+        <span class="n">high_float</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span><span class="p">:</span>
+                <span class="n">float_days</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">/</span> <span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span> <span class="ow">or</span> <span class="mi">8</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">float_days</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">:</span>
+                    <span class="n">high_float</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">high_float</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities with excessive float (&gt;30 days): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">high_float</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 5: Missing resource assignments</span>
+        <span class="n">no_resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                       <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">resources</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">task_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;TT_Mile&quot;</span><span class="p">,</span> <span class="s2">&quot;TT_FinMile&quot;</span><span class="p">]</span>
+                       <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">no_resources</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities without resource assignments: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">no_resources</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 6: Hard constraints</span>
+        <span class="n">hard_constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                           <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">cstr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;CS_MSO&quot;</span><span class="p">,</span> <span class="s2">&quot;CS_MEO&quot;</span><span class="p">]</span>
+                           <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="s2">&quot;TK_Complete&quot;</span><span class="p">]</span>
+        
+        <span class="n">constraint_pct</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hard_constraints</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_activities</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="k">if</span> <span class="n">constraint_pct</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># More than 5% hard constrained</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;High percentage of hard constraints: </span><span class="si">{</span><span class="n">constraint_pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 7: Missing calendars</span>
+        <span class="n">no_calendar</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">clndr_id</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">no_calendar</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities without calendar assignment: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">no_calendar</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check 8: Negative float</span>
+        <span class="n">negative_float</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="ow">and</span> <span class="n">activity</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">negative_float</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">negative_float</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities with negative float: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">negative_float</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Report results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="n">total_activities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">issues</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️  ISSUES FOUND:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">issues</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  • </span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ No major issues found&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate quality score</span>
+        <span class="n">total_checks</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="n">issues_found</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span>
+        <span class="n">quality_score</span> <span class="o">=</span> <span class="p">((</span><span class="n">total_checks</span> <span class="o">-</span> <span class="n">issues_found</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_checks</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Schedule Quality Score: </span><span class="si">{</span><span class="n">quality_score</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">quality_score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🟢 Excellent schedule quality&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">quality_score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔶 Good schedule quality&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">quality_score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔶 Fair schedule quality - improvements recommended&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️  Poor schedule quality - significant improvements needed&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">schedule_quality_check</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-export-and-reporting">
+<h2>Data Export and Reporting<a class="headerlink" href="#data-export-and-reporting" title="Link to this heading"></a></h2>
+<section id="comprehensive-project-report">
+<h3>Comprehensive Project Report<a class="headerlink" href="#comprehensive-project-report" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_project_report</span><span class="p">(</span><span class="n">xer_file</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;project_report.txt&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a comprehensive project report.&quot;&quot;&quot;</span>
+    
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">xer_file</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">write_line</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;PROJECT ANALYSIS REPORT&quot;</span><span class="p">)</span>
+        <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated: </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">write_line</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PROJECT: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Full Name: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;End Date: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">plan_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">()</span>
+            
+            <span class="n">activities</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span>
+            
+            <span class="c1"># Activity summary</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;ACTIVITY SUMMARY&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+            
+            <span class="n">status_counts</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">:</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">status_code</span>
+                <span class="n">status_counts</span><span class="p">[</span><span class="n">status</span><span class="p">]</span> <span class="o">=</span> <span class="n">status_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">status_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">status_name</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;TK_NotStart&quot;</span><span class="p">:</span> <span class="s2">&quot;Not Started&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;TK_Active&quot;</span><span class="p">:</span> <span class="s2">&quot;In Progress&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;TK_Complete&quot;</span><span class="p">:</span> <span class="s2">&quot;Complete&quot;</span>
+                <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+                <span class="n">pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">activities</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+                <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">status_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+            
+            <span class="n">write_line</span><span class="p">()</span>
+            
+            <span class="c1"># Critical path</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;CRITICAL PATH&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+            
+            <span class="n">critical</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">activities</span> 
+                       <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span>
+            
+            <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">critical</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">critical</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>  <span class="c1"># Top 10</span>
+                <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_code</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="n">write_line</span><span class="p">()</span>
+            
+            <span class="c1"># Resource summary</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;RESOURCE SUMMARY&quot;</span><span class="p">)</span>
+            <span class="n">write_line</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+            
+            <span class="n">resource_types</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+                <span class="n">rtype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">rsrc_type</span>
+                <span class="n">resource_types</span><span class="p">[</span><span class="n">rtype</span><span class="p">]</span> <span class="o">=</span> <span class="n">resource_types</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rtype</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            
+            <span class="k">for</span> <span class="n">rtype</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">resource_types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">type_name</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;RT_Labor&quot;</span><span class="p">:</span> <span class="s2">&quot;Labor&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;RT_Mat&quot;</span><span class="p">:</span> <span class="s2">&quot;Material&quot;</span><span class="p">,</span> 
+                    <span class="s2">&quot;RT_Equip&quot;</span><span class="p">:</span> <span class="s2">&quot;Equipment&quot;</span>
+                <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">rtype</span><span class="p">,</span> <span class="n">rtype</span><span class="p">)</span>
+                <span class="n">write_line</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">type_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="n">write_line</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Report saved to: </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">generate_project_report</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These examples demonstrate advanced PyP6Xer capabilities for professional project management analysis. Each function can be customized and extended based on specific project requirements.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Installation and Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

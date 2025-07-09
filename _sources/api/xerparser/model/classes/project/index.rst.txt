@@ -1,0 +1,244 @@
+xerparser.model.classes.project
+===============================
+
+.. py:module:: xerparser.model.classes.project
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.project.Project
+
+
+Module Contents
+---------------
+
+.. py:class:: Project(params, data)
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: fy_start_month_num
+
+
+   .. py:attribute:: rsrc_self_add_flag
+
+
+   .. py:attribute:: allow_complete_flag
+
+
+   .. py:attribute:: rsrc_multi_assign_flag
+
+
+   .. py:attribute:: checkout_flag
+
+
+   .. py:attribute:: project_flag
+
+
+   .. py:attribute:: step_complete_flag
+
+
+   .. py:attribute:: cost_qty_recalc_flag
+
+
+   .. py:attribute:: batch_sum_flag
+
+
+   .. py:attribute:: name_sep_char
+
+
+   .. py:attribute:: def_complete_pct_type
+
+
+   .. py:attribute:: proj_short_name
+
+
+   .. py:attribute:: acct_id
+
+
+   .. py:attribute:: orig_proj_id
+
+
+   .. py:attribute:: source_proj_id
+
+
+   .. py:attribute:: base_type_id
+
+
+   .. py:attribute:: clndr_id
+
+
+   .. py:attribute:: sum_base_proj_id
+
+
+   .. py:attribute:: task_code_base
+
+
+   .. py:attribute:: task_code_step
+
+
+   .. py:attribute:: priority_num
+
+
+   .. py:attribute:: wbs_max_sum_level
+
+
+   .. py:attribute:: strgy_priority_num
+
+
+   .. py:attribute:: last_checksum
+
+
+   .. py:attribute:: critical_drtn_hr_cnt
+
+
+   .. py:attribute:: def_cost_per_qty
+
+
+   .. py:attribute:: last_recalc_date
+
+
+   .. py:attribute:: plan_start_date
+
+
+   .. py:attribute:: plan_end_date
+
+
+   .. py:attribute:: scd_end_date
+
+
+   .. py:attribute:: last_tasksum_date
+
+
+   .. py:attribute:: fcst_start_date
+
+
+   .. py:attribute:: def_duration_type
+
+
+   .. py:attribute:: task_code_prefix
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: def_qty_type
+
+
+   .. py:attribute:: add_by_name
+
+
+   .. py:attribute:: web_local_root_path
+
+
+   .. py:attribute:: proj_url
+
+
+   .. py:attribute:: def_rate_type
+
+
+   .. py:attribute:: add_act_remain_flag
+
+
+   .. py:attribute:: act_this_per_link_flag
+
+
+   .. py:attribute:: def_task_type
+
+
+   .. py:attribute:: act_pct_link_flag
+
+
+   .. py:attribute:: critical_path_type
+
+
+   .. py:attribute:: task_code_prefix_flag
+
+
+   .. py:attribute:: def_rollup_dates_flag
+
+
+   .. py:attribute:: use_project_baseline_flag
+
+
+   .. py:attribute:: rem_target_link_flag
+
+
+   .. py:attribute:: reset_planned_flag
+
+
+   .. py:attribute:: allow_neg_act_flag
+
+
+   .. py:attribute:: sum_assign_level
+
+
+   .. py:attribute:: last_fin_dates_id
+
+
+   .. py:attribute:: last_baseline_update_date
+
+
+   .. py:attribute:: cr_external_key
+
+
+   .. py:attribute:: apply_actuals_date
+
+
+   .. py:attribute:: location_id
+
+
+   .. py:attribute:: loaded_scope_level
+
+
+   .. py:attribute:: export_flag
+
+
+   .. py:attribute:: new_fin_dates_id
+
+
+   .. py:attribute:: baselines_to_export
+
+
+   .. py:attribute:: baseline_names_to_export
+
+
+   .. py:attribute:: next_data_date
+
+
+   .. py:attribute:: close_period_flag
+
+
+   .. py:attribute:: sum_refresh_date
+
+
+   .. py:attribute:: trsrcsum_loaded
+
+
+   .. py:attribute:: fintmpl_id
+
+
+   .. py:attribute:: sumtask_loaded
+
+
+   .. py:attribute:: data
+
+
+   .. py:property:: id
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: activities
+
+
+   .. py:property:: wbss
+
+
+   .. py:method:: __repr__()
+
+

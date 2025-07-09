@@ -1,0 +1,110 @@
+xerparser.model.tasks
+=====================
+
+.. py:module:: xerparser.model.tasks
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.tasks.Tasks
+
+
+Module Contents
+---------------
+
+.. py:class:: Tasks
+
+   This class is a collection of tasks that controls functionalities to search, add, update and delete tasks
+
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params, data)
+
+
+   .. py:property:: activities
+      :type: List[xerparser.model.classes.task.Task]
+
+
+
+   .. py:property:: count
+
+
+   .. py:property:: has_no_successor
+
+
+   .. py:property:: has_no_predecessor
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __repr__()
+
+
+   .. py:method:: __str__()
+
+
+   .. py:property:: constraints
+
+
+   .. py:method:: find_by_id(id)
+
+
+   .. py:method:: find_by_code(code)
+
+
+   .. py:method:: duration_greater_than(duration)
+
+
+   .. py:method:: float_less_than(Tfloat)
+
+
+   .. py:method:: float_greater_than(Tfloat)
+
+
+   .. py:method:: float_within_range(float1, float2)
+
+
+   .. py:method:: float_within_range_exclusive(float1, float2)
+
+
+   .. py:method:: activities_by_status(status)
+
+
+   .. py:method:: activities_by_wbs_id(id)
+
+
+   .. py:method:: activities_by_activity_code_id(id)
+
+
+   .. py:method:: no_predecessors()
+
+
+   .. py:method:: no_successors()
+
+
+   .. py:method:: activities_with_hard_contratints()
+
+
+   .. py:method:: activities_by_type(type)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_by_project(id)
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.task.Task
+
+

@@ -1,0 +1,73 @@
+xerparser.model.classes.rsrcrate
+================================
+
+.. py:module:: xerparser.model.classes.rsrcrate
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rsrcrate.ResourceRate
+
+
+Module Contents
+---------------
+
+.. py:class:: ResourceRate(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: rsrc_rate_id
+
+
+   .. py:attribute:: rsrc_id
+
+
+   .. py:attribute:: max_qty_per_hr
+
+
+   .. py:attribute:: cost_per_qty
+
+
+   .. py:attribute:: start_date
+
+
+   .. py:attribute:: shift_period_id
+
+
+   .. py:attribute:: cost_per_qty2
+
+
+   .. py:attribute:: cost_per_qty3
+
+
+   .. py:attribute:: cost_per_qty4
+
+
+   .. py:attribute:: cost_per_qty5
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: find_by_resource_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

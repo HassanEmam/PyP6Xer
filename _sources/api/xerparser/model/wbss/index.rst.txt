@@ -1,0 +1,44 @@
+xerparser.model.wbss
+====================
+
+.. py:module:: xerparser.model.wbss
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.wbss.WBSs
+
+
+Module Contents
+---------------
+
+.. py:class:: WBSs(data=None)
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:attribute:: data
+      :value: None
+
+
+
+   .. py:method:: add(params, data)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_by_project(id) -> List[xerparser.model.classes.wbs.WBS]
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.wbs.WBS
+
+
