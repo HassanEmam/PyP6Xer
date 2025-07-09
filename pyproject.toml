@@ -1,0 +1,138 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PyP6XER"
+dynamic = ["version"]
+description = "Python library for parsing and manipulating Primavera P6 XER files"
+readme = "README.md"
+license = {text = "LGPL-2.1"}
+authors = [
+    {name = "Hassan Emam", email = "hassan.emam@hotmail.com"}
+]
+maintainers = [
+    {name = "Hassan Emam", email = "hassan.emam@hotmail.com"}
+]
+keywords = [
+    "primavera", "p6", "xer", "project management", "scheduling", 
+    "construction", "engineering", "parser", "dcma"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Scheduling",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    # No dependencies - uses only Python standard library
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.900",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "sphinx-autoapi>=2.0.0",
+    "myst-parser>=0.18.0",
+    "sphinx-copybutton>=0.5.0",
+    "sphinxext-opengraph>=0.6.0",
+]
+test = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/HassanEmam/PyP6Xer"
+Documentation = "https://hassanemam.github.io/PyP6Xer/"
+Repository = "https://github.com/HassanEmam/PyP6Xer.git"
+"Bug Tracker" = "https://github.com/HassanEmam/PyP6Xer/issues"
+Changelog = "https://github.com/HassanEmam/PyP6Xer/blob/master/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["xerparser", "xerparser.dcma14", "xerparser.model", "xerparser.model.classes"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "xerparser.__version__"}
+
+[tool.setuptools.package-data]
+xerparser = ["*.md", "*.txt", "*.rst"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --disable-warnings"
+testpaths = [
+    "tests",
+]
+python_files = [
+    "test_*.py",
+    "*_test.py",
+]
+
+[tool.coverage.run]
+source = ["xerparser"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+disallow_untyped_decorators = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true

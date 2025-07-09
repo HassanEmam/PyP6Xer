@@ -1,0 +1,33 @@
+# Include documentation and license files
+include README.md
+include LICENSE
+include pyproject.toml
+include *.py
+include *.md
+include *.yaml
+include Makefile
+include sample.xer
+
+# Include documentation
+recursive-include docs *.md *.rst *.py *.txt
+
+# Include tests
+recursive-include tests *.py *.xer *.json
+
+# Include scripts
+recursive-include scripts *.py
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude *.so
+global-exclude .git*
+global-exclude .coverage
+global-exclude .pytest_cache
+global-exclude .idea
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude docs/build *
+recursive-exclude docs/linkcheck *
