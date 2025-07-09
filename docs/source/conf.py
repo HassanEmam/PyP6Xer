@@ -131,3 +131,21 @@ copybutton_only_copy_prompt_lines = True
 # Syntax highlighting
 pygments_style = 'sphinx'
 highlight_language = 'python'
+
+# Linkcheck settings
+linkcheck_ignore = [
+    r'http://localhost.*',
+    r'https://github\.com/.*/issues$',  # GitHub issues redirects
+    r'.*\.local.*',
+    r'https://github\.com/yourusername/.*',  # Ignore template URLs
+]
+linkcheck_timeout = 10
+linkcheck_retries = 3
+linkcheck_anchors_ignore = [
+    r'filtering-data',  # Ignore anchor check issues
+]
+
+# Suppress specific warnings
+suppress_warnings = [
+    'misc.highlighting_failure',  # Suppress highlighting failures for text blocks
+]

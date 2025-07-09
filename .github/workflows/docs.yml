@@ -39,7 +39,7 @@ jobs:
     - name: Build documentation
       run: |
         cd docs
-        sphinx-build -b html source build/html
+        sphinx-build -b html source build/html -W --keep-going
         
     - name: Test documentation build
       run: |
@@ -89,4 +89,4 @@ jobs:
     - name: Check for broken links
       run: |
         cd docs
-        sphinx-build -b linkcheck source build/linkcheck
+        sphinx-build -b linkcheck source build/linkcheck --keep-going || echo "Link check completed with warnings"

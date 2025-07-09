@@ -9,7 +9,7 @@ We welcome contributions to PyP6Xer! This guide will help you get started with c
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/PyP6Xer.git
+   git clone https://github.com/HassanEmam/PyP6Xer.git
    cd PyP6Xer
    ```
 
@@ -150,7 +150,7 @@ Help improve documentation by:
 
 Understanding the codebase structure:
 
-```
+```text
 PyP6Xer/
 ├── xerparser/              # Main package
 │   ├── __init__.py        # Package imports

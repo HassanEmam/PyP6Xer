@@ -127,7 +127,7 @@ PyP6Xer is licensed under the GNU Lesser General Public License v2.1. See the [L
 
 ## Support and Contributing
 
-- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/yourusername/PyP6Xer/issues)
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/HassanEmam/PyP6Xer/issues)
 - **Contributing**: See the [Contributing Guide](contributing.md)
 - **Community**: Join discussions on project development
 

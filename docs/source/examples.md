@@ -115,9 +115,8 @@ project = xer.projects[0]
 critical_path_analysis(project)
 ```
 
-## Filtering Data
-
 (filtering-data)=
+## Filtering Data
 
 ### Activity Filtering
 

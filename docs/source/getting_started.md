@@ -13,7 +13,7 @@ pip install PyP6XER
 ### From Source
 
 ```bash
-git clone https://github.com/yourusername/PyP6Xer.git
+git clone https://github.com/HassanEmam/PyP6Xer.git
 cd PyP6Xer
 pip install -e .
 ```
