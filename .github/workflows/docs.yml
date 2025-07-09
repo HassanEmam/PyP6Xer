@@ -1,0 +1,92 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install documentation dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r docs/requirements.txt
+        
+    - name: Install package
+      run: |
+        pip install -e .
+        
+    - name: Build documentation
+      run: |
+        cd docs
+        sphinx-build -b html source build/html
+        
+    - name: Test documentation build
+      run: |
+        # Check that important files exist
+        test -f docs/build/html/index.html
+        test -f docs/build/html/getting_started.html
+        test -f docs/build/html/api/xerparser/index.html
+        
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: documentation-html
+        path: docs/build/html/
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/build/html
+        force_orphan: true
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: 'Deploy documentation'
+        
+  check-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install documentation dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r docs/requirements.txt
+        
+    - name: Install package
+      run: |
+        pip install -e .
+        
+    - name: Check for broken links
+      run: |
+        cd docs
+        sphinx-build -b linkcheck source build/linkcheck
