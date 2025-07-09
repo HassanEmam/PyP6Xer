@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/PyP6XER.svg)](https://badge.fury.io/py/PyP6XER)
 [![Python Support](https://img.shields.io/pypi/pyversions/PyP6XER.svg)](https://pypi.org/project/PyP6XER/)
 [![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg)](https://www.gnu.org/licenses/lgpl-2.1)
-[![Documentation: Documentation](https://hassanemam.github.io/PyP6Xer/)
+[Documentation](https://hassanemam.github.io/PyP6Xer/)
 
 PyP6Xer is a comprehensive Python library for parsing, analyzing, and manipulating Primavera P6 XER (eXchange ERport) files. It provides an intuitive, object-oriented interface to access all project data including activities, resources, calendars, and relationships.
 
