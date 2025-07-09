@@ -216,4 +216,4 @@ except Exception as e:
 
 - Explore the [Examples](examples.md) for more advanced usage patterns
 - Check the [API Reference](api/xerparser/index.rst) for complete class documentation
-- Learn about [filtering and querying](examples.md#filtering-data) techniques
+- Learn about {ref}`filtering and querying <filtering-data>` techniques

@@ -20,19 +20,39 @@ from logging import critical
 
 
 class DCMA14():
-    """
-
-    {Analysis :
-        {
-        Predecessors: {
-            cnt : 45
-            tasks: []
+    """DCMA 14-point analysis for project schedule quality assessment.
+    
+    This class performs a comprehensive analysis of a project schedule
+    based on the Defense Contract Management Agency (DCMA) 14-point
+    assessment criteria.
+    
+    Parameters:
+        programme: The project programme/schedule to analyze
+        duration_limit (int): Threshold for activity duration analysis (default: 1)
+        lag_limit (int): Threshold for relationship lag analysis (default: 0)
+        tf_limit (int): Threshold for total float analysis (default: 0)
+    
+    Returns:
+        Analysis results in the following structure::
+        
+            {
+                "analysis": {
+                    "summary": {"activity_cnt": int, "relationship_cnt": int},
+                    "predecessors": {"cnt": int, "activities": list, "pct": float},
+                    "successors": {"cnt": int, "activities": list, "pct": float},
+                    "lags": {"cnt": int, "relations": list, "pct": float},
+                    "leads": {"cnt": int, "relations": list, "pct": float},
+                    "relations": {"fs_cnt": int, "relationship": list},
+                    "constraints": {"cstr_cnt": int, "cstrs": list},
+                    "totalfloat": {"cnt": int, "activities": list, "pct": float},
+                    "negativefloat": {"cnt": int, "activities": list, "pct": float},
+                    "duration": {"cnt": int, "activities": list, "pct": float},
+                    "invaliddates": {"cnt": int, "pct": float},
+                    "resources": {"cnt": int, "activities": list, "pct": float},
+                    "slippage": {"cnt": int, "activities": list, "pct": float},
+                    "critical": {"cnt": int, "activities": list, "pct": float}
+                }
             }
-        },
-        successors: {
-            cnt: 30,
-            tasks: []
-        }
     """
     def __init__(self, programme, duration_limit=1, lag_limit=0, tf_limit=0):
         self.count = 0
@@ -45,6 +65,11 @@ class DCMA14():
 
 
     def analysis(self):
+        """Perform the complete DCMA 14-point analysis.
+        
+        Returns:
+            dict: Analysis results containing all 14 assessment points
+        """
         self.activity_count = len(self.programme.activities)
         self.relation_count = len(self.programme.relations)
         self.results['analysis']['summary'] = {'activity_cnt': self.activity_count, 'relationship_cnt': self.relation_count}
@@ -205,12 +230,30 @@ class DCMA14():
         return self.results
 
     def chk_successors(self):
+        """Check for activities with no successors.
+        
+        Returns:
+            list: Activities that have no successor relationships
+        """
         return self.programme.activities.has_no_successor
 
     def chk_predessors(self):
+        """Check for activities with no predecessors.
+        
+        Returns:
+            list: Activities that have no predecessor relationships
+        """
         return self.programme.activities.has_no_predecessor
 
     def get_activity(self, id):
+        """Get activity information by ID.
+        
+        Args:
+            id: Activity ID to retrieve
+            
+        Returns:
+            dict or None: Activity information including id, name, duration, and total float
+        """
         activity = self.programme.activities.find_by_id(id)
         # print(activity)
         if type(activity) == list:
