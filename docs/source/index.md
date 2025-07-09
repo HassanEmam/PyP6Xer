@@ -59,6 +59,7 @@ for relation in xer.relations:
 :caption: User Guide
 
 getting_started
+quick_reference
 examples
 advanced_examples
 troubleshooting
