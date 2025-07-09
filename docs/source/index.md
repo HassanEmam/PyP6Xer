@@ -2,6 +2,8 @@
 
 Welcome to **PyP6Xer**, a powerful Python library for parsing and manipulating Primavera P6 XER files.
 
+*Documentation last updated: July 2025*
+
 ## Overview
 
 PyP6Xer is an open-source Python library that provides a comprehensive solution for reading, parsing, and writing Primavera P6 XER (eXchange ERport) files. It allows you to extract project data, activities, resources, calendars, and relationships from P6 exports and work with them programmatically.
