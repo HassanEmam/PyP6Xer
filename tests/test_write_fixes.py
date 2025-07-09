@@ -154,11 +154,37 @@ class TestWriteXERScheduleOptionsFixes(unittest.TestCase):
                 os.unlink(temp_filename)
     
     def test_write_xer_with_scheduleoptions_error(self):
-        """Test writeXER when scheduleoptions.get_tsv() raises an error"""
-        # Set up scheduleoptions that raises an error
+        """Test writeXER when scheduleoptions.get_tsv() raises a specific error"""
+        # Set up scheduleoptions that raises an AttributeError (realistic scenario)
         mock_schedoptions = MagicMock()
         mock_schedoptions.__len__.return_value = 1  # Has data
-        mock_schedoptions.get_tsv.side_effect = Exception("Test error")
+        mock_schedoptions.get_tsv.side_effect = AttributeError("'NoneType' object has no attribute 'get_tsv'")
+        self.mock_reader.scheduleoptions = mock_schedoptions
+        
+        # Create a temporary file
+        with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.xer') as temp_file:
+            temp_filename = temp_file.name
+        
+        try:
+            # Call writeXER - should not raise an error due to try-catch
+            writeXER(self.mock_reader, temp_filename)
+            
+            # Read the file and verify SCHEDOPTIONS was NOT written
+            with open(temp_filename, 'r', encoding='utf-8') as f:
+                content = f.read()
+                self.assertNotIn('SCHEDOPTIONS', content)
+        
+        finally:
+            # Clean up
+            if os.path.exists(temp_filename):
+                os.unlink(temp_filename)
+    
+    def test_write_xer_with_scheduleoptions_type_error(self):
+        """Test writeXER when scheduleoptions.get_tsv() raises a TypeError"""
+        # Set up scheduleoptions that raises a TypeError (realistic scenario)
+        mock_schedoptions = MagicMock()
+        mock_schedoptions.__len__.return_value = 1  # Has data
+        mock_schedoptions.get_tsv.side_effect = TypeError("object is not iterable")
         self.mock_reader.scheduleoptions = mock_schedoptions
         
         # Create a temporary file

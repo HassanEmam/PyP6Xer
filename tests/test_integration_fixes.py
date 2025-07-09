@@ -29,7 +29,7 @@ class TestIntegrationFixes(unittest.TestCase):
         test_cases = [
             # (params, expected_add_date_type)
             ({'proj_id': '1', 'add_date': ''}, type(None)),
-            ({'proj_id': '2', 'add_date': '2023-01-01 12:00'}, type(None)),  # Will be datetime after fix
+            ({'proj_id': '2', 'add_date': '2023-01-01 12:00'}, 'datetime'),  # Will be datetime after fix
             ({'proj_id': '3'}, type(None)),
             ({'proj_id': '4', 'add_date': 'invalid'}, type(None)),
         ]
@@ -43,7 +43,7 @@ class TestIntegrationFixes(unittest.TestCase):
                 self.assertEqual(project.proj_id, int(params['proj_id']))
                 
                 # For valid datetime strings, check if they were parsed
-                if params.get('add_date') == '2023-01-01 12:00':
+                if expected_type == 'datetime':
                     from datetime import datetime
                     self.assertIsInstance(project.add_date, datetime)
                 else:
@@ -294,7 +294,7 @@ class TestRegressionPrevention(unittest.TestCase):
                 elif schedoptions_type == 'error':
                     mock_reader.scheduleoptions = MagicMock()
                     mock_reader.scheduleoptions.__len__.return_value = 1
-                    mock_reader.scheduleoptions.get_tsv.side_effect = Exception("Test error")
+                    mock_reader.scheduleoptions.get_tsv.side_effect = AttributeError("Test attribute error")
                 
                 # Create temporary file
                 with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.xer') as temp_file:

@@ -40,7 +40,7 @@ def writeXER(r, filename):
         try:
             if hasattr(r, 'scheduleoptions') and r.scheduleoptions and len(r.scheduleoptions) > 0:
                 tsv_writer.writerows(r.scheduleoptions.get_tsv())
-        except (AttributeError, TypeError, Exception):
+        except (AttributeError, TypeError):
             # Skip SCHEDOPTIONS if not present or cannot be accessed
             pass
         tsv_writer.writerows(r.wbss.get_tsv())
