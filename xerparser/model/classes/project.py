@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
-
+from datetime import datetime
 from xerparser.model.classes.wbs import WBS
 from xerparser.model.tasks import Tasks
 from xerparser.model.wbss import WBSs
@@ -52,13 +52,17 @@ class Project:
         self.last_checksum = params.get('last_checksum').strip() if params.get('last_checksum') else None
         self.critical_drtn_hr_cnt = params.get('critical_drtn_hr_cnt').strip() if params.get('critical_drtn_hr_cnt') else None
         self.def_cost_per_qty = params.get('def_cost_per_qty').strip() if params.get('def_cost_per_qty') else None
-        self.last_recalc_date = params.get('last_recalc_date').strip() if params.get('last_recalc_date') else None
-        self.plan_start_date = params.get('plan_start_date').strip() if params.get('plan_start_date') else None
-        self.plan_end_date = params.get('plan_end_date').strip() if params.get('plan_end_date') else None
-        self.scd_end_date = params.get('scd_end_date').strip() if params.get('scd_end_date') else None
-        self.add_date = params.get('add_date').strip() if params.get('add_date') else None
-        self.last_tasksum_date = params.get('last_tasksum_date').strip() if params.get('last_tasksum_date') else None
-        self.fcst_start_date = params.get('fcst_start_date').strip() if params.get('fcst_start_date') else None
+        self.last_recalc_date = params.get('last_recalc_date').strip() if params.get('last_recalc_date') and params.get('last_recalc_date').strip() else None
+        self.plan_start_date = params.get('plan_start_date').strip() if params.get('plan_start_date') and params.get('plan_start_date').strip() else None
+        self.plan_end_date = params.get('plan_end_date').strip() if params.get('plan_end_date') and params.get('plan_end_date').strip() else None
+        self.scd_end_date = params.get('scd_end_date').strip() if params.get('scd_end_date') and params.get('scd_end_date').strip() else None
+        # Fix for add_date datetime parsing issue - check if not empty before parsing
+        try:
+            self.add_date = datetime.strptime(params.get('add_date').strip(), '%Y-%m-%d %H:%M') if params.get('add_date') and params.get('add_date').strip() else None
+        except (ValueError, AttributeError):
+            self.add_date = None
+        self.last_tasksum_date = params.get('last_tasksum_date').strip() if params.get('last_tasksum_date') and params.get('last_tasksum_date').strip() else None
+        self.fcst_start_date = params.get('fcst_start_date').strip() if params.get('fcst_start_date') and params.get('fcst_start_date').strip() else None
         self.def_duration_type = params.get('def_duration_type').strip() if params.get('def_duration_type') else None
         self.task_code_prefix = params.get('task_code_prefix').strip() if params.get('task_code_prefix') else None
         self.guid = params.get('guid').strip() if params.get('guid') else None
@@ -110,7 +114,7 @@ class Project:
                self.sum_base_proj_id, self.task_code_base, self.task_code_step, self.priority_num,
                self.wbs_max_sum_level, self.strgy_priority_num, self.last_checksum, self.critical_drtn_hr_cnt,
                self.def_cost_per_qty, self.last_recalc_date, self.plan_start_date, self.plan_end_date,
-               self.scd_end_date, self.add_date, self.last_tasksum_date, self.fcst_start_date, self.def_duration_type,
+               self.scd_end_date, self.add_date.strftime('%Y-%m-%d %H:%M') if self.add_date else None, self.last_tasksum_date, self.fcst_start_date, self.def_duration_type,
                self.task_code_prefix, self.guid, self.def_qty_type, self.add_by_name, self.web_local_root_path,
                self.proj_url, self.def_rate_type, self.add_act_remain_flag, self.act_this_per_link_flag,
                self.def_task_type, self.act_pct_link_flag, self.critical_path_type, self.task_code_prefix_flag,

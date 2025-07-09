@@ -182,15 +182,15 @@ health.analysis()
 print(health.no_successors_cnt)
 print(health.no_predecessors_cnt)
 
-# import pprint
-# pp = pprint.PrettyPrinter(depth=4)
-# print(r.relations.relations)
-#print(health.results['analysis']['lags'])
-#print(health.results['analysis']['leads'])
+import pprint
+pp = pprint.PrettyPrinter(depth=4)
+print(r.relations.relations)
+print(health.results['analysis']['lags'])
+print(health.results['analysis']['leads'])
 
-# pp.pprint(health.results['analysis']['constraints'])
+pp.pprint(health.results['analysis']['constraints'])
 
-# for project in r.projects:
-#     print("PROJECT: " + project.proj_short_name + "*****")
-#     for activity in project.activities:
-#         print("################### Activity ID | ", activity.task_code, " | Activity Name | ", activity.task_name, " | Pred |", activity.predecessors)
+for project in r.projects:
+    print("PROJECT: " + project.proj_short_name + "*****")
+    for activity in project.activities:
+        print("################### Activity ID | ", activity.task_code, " | Activity Name | ", activity.task_name, " | Pred |", activity.predecessors)
