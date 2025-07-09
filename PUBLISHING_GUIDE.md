@@ -27,7 +27,15 @@ Once deployed, update your README.md badges section with:
 ```markdown
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://hassanemam.github.io/PyP6Xer/)
 [![Documentation Status](https://github.com/HassanEmam/PyP6Xer/workflows/Build%20and%20Deploy%20Documentation/badge.svg)](https://github.com/HassanEmam/PyP6Xer/actions)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-green)](https://hassanemam.github.io/PyP6Xer/)
 ```
+
+> **Note**: The workflow uses the latest GitHub Actions versions:
+> - `actions/checkout@v4`
+> - `actions/setup-python@v5` 
+> - `actions/cache@v4`
+> - `actions/upload-artifact@v4`
+> - `peaceiris/actions-gh-pages@v4`
 
 ---
 
@@ -165,6 +173,19 @@ make serve
 ## 🚨 Troubleshooting
 
 ### Common Issues:
+
+#### GitHub Actions Deprecation Warnings
+```bash
+# If you see warnings about deprecated actions:
+# Error: actions/upload-artifact@v3 is deprecated
+
+# Solution: Update to latest versions in .github/workflows/docs.yml:
+# - actions/checkout@v4
+# - actions/setup-python@v5
+# - actions/cache@v4  
+# - actions/upload-artifact@v4
+# - peaceiris/actions-gh-pages@v4
+```
 
 #### Build Failures
 ```bash
