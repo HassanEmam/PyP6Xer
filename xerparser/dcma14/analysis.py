@@ -114,7 +114,16 @@ class DCMA14():
         # no actual dates beyong data date
         data_date = {}
         for x in self.programme.projects:
-            data_date[str(x.proj_id)] = datetime.strptime(x.last_recalc_date, "%Y-%m-%d %H:%M")
+            # Handle empty or None last_recalc_date
+            if x.last_recalc_date and x.last_recalc_date.strip():
+                try:
+                    data_date[str(x.proj_id)] = datetime.strptime(x.last_recalc_date, "%Y-%m-%d %H:%M")
+                except ValueError:
+                    # If date format is invalid, use current date as fallback
+                    data_date[str(x.proj_id)] = datetime.now()
+            else:
+                # If no date provided, use current date as fallback
+                data_date[str(x.proj_id)] = datetime.now()
         print(data_date)
         self.invalidactualstart = list(filter(lambda x: None if x.act_start_date is None else x.act_start_date > data_date[str(x.proj_id)], self.programme.activities.activities))
         self.invalidactualfinish = list(filter(lambda x: None if x.act_end_date is None else x.act_end_date > data_date[str(x.proj_id)], self.programme.activities.activities))
