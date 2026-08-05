@@ -69,7 +69,6 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: End Users/Desktop',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
