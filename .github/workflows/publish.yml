@@ -67,7 +67,7 @@ jobs:
     - name: Install package from wheel
       run: |
         python -m pip install --upgrade pip
-        python -m pip install dist/*.whl
+        python -m pip install --find-links dist/ PyP6XER
         
     - name: Test import
       run: |
