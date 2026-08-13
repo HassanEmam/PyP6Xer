@@ -186,13 +186,20 @@ class Reader:
         """
         Property to return a list of activity codes from parsed files
         Returns:
-            list of accounts of type ActivityCode
+            list of activity codes of type ActivityCode
 
         """
-        return self._activitycodes
-    @property
-    def actvcodes(self) -> TaskActvs:
         return self._actvcodes
+
+    @property
+    def actvcodes(self) -> ActivityCodes:
+        """Backward-compatible alias for activitycodes."""
+        return self._actvcodes
+
+    @property
+    def taskactvs(self) -> TaskActvs:
+        """Return the task-to-activity-code assignments from TASKACTV."""
+        return self._activitycodes
 
     @property
     def acttypes(self) -> ActTypes:

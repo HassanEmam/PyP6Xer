@@ -53,7 +53,7 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.relations.get_tsv())
         tsv_writer.writerows(r.taskprocs.get_tsv())
         tsv_writer.writerows(r.activityresources.get_tsv())
-        tsv_writer.writerows(r.activitycodes.get_tsv())
+        tsv_writer.writerows(r.taskactvs.get_tsv())
         tsv_writer.writerows(r.udfvalues.get_tsv())
         tsv_writer.writerow(['%E'])
 
