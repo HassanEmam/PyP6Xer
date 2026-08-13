@@ -18,6 +18,7 @@ recursive-include tests *.py *.xer *.json
 recursive-include scripts *.py
 
 # Exclude unnecessary files
+prune .idea
 global-exclude *.pyc
 global-exclude *.pyo
 global-exclude *.pyd
@@ -26,7 +27,6 @@ global-exclude *.so
 global-exclude .git*
 global-exclude .coverage
 global-exclude .pytest_cache
-global-exclude .idea
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 recursive-exclude docs/build *
