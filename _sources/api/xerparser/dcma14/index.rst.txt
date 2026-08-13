@@ -1,0 +1,130 @@
+xerparser.dcma14
+================
+
+.. py:module:: xerparser.dcma14
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/xerparser/dcma14/analysis/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.dcma14.DCMA14
+
+
+Package Contents
+----------------
+
+.. py:class:: DCMA14(programme, duration_limit=1, lag_limit=0, tf_limit=0)
+
+   DCMA 14-point analysis for project schedule quality assessment.
+
+   This class performs a comprehensive analysis of a project schedule
+   based on the Defense Contract Management Agency (DCMA) 14-point
+   assessment criteria.
+
+   :param programme: The project programme/schedule to analyze
+   :param duration_limit: Threshold for activity duration analysis (default: 1)
+   :type duration_limit: int
+   :param lag_limit: Threshold for relationship lag analysis (default: 0)
+   :type lag_limit: int
+   :param tf_limit: Threshold for total float analysis (default: 0)
+   :type tf_limit: int
+
+   :returns:
+
+             Analysis results in the following structure::
+
+                 {
+                     "analysis": {
+                         "summary": {"activity_cnt": int, "relationship_cnt": int},
+                         "predecessors": {"cnt": int, "activities": list, "pct": float},
+                         "successors": {"cnt": int, "activities": list, "pct": float},
+                         "lags": {"cnt": int, "relations": list, "pct": float},
+                         "leads": {"cnt": int, "relations": list, "pct": float},
+                         "relations": {"fs_cnt": int, "relationship": list},
+                         "constraints": {"cstr_cnt": int, "cstrs": list},
+                         "totalfloat": {"cnt": int, "activities": list, "pct": float},
+                         "negativefloat": {"cnt": int, "activities": list, "pct": float},
+                         "duration": {"cnt": int, "activities": list, "pct": float},
+                         "invaliddates": {"cnt": int, "pct": float},
+                         "resources": {"cnt": int, "activities": list, "pct": float},
+                         "slippage": {"cnt": int, "activities": list, "pct": float},
+                         "critical": {"cnt": int, "activities": list, "pct": float}
+                     }
+                 }
+
+
+   .. py:attribute:: count
+      :value: 0
+
+
+
+   .. py:attribute:: programme
+
+
+   .. py:attribute:: dur_limit
+      :value: 1
+
+
+
+   .. py:attribute:: lag_limit
+      :value: 0
+
+
+
+   .. py:attribute:: tf_limit
+      :value: 0
+
+
+
+   .. py:attribute:: results
+
+
+   .. py:method:: analysis()
+
+      Perform the complete DCMA 14-point analysis.
+
+      :returns: Analysis results containing all 14 assessment points
+      :rtype: dict
+
+
+
+   .. py:method:: chk_successors()
+
+      Check for activities with no successors.
+
+      :returns: Activities that have no successor relationships
+      :rtype: list
+
+
+
+   .. py:method:: chk_predessors()
+
+      Check for activities with no predecessors.
+
+      :returns: Activities that have no predecessor relationships
+      :rtype: list
+
+
+
+   .. py:method:: get_activity(id)
+
+      Get activity information by ID.
+
+      :param id: Activity ID to retrieve
+
+      :returns: Activity information including id, name, duration, and total float
+      :rtype: dict or None
+
+
+

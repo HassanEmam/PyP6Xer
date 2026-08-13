@@ -1,0 +1,45 @@
+xerparser.model.roles
+=====================
+
+.. py:module:: xerparser.model.roles
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.roles.Roles
+
+
+Module Contents
+---------------
+
+.. py:class:: Roles
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.role.Role
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.role.Role
+
+

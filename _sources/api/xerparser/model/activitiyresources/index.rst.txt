@@ -1,0 +1,51 @@
+xerparser.model.activitiyresources
+==================================
+
+.. py:module:: xerparser.model.activitiyresources
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.activitiyresources.ActivityResources
+
+
+Module Contents
+---------------
+
+.. py:class:: ActivityResources
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params, data)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.taskrsrc.TaskRsrc
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_rsrc_id(id) -> xerparser.model.classes.taskrsrc.TaskRsrc
+
+
+   .. py:method:: find_by_activity_id(id)
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.taskrsrc.TaskRsrc
+
+

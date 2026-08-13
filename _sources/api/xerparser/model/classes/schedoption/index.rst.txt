@@ -1,0 +1,108 @@
+xerparser.model.classes.schedoption
+===================================
+
+.. py:module:: xerparser.model.classes.schedoption
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.schedoption.SchedOption
+
+
+Module Contents
+---------------
+
+.. py:class:: SchedOption(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: schedoptions_id
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: sched_outer_depend_type
+
+
+   .. py:attribute:: sched_open_critical_flag
+
+
+   .. py:attribute:: sched_lag_early_start_flag
+
+
+   .. py:attribute:: sched_retained_logic
+
+
+   .. py:attribute:: sched_setplantoforecast
+
+
+   .. py:attribute:: sched_float_type
+
+
+   .. py:attribute:: sched_calendar_on_relationship_lag
+
+
+   .. py:attribute:: sched_use_expect_end_flag
+
+
+   .. py:attribute:: sched_progress_override
+
+
+   .. py:attribute:: level_float_thrs_cnt
+
+
+   .. py:attribute:: level_outer_assign_flag
+
+
+   .. py:attribute:: level_outer_assign_priority
+
+
+   .. py:attribute:: level_over_alloc_pct
+
+
+   .. py:attribute:: level_within_float_flag
+
+
+   .. py:attribute:: level_keep_sched_date_flag
+
+
+   .. py:attribute:: level_all_rsrc_flag
+
+
+   .. py:attribute:: sched_use_project_end_date_for_float
+
+
+   .. py:attribute:: enable_multiple_longest_path_calc
+
+
+   .. py:attribute:: limit_multiple_longest_path_calc
+
+
+   .. py:attribute:: max_multiple_longest_path
+
+
+   .. py:attribute:: use_total_float_multiple_longest_paths
+
+
+   .. py:attribute:: key_activity_for_multiple_longest_paths
+
+
+   .. py:attribute:: LevelPriorityList
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: __repr__()
+
+

@@ -1,0 +1,50 @@
+xerparser.model.classes.rcattype
+================================
+
+.. py:module:: xerparser.model.classes.rcattype
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rcattype.RCatType
+
+
+Module Contents
+---------------
+
+.. py:class:: RCatType(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: rsrc_catg_type_id
+
+
+   .. py:attribute:: seq_num
+
+
+   .. py:attribute:: rsrc_catg_short_len
+
+
+   .. py:attribute:: rsrc_catg_type
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

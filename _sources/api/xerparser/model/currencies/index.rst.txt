@@ -1,0 +1,45 @@
+xerparser.model.currencies
+==========================
+
+.. py:module:: xerparser.model.currencies
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.currencies.Currencies
+
+
+Module Contents
+---------------
+
+.. py:class:: Currencies
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.currency.Currency
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.currency.Currency
+
+

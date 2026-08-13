@@ -1,0 +1,54 @@
+xerparser.model.classes.data
+============================
+
+.. py:module:: xerparser.model.classes.data
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.data.Data
+
+
+Module Contents
+---------------
+
+.. py:class:: Data
+
+   .. py:attribute:: projects
+      :value: None
+
+
+
+   .. py:attribute:: wbss
+      :value: None
+
+
+
+   .. py:attribute:: tasks
+      :value: None
+
+
+
+   .. py:attribute:: resources
+      :value: None
+
+
+
+   .. py:attribute:: taskresource
+      :value: None
+
+
+
+   .. py:attribute:: taskactvcodes
+      :value: None
+
+
+
+   .. py:attribute:: predecessors
+      :value: None
+
+
+

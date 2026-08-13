@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Reference &mdash; PyP6Xer v1.015.00</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=010e2abe"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-and-load-xer-file">Import and Load XER File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-projects">Access Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-activities">Access Activities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-resources">Access Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-calendars">Access Calendars</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#one-liners">One-Liners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-patterns">Common Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-export">Data Export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-and-analysis">Filtering and Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dcma-14-point-analysis">DCMA 14-Point Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quick Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quick_reference.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-reference">
+<h1>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading"></a></h1>
+<p>This page provides quick code snippets for common PyP6Xer operations. For detailed explanations, see the <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting Started Guide</span></a>.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>PyP6XER
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<section id="import-and-load-xer-file">
+<h3>Import and Load XER File<a class="headerlink" href="#import-and-load-xer-file" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="c1"># Load XER file</span>
+<span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="access-projects">
+<h3>Access Projects<a class="headerlink" href="#access-projects" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all projects</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project: </span><span class="si">{</span><span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="access-activities">
+<h3>Access Activities<a class="headerlink" href="#access-activities" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get first project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Iterate through activities</span>
+<span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activity: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Duration: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">duration</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">early_start_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finish: </span><span class="si">{</span><span class="n">activity</span><span class="o">.</span><span class="n">early_end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="access-resources">
+<h3>Access Resources<a class="headerlink" href="#access-resources" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all resources</span>
+<span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resource: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type: </span><span class="si">{</span><span class="n">resource</span><span class="o">.</span><span class="n">rsrc_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="access-calendars">
+<h3>Access Calendars<a class="headerlink" href="#access-calendars" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all calendars</span>
+<span class="k">for</span> <span class="n">calendar</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">calendars</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calendar: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">clndr_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hours per day: </span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_hr_cnt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="one-liners">
+<h2>One-Liners<a class="headerlink" href="#one-liners" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count total activities across all projects</span>
+<span class="n">total_activities</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">activities</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">)</span>
+
+<span class="c1"># Get all activity names</span>
+<span class="n">activity_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">act</span><span class="o">.</span><span class="n">task_name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">activities</span><span class="p">]</span>
+
+<span class="c1"># Find activities by status</span>
+<span class="n">active_tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">act</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">activities</span> 
+                <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s2">&quot;TK_Active&quot;</span><span class="p">]</span>
+
+<span class="c1"># Get all resource assignments</span>
+<span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">ra</span> <span class="k">for</span> <span class="n">ra</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">taskrsrcs</span><span class="p">]</span>
+
+<span class="c1"># Find critical path activities (zero total float)</span>
+<span class="n">critical_activities</span> <span class="o">=</span> <span class="p">[</span><span class="n">act</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">activities</span> 
+                      <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">total_float_hr_cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="common-patterns">
+<h2>Common Patterns<a class="headerlink" href="#common-patterns" title="Link to this heading"></a></h2>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reader</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">xer</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="s2">&quot;project.xer&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">)</span><span class="si">}</span><span class="s2"> projects&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading XER file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="data-export">
+<h3>Data Export<a class="headerlink" href="#data-export" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="c1"># Export activities to CSV</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;activities.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Project&#39;</span><span class="p">,</span> <span class="s1">&#39;Activity&#39;</span><span class="p">,</span> <span class="s1">&#39;Duration&#39;</span><span class="p">,</span> <span class="s1">&#39;Start&#39;</span><span class="p">,</span> <span class="s1">&#39;Finish&#39;</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">activities</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span>
+                <span class="n">project</span><span class="o">.</span><span class="n">proj_short_name</span><span class="p">,</span>
+                <span class="n">activity</span><span class="o">.</span><span class="n">task_name</span><span class="p">,</span>
+                <span class="n">activity</span><span class="o">.</span><span class="n">duration</span><span class="p">,</span>
+                <span class="n">activity</span><span class="o">.</span><span class="n">early_start_date</span><span class="p">,</span>
+                <span class="n">activity</span><span class="o">.</span><span class="n">early_end_date</span>
+            <span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="filtering-and-analysis">
+<h3>Filtering and Analysis<a class="headerlink" href="#filtering-and-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter activities by date range</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+
+<span class="n">filtered_activities</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">act</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">xer</span><span class="o">.</span><span class="n">projects</span> <span class="k">for</span> <span class="n">act</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">activities</span>
+    <span class="k">if</span> <span class="n">act</span><span class="o">.</span><span class="n">early_start_date</span> <span class="ow">and</span> <span class="n">start_date</span> <span class="o">&lt;=</span> <span class="n">act</span><span class="o">.</span><span class="n">early_start_date</span> <span class="o">&lt;=</span> <span class="n">end_date</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dcma-14-point-analysis">
+<h2>DCMA 14-Point Analysis<a class="headerlink" href="#dcma-14-point-analysis" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xerparser.dcma14.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">DCMA14</span>
+
+<span class="c1"># Perform DCMA analysis</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">DCMA14</span><span class="p">(</span><span class="n">xer</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">analysis</span><span class="p">()</span>
+
+<span class="c1"># Print summary</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities with no predecessors: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;predecessors&#39;</span><span class="p">][</span><span class="s1">&#39;cnt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activities with no successors: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;successors&#39;</span><span class="p">][</span><span class="s1">&#39;cnt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical activities: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;analysis&#39;</span><span class="p">][</span><span class="s1">&#39;critical&#39;</span><span class="p">][</span><span class="s1">&#39;cnt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more detailed examples and advanced usage, see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="examples.html"><span class="std std-doc">Examples</span></a></p></li>
+<li><p><a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting Started Guide</span></a></p></li>
+<li><p><a class="reference internal" href="api/xerparser/index.html"><span class="std std-doc">API Reference</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

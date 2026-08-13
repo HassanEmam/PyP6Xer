@@ -1,0 +1,45 @@
+xerparser.model.pacttypes
+=========================
+
+.. py:module:: xerparser.model.pacttypes
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.pacttypes.PCatTypes
+
+
+Module Contents
+---------------
+
+.. py:class:: PCatTypes
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.pcattype.PCatType
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: count()
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.pcattype.PCatType
+
+

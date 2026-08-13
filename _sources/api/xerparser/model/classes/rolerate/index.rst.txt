@@ -1,0 +1,61 @@
+xerparser.model.classes.rolerate
+================================
+
+.. py:module:: xerparser.model.classes.rolerate
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rolerate.RoleRate
+
+
+Module Contents
+---------------
+
+.. py:class:: RoleRate(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: role_rate_id
+
+
+   .. py:attribute:: role_id
+
+
+   .. py:attribute:: cost_per_qty
+
+
+   .. py:attribute:: cost_per_qty2
+
+
+   .. py:attribute:: cost_per_qty3
+
+
+   .. py:attribute:: cost_per_qty4
+
+
+   .. py:attribute:: cost_per_qty5
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_role_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

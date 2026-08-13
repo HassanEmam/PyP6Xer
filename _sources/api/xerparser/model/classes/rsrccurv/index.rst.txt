@@ -1,0 +1,107 @@
+xerparser.model.classes.rsrccurv
+================================
+
+.. py:module:: xerparser.model.classes.rsrccurv
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rsrccurv.ResourceCurve
+
+
+Module Contents
+---------------
+
+.. py:class:: ResourceCurve(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: curv_id
+
+
+   .. py:attribute:: curv_name
+
+
+   .. py:attribute:: default_flag
+
+
+   .. py:attribute:: pct_usage_0
+
+
+   .. py:attribute:: pct_usage_1
+
+
+   .. py:attribute:: pct_usage_2
+
+
+   .. py:attribute:: pct_usage_3
+
+
+   .. py:attribute:: pct_usage_4
+
+
+   .. py:attribute:: pct_usage_5
+
+
+   .. py:attribute:: pct_usage_6
+
+
+   .. py:attribute:: pct_usage_7
+
+
+   .. py:attribute:: pct_usage_8
+
+
+   .. py:attribute:: pct_usage_9
+
+
+   .. py:attribute:: pct_usage_10
+
+
+   .. py:attribute:: pct_usage_11
+
+
+   .. py:attribute:: pct_usage_12
+
+
+   .. py:attribute:: pct_usage_13
+
+
+   .. py:attribute:: pct_usage_14
+
+
+   .. py:attribute:: pct_usage_15
+
+
+   .. py:attribute:: pct_usage_16
+
+
+   .. py:attribute:: pct_usage_17
+
+
+   .. py:attribute:: pct_usage_18
+
+
+   .. py:attribute:: pct_usage_19
+
+
+   .. py:attribute:: pct_usage_20
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

@@ -1,0 +1,108 @@
+xerparser.model.classes.p6codes
+===============================
+
+.. py:module:: xerparser.model.classes.p6codes
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.p6codes.ActivityStatus
+   xerparser.model.classes.p6codes.ActivityType
+   xerparser.model.classes.p6codes.RelationshipType
+   xerparser.model.classes.p6codes.DurationTypes
+
+
+Module Contents
+---------------
+
+.. py:class:: ActivityStatus
+
+   .. py:attribute:: Complete
+      :value: 'TK_Complete'
+
+
+
+   .. py:attribute:: InProgress
+      :value: 'TK_Active'
+
+
+
+   .. py:attribute:: NotStarted
+      :value: 'TK_NotStart'
+
+
+
+.. py:class:: ActivityType
+
+   .. py:attribute:: Task
+      :value: 'TT_Task'
+
+
+
+   .. py:attribute:: StartMilestone
+      :value: 'TT_Mile'
+
+
+
+   .. py:attribute:: FinishMilestone
+      :value: 'TT_FinMile'
+
+
+
+   .. py:attribute:: LevelOfEffort
+      :value: 'TT_LOE'
+
+
+
+   .. py:attribute:: WBSSummary
+      :value: 'TT_WBS'
+
+
+
+.. py:class:: RelationshipType
+
+   .. py:attribute:: FF
+      :value: 'PR_FF'
+
+
+
+   .. py:attribute:: FS
+      :value: 'PR_FS'
+
+
+
+   .. py:attribute:: SS
+      :value: 'PR_SS'
+
+
+
+   .. py:attribute:: SF
+      :value: 'PR_SF'
+
+
+
+.. py:class:: DurationTypes
+
+   .. py:attribute:: FixedQuantity
+      :value: 'DT_FixedQty'
+
+
+
+   .. py:attribute:: FixedDurationAndUnits
+      :value: 'DT_FixedDrtn'
+
+
+
+   .. py:attribute:: FixedRate
+      :value: 'DT_FixedRate'
+
+
+
+   .. py:attribute:: FixedDuration
+      :value: 'DT_FixedDUR2'
+
+
+

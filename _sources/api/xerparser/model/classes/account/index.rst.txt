@@ -1,0 +1,48 @@
+xerparser.model.classes.account
+===============================
+
+.. py:module:: xerparser.model.classes.account
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.account.Account
+
+
+Module Contents
+---------------
+
+.. py:class:: Account(params)
+
+   .. py:attribute:: acct_id
+
+
+   .. py:attribute:: parent_acct_id
+
+
+   .. py:attribute:: acct_seq_num
+
+
+   .. py:attribute:: acct_name
+
+
+   .. py:attribute:: acct_short_name
+
+
+   .. py:attribute:: acct_descr
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

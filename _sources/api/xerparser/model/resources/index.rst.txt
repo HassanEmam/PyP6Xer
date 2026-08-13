@@ -1,0 +1,45 @@
+xerparser.model.resources
+=========================
+
+.. py:module:: xerparser.model.resources
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.resources.Resources
+
+
+Module Contents
+---------------
+
+.. py:class:: Resources
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: get_resource_by_id(id) -> xerparser.model.classes.rsrc.Resource
+
+
+   .. py:method:: get_parent(id) -> xerparser.model.classes.rsrc.Resource
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rsrc.Resource
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: build_tree()
+
+

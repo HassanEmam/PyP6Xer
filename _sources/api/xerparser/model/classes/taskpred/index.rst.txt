@@ -1,0 +1,66 @@
+xerparser.model.classes.taskpred
+================================
+
+.. py:module:: xerparser.model.classes.taskpred
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.taskpred.TaskPred
+
+
+Module Contents
+---------------
+
+.. py:class:: TaskPred(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: task_pred_id
+
+
+   .. py:attribute:: task_id
+
+
+   .. py:attribute:: pred_task_id
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: pred_proj_id
+
+
+   .. py:attribute:: pred_type
+
+
+   .. py:attribute:: lag_hr_cnt
+
+
+   .. py:attribute:: float_path
+
+
+   .. py:attribute:: aref
+
+
+   .. py:attribute:: arls
+
+
+   .. py:attribute:: comments
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: __repr__()
+
+

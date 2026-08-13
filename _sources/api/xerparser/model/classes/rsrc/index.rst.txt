@@ -1,0 +1,140 @@
+xerparser.model.classes.rsrc
+============================
+
+.. py:module:: xerparser.model.classes.rsrc
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rsrc.Resource
+
+
+Module Contents
+---------------
+
+.. py:class:: Resource(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: rsrc_id
+
+
+   .. py:attribute:: parent_rsrc_id
+
+
+   .. py:attribute:: clndr_id
+
+
+   .. py:attribute:: role_id
+
+
+   .. py:attribute:: shift_id
+
+
+   .. py:attribute:: user_id
+
+
+   .. py:attribute:: pobs_id
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: rsrc_seq_num
+
+
+   .. py:attribute:: email_addr
+
+
+   .. py:attribute:: employee_code
+
+
+   .. py:attribute:: office_phone
+
+
+   .. py:attribute:: other_phone
+
+
+   .. py:attribute:: rsrc_name
+
+
+   .. py:attribute:: rsrc_short_name
+
+
+   .. py:attribute:: rsrc_title_name
+
+
+   .. py:attribute:: def_qty_per_hr
+
+
+   .. py:attribute:: cost_qty_type
+
+
+   .. py:attribute:: ot_factor
+
+
+   .. py:attribute:: active_flag
+
+
+   .. py:attribute:: auto_compute_act_flag
+
+
+   .. py:attribute:: def_cost_qty_link_flag
+
+
+   .. py:attribute:: ot_flag
+
+
+   .. py:attribute:: curr_id
+
+
+   .. py:attribute:: unit_id
+
+
+   .. py:attribute:: rsrc_type
+
+
+   .. py:attribute:: location_id
+
+
+   .. py:attribute:: rsrc_notes
+
+
+   .. py:attribute:: load_tasks_flag
+
+
+   .. py:attribute:: level_flag
+
+
+   .. py:attribute:: last_checksum
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:property:: parent
+
+
+   .. py:method:: __repr__()
+
+
+   .. py:method:: __str__()
+
+
+   .. py:method:: toJson()
+
+

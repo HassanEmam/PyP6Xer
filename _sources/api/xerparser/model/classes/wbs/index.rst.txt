@@ -1,0 +1,139 @@
+xerparser.model.classes.wbs
+===========================
+
+.. py:module:: xerparser.model.classes.wbs
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.wbs.WBS
+
+
+Module Contents
+---------------
+
+.. py:class:: WBS(params, data=None)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: wbs_id
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: obs_id
+
+
+   .. py:attribute:: seq_num
+
+
+   .. py:attribute:: est_wt
+
+
+   .. py:attribute:: proj_node_flag
+
+
+   .. py:attribute:: sum_data_flag
+
+
+   .. py:attribute:: status_code
+
+
+   .. py:attribute:: wbs_short_name
+
+
+   .. py:attribute:: wbs_name
+
+
+   .. py:attribute:: phase_id
+
+
+   .. py:attribute:: parent_wbs_id
+
+
+   .. py:attribute:: ev_user_pct
+
+
+   .. py:attribute:: ev_etc_user_value
+
+
+   .. py:attribute:: orig_cost
+
+
+   .. py:attribute:: indep_remain_total_cost
+
+
+   .. py:attribute:: ann_dscnt_rate_pct
+
+
+   .. py:attribute:: dscnt_period_type
+
+
+   .. py:attribute:: indep_remain_work_qty
+
+
+   .. py:attribute:: anticip_start_date
+
+
+   .. py:attribute:: anticip_end_date
+
+
+   .. py:attribute:: ev_compute_type
+
+
+   .. py:attribute:: ev_etc_compute_type
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: tmpl_guid
+
+
+   .. py:attribute:: plan_open_state
+
+
+   .. py:attribute:: data
+      :value: None
+
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: get_json()
+      :classmethod:
+
+
+
+   .. py:method:: get_childs(node, level)
+      :classmethod:
+
+
+
+   .. py:method:: find_by_id(ID)
+      :classmethod:
+
+
+
+   .. py:method:: find_by_project_id(project_id)
+      :classmethod:
+
+
+
+   .. py:property:: activities
+
+
+   .. py:method:: __repr__()
+
+

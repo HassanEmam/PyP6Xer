@@ -1,0 +1,45 @@
+xerparser.model.rolerates
+=========================
+
+.. py:module:: xerparser.model.rolerates
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.rolerates.RoleRates
+
+
+Module Contents
+---------------
+
+.. py:class:: RoleRates
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.rolerate.RoleRate
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rolerate.RoleRate
+
+

@@ -1,0 +1,42 @@
+xerparser.model.projcats
+========================
+
+.. py:module:: xerparser.model.projcats
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.projcats.ProjCats
+
+
+Module Contents
+---------------
+
+.. py:class:: ProjCats
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.projcat.ProjCat
+
+

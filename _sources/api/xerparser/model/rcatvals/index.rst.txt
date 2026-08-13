@@ -1,0 +1,45 @@
+xerparser.model.rcatvals
+========================
+
+.. py:module:: xerparser.model.rcatvals
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.rcatvals.RCatVals
+
+
+Module Contents
+---------------
+
+.. py:class:: RCatVals
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.rcatval.RCatVal
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rcatval.RCatVal
+
+

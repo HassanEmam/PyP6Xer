@@ -1,0 +1,248 @@
+xerparser.model.classes.task
+============================
+
+.. py:module:: xerparser.model.classes.task
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.task.Task
+
+
+Module Contents
+---------------
+
+.. py:class:: Task(params, data)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: task_id
+
+
+   .. py:attribute:: proj_id
+
+
+   .. py:attribute:: wbs_id
+
+
+   .. py:attribute:: clndr_id
+
+
+   .. py:attribute:: phys_complete_pct
+
+
+   .. py:attribute:: rev_fdbk_flag
+
+
+   .. py:attribute:: est_wt
+
+
+   .. py:attribute:: lock_plan_flag
+
+
+   .. py:attribute:: auto_compute_act_flag
+
+
+   .. py:attribute:: complete_pct_type
+
+
+   .. py:attribute:: task_type
+
+
+   .. py:attribute:: duration_type
+
+
+   .. py:attribute:: status_code
+
+
+   .. py:attribute:: task_code
+
+
+   .. py:attribute:: task_name
+
+
+   .. py:attribute:: rsrc_id
+
+
+   .. py:attribute:: total_float_hr_cnt
+
+
+   .. py:attribute:: free_float_hr_cnt
+
+
+   .. py:attribute:: remain_drtn_hr_cnt
+
+
+   .. py:attribute:: act_work_qty
+
+
+   .. py:attribute:: remain_work_qty
+
+
+   .. py:attribute:: target_work_qty
+
+
+   .. py:attribute:: target_drtn_hr_cnt
+
+
+   .. py:attribute:: target_equip_qty
+
+
+   .. py:attribute:: act_equip_qty
+
+
+   .. py:attribute:: remain_equip_qty
+
+
+   .. py:attribute:: cstr_date
+
+
+   .. py:attribute:: act_start_date
+
+
+   .. py:attribute:: act_end_date
+
+
+   .. py:attribute:: late_start_date
+
+
+   .. py:attribute:: late_end_date
+
+
+   .. py:attribute:: expect_end_date
+
+
+   .. py:attribute:: early_start_date
+
+
+   .. py:attribute:: early_end_date
+
+
+   .. py:attribute:: restart_date
+
+
+   .. py:attribute:: reend_date
+
+
+   .. py:attribute:: target_start_date
+
+
+   .. py:attribute:: target_end_date
+
+
+   .. py:attribute:: rem_late_start_date
+
+
+   .. py:attribute:: rem_late_end_date
+
+
+   .. py:attribute:: cstr_type
+
+
+   .. py:attribute:: priority_type
+
+
+   .. py:attribute:: suspend_date
+
+
+   .. py:attribute:: resume_date
+
+
+   .. py:attribute:: int_path
+
+
+   .. py:attribute:: int_path_order
+
+
+   .. py:attribute:: guid
+
+
+   .. py:attribute:: tmpl_guid
+
+
+   .. py:attribute:: cstr_date2
+
+
+   .. py:attribute:: cstr_type2
+
+
+   .. py:attribute:: driving_path_flag
+
+
+   .. py:attribute:: act_this_per_work_qty
+
+
+   .. py:attribute:: act_this_per_equip_qty
+
+
+   .. py:attribute:: create_date
+
+
+   .. py:attribute:: update_date
+
+
+   .. py:attribute:: create_user
+
+
+   .. py:attribute:: update_user
+
+
+   .. py:attribute:: location_id
+
+
+   .. py:attribute:: calendar
+
+
+   .. py:attribute:: data
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: id
+
+
+   .. py:property:: totalint
+
+
+   .. py:property:: resources
+
+
+   .. py:property:: steps
+
+
+   .. py:property:: activitycodes
+
+
+   .. py:property:: duration
+
+
+   .. py:property:: constraints
+
+
+   .. py:property:: start_date
+
+
+   .. py:property:: end_date
+
+
+   .. py:property:: successors
+
+
+   .. py:property:: predecessors
+
+
+   .. py:method:: find_by_wbs_id(wbs_id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

@@ -1,0 +1,71 @@
+xerparser.model.classes.currency
+================================
+
+.. py:module:: xerparser.model.classes.currency
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.currency.Currency
+
+
+Module Contents
+---------------
+
+.. py:class:: Currency(params)
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: curr_id
+
+
+   .. py:attribute:: decimal_digit_cnt
+
+
+   .. py:attribute:: curr_symbol
+
+
+   .. py:attribute:: decimal_symbol
+
+
+   .. py:attribute:: digit_group_symbol
+
+
+   .. py:attribute:: pos_curr_fmt_type
+
+
+   .. py:attribute:: neg_curr_fmt_type
+
+
+   .. py:attribute:: curr_type
+
+
+   .. py:attribute:: curr_short_name
+
+
+   .. py:attribute:: group_digit_cnt
+
+
+   .. py:attribute:: base_exch_rate
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+
