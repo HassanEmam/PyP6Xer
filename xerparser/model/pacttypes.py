@@ -53,7 +53,7 @@ class PCatTypes:
         return len(self._pcattypes)
 
     def __iter__(self):
-        return self
+        return iter(self._pcattypes)
 
     def __next__(self) -> PCatType:
         if self.index >= len(self._pcattypes):

@@ -50,7 +50,7 @@ class WBSs:
         return list(filter(lambda x: x.proj_id == id, self._wbss))
 
     def __iter__(self):
-        return self
+        return iter(self._wbss)
 
     def __next__(self) -> WBS:
         if self.index >= len(self._wbss):

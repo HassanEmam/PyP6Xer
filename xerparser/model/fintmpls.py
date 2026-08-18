@@ -53,7 +53,7 @@ class FinTmpls:
         return len(self._FinTmpls)
 
     def __iter__(self):
-        return self
+        return iter(self._FinTmpls)
 
     def __next__(self) -> FinTmpl:
         if self.index >= len(self._FinTmpls):

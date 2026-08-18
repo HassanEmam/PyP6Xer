@@ -30,7 +30,7 @@ class SchedOptions:
         self._schoptions.append(SchedOption(params))
 
     def find_by_id(self, id) -> SchedOption:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._schoptions))
+        obj = list(filter(lambda x: x.schedoptions_id == id, self._schoptions))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -60,7 +60,7 @@ class SchedOptions:
         return len(self._schoptions)
 
     def __iter__(self):
-        return self
+        return iter(self._schoptions)
 
     def __next__(self) -> SchedOption:
         if self.index >= len(self._schoptions):

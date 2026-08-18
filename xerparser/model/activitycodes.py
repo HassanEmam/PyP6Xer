@@ -57,7 +57,7 @@ class ActivityCodes:
         return len(self._activitycodes)
 
     def __iter__(self):
-        return self
+        return iter(self._activitycodes)
 
     def __next__(self) -> ActivityCode:
         if self.index >= len(self._activitycodes):

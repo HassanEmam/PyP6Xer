@@ -24,6 +24,7 @@ This file starts the process of reading and parsing xer files
 import csv
 import mmap
 import codecs
+import sys
 from xerparser import *
 from typing import List
 from xerparser.model.classes.data import Data
@@ -64,7 +65,7 @@ class Reader:
         """
         if object_type.strip() == "CURRTYPE":
             self._currencies.add(params)
-        elif object_type.strip() == "ROLES":
+        elif object_type.strip() in ("ROLE", "ROLES"):
             self._roles.add(params)
         elif object_type.strip() == "ACCOUNT":
             self._accounts.add(params)
@@ -123,7 +124,7 @@ class Reader:
 
     def summary(self):
         print('Number of activities: ', self.tasks.count)
-        print('Number of relationships: ', len(TaskPred.obj_list))
+        print('Number of relationships: ', len(self._predecessors))
 
     @property
     def projects(self) -> Projects:
@@ -325,6 +326,15 @@ class Reader:
         self._data.taskactvcodes = self._activitycodes
         self._data.predecessors = self._predecessors
         with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
+            limit = sys.maxsize
+            while limit > 0:
+                try:
+                    csv.field_size_limit(limit)
+                    break
+                except OverflowError:
+                    limit //= 10
+            else:
+                raise OverflowError("Unable to set a supported CSV field size limit")
             stream = csv.reader(tsvfile, delimiter='\t')
             for row in stream:
                 if row[0] =="%T":

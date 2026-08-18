@@ -53,7 +53,7 @@ class UDFTypes:
         return len(self._udftypes)
 
     def __iter__(self):
-        return self
+        return iter(self._udftypes)
 
     def __next__(self) -> UDFType:
         if self.index >= len(self._udftypes):

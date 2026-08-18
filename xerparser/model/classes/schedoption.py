@@ -45,7 +45,7 @@ class SchedOption:
         self.limit_multiple_longest_path_calc = params.get('limit_multiple_longest_path_calc').strip() if params.get('limit_multiple_longest_path_calc') else None
         self.max_multiple_longest_path = params.get('max_multiple_longest_path').strip() if params.get('max_multiple_longest_path') else None
         self.use_total_float_multiple_longest_paths = params.get('use_total_float_multiple_longest_paths').strip() if params.get('use_total_float_multiple_longest_paths') else None
-        self.key_activity_for_multiple_longest_paths = params.get('key_activity_for_multiple_longest_paths').strip() if params.get('use_total_float_multiple_longest_paths') else None
+        self.key_activity_for_multiple_longest_paths = params.get('key_activity_for_multiple_longest_paths').strip() if params.get('key_activity_for_multiple_longest_paths') else None
         self.LevelPriorityList = params.get('LevelPriorityList').strip() if params.get('LevelPriorityList') else None
         SchedOption.obj_list.append(self)
 

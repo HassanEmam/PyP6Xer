@@ -57,7 +57,7 @@ class Calendars:
         return len(self._calendars)
 
     def __iter__(self):
-        return self
+        return iter(self._calendars)
 
     def __next__(self) -> Calendar:
         if self.index >= len(self._calendars):

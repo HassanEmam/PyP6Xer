@@ -31,10 +31,8 @@ class Predecessors:
     def find_by_id(self, code_id) -> TaskPred:
         obj = list(filter(lambda x: x.task_pred_id == code_id, self.task_pred))
         if len(obj) > 0:
-            obj[0]
-        else:
-            obj = None
-        return obj
+            return obj[0]
+        return None
     
     def get_tsv(self):
         tsv = []
@@ -77,7 +75,7 @@ class Predecessors:
         return len(self.task_pred)
 
     def __iter__(self):
-        return self
+        return iter(self.task_pred)
 
     def __next__(self) -> TaskPred:
         if self.index >= len(self.task_pred):
@@ -85,4 +83,3 @@ class Predecessors:
         idx = self.index
         self.index += 1
         return self.task_pred[idx]
-

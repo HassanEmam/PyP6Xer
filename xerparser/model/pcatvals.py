@@ -53,7 +53,7 @@ class PCatVals:
         return len(self._PCatVals)
 
     def __iter__(self):
-        return self
+        return iter(self._PCatVals)
 
     def __next__(self) -> PCatVal:
         if self.index >= len(self._PCatVals):

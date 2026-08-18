@@ -52,7 +52,7 @@ class ProjCats:
         return len(self._ProjCats)
 
     def __iter__(self):
-        return self
+        return iter(self._ProjCats)
 
     def __next__(self) -> ProjCat:
         if self.index >= len(self._ProjCats):

@@ -44,7 +44,12 @@ def writeXER(r, filename):
             # Skip SCHEDOPTIONS if not present or cannot be accessed
             pass
         tsv_writer.writerows(r.wbss.get_tsv())
+        tsv_writer.writerows(r.roles.get_tsv())
+        tsv_writer.writerows(r.rolerates.get_tsv())
         tsv_writer.writerows(r.resources.get_tsv())
+        tsv_writer.writerows(r.rcattypes.get_tsv())
+        tsv_writer.writerows(r.rcatvals.get_tsv())
+        tsv_writer.writerows(r.resourcecategories.get_tsv())
         tsv_writer.writerows(r.acttypes.get_tsv())
         tsv_writer.writerows(r.resourcerates.get_tsv())
         tsv_writer.writerows(r.activities.get_tsv())
@@ -56,4 +61,3 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.taskactvs.get_tsv())
         tsv_writer.writerows(r.udfvalues.get_tsv())
         tsv_writer.writerow(['%E'])
-
