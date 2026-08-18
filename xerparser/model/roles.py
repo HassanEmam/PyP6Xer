@@ -55,7 +55,7 @@ class Roles:
         return len(self._roles)
 
     def __iter__(self):
-        return self
+        return iter(self._roles)
 
     def __next__(self) -> Role:
         if self.index >= len(self._roles):

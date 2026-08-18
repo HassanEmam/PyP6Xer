@@ -58,7 +58,7 @@ class ResourceCurves:
         return len(self._resourcecurves)
 
     def __iter__(self):
-        return self
+        return iter(self._resourcecurves)
 
     def __next__(self) -> ResourceCurve:
         if self.index >= len(self._resourcecurves):

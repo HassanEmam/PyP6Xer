@@ -54,7 +54,7 @@ class ActTypes:
         return len(self._activitytypes)
 
     def __iter__(self):
-        return self
+        return iter(self._activitytypes)
 
     def __next__(self) -> ActType:
         if self.index >= len(self._activitytypes):

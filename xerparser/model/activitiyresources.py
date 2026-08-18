@@ -71,7 +71,7 @@ class ActivityResources:
         return len(ActivityResources._taskrsrc)
 
     def __iter__(self):
-        return self
+        return iter(self._taskrsrc)
 
     def __next__(self) -> TaskRsrc:
         if self.index >= len(self._taskrsrc):

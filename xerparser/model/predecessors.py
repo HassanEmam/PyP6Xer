@@ -77,7 +77,7 @@ class Predecessors:
         return len(self.task_pred)
 
     def __iter__(self):
-        return self
+        return iter(self.task_pred)
 
     def __next__(self) -> TaskPred:
         if self.index >= len(self.task_pred):
@@ -85,4 +85,3 @@ class Predecessors:
         idx = self.index
         self.index += 1
         return self.task_pred[idx]
-

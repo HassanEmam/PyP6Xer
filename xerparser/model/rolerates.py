@@ -54,7 +54,7 @@ class RoleRates:
         return len(self._rolerates)
 
     def __iter__(self):
-        return self
+        return iter(self._rolerates)
 
     def __next__(self) -> RoleRate:
         if self.index >= len(self._rolerates):

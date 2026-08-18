@@ -57,7 +57,7 @@ class TaskActvs:
         return len(self._taskactvs)
 
     def __iter__(self):
-        return self
+        return iter(self._taskactvs)
 
     def __next__(self) -> TaskActv:
         if self.index >= len(self._taskactvs):

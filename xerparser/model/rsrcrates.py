@@ -53,7 +53,7 @@ class ResourceRates:
         return len(self._rsrcrates)
 
     def __iter__(self):
-        return self
+        return iter(self._rsrcrates)
 
     def __next__(self) -> ResourceRate:
         if self.index >= len(self._rsrcrates):

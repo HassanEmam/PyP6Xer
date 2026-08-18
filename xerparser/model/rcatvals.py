@@ -55,7 +55,7 @@ class RCatVals:
         return len(self._rcatvals)
 
     def __iter__(self):
-        return self
+        return iter(self._rcatvals)
 
     def __next__(self) -> RCatVal:
         if self.index >= len(self._rcatvals):

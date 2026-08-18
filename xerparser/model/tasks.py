@@ -178,7 +178,7 @@ class Tasks:
         return obj
 
     def __iter__(self):
-        return self
+        return iter(self._tasks)
 
     def __next__(self) -> Task:
         if self.index >= len(self._tasks):

@@ -60,7 +60,7 @@ class SchedOptions:
         return len(self._schoptions)
 
     def __iter__(self):
-        return self
+        return iter(self._schoptions)
 
     def __next__(self) -> SchedOption:
         if self.index >= len(self._schoptions):

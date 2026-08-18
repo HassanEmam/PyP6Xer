@@ -53,7 +53,7 @@ class NonWorks:
         return len(self._NonWorks)
 
     def __iter__(self):
-        return self
+        return iter(self._NonWorks)
 
     def __next__(self) -> NonWork:
         if self.index >= len(self._NonWorks):

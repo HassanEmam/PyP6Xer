@@ -52,7 +52,7 @@ class ResourceCategories:
         return len(self._rsrccat)
 
     def __iter__(self):
-        return self
+        return iter(self._rsrccat)
 
     def __next__(self) -> ResourceCat:
         if self.index >= len(self._rsrccat):

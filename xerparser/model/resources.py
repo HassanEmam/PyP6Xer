@@ -49,7 +49,7 @@ class Resources:
 
 
     def __iter__(self):
-        return self
+        return iter(self._rsrcs)
 
     def __next__(self) -> Resource:
         if self.index >= len(self._rsrcs):

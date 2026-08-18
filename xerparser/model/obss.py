@@ -55,7 +55,7 @@ class OBSs:
         return len(self._obss)
 
     def __iter__(self):
-        return self
+        return iter(self._obss)
 
     def __next__(self) -> OBS:
         if self.index >= len(self._obss):

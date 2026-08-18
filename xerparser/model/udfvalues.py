@@ -54,7 +54,7 @@ class UDFValues:
         return len(self._udfvalues)
 
     def __iter__(self):
-        return self
+        return iter(self._udfvalues)
 
     def __next__(self) -> UDFValue:
         if self.index >= len(self._udfvalues):
