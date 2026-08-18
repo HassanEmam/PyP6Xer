@@ -39,13 +39,10 @@ class Resources:
         return rsrc
 
     def get_parent(self, id) -> Resource:
-        rsrc = list(filter(lambda x: x.rsrc_id == id, self._rsrcs))
-        if len(rsrc) > 0:
-            rsrc = rsrc[0]
-            parent = Resources.get_resource_by_id(rsrc.parent_rsrc_id)
-        else:
-            rsrc = None
-        return rsrc
+        rsrc = self.get_resource_by_id(id)
+        if rsrc is None or rsrc.parent_rsrc_id is None:
+            return None
+        return self.get_resource_by_id(rsrc.parent_rsrc_id)
 
 
     def __iter__(self):

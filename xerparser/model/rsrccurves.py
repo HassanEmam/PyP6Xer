@@ -31,7 +31,7 @@ class ResourceCurves:
         self._resourcecurves.append(ResourceCurve(params))
 
     def find_by_id(self, id) -> ResourceCurve:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._resourcecurves))
+        obj = list(filter(lambda x: x.curv_id == id, self._resourcecurves))
         if len(obj) > 0:
             return obj[0]
         return obj

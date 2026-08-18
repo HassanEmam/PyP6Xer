@@ -181,10 +181,13 @@ class Task:
         self.suspend_date = datetime.strptime(params.get('suspend_date').strip(), '%Y-%m-%d %H:%M') if params.get('suspend_date') else None
         # The date progress is resumed on an activity.
         self.resume_date = datetime.strptime(params.get('resume_date').strip(), '%Y-%m-%d %H:%M') if params.get('resume_date') else None
-        self.int_path = params.get('int_path').strip() if params.get('int_path') else None
+        self.float_path = params.get('float_path').strip() if params.get('float_path') else None
         # This field is computed by the project scheduler and identifies the order in which the activities were
         # processed within the int path.
-        self.int_path_order = params.get('int_path_order').strip() if params.get('int_path_order') else None
+        self.float_path_order = params.get('float_path_order').strip() if params.get('float_path_order') else None
+        # Backward-compatible aliases for the historical misspelled attributes.
+        self.int_path = self.float_path
+        self.int_path_order = self.float_path_order
         self.guid = params.get('guid').strip() if params.get('guid') else None
         self.tmpl_guid = params.get('tmpl_guid').strip() if params.get('tmpl_guid') else None
         # The second constraint date for the activity, if the activity has a constraint.
@@ -238,7 +241,7 @@ class Task:
                self.cstr_type, self.priority_type,
                self.suspend_date.strftime('%Y-%m-%d %H:%M') if self.suspend_date else None,
                self.resume_date.strftime('%Y-%m-%d %H:%M') if self.resume_date else None,
-               self.int_path, self.int_path_order, self.guid, self.tmpl_guid,
+               self.float_path, self.float_path_order, self.guid, self.tmpl_guid,
                self.cstr_date2.strftime('%Y-%m-%d %H:%M') if self.cstr_date2 else None,
                self.cstr_type2, self.driving_path_flag,
                self.act_this_per_work_qty, self.act_this_per_equip_qty,
@@ -323,5 +326,4 @@ class Task:
 
     def __repr__(self):
         return self.task_code
-
 

@@ -65,7 +65,7 @@ class Reader:
         """
         if object_type.strip() == "CURRTYPE":
             self._currencies.add(params)
-        elif object_type.strip() == "ROLES":
+        elif object_type.strip() in ("ROLE", "ROLES"):
             self._roles.add(params)
         elif object_type.strip() == "ACCOUNT":
             self._accounts.add(params)
@@ -124,7 +124,7 @@ class Reader:
 
     def summary(self):
         print('Number of activities: ', self.tasks.count)
-        print('Number of relationships: ', len(TaskPred.obj_list))
+        print('Number of relationships: ', len(self._predecessors))
 
     @property
     def projects(self) -> Projects:

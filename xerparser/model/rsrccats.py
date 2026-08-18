@@ -39,7 +39,7 @@ class ResourceCategories:
         self._rsrccat.append(ResourceCat(params))
 
     def find_by_id(self, id) -> ResourceCat:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rsrccat))
+        obj = list(filter(lambda x: x.rsrc_id == id, self._rsrccat))
         if len(obj) > 0:
             return obj[0]
         return obj

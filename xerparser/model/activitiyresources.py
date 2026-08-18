@@ -68,7 +68,7 @@ class ActivityResources:
         return len(self._taskrsrc)
 
     def __len__(self):
-        return len(ActivityResources._taskrsrc)
+        return len(self._taskrsrc)
 
     def __iter__(self):
         return iter(self._taskrsrc)

@@ -30,7 +30,7 @@ class Role:
         self.def_cost_qty_link_flag = params.get('def_cost_qty_link_flag') if params.get('def_cost_qty_link_flag') else None
         self.cost_qty_type = params.get('cost_qty_type') if params.get('cost_qty_type') else None
         self.role_descr = params.get('role_descr') if params.get('role_descr') else None
-        self.last_checksum = params.get('role_descr') if params.get('role_descr') else None
+        self.last_checksum = params.get('last_checksum') if params.get('last_checksum') else None
 
         Role.obj_list.append(self)
 

@@ -40,7 +40,7 @@ class NonWorks:
         return []
 
     def find_by_id(self, id) -> NonWork:
-        obj = list(filter(lambda x: x.fintmpl_id == id, self._NonWorks))
+        obj = list(filter(lambda x: x.nonwork_type_id == id, self._NonWorks))
         if len(obj) > 0:
             return obj[0]
         return obj

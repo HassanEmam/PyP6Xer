@@ -22,7 +22,7 @@ class ResourceCurve:
 
     def __init__(self, params):        
         self.curv_id = int(params.get('curv_id')) if params.get('curv_id') else None
-        self.curv_name = params.get('curv_name').strip() if params.get('curv_id') else None
+        self.curv_name = params.get('curv_name').strip() if params.get('curv_name') else None
         self.default_flag = params.get('default_flag') if params.get('default_flag') else None
         self.pct_usage_0 = locale.atof(params.get('pct_usage_0')) if params.get('pct_usage_0') else None
         self.pct_usage_1 = locale.atof(params.get('pct_usage_1')) if params.get('pct_usage_1') else None

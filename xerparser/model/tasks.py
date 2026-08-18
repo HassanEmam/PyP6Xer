@@ -33,10 +33,18 @@ class Tasks:
     def __init__(self):
         self.index = 0
         self._tasks = []
+        self._data = None
 
     def add(self, params, data):
+        self._data = data
         task = Task(params, data)
         self._tasks.append(task)
+
+    @property
+    def _relationships(self):
+        if self._data is None or self._data.predecessors is None:
+            return []
+        return self._data.predecessors.relations
 
     @property
     def activities(self) -> List[Task]:
@@ -48,12 +56,12 @@ class Tasks:
 
     @property
     def has_no_successor(self):
-        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
+        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in self._relationships], self._tasks))
         return objs
 
     @property
     def has_no_predecessor(self):
-        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in self._relationships], self._tasks))
         return objs
 
     def __len__(self):
@@ -137,11 +145,11 @@ class Tasks:
         return activities
 
     def no_predecessors(self):
-        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in self._relationships], self._tasks))
         return objs
 
     def no_successors(self):
-        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
+        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in self._relationships], self._tasks))
         return objs
 
     def activities_with_hard_contratints(self):

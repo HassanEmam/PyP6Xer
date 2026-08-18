@@ -42,7 +42,7 @@ class Roles:
         self._roles.append(Role(params))
 
     def find_by_id(self, id) -> Role:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._roles))
+        obj = list(filter(lambda x: x.role_id == id, self._roles))
         if len(obj) > 0:
             return obj[0]
         return obj
