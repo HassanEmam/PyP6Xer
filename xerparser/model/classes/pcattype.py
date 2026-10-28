@@ -37,12 +37,16 @@ class PCatType:
         PCatType.obj_list.append(self)
 
         # %F	proj_catg_type_id	seq_num	proj_catg_short_len	proj_catg_type	export_flag
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.max_proj_catg_wt = params.get('max_proj_catg_wt').strip() if params.get('max_proj_catg_wt') else None
+        self.proj_catg_type_wt = params.get('proj_catg_type_wt').strip() if params.get('proj_catg_type_wt') else None
+        self.super_flag = params.get('super_flag').strip() if params.get('super_flag') else None
     def get_id(self):
         return self.proj_catg_type_id
 
     def get_tsv(self):
         tsv = ['%R', self.proj_catg_type_id, self.seq_num, self.proj_catg_short_len,
-               self.proj_catg_type, self.export_flag]
+               self.proj_catg_type, self.export_flag, self.max_proj_catg_wt, self.proj_catg_type_wt, self.super_flag]
         return tsv
     @classmethod
     def find_by_id(cls, id):

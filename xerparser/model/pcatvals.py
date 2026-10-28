@@ -34,7 +34,7 @@ class PCatVals:
         if len(self._PCatVals) > 0:
             tsv.append(['%T', 'PCATVAL'])
             tsv.append(['%F', 'proj_catg_id', 'proj_catg_type_id', 'seq_num', 'proj_catg_short_name',
-               'parent_proj_catg_id', 'proj_catg_name'])
+               'parent_proj_catg_id', 'proj_catg_name', 'proj_catg_wt'])
             for pcatval in self._PCatVals:
                 tsv.append(pcatval.get_tsv())
         return tsv

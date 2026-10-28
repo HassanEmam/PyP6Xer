@@ -31,12 +31,14 @@ class PCatVal:
         self.proj_catg_name = params.get('proj_catg_name').strip() if params.get('proj_catg_name') else None
 
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.proj_catg_wt = params.get('proj_catg_wt').strip() if params.get('proj_catg_wt') else None
     def get_id(self):
         return self.proj_catg_id
 
     def get_tsv(self):
         tsv = ['%R', self.proj_catg_id, self.proj_catg_type_id, self.seq_num, self.proj_catg_short_name,
-               self.parent_proj_catg_id, self.proj_catg_name]
+               self.parent_proj_catg_id, self.proj_catg_name, self.proj_catg_wt]
         return tsv
 
     def __repr__(self):

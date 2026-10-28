@@ -35,7 +35,7 @@ class RCatTypes:
             tsv = []
             tsv.append(['%T', 'RCATTYPE'])
             tsv.append(['%F', 'rsrc_catg_type_id','seq_num', 'rsrc_catg_short_len',
-                        'rsrc_catg_type'])
+                        'rsrc_catg_type', 'super_flag'])
             for rcat in self._rcattypes:
                 tsv.append(rcat.get_tsv())
             return tsv

@@ -40,7 +40,7 @@ class PCatTypes:
             tsv = []
             tsv.append(['%T', 'PCATTYPE'])
             tsv.append(['%F', 'proj_catg_type_id', 'seq_num', 'proj_catg_short_len',
-               'proj_catg_type', 'export_flag'])
+               'proj_catg_type', 'export_flag', 'max_proj_catg_wt', 'proj_catg_type_wt', 'super_flag'])
             for acttyp in self._pcattypes:
                 tsv.append(acttyp.get_tsv())
             return tsv

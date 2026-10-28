@@ -180,7 +180,7 @@ class Tasks:
                'resume_date', 'float_path', 'float_path_order', 'guid', 'tmpl_guid', 'cstr_date2',
                'cstr_type2', 'driving_path_flag', 'act_this_per_work_qty', 'act_this_per_equip_qty',
                'external_early_start_date', 'external_late_end_date', 'create_date', 'update_date',
-               'create_user', 'update_user', 'location_id'])
+               'create_user', 'update_user', 'location_id', 'review_end_date', 'review_type'])
             for task in self._tasks:
                 tsv.append(task.get_tsv())
         return tsv

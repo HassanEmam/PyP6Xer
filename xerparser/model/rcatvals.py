@@ -35,7 +35,7 @@ class RCatVals:
             tsv = []
             tsv.append(['%T', 'RCATVAL'])
             tsv.append(['%F', 'rsrc_catg_id', 'rsrc_catg_type_id', 'rsrc_catg_short_name',
-                        'rsrc_catg_name', 'parent_rsrc_catg_id'])
+                        'rsrc_catg_name', 'parent_rsrc_catg_id', 'seq_num'])
             for rc in self._rcatvals:
                 tsv.append(rc.get_tsv())
             return tsv

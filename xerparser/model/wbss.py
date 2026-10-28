@@ -41,7 +41,7 @@ class WBSs:
                'wbs_name', 'phase_id', 'parent_wbs_id', 'ev_user_pct', 'ev_etc_user_value',
                'orig_cost', 'indep_remain_total_cost', 'ann_dscnt_rate_pct', 'dscnt_period_type',
                'indep_remain_work_qty', 'anticip_start_date', 'anticip_end_date', 'ev_compute_type',
-               'ev_etc_compute_type', 'guid', 'tmpl_guid', 'plan_open_state'])
+               'ev_etc_compute_type', 'guid', 'tmpl_guid', 'plan_open_state', 'status_reviewer'])
             for wb in self._wbss:
                 tsv.append(wb.get_tsv())
         return tsv

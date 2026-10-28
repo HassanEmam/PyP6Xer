@@ -101,6 +101,24 @@ class Project:
         self.sumtask_loaded = params.get('sumtask_loaded').strip() if params.get('sumtask_loaded') else None
         self.data = data
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.checkout_date = params.get('checkout_date').strip() if params.get('checkout_date') else None
+        self.checkout_user_id = params.get('checkout_user_id').strip() if params.get('checkout_user_id') else None
+        self.chng_eff_cmp_pct_flag = params.get('chng_eff_cmp_pct_flag').strip() if params.get('chng_eff_cmp_pct_flag') else None
+        self.control_updates_flag = params.get('control_updates_flag').strip() if params.get('control_updates_flag') else None
+        self.hist_interval = params.get('hist_interval').strip() if params.get('hist_interval') else None
+        self.hist_level = params.get('hist_level').strip() if params.get('hist_level') else None
+        self.intg_proj_type = params.get('intg_proj_type').strip() if params.get('intg_proj_type') else None
+        self.last_level_date = params.get('last_level_date').strip() if params.get('last_level_date') else None
+        self.last_schedule_date = params.get('last_schedule_date').strip() if params.get('last_schedule_date') else None
+        self.msp_managed_flag = params.get('msp_managed_flag').strip() if params.get('msp_managed_flag') else None
+        self.px_enable_publication_flag = params.get('px_enable_publication_flag').strip() if params.get('px_enable_publication_flag') else None
+        self.px_last_update_date = params.get('px_last_update_date').strip() if params.get('px_last_update_date') else None
+        self.px_priority = params.get('px_priority').strip() if params.get('px_priority') else None
+        self.risk_level = params.get('risk_level').strip() if params.get('risk_level') else None
+        self.sum_data_date = params.get('sum_data_date').strip() if params.get('sum_data_date') else None
+        self.sum_only_flag = params.get('sum_only_flag').strip() if params.get('sum_only_flag') else None
+        self.ts_rsrc_vs_inact_actv_flag = params.get('ts_rsrc_vs_inact_actv_flag').strip() if params.get('ts_rsrc_vs_inact_actv_flag') else None
     @property
     def id(self):
         return self.proj_id
@@ -123,7 +141,7 @@ class Project:
                self.last_baseline_update_date, self.cr_external_key, self.apply_actuals_date, self.fintmpl_id,
                self.location_id, self.loaded_scope_level, self.export_flag, self.new_fin_dates_id,
                self.baselines_to_export, self.baseline_names_to_export, self.next_data_date, self.close_period_flag,
-               self.sum_refresh_date, self.trsrcsum_loaded, self.sumtask_loaded]
+               self.sum_refresh_date, self.trsrcsum_loaded, self.sumtask_loaded, self.checkout_date, self.checkout_user_id, self.chng_eff_cmp_pct_flag, self.control_updates_flag, self.hist_interval, self.hist_level, self.intg_proj_type, self.last_level_date, self.last_schedule_date, self.msp_managed_flag, self.px_enable_publication_flag, self.px_last_update_date, self.px_priority, self.risk_level, self.sum_data_date, self.sum_only_flag, self.ts_rsrc_vs_inact_actv_flag]
         return tsv
 
     @property
