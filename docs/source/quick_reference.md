@@ -131,6 +131,34 @@ filtered_activities = [
 ]
 ```
 
+## Editing Relationships
+
+```python
+from xerparser.write import writeXER
+
+# Add a finish-to-start relationship (tasks validated, IDs auto-allocated)
+rel = xer.relations.add_relationship(
+    task_id=1003, pred_task_id=1002, pred_type="PR_FS", lag_hr_cnt=8.0)
+
+# Re-route or remove
+xer.relations.replace_relationship(rel, pred_task_id=1001, pred_type="PR_SS")
+xer.relations.remove_relationship(rel)     # by object or by task_pred_id
+
+writeXER(xer, "rescheduled.xer")
+
+# Query from Tasks (unambiguous direction)
+xer.activities.get_predecessors(1002)      # relationships feeding 1002
+xer.activities.get_successors(1002)        # relationships leaving 1002
+```
+
+## Any-Table Access
+
+```python
+# Every table in the file, modelled or not, lossless
+steps = xer.tables["WBSSTEP"]
+print(sorted(xer.tables.keys()))
+```
+
 ## DCMA 14-Point Analysis
 
 ```python
@@ -144,6 +172,14 @@ results = analysis.analysis()
 print(f"Activities with no predecessors: {results['analysis']['predecessors']['cnt']}")
 print(f"Activities with no successors: {results['analysis']['successors']['cnt']}")
 print(f"Critical activities: {results['analysis']['critical']['cnt']}")
+print(f"CPLI: {results['analysis']['cpli']['cpli']}")
+print(f"BEI: {results['analysis']['bei']['bei']}")
+```
+
+## Running the Tests
+
+```bash
+python -m pytest tests/ -q          # full suite, 280+ tests
 ```
 
 For more detailed examples and advanced usage, see:

@@ -5,6 +5,42 @@ All notable changes to PyP6Xer will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.016.00] - 2026-10-28
+
+### Added
+- Programmatic relationship editing: `add_relationship`, `remove_relationship`,
+  `replace_relationship` on the relations collection, plus `get_predecessors` /
+  `get_successors` passthroughs on Tasks (issue #7)
+- Generic table store: every XER table is available losslessly via
+  `xer.tables["TABLE_NAME"]`, even those without a dedicated model class
+- RSRCCURV (resource curve definitions) and RSRCCURVDATA support
+- 37 previously unsupported XER schema fields now parsed and written back
+- Comprehensive test suite: 280+ tests covering all 39 model-backed tables
+  (parse, lookups, TSV alignment, write round-trips), every DCMA check, Tasks
+  queries, resource hierarchy, calendar data parsing, and reader/writer edge
+  cases — fixtures are built from scratch, no sample files needed
+
+### Improved
+- Roughly 2x faster parsing and ~30% less memory on large files
+- DCMA 14-point analysis hardened: calendar-aware day/hour conversions,
+  multi-project data dates, per-activity slippage counting, robust
+  longest-critical-chain, and checks #12-#14 (critical path test, CPLI, BEI)
+- Consistent `__len__` / iteration across all collections
+- Reader tolerates blank lines, schema drift, and ROLES/ROLE table names
+
+### Fixed
+- Seven wrong-column bugs in field mappings (TASK, TASKRSRC, TASKPRED, PROJWBS,
+  PROJECT, ROLES and others)
+- Character encoding corruption on non-ASCII XER content
+- Crashes on blank lines and schema drift in XER files
+- `Calendar.obj_list` leaking between Reader instances
+- Writer previously dropped tables not present in the model and faked the
+  ERMHDR on round-trips; it now writes every table and preserves the header
+- `find_by_id` lookups in 12 collections used the wrong key and always
+  returned empty results
+- `get_num_lines` crash on empty files; `get_work_pattern` missing day blocks
+  after the VIEW marker in calendar data
+
 ## [1.015.00] - 2025-01-09
 
 ### Added
