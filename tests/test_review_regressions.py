@@ -386,9 +386,10 @@ class TestRsrcCurv:
     def test_no_cross_file_leak(self, tmp_path):
         from xerparser.model.classes.rsrc_curv import RsrcCurv
         Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
-        n = len(RsrcCurv.obj_list)
+        assert len(RsrcCurv.obj_list) == 2
+        # a file without RSRCCURV must not inherit the previous file's curves
         Reader(_xer(tmp_path / "other.xer"))
-        assert len(RsrcCurv.obj_list) == n
+        assert len(RsrcCurv.obj_list) == 0
 
     def test_round_trip(self, tmp_path):
         r = Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
