@@ -68,6 +68,7 @@ from xerparser.model.rolerates import RoleRates
 from xerparser.model.roles import Roles
 from xerparser.model.rsrccurves import ResourceCurves
 from xerparser.model.rsrc_curvs import RsrcCurves
+from xerparser.model.classes.xer_table import XerTable, XerTables, XerRecord
 from xerparser.model.classes.rsrc_curv import RsrcCurv
 from xerparser.model.rsrcrates import ResourceRates
 from xerparser.model.rsrccats import ResourceCategories
