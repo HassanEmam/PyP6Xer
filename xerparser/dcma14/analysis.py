@@ -190,7 +190,10 @@ class DCMA14():
         # end dates are later than target end dates
         self.actualendslippage = list(filter(lambda x: x.act_end_date is not None and x.target_end_date is not None and x.act_end_date > x.target_end_date, self.programme.activities.activities))
         self.earlyendslippage = list(filter(lambda x: x.early_end_date is not None and x.target_end_date is not None and x.early_end_date > x.target_end_date, self.programme.activities.activities))
-        slipped = self.actualendslippage + self.earlyendslippage
+        # DCMA counts activities, not relations: an activity slipping on both its
+        # actual and early end is counted once.
+        slipped = {x.task_id: x for x in self.actualendslippage + self.earlyendslippage}
+        slipped = list(slipped.values())
         self.results['analysis']['slippage'] = {
             'activities': [{
                 "id":x.task_code,

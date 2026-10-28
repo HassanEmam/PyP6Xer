@@ -77,6 +77,9 @@ class Resources:
                 tsv.append(rsr.get_tsv())
         return tsv
     
+    def __len__(self):
+        return len(self._rsrcs)
+
     def build_tree(self):
         # pass 1: create nodes dictionary
         a = self._get_list()
