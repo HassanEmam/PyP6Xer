@@ -28,12 +28,14 @@ class RCatVal:
         self.parent_rsrc_catg_id = params.get('parent_rsrc_catg_id').strip() if params.get('parent_rsrc_catg_id') else None
         RCatVal.obj_list.append(self)
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.seq_num = params.get('seq_num').strip() if params.get('seq_num') else None
     def get_id(self):
         return self.rsrc_catg_id
 
     def get_tsv(self):
         tsv = ['%R', self.rsrc_catg_id, self.rsrc_catg_type_id, self.rsrc_catg_short_name,
-               self.rsrc_catg_name, self.parent_rsrc_catg_id]
+               self.rsrc_catg_name, self.parent_rsrc_catg_id, self.seq_num]
         return tsv
 
     @classmethod

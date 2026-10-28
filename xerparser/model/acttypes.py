@@ -41,7 +41,7 @@ class ActTypes:
             tsv = []
             tsv.append(['%T', 'ACTVTYPE'])
             tsv.append(['%F', 'actv_code_type_id', 'actv_short_len', 'seq_num',
-                        'actv_code_type', 'proj_id', 'wbs_id', 'actv_code_type_scope'])
+                        'actv_code_type', 'proj_id', 'wbs_id', 'actv_code_type_scope', 'super_flag'])
             for acttyp in self._activitytypes:
                 tsv.append(acttyp.get_tsv())
             return tsv

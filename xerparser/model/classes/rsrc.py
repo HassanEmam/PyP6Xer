@@ -56,6 +56,11 @@ class Resource:
         self.last_checksum = params.get('last_checksum').strip() if params.get('last_checksum') else None
         Resource.obj_list.append(self)
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.timesheet_flag = params.get('timesheet_flag').strip() if params.get('timesheet_flag') else None
+        self.ts_approve_user_id = params.get('ts_approve_user_id').strip() if params.get('ts_approve_user_id') else None
+        self.xfer_complete_day_cnt = params.get('xfer_complete_day_cnt').strip() if params.get('xfer_complete_day_cnt') else None
+        self.xfer_notstart_day_cnt = params.get('xfer_notstart_day_cnt').strip() if params.get('xfer_notstart_day_cnt') else None
     def get_id(self):
         return self.rsrc_id
 
@@ -68,7 +73,7 @@ class Resource:
                self.active_flag, self.auto_compute_act_flag, self.def_cost_qty_link_flag,
                self.ot_flag, self.curr_id, self.unit_id, self.rsrc_type, self.location_id, self.rsrc_notes,
                self.load_tasks_flag, self.level_flag, self.last_checksum
-        ]
+        , self.timesheet_flag, self.ts_approve_user_id, self.xfer_complete_day_cnt, self.xfer_notstart_day_cnt]
         return tsv
 
     @classmethod

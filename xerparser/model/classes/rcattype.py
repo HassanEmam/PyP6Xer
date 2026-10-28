@@ -27,9 +27,11 @@ class RCatType:
         self.rsrc_catg_type = params.get('rsrc_catg_type').strip() if params.get('rsrc_catg_type') else None
         RCatType.obj_list.append(self)
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.super_flag = params.get('super_flag').strip() if params.get('super_flag') else None
     def get_tsv(self):
         tsv = ['%R', self.rsrc_catg_type_id,self.seq_num, self.rsrc_catg_short_len,
-               self.rsrc_catg_type]
+               self.rsrc_catg_type, self.super_flag]
         return tsv
 
     def get_id(self):

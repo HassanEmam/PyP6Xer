@@ -52,7 +52,7 @@ class Projects:
                    'last_baseline_update_date', 'cr_external_key', 'apply_actuals_date', 'fintmpl_id', 'location_id',
                    'loaded_scope_level', 'export_flag', 'new_fin_dates_id', 'baselines_to_export',
                    'baseline_names_to_export', 'next_data_date', 'close_period_flag', 'sum_refresh_date',
-                   'trsrcsum_loaded', 'sumtask_loaded'])
+                   'trsrcsum_loaded', 'sumtask_loaded', 'checkout_date', 'checkout_user_id', 'chng_eff_cmp_pct_flag', 'control_updates_flag', 'hist_interval', 'hist_level', 'intg_proj_type', 'last_level_date', 'last_schedule_date', 'msp_managed_flag', 'px_enable_publication_flag', 'px_last_update_date', 'px_priority', 'risk_level', 'sum_data_date', 'sum_only_flag', 'ts_rsrc_vs_inact_actv_flag'])
             for prj in self._projects:
                 tsv.append(prj.get_tsv())
             return tsv

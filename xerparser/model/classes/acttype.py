@@ -37,12 +37,14 @@ class ActType:
         self.actv_code_type_scope = params.get('actv_code_type_scope').strip() if params.get('actv_code_type_scope') else None
         ActType.obj_list.append(self)
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.super_flag = params.get('super_flag').strip() if params.get('super_flag') else None
     def get_id(self):
         return self.actv_code_type_id
 
     def get_tsv(self):
         tsv = ['%R', self.actv_code_type_id, self.actv_short_len, self.seq_num,
-               self.actv_code_type, self.proj_id, self.wbs_id, self.actv_code_type_scope]
+               self.actv_code_type, self.proj_id, self.wbs_id, self.actv_code_type_scope, self.super_flag]
         return tsv
     @classmethod
     def find_by_id(cls, id):

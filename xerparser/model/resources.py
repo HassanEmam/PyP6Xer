@@ -72,7 +72,7 @@ class Resources:
                'rsrc_title_name', 'def_qty_per_hr', 'cost_qty_type', 'ot_factor',
                'active_flag', 'auto_compute_act_flag', 'def_cost_qty_link_flag',
                'ot_flag', 'curr_id', 'unit_id', 'rsrc_type', 'location_id', 'rsrc_notes',
-               'load_tasks_flag', 'level_flag', 'last_checksum'])
+               'load_tasks_flag', 'level_flag', 'last_checksum', 'timesheet_flag', 'ts_approve_user_id', 'xfer_complete_day_cnt', 'xfer_notstart_day_cnt'])
             for rsr in self._rsrcs:
                 tsv.append(rsr.get_tsv())
         return tsv

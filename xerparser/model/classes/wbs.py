@@ -57,6 +57,8 @@ class WBS:
         self.data = data
         WBS.obj_list.append(self)
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.status_reviewer = params.get('status_reviewer').strip() if params.get('status_reviewer') else None
     def get_id(self):
         return self.wbs_id
 
@@ -66,7 +68,7 @@ class WBS:
                self.wbs_name, self.phase_id, self.parent_wbs_id, self.ev_user_pct, self.ev_etc_user_value,
                self.orig_cost, self.indep_remain_total_cost, self.ann_dscnt_rate_pct, self.dscnt_period_type,
                self.indep_remain_work_qty, self.anticip_start_date, self.anticip_end_date, self.ev_compute_type,
-               self.ev_etc_compute_type, self.guid, self.tmpl_guid, self.plan_open_state]
+               self.ev_etc_compute_type, self.guid, self.tmpl_guid, self.plan_open_state, self.status_reviewer]
         return tsv
 
     @classmethod

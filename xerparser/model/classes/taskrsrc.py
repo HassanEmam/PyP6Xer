@@ -72,6 +72,13 @@ class TaskRsrc:
         self.taskrsrc_sum_id = params.get('taskrsrc_sum_id').strip() if params.get('taskrsrc_sum_id') else None
         self.data = data
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.pend_act_ot_qty = params.get('pend_act_ot_qty').strip() if params.get('pend_act_ot_qty') else None
+        self.pend_act_reg_qty = params.get('pend_act_reg_qty').strip() if params.get('pend_act_reg_qty') else None
+        self.pend_complete_pct = params.get('pend_complete_pct').strip() if params.get('pend_complete_pct') else None
+        self.pend_remain_qty = params.get('pend_remain_qty').strip() if params.get('pend_remain_qty') else None
+        self.prior_ts_act_of_qty = params.get('prior_ts_act_of_qty').strip() if params.get('prior_ts_act_of_qty') else None
+        self.prior_ts_act_reg_qty = params.get('prior_ts_act_reg_qty').strip() if params.get('prior_ts_act_reg_qty') else None
     def get_id(self):
         return self.taskrsrc_id
     @property
@@ -88,7 +95,7 @@ class TaskRsrc:
                self.rem_late_end_date, self.rollup_dates_flag, self.target_crv, self.remain_crv, self.actual_crv,
                self.ts_pend_act_end_flag, self.guid, self.rate_type, self.act_this_per_cost, self.act_this_per_qty,
                self.curv_id, self.rsrc_type, self.cost_per_qty_source_type, self.create_user, self.create_date,
-               self.cbs_id, self.has_rsrchours, self.taskrsrc_sum_id]
+               self.cbs_id, self.has_rsrchours, self.taskrsrc_sum_id, self.pend_act_ot_qty, self.pend_act_reg_qty, self.pend_complete_pct, self.pend_remain_qty, self.prior_ts_act_of_qty, self.prior_ts_act_reg_qty]
         return tsv
 
     def __repr__(self):

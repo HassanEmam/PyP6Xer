@@ -217,6 +217,9 @@ class Task:
         # Task.obj_list.append(self)
         self.data = data
 
+# Spec fields appended for Oracle data-map compliance (stored raw for lossless round-trip)
+        self.review_end_date = params.get('review_end_date').strip() if params.get('review_end_date') else None
+        self.review_type = params.get('review_type').strip() if params.get('review_type') else None
     def get_tsv(self):
         tsv = ['%R', self.task_id, self.proj_id, self.wbs_id, self.clndr_id, self.phys_complete_pct, self.rev_fdbk_flag,
                self.est_wt, self.lock_plan_flag, self.auto_compute_act_flag, self.complete_pct_type, self.task_type,
@@ -249,7 +252,7 @@ class Task:
                self.external_late_end_date.strftime('%Y-%m-%d %H:%M') if self.external_late_end_date else None,
                self.create_date.strftime('%Y-%m-%d %H:%M') if self.create_date else None,
                self.update_date.strftime('%Y-%m-%d %H:%M') if self.update_date else None,
-               self.create_user, self.update_user, self.location_id]
+               self.create_user, self.update_user, self.location_id, self.review_end_date, self.review_type]
         return tsv
 
     @property

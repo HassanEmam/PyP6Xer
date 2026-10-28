@@ -49,7 +49,7 @@ class ActivityResources:
                'rem_late_end_date', 'rollup_dates_flag', 'target_crv', 'remain_crv', 'actual_crv',
                'ts_pend_act_end_flag', 'guid', 'rate_type', 'act_this_per_cost', 'act_this_per_qty',
                'curv_id', 'rsrc_type', 'cost_per_qty_source_type', 'create_user', 'create_date', 'cbs_id',
-               'has_rsrchours', 'taskrsrc_sum_id'])
+               'has_rsrchours', 'taskrsrc_sum_id', 'pend_act_ot_qty', 'pend_act_reg_qty', 'pend_complete_pct', 'pend_remain_qty', 'prior_ts_act_of_qty', 'prior_ts_act_reg_qty'])
             for taskrsrc in self._taskrsrc:
                 tsv.append(taskrsrc.get_tsv())
             return tsv
