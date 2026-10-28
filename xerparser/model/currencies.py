@@ -56,7 +56,7 @@ class Currencies:
         return len(self._currencies)
 
     def __iter__(self):
-        return self
+        return iter(self._currencies)
 
     def __next__(self) -> Currency:
         if self.index >= len(self._currencies):

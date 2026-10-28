@@ -54,7 +54,7 @@ class ResourceRate:
 
     @classmethod
     def find_by_resource_id(cls, id):
-        obj = list(filter(lambda x: x.rsrc_rate_id == id, cls.obj_list))
+        obj = list(filter(lambda x: x.rsrc_id == id, cls.obj_list))
         if len(obj) > 0:
             obj = obj[0]
         else:

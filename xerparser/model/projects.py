@@ -68,7 +68,7 @@ class Projects:
         return str(self._projects)
 
     def __iter__(self):
-        return self
+        return iter(self._projects)
 
     def __next__(self) -> Project:
         if self.index >= len(self._projects):

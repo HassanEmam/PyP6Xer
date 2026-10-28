@@ -29,7 +29,7 @@ class ResourceRates:
         self._rsrcrates.append(ResourceRate(params))
 
     def find_by_id(self, id) -> ResourceRate:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rsrcrates))
+        obj = list(filter(lambda x: x.rsrc_rate_id == id, self._rsrcrates))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -53,7 +53,7 @@ class ResourceRates:
         return len(self._rsrcrates)
 
     def __iter__(self):
-        return self
+        return iter(self._rsrcrates)
 
     def __next__(self) -> ResourceRate:
         if self.index >= len(self._rsrcrates):

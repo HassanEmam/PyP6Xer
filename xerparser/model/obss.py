@@ -31,7 +31,7 @@ class OBSs:
         self._obss.append(OBS(params))
 
     def find_by_id(self, id) -> OBS:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._obss))
+        obj = list(filter(lambda x: x.obs_id == id, self._obss))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -55,7 +55,7 @@ class OBSs:
         return len(self._obss)
 
     def __iter__(self):
-        return self
+        return iter(self._obss)
 
     def __next__(self) -> OBS:
         if self.index >= len(self._obss):

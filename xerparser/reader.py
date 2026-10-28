@@ -67,7 +67,7 @@ class Reader:
         """
         if object_type.strip() == "CURRTYPE":
             self._currencies.add(params)
-        elif object_type.strip() == "ROLES":
+        elif object_type.strip() in ("ROLE", "ROLES"):
             self._roles.add(params)
         elif object_type.strip() == "ACCOUNT":
             self._accounts.add(params)

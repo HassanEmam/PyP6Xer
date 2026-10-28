@@ -59,7 +59,7 @@ class TaskProcs:
         return len(self._TaskProcs)
 
     def __iter__(self):
-        return self
+        return iter(self._TaskProcs)
 
     def __next__(self) -> TaskProc:
         if self.index >= len(self._TaskProcs):
