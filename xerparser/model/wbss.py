@@ -49,6 +49,9 @@ class WBSs:
     def get_by_project(self, id) -> List[WBS]:
         return list(filter(lambda x: x.proj_id == id, self._wbss))
 
+    def __len__(self):
+        return len(self._wbss)
+
     def __iter__(self):
         return self
 

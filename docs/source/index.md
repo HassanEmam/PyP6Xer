@@ -2,7 +2,7 @@
 
 Welcome to **PyP6Xer**, a powerful Python library for parsing and manipulating Primavera P6 XER files.
 
-*Documentation last updated: July 2025*
+*Documentation last updated: October 2026*
 
 ## Overview
 
@@ -12,9 +12,12 @@ PyP6Xer is an open-source Python library that provides a comprehensive solution 
 
 - **Complete XER File Parsing**: Parse all major XER file components including projects, activities, WBS, resources, calendars, and relationships
 - **Object-Oriented Design**: Clean, intuitive API with well-structured classes representing P6 entities
-- **Data Export**: Write modified data back to XER format
-- **Comprehensive Coverage**: Support for activities, resources, calendars, codes, relationships, and more
-- **Easy Integration**: Simple Python API that integrates easily into existing workflows
+- **Data Export**: Write modified data back to XER format — lossless round-trips, including tables without a dedicated model class via `xer.tables["TABLE_NAME"]`
+- **Relationship Editing**: Programmatically add, remove and re-route TASKPRED relationships
+- **DCMA 14-Point Analysis**: Full schedule-quality assessment (open ends, lags, leads, constraints, float, critical path, CPLI, BEI)
+- **Comprehensive Coverage**: 39 model-backed collections plus generic access to every other table in the file
+- **Easy Integration**: Simple Python API that integrates easily into existing workflows (zero dependencies)
+- **Well Tested**: 280+ tests covering every table, query method, DCMA check, and edge case
 - **Open Source**: Licensed under GNU LGPL v2.1
 
 ## Quick Start
@@ -98,7 +101,7 @@ PyP6Xer supports parsing and manipulation of the following XER file elements:
 - **Resource Categories**: Resource classification
 
 ### Scheduling and Time
-- **Calendars**: Working time definitions and exceptions
+- **Calendars**: Working time definitions and exceptions (including resource curve data via RSRCCURV / RSRCCURVDATA)
 - **Schedule Options**: Project scheduling parameters
 
 ### Classification and Codes
@@ -120,9 +123,10 @@ PyP6Xer supports parsing and manipulation of the following XER file elements:
 The library is organized into several key modules:
 
 - `xerparser.reader`: Main parsing functionality
-- `xerparser.writer`: XER file output functionality
-- `xerparser.model`: Core data model classes
+- `xerparser.write`: XER file output functionality (`writeXER`)
+- `xerparser.model`: Core data model classes (one collection per table)
 - `xerparser.model.classes`: Individual entity classes (Project, Task, Resource, etc.)
+- `xerparser.dcma14`: DCMA 14-point schedule analysis
 
 ## License
 

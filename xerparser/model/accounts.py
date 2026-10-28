@@ -42,6 +42,9 @@ class Accounts:
     def count(self):
         return len(self._accounts)
 
+    def __len__(self):
+        return len(self._accounts)
+
     def __iter__(self):
         return iter(self._accounts)
 

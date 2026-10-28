@@ -9,14 +9,17 @@ PyP6Xer is a comprehensive Python library for parsing, analyzing, and manipulati
 
 ## 🚀 Features
 
-- **Complete XER Parsing**: Parse all major XER file components
+- **Complete XER Parsing**: Parse all major XER file components — every model-backed table, validated against the Oracle XER schema
 - **Intuitive API**: Object-oriented design with clean, pythonic interfaces  
 - **Comprehensive Data Access**: Activities, resources, calendars, WBS, relationships, and more
-- **Data Export**: Write modified data back to XER format
-- **Schedule Analysis**: Built-in tools for critical path, float analysis, and schedule quality checks
+- **Any-Table Access**: Every XER table (including ones without a dedicated model class) is available losslessly via `xer.tables["TABLE_NAME"]`
+- **Data Export**: Write modified data back to XER format — full, lossless round-trips
+- **Relationship Editing**: Add, remove, and re-route TASKPRED relationships programmatically
+- **Schedule Analysis**: Built-in DCMA 14-point analysis, critical path, float analysis, and schedule quality checks
 - **Resource Management**: Resource allocation, utilization, and cost analysis
 - **Progress Tracking**: Earned value analysis and performance metrics
 - **Zero Dependencies**: Uses only Python standard library
+- **Well Tested**: 280+ tests covering every table, query method, DCMA check, and edge case
 
 ## 📦 Installation
 
@@ -117,8 +120,24 @@ for activity in xer.activities:
         # Update progress for active activities
         activity.phys_complete_pct = 25.0
 
-# Write to new XER file
-xer.write("updated_project.xer")
+# Write to new XER file (preserves the source ERMHDR)
+from xerparser.write import writeXER
+writeXER(xer, "updated_project.xer")   # or: xer.write("updated_project.xer")
+```
+
+### Any-Table Access
+
+Tables without a dedicated model class are still fully available — parse,
+query and write them back losslessly:
+
+```python
+# Generic access to any XER table
+steps = xer.tables["WBSSTEP"]          # e.g. WBS steps
+record = steps.records[0]
+print(record.step_name)
+
+# All 60+ tables from the file are present, keyed by their %T name
+print(sorted(xer.tables.keys()))
 ```
 
 ## 🔗 Editing Activity Relationships
@@ -169,6 +188,35 @@ Note: on the `xer.relations` collection itself, `get_successors(act_id)`
 returns relationships in which `act_id` is the *predecessor* (i.e. the
 successors of `act_id`) — the Tasks passthroughs above are the
 unambiguous way to query.
+
+## 📊 DCMA 14-Point Schedule Analysis
+
+Run the full DCMA 14-point schedule quality check on a loaded programme:
+
+```python
+from xerparser.dcma14.analysis import DCMA14
+
+xer = Reader("schedule.xer")
+results = DCMA14(xer).analysis()["analysis"]
+
+# Every check reports a count (and, where applicable, a percentage)
+print(f"Open ends (no predecessors): {results['predecessors']['cnt']}")
+print(f"Open ends (no successors):   {results['successors']['cnt']}")
+print(f"Lags > 0:                    {results['lags']['cnt']}")
+print(f"Leads (negative lags):       {results['leads']['cnt']}")
+print(f"Hard constraints:            {results['constraints']['cstr_cnt']}")
+print(f"Large total float:           {results['totalfloat']['cnt']}")
+print(f"Negative float:              {results['negativefloat']['cnt']}")
+print(f"Invalid dates:               {results['invaliddates']['cnt']}")
+print(f"Missing resource assignments:{results['resources']['cnt']}")
+print(f"Critical path length test:   {results['critical_test']['passed']}")
+print(f"CPLI:                        {results['cpli']['cpli']}")
+print(f"BEI:                         {results['bei']['bei']}")
+```
+
+The analysis handles multi-project programmes (per-project data dates from
+`last_recalc_date`), calendar-aware hour/day conversions, and counts
+activities rather than relations where the DCMA standard requires it.
 
 ## 📖 Documentation
 
@@ -295,7 +343,10 @@ def calculate_earned_value_metrics(project, xer):
 
 ## 🌟 Supported XER Elements
 
-PyP6Xer supports parsing and manipulation of all major XER file elements:
+PyP6Xer supports parsing and manipulation of all major XER file elements —
+39 model-backed collections plus lossless generic access to every other table
+in the file (60+ tables in a typical export, including RSRCCURV and
+RSRCCURVDATA for resource curve modelling):
 
 ### Core Project Elements
 - **Projects** - Project information and settings
@@ -344,8 +395,10 @@ Reader
 │   └── Resource
 ├── relations (Predecessors collection)
 │   └── Predecessor
-└── calendars (Calendars collection)
-    └── Calendar
+├── calendars (Calendars collection)
+│   └── Calendar
+├── accounts, roles, expenses, activityresources, ... (one collection per table)
+└── tables (dict of every XER table, modelled or not)
 ```
 
 ## 🤝 Contributing
@@ -357,15 +410,29 @@ We welcome contributions! Please see our [Contributing Guide](docs/source/contri
 - Submitting pull requests
 - Code style guidelines
 
+### Running the Test Suite
+
+```bash
+# full suite (280+ tests: every table, query, DCMA check, edge case)
+python -m pytest tests/ -q
+
+# a single area
+python -m pytest tests/test_all_model_tables.py -q   # table round-trips
+python -m pytest tests/test_dcma14_checks.py -q      # DCMA 14-point
+```
+
+The suite builds its own XER fixtures from scratch (see
+`tests/table_fixtures.py`), so it needs no sample data files.
+
 ## 📄 License
 
 PyP6Xer is licensed under the GNU Lesser General Public License v2.1. See the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-- **Documentation**: [Full documentation](docs/source/index.md)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/PyP6Xer/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/PyP6Xer/discussions)
+- **Documentation**: [Full documentation](https://hassanemam.github.io/PyP6Xer/)
+- **Issues**: [GitHub Issues](https://github.com/HassanEmam/PyP6Xer/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/HassanEmam/PyP6Xer/discussions)
 
 ## 🎉 Acknowledgments
 

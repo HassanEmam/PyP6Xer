@@ -55,8 +55,11 @@ class CalendarData:
         pattern = r"\(\d\|\|\d\(\)\("
         dayName = {2: "Monday", 3: "Tuesday", 4: "Wednesday", 5: "Thursday", 6: "Friday", 7: "Saturday", 1: "Sunday"}
         tx = self.text.split("(0||VIEW(ShowTotal|Y)())")
-        days = re.split(pattern, tx[0])
-        dys = re.findall(pattern, self.text)
+        # Work-day blocks may sit before the VIEW marker or, in the common case
+        # where the calendar starts with it, in the remainder of the text.
+        source = tx[0] if tx[0] else self.text
+        days = re.split(pattern, source)
+        dys = re.findall(pattern, source)
         lst_dow = []
         for day, d in zip(days[1:], dys):
             dow = int(d.replace("(0||", "").replace(")", "").replace("(", ""))

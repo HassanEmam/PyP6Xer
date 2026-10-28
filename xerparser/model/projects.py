@@ -67,6 +67,9 @@ class Projects:
     def __repr__(self):
         return str(self._projects)
 
+    def __len__(self):
+        return len(self._projects)
+
     def __iter__(self):
         return iter(self._projects)
 
