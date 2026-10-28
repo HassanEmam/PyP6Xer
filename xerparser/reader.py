@@ -25,6 +25,7 @@ import csv
 import io
 import mmap
 import codecs
+import sys
 from xerparser import *
 from typing import List
 from xerparser.model.classes.data import Data
@@ -334,6 +335,14 @@ class Reader:
         self._reset_class_registries()
         content, header = self._decode_file(filename)
         self.xer_header = header
+        # XER fields (e.g. clndr_data) can exceed the default 128 KiB csv field limit.
+        limit = sys.maxsize
+        while limit > 0:
+            try:
+                csv.field_size_limit(limit)
+                break
+            except OverflowError:
+                limit //= 10
         stream = csv.reader(io.StringIO(content, newline=''), delimiter='\t', quoting=csv.QUOTE_NONE)
         for row in stream:
             if not row or not row[0]:
