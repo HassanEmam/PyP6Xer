@@ -232,6 +232,11 @@ class Reader:
         return self._rsrcurves
 
     @property
+    def tables(self) -> XerTables:
+        """Non-modeled tables (PROJCOST, WBSSTEP, ...), preserved losslessly."""
+        return self._xer_tables
+
+    @property
     def rsrccurves(self) -> RsrcCurves:
         """Resource curve definitions (RSRCCURV table)."""
         return self._rsrc_curvs
@@ -306,6 +311,7 @@ class Reader:
         self._rcattypes = RCatTypes()
         self._rolerates = RoleRates()
         self._roles = Roles()
+        self._xer_tables = XerTables()
         self._rsrc_curvs = RsrcCurves()
         self._rsrcurves = ResourceCurves()
         self._rsrcrates = ResourceRates()
@@ -356,6 +362,10 @@ class Reader:
             elif tag == "%R":
                 zipped_record = dict(zip(current_headers, row[1:]))
                 self.create_object(current_table, zipped_record)
+                if self._DISPATCH.get(current_table) is None:
+                    # No typed model for this table — keep the record so a
+                    # round-trip cannot silently drop it.
+                    self._xer_tables.add(current_table, current_headers, row[1:])
 
     @staticmethod
     def _reset_class_registries():
