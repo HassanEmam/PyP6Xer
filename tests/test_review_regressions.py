@@ -354,3 +354,57 @@ class TestDCMA14Stability:
         d.programme = SimpleNamespace(relations=rels)
         chain = d._longest_critical_chain([t1, t2])
         assert len(chain) == 1
+
+
+class TestRsrcCurv:
+    """RSRCCURV (resource curve definitions) — previously rows were silently dropped."""
+
+    CURV_EXTRA = (
+        "%T\tRSRCCURV\n"
+        "%F\tcurv_data\tcurv_id\tcurv_name\tdefault_flag\n"
+        "%R\t\t7\tFront Loaded\tY\n"
+        "%R\t\t8\tBell Curve\tN\n"
+        "%T\tRSRCCURVDATA\n"
+        "%F\tcurv_id\tcurv_name\tdefault_flag\tpct_usage_0\tpct_usage_1\n"
+        "%R\t7\tFront Loaded\tY\t100\t90\n"
+    )
+
+    def test_parsed(self, tmp_path):
+        r = Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
+        curves = list(r.rsrccurves)
+        assert len(curves) == 2
+        assert curves[0].curv_id == 7
+        assert curves[0].curv_name == "Front Loaded"
+        assert curves[0].default_flag == "Y"
+        assert curves[1].curv_name == "Bell Curve"
+
+    def test_find_by_id(self, tmp_path):
+        r = Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
+        assert r.rsrccurves.find_by_id(8).curv_name == "Bell Curve"
+        assert r.rsrccurves.find_by_id(999) is None
+
+    def test_no_cross_file_leak(self, tmp_path):
+        from xerparser.model.classes.rsrc_curv import RsrcCurv
+        Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
+        assert len(RsrcCurv.obj_list) == 2
+        # a file without RSRCCURV must not inherit the previous file's curves
+        Reader(_xer(tmp_path / "other.xer"))
+        assert len(RsrcCurv.obj_list) == 0
+
+    def test_round_trip(self, tmp_path):
+        r = Reader(_xer(tmp_path / "curv.xer", extra_tables=self.CURV_EXTRA))
+        out = tmp_path / "rt.xer"
+        writeXER(r, out)
+        text = out.read_text()
+        assert "%T\tRSRCCURV" in text
+        r2 = Reader(out)
+        assert r2.rsrccurves.find_by_id(7).curv_name == "Front Loaded"
+        assert r2.rsrccurves.find_by_id(8).default_flag == "N"
+
+    def test_absent_not_emitted(self, tmp_path):
+        r = Reader(_xer(tmp_path / "one.xer"))
+        out = tmp_path / "rt.xer"
+        writeXER(r, out)
+        text = out.read_text()
+        assert "%T\tRSRCCURV" not in text
+        assert "%T\tRSRCCURVDATA" not in text

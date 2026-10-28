@@ -38,7 +38,8 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.nonworks.get_tsv())
         tsv_writer.writerows(r.obss.get_tsv())
         tsv_writer.writerows(r.pcattypes.get_tsv())
-        tsv_writer.writerows(r.resourcecurves.get_tsv())
+        tsv_writer.writerows(r.rsrccurves.get_tsv())  # RSRCCURV (definitions)
+        tsv_writer.writerows(r.resourcecurves.get_tsv())  # RSRCCURVDATA
         tsv_writer.writerows(r.udftypes.get_tsv())
         tsv_writer.writerows(r.accounts.get_tsv())
         tsv_writer.writerows(r.pcatvals.get_tsv())

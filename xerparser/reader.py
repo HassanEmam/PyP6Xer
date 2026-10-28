@@ -60,7 +60,8 @@ class Reader:
         "ROLERATE": "_rolerates", "OBS": "_obss", "RCATTYPE": "_rcattypes",
         "UDFTYPE": "_udftypes", "RCATVAL": "_rcatvals", "PROJECT": "_projects",
         "CALENDAR": "_calendars", "SCHEDOPTIONS": "_schedoptions",
-        "PROJWBS": "_wbss", "RSRC": "_resources", "RSRCCURVDATA": "_rsrcurves",
+        "PROJWBS": "_wbss", "RSRC": "_resources", "RSRCCURV": "_rsrc_curvs",
+        "RSRCCURVDATA": "_rsrcurves",
         "ACTVTYPE": "_acttypes", "PCATTYPE": "_pcattypes", "PROJPCAT": "_projpcats",
         "PCATVAL": "_pcatvals", "RSRCRATE": "_rsrcrates", "RSRCRCAT": "_rsrccats",
         "TASK": "_tasks", "ACTVCODE": "_actvcodes", "TASKPRED": "_predecessors",
@@ -88,6 +89,7 @@ class Reader:
         "SCHEDOPTIONS": "_schedoptions",
         "PROJWBS": "_wbss",
         "RSRC": "_resources",
+        "RSRCCURV": "_rsrc_curvs",
         "RSRCCURVDATA": "_rsrcurves",
         "ACTVTYPE": "_acttypes",
         "PCATTYPE": "_pcattypes",
@@ -230,6 +232,11 @@ class Reader:
         return self._rsrcurves
 
     @property
+    def rsrccurves(self) -> RsrcCurves:
+        """Resource curve definitions (RSRCCURV table)."""
+        return self._rsrc_curvs
+
+    @property
     def resourcerates(self) -> ResourceRates:
         return self._rsrcrates
 
@@ -299,6 +306,7 @@ class Reader:
         self._rcattypes = RCatTypes()
         self._rolerates = RoleRates()
         self._roles = Roles()
+        self._rsrc_curvs = RsrcCurves()
         self._rsrcurves = ResourceCurves()
         self._rsrcrates = ResourceRates()
         self._rsrccats = ResourceCategories()
@@ -371,6 +379,7 @@ class Reader:
         from xerparser.model.classes.taskactv import TaskActv
         from xerparser.model.classes.rsrcrate import ResourceRate
         from xerparser.model.classes.rsrccurv import ResourceCurve
+        from xerparser.model.classes.rsrc_curv import RsrcCurv
         from xerparser.model.classes.rcattype import RCatType
         from xerparser.model.classes.rcatval import RCatVal
         from xerparser.model.classes.rsrcrcat import ResourceCat
@@ -386,7 +395,7 @@ class Reader:
         from xerparser.model.classes.projcat import ProjCat
         for cls in (Task, TaskPred, Calendar, CalendarData, WBS, Resource, Role,
                     RoleRate, Account, OBS, Currency, ActivityCode, TaskActv,
-                    ResourceRate, ResourceCurve, RCatType, RCatVal, ResourceCat,
+                    ResourceRate, ResourceCurve, RsrcCurv, RCatType, RCatVal, ResourceCat,
                     SchedOption, PCatType, PCatVal, ActType, TaskProc, FinTmpl,
                     NonWork, UDFType, UDFValue, ProjCat):
             if hasattr(cls, 'obj_list'):
