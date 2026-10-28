@@ -48,7 +48,7 @@ class Calendars:
         obj = list(filter(lambda x: x.clndr_id == id, self._calendars))
         if len(obj) > 0:
             return obj[0]
-        return obj
+        return None
 
     def count(self):
         return len(self._calendars)
@@ -57,11 +57,4 @@ class Calendars:
         return len(self._calendars)
 
     def __iter__(self):
-        return self
-
-    def __next__(self) -> Calendar:
-        if self.index >= len(self._calendars):
-            raise StopIteration
-        idx = self.index
-        self.index += 1
-        return self._calendars[idx]
+        return iter(self._calendars)

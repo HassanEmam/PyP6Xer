@@ -53,7 +53,7 @@ class Resource:
         self.rsrc_notes = params.get('rsrc_notes').strip() if params.get('rsrc_notes') else None
         self.load_tasks_flag = params.get('load_tasks_flag').strip() if params.get('load_tasks_flag') else None
         self.level_flag = params.get('level_flag').strip() if params.get('level_flag') else None
-        self.last_checksum = params.get('level_flag').strip() if params.get('level_flag') else None
+        self.last_checksum = params.get('last_checksum').strip() if params.get('last_checksum') else None
         Resource.obj_list.append(self)
 
     def get_id(self):

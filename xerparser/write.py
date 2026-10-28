@@ -19,8 +19,17 @@
 
 import csv
 
+def _default_header():
+    return ['ERMHDR', '8.0', '2021-11-02', 'Project', 'admin', 'Primavera', 'Admin', 'dbxDatabaseNoName', 'Project Management', 'U.K.']
+
 def writeXER(r, filename):
-    header = ['ERMHDR', '8.0', '2021-11-02', 'Project',	'admin', 'Primavera', 'Admin', 'dbxDatabaseNoName', 'Project Management', 'U.K.']
+    # Preserve the ERMHDR from the source file when the Reader was parsed
+    # from a file, so a round-trip does not fake version/user/database info.
+    header = None
+    if hasattr(r, 'xer_header') and isinstance(r.xer_header, list) and r.xer_header and r.xer_header[0] == 'ERMHDR':
+        header = list(r.xer_header)
+    if not header:
+        header = _default_header()
     with open(filename, 'w', newline='', encoding='utf-8') as output:
         tsv_writer = csv.writer(output, delimiter='\t')
         tsv_writer.writerow(header)
@@ -36,6 +45,11 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.projects.get_tsv())
         tsv_writer.writerows(r.calendars.get_tsv())
         tsv_writer.writerows(r.projpcats.get_tsv())
+        tsv_writer.writerows(r.roles.get_tsv())
+        tsv_writer.writerows(r.rolerates.get_tsv())
+        tsv_writer.writerows(r.rcattypes.get_tsv())
+        tsv_writer.writerows(r.rcatvals.get_tsv())
+        tsv_writer.writerows(r.resourcecategories.get_tsv())
         # Only write SCHEDOPTIONS if it exists and has data
         try:
             if hasattr(r, 'scheduleoptions') and r.scheduleoptions and len(r.scheduleoptions) > 0:
@@ -56,4 +70,3 @@ def writeXER(r, filename):
         tsv_writer.writerows(r.taskactvs.get_tsv())
         tsv_writer.writerows(r.udfvalues.get_tsv())
         tsv_writer.writerow(['%E'])
-

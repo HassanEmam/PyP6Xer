@@ -61,7 +61,7 @@ class TaskRsrc:
         self.guid = params.get('guid').strip() if params.get('guid') else None
         self.rate_type = params.get('rate_type').strip() if params.get('rate_type') else None
         self.act_this_per_cost = params.get('act_this_per_cost').strip() if params.get('act_this_per_cost') else None
-        self.act_this_per_qty = params.get('act_this_per_cost').strip() if params.get('act_this_per_cost') else None
+        self.act_this_per_qty = params.get('act_this_per_qty').strip() if params.get('act_this_per_qty') else None
         self.curv_id = params.get('curv_id').strip() if params.get('curv_id') else None
         self.rsrc_type = params.get('rsrc_type').strip() if params.get('rsrc_type') else None
         self.cost_per_qty_source_type = params.get('cost_per_qty_source_type').strip() if params.get('cost_per_qty_source_type') else None

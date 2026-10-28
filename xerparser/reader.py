@@ -22,8 +22,10 @@ This file starts the process of reading and parsing xer files
 
 '''
 import csv
+import io
 import mmap
 import codecs
+import sys
 from xerparser import *
 from typing import List
 from xerparser.model.classes.data import Data
@@ -46,6 +48,7 @@ class Reader:
 
     current_table = ''
     current_headers = []
+    xer_header = None
 
     def write(self, filename=None):
         if filename is None:
@@ -120,10 +123,6 @@ class Reader:
             self._fintmpls.add(params)
         elif object_type.strip() == "NONWORK":
             self._nonworks.add(params)
-
-    def summary(self):
-        print('Number of activities: ', self.tasks.count)
-        print('Number of relationships: ', len(TaskPred.obj_list))
 
     @property
     def projects(self) -> Projects:
@@ -285,6 +284,10 @@ class Reader:
     def nonworks(self) -> List[NonWork]:
         return self._nonworks
 
+    def summary(self):
+        print('Number of activities: ', self.activities.count)
+        print('Number of relationships: ', len(self.relations))
+
     def __init__(self, filename):
         self.file = filename
         self._tasks = Tasks()
@@ -324,23 +327,103 @@ class Reader:
         self._data.taskresource = self._activityresources
         self._data.taskactvcodes = self._activitycodes
         self._data.predecessors = self._predecessors
-        with codecs.open(filename, encoding='utf-8', errors='ignore') as tsvfile:
-            stream = csv.reader(tsvfile, delimiter='\t')
-            for row in stream:
-                if row[0] =="%T":
-                    current_table = row[1]
-                elif row[0] == "%F":
-                    current_headers = [r.strip() for r in row[1:]]
-                elif row[0] == "%R":
-                    zipped_record = dict(zip(current_headers, row[1:]))
-                    self.create_object(current_table, zipped_record)
+        self._data.calendars = self._calendars
+        self._tasks.data = self._data
+        self.xer_header = None
+        # Reset class-level registries so parsing a new file cannot
+        # resolve lookups against records from a previously parsed file.
+        self._reset_class_registries()
+        content, header = self._decode_file(filename)
+        self.xer_header = header
+        # XER fields (e.g. clndr_data) can exceed the default 128 KiB csv field limit.
+        limit = sys.maxsize
+        while limit > 0:
+            try:
+                csv.field_size_limit(limit)
+                break
+            except OverflowError:
+                limit //= 10
+        stream = csv.reader(io.StringIO(content, newline=''), delimiter='\t', quoting=csv.QUOTE_NONE)
+        for row in stream:
+            if not row or not row[0]:
+                continue
+            tag = row[0].strip()
+            if tag == "%T":
+                current_table = row[1].strip()
+            elif tag == "%F":
+                current_headers = [r.strip() for r in row[1:]]
+            elif tag == "%R":
+                zipped_record = dict(zip(current_headers, row[1:]))
+                self.create_object(current_table, zipped_record)
 
-        # for line in content:
-        #     line_lst = line.split('\t')
-        #     if line_lst[0] == "%T":
-        #         current_table = line_lst[1]
-        #     elif line_lst[0] == "%R":
-        #         self.create_object(current_table, line_lst[1:])
+    @staticmethod
+    def _reset_class_registries():
+        """Clear class-level obj_list registries before a fresh parse.
+
+        The model classes keep registries at class level for backwards
+        compatibility, but they must not leak records between files.
+        """
+        from xerparser.model.classes.task import Task
+        from xerparser.model.classes.taskpred import TaskPred
+        from xerparser.model.classes.calendar import Calendar
+        from xerparser.model.classes.calendar_data import CalendarData
+        from xerparser.model.classes.wbs import WBS
+        from xerparser.model.classes.rsrc import Resource
+        from xerparser.model.classes.role import Role
+        from xerparser.model.classes.rolerate import RoleRate
+        from xerparser.model.classes.account import Account
+        from xerparser.model.classes.obs import OBS
+        from xerparser.model.classes.currency import Currency
+        from xerparser.model.classes.activitycode import ActivityCode
+        from xerparser.model.classes.taskactv import TaskActv
+        from xerparser.model.classes.rsrcrate import ResourceRate
+        from xerparser.model.classes.rsrccurv import ResourceCurve
+        from xerparser.model.classes.rcattype import RCatType
+        from xerparser.model.classes.rcatval import RCatVal
+        from xerparser.model.classes.rsrcrcat import ResourceCat
+        from xerparser.model.classes.schedoption import SchedOption
+        from xerparser.model.classes.pcattype import PCatType
+        from xerparser.model.classes.pcatval import PCatVal
+        from xerparser.model.classes.acttype import ActType
+        from xerparser.model.classes.taskproc import TaskProc
+        from xerparser.model.classes.fintmpl import FinTmpl
+        from xerparser.model.classes.nonwork import NonWork
+        from xerparser.model.classes.udftype import UDFType
+        from xerparser.model.classes.udfvalue import UDFValue
+        from xerparser.model.classes.projcat import ProjCat
+        for cls in (Task, TaskPred, Calendar, CalendarData, WBS, Resource, Role,
+                    RoleRate, Account, OBS, Currency, ActivityCode, TaskActv,
+                    ResourceRate, ResourceCurve, RCatType, RCatVal, ResourceCat,
+                    SchedOption, PCatType, PCatVal, ActType, TaskProc, FinTmpl,
+                    NonWork, UDFType, UDFValue, ProjCat):
+            if hasattr(cls, 'obj_list'):
+                cls.obj_list = []
+
+    @staticmethod
+    def _decode_file(filename):
+        """Read an XER file handling both UTF-8 and CP1252 (ANSI) encodings.
+
+        P6 exports XER files in the system ANSI codepage (typically CP1252).
+        Decoding those as UTF-8 with errors='ignore' silently deletes every
+        non-ASCII character, so we try UTF-8 strictly first and fall back.
+        """
+        with open(filename, 'rb') as fh:
+            raw = fh.read()
+        for encoding in ('utf-8-sig', 'cp1252'):
+            try:
+                text = raw.decode(encoding)
+                break
+            except (UnicodeDecodeError, LookupError):
+                continue
+        else:
+            text = raw.decode('utf-8', errors='replace')
+        lines = text.splitlines()
+        header = None
+        if lines and lines[0].startswith('ERMHDR'):
+            header = lines[0].split('\t')
+            lines = lines[1:]
+        Reader.xer_header = header
+        return '\n'.join(lines), header
 
     def get_num_lines(self, file_path):
         fp = open(file_path, "r+")
