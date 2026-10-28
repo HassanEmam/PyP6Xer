@@ -121,6 +121,55 @@ for activity in xer.activities:
 xer.write("updated_project.xer")
 ```
 
+## 🔗 Editing Activity Relationships
+
+Relationships (the TASKPRED table) can be added, removed and re-routed in
+Python, then written back to a valid XER — no Excel round-trip needed
+(see issue #7):
+
+```python
+from xerparser.reader import Reader
+from xerparser.write import writeXER
+
+xer = Reader("schedule.xer")
+
+# Add a finish-to-start relationship (tasks validated, IDs auto-allocated)
+rel = xer.relations.add_relationship(
+    task_id=1003, pred_task_id=1002,
+    pred_type="PR_FS",      # PR_FS / PR_SS / PR_FF / PR_SF
+    lag_hr_cnt=8.0,         # hours; negative = lead
+    comments="Resequence phase 2",
+)
+
+# Cross-project link: set the predecessor's project explicitly
+xer.relations.add_relationship(task_id=1003, pred_task_id=5000, pred_proj_id=2)
+
+# Relationships are mutable — edit in place
+for rel in xer.activities.get_predecessors(1002):
+    rel.lag_hr_cnt = 4.0
+
+# Re-route (delete + create in one step; validation failures change nothing)
+xer.relations.replace_relationship(rel, pred_task_id=1001, pred_type="PR_SS")
+
+# Remove
+xer.relations.remove_relationship(rel)          # by object
+xer.relations.remove_relationship(12)           # or by task_pred_id
+
+writeXER(xer, "rescheduled.xer")
+```
+
+Convenience queries on `xer.activities` (Tasks):
+
+```python
+xer.activities.get_predecessors(task_id)   # relationships feeding this activity
+xer.activities.get_successors(task_id)     # relationships leaving this activity
+```
+
+Note: on the `xer.relations` collection itself, `get_successors(act_id)`
+returns relationships in which `act_id` is the *predecessor* (i.e. the
+successors of `act_id`) — the Tasks passthroughs above are the
+unambiguous way to query.
+
 ## 📖 Documentation
 
 Comprehensive documentation is available with detailed API references and examples:

@@ -334,6 +334,7 @@ class Reader:
         self._data.taskresource = self._activityresources
         self._data.taskactvcodes = self._activitycodes
         self._data.predecessors = self._predecessors
+        self._predecessors._tasks = self._tasks
         self._data.calendars = self._calendars
         self._tasks.data = self._data
         self.xer_header = None

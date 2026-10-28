@@ -146,6 +146,14 @@ class Tasks:
             activities.append(self.find_by_id(obj.task_id))
         return activities
 
+    def get_predecessors(self, task_id):
+        """Relationships where task_id is the successor (its predecessors)."""
+        return [rel for rel in self._preds() if rel.task_id == task_id]
+
+    def get_successors(self, task_id):
+        """Relationships where task_id is the predecessor (its successors)."""
+        return [rel for rel in self._preds() if rel.pred_task_id == task_id]
+
     def no_predecessors(self):
         preds = self._preds()
         objs = list(filter(lambda x: x.task_id not in [z.task_id for z in preds], self._tasks))
