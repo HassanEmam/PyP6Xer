@@ -41,16 +41,16 @@ class Calendar:
         self.clndr_type = params.get('clndr_type').strip() if params.get('clndr_type') else None
         # The number of work hours per day. This conversion factor is used for displaying time units and durations in
         #  the user's selected display formats.
-        self.day_hr_cnt = locale.atof(params.get('day_hr_cnt')) if params.get('day_hr_cnt') else None
+        self.day_hr_cnt = float(params.get('day_hr_cnt')) if params.get('day_hr_cnt') else None
         # The number of work hours per week. This conversion factor is used for displaying time units and durations
         # in the user's selected display formats.
-        self.week_hr_cnt = locale.atof(params.get('week_hr_cnt')) if params.get('week_hr_cnt') else None
+        self.week_hr_cnt = float(params.get('week_hr_cnt')) if params.get('week_hr_cnt') else None
         # The number of work hours per month. This conversion factor is used for displaying time units and durations
         # in the user's selected display formats.
-        self.month_hr_cnt = locale.atof(params.get('month_hr_cnt')) if params.get('month_hr_cnt') else None
+        self.month_hr_cnt = float(params.get('month_hr_cnt')) if params.get('month_hr_cnt') else None
         # The number of work hours per year. This conversion factor is used for displaying time units and durations
         # in the user's selected display formats.
-        self.year_hr_cnt = locale.atof(params.get('year_hr_cnt')) if params.get('year_hr_cnt') else None
+        self.year_hr_cnt = float(params.get('year_hr_cnt')) if params.get('year_hr_cnt') else None
         #
         self.rsrc_private = params.get('rsrc_private').strip() if params.get('rsrc_private') else None
 
@@ -77,10 +77,9 @@ class Calendar:
 
     @staticmethod
     def find_by_id(id):
-        obj = list(filter(lambda x: x.clndr_id == id, Calendar.obj_list))
-        if obj:
-            return obj[0]
-        return None
+        # Early-exit scan: the previous list(filter(...)) built a full list of
+        # every calendar on every call (O(n) per TASK row during parsing).
+        return next((x for x in Calendar.obj_list if x.clndr_id == id), None)
 
     def __repr__(self):
         return self.clndr_name + ' : ' + str(self.day_hr_cnt) + '\n' + self.clndr_data

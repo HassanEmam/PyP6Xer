@@ -37,7 +37,7 @@ class ActivityCode:
         # Sequence number for sorting.
         self.seq_num = int(params.get('seq_num').strip()) if params.get('seq_num') else None
         self.color = params.get('color').strip() if params.get('color') else None
-        self.total_assignments = int(locale.atof(params.get('total_assignments').strip())) if params.get('total_assignments') else None
+        self.total_assignments = int(float(params.get('total_assignments').strip())) if params.get('total_assignments') else None
         ActivityCode.obj_list.append(self)
 
     def get_id(self):

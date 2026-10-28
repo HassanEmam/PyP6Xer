@@ -55,74 +55,67 @@ class Reader:
             raise Exception("You have to provide the filename")
         writeXER(self, filename)
 
+    _DISPATCH = {
+        "CURRTYPE": "_currencies", "ROLES": "_roles", "ACCOUNT": "_accounts",
+        "ROLERATE": "_rolerates", "OBS": "_obss", "RCATTYPE": "_rcattypes",
+        "UDFTYPE": "_udftypes", "RCATVAL": "_rcatvals", "PROJECT": "_projects",
+        "CALENDAR": "_calendars", "SCHEDOPTIONS": "_schedoptions",
+        "PROJWBS": "_wbss", "RSRC": "_resources", "RSRCCURVDATA": "_rsrcurves",
+        "ACTVTYPE": "_acttypes", "PCATTYPE": "_pcattypes", "PROJPCAT": "_projpcats",
+        "PCATVAL": "_pcatvals", "RSRCRATE": "_rsrcrates", "RSRCRCAT": "_rsrccats",
+        "TASK": "_tasks", "ACTVCODE": "_actvcodes", "TASKPRED": "_predecessors",
+        "TASKRSRC": "_activityresources", "TASKPROC": "_taskprocs",
+        "TASKACTV": "_activitycodes", "UDFVALUE": "_udfvalues",
+        "FINTMPL": "_fintmpls", "NONWORK": "_nonworks",
+    }
+    # Collections that receive the shared Data instance as a second argument.
+    _NEEDS_DATA = {"PROJECT", "PROJWBS", "TASK", "TASKRSRC", "TASKACTV"}
+
+    # Table -> collection attribute. O(1) dict dispatch instead of a ~30-way
+    # elif chain, which dominated the parse profile on large files.
+    _DISPATCH = {
+        "CURRTYPE": "_currencies",
+        "ROLE": "_roles",
+        "ROLES": "_roles",
+        "ACCOUNT": "_accounts",
+        "ROLERATE": "_rolerates",
+        "OBS": "_obss",
+        "RCATTYPE": "_rcattypes",
+        "UDFTYPE": "_udftypes",
+        "RCATVAL": "_rcatvals",
+        "PROJECT": "_projects",
+        "CALENDAR": "_calendars",
+        "SCHEDOPTIONS": "_schedoptions",
+        "PROJWBS": "_wbss",
+        "RSRC": "_resources",
+        "RSRCCURVDATA": "_rsrcurves",
+        "ACTVTYPE": "_acttypes",
+        "PCATTYPE": "_pcattypes",
+        "PROJPCAT": "_projpcats",
+        "PCATVAL": "_pcatvals",
+        "RSRCRATE": "_rsrcrates",
+        "RSRCRCAT": "_rsrccats",
+        "TASK": "_tasks",
+        "ACTVCODE": "_actvcodes",
+        "TASKPRED": "_predecessors",
+        "TASKRSRC": "_activityresources",
+        "TASKPROC": "_taskprocs",
+        "TASKACTV": "_activitycodes",
+        "UDFVALUE": "_udfvalues",
+        "FINTMPL": "_fintmpls",
+        "NONWORK": "_nonworks",
+    }
+
     def create_object(self, object_type, params):
-        """
-
-        Args:
-            object_type:
-            params:
-
-        Returns:
-
-        """
-        if object_type.strip() == "CURRTYPE":
-            self._currencies.add(params)
-        elif object_type.strip() in ("ROLE", "ROLES"):
-            self._roles.add(params)
-        elif object_type.strip() == "ACCOUNT":
-            self._accounts.add(params)
-        elif object_type.strip() == "ROLERATE":
-            self._rolerates.add(params)
-        elif object_type.strip() == "OBS":
-            self._obss.add(params)
-        elif object_type.strip() == "RCATTYPE":
-            self._rcattypes.add(params)
-        elif object_type.strip() == "UDFTYPE":
-            self._udftypes.add(params)
-        elif object_type.strip() == "RCATVAL":
-            self._rcatvals.add(params)
-        elif object_type.strip() == "PROJECT":
-            self._projects.add(params, self._data)
-        elif object_type.strip() == "CALENDAR":
-            self._calendars.add(params)
-        elif object_type.strip() == "SCHEDOPTIONS":
-            self._schedoptions.add(params)
-        elif object_type.strip() == "PROJWBS":
-            self._wbss.add(params, self._data)
-        elif object_type.strip() == "RSRC":
-            self._resources.add(params)
-        elif object_type.strip() == "RSRCCURVDATA":
-            self._rsrcurves.add(params)
-        elif object_type.strip() == "ACTVTYPE":
-            self._acttypes.add(params)
-        elif object_type.strip() == "PCATTYPE":
-            self._pcattypes.add(params)
-        elif object_type.strip() == "PROJPCAT":
-            self._projpcats.add(params)
-        elif object_type.strip() == "PCATVAL":
-            self._pcatvals.add(params)
-        elif object_type.strip() == "RSRCRATE":
-            self._rsrcrates.add(params)
-        elif object_type.strip() == "RSRCRCAT":
-            self._rsrccats.add(params)
-        elif object_type.strip() == "TASK":
-            self._tasks.add(params, self._data)
-        elif object_type.strip() == "ACTVCODE":
-            self._actvcodes.add(params)
-        elif object_type.strip() == "TASKPRED":
-            self._predecessors.add(params)
-        elif object_type.strip() == "TASKRSRC":
-            self._activityresources.add(params, self._data)
-        elif object_type.strip() == "TASKPROC":
-            self._taskprocs.add(params)
-        elif object_type.strip() == "TASKACTV":
-            self._activitycodes.add(params, self._data)
-        elif object_type.strip() == "UDFVALUE":
-            self._udfvalues.add(params)
-        elif object_type.strip() == "FINTMPL":
-            self._fintmpls.add(params)
-        elif object_type.strip() == "NONWORK":
-            self._nonworks.add(params)
+        """Add a parsed record to the matching collection (O(1) dispatch)."""
+        attr = self._DISPATCH.get(object_type)
+        if attr is None:
+            return
+        collection = getattr(self, attr)
+        if object_type in self._NEEDS_DATA:
+            collection.add(params, self._data)
+        else:
+            collection.add(params)
 
     @property
     def projects(self) -> Projects:
@@ -424,6 +417,7 @@ class Reader:
             lines = lines[1:]
         Reader.xer_header = header
         return '\n'.join(lines), header
+
 
     def get_num_lines(self, file_path):
         fp = open(file_path, "r+")
