@@ -126,7 +126,7 @@ class Predecessors:
                 Optional when the Reader wired one automatically.
 
         Returns:
-            TaskPred: the appended relationship.
+            The appended TaskPred relationship.
 
         Raises:
             ValueError: on an unknown pred_type, non-numeric lag, unknown
