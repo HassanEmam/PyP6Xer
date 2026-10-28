@@ -43,7 +43,7 @@ class Accounts:
         return len(self._accounts)
 
     def __iter__(self):
-        return self
+        return iter(self._accounts)
 
     def __next__(self) -> Account:
         if self.index >= len(self._accounts):

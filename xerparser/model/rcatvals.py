@@ -42,7 +42,7 @@ class RCatVals:
         return []
     
     def find_by_id(self, id) -> RCatVal:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rcatvals))
+        obj = list(filter(lambda x: x.rsrc_catg_id == id, self._rcatvals))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -55,7 +55,7 @@ class RCatVals:
         return len(self._rcatvals)
 
     def __iter__(self):
-        return self
+        return iter(self._rcatvals)
 
     def __next__(self) -> RCatVal:
         if self.index >= len(self._rcatvals):

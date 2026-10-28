@@ -41,7 +41,7 @@ class UDFValues:
         return []
 
     def find_by_id(self, id) -> UDFValue:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._udfvalues))
+        obj = list(filter(lambda x: x.udf_type_id == id, self._udfvalues))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -54,7 +54,7 @@ class UDFValues:
         return len(self._udfvalues)
 
     def __iter__(self):
-        return self
+        return iter(self._udfvalues)
 
     def __next__(self) -> UDFValue:
         if self.index >= len(self._udfvalues):

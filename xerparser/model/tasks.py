@@ -44,6 +44,7 @@ class Tasks:
     def add(self, params, data):
         task = Task(params, data)
         self._tasks.append(task)
+        self.data = data
 
     @property
     def activities(self) -> List[Task]:

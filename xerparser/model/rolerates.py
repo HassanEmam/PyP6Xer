@@ -38,10 +38,9 @@ class RoleRates:
 
     def add(self, params):
         self._rolerates.append(RoleRate(params))
-        self._rolerates = []
 
     def find_by_id(self, id) -> RoleRate:
-        obj = list(filter(lambda x: x.actv_code_type_id == id, self._rolerates))
+        obj = list(filter(lambda x: x.role_rate_id == id, self._rolerates))
         if len(obj) > 0:
             return obj[0]
         return obj
@@ -54,7 +53,7 @@ class RoleRates:
         return len(self._rolerates)
 
     def __iter__(self):
-        return self
+        return iter(self._rolerates)
 
     def __next__(self) -> RoleRate:
         if self.index >= len(self._rolerates):
