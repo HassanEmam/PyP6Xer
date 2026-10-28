@@ -10,3 +10,4 @@ class Data:
         self.taskresource = None
         self.taskactvcodes = None
         self.predecessors = None
+        self.calendars = None

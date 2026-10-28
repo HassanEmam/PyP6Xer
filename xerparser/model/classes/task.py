@@ -41,7 +41,7 @@ class Task:
         self.clndr_id = int(params.get('clndr_id')) if params.get('clndr_id') else None
         # The physical percent complete can either be user entered or calculated from the activity's weighted steps.
         #  There is a project setting specifying this.
-        self.phys_complete_pct = locale.atof(params.get('phys_complete_pct')) if 'phys_complete_pct' in params.keys() else None
+        self.phys_complete_pct = locale.atof(params.get('phys_complete_pct')) if params.get('phys_complete_pct') else None
         # Indicates that the primary resource has sent feedback notes about this activity which have not been
         # reviewed yet.
         self.rev_fdbk_flag = params.get('rev_fdbk_flag') if params.get('rev_fdbk_flag') else None
@@ -181,10 +181,10 @@ class Task:
         self.suspend_date = datetime.strptime(params.get('suspend_date').strip(), '%Y-%m-%d %H:%M') if params.get('suspend_date') else None
         # The date progress is resumed on an activity.
         self.resume_date = datetime.strptime(params.get('resume_date').strip(), '%Y-%m-%d %H:%M') if params.get('resume_date') else None
-        self.int_path = params.get('int_path').strip() if params.get('int_path') else None
-        # This field is computed by the project scheduler and identifies the order in which the activities were
-        # processed within the int path.
-        self.int_path_order = params.get('int_path_order').strip() if params.get('int_path_order') else None
+        # Spec field name is float_path / float_path_order; int_path was the
+        # pre-v19 name and is accepted for backwards compatibility.
+        self.float_path = params.get('float_path').strip() if params.get('float_path') else params.get('int_path')
+        self.float_path_order = params.get('float_path_order').strip() if params.get('float_path_order') else params.get('int_path_order')
         self.guid = params.get('guid').strip() if params.get('guid') else None
         self.tmpl_guid = params.get('tmpl_guid').strip() if params.get('tmpl_guid') else None
         # The second constraint date for the activity, if the activity has a constraint.
@@ -201,15 +201,18 @@ class Task:
         #  import when an external relationship is lost.
         try:
             self.external_early_start_date = datetime.strptime(params.get('external_early_start_date').strip(), '%Y-%m-%d %H:%M') if params.get('external_early_start_date') else None
-            self.external_late_end_date = datetime.strptime(params.get('external_late_end_date'), '%Y-%m-%d %H:%M') if params.get('external_late_end_date') else None
-        except:
-            pass
+        except ValueError:
+            self.external_early_start_date = None
+        try:
+            self.external_late_end_date = datetime.strptime(params.get('external_late_end_date').strip(), '%Y-%m-%d %H:%M') if params.get('external_late_end_date') else None
+        except ValueError:
+            self.external_late_end_date = None
         self.create_date = datetime.strptime(params.get('create_date'), '%Y-%m-%d %H:%M') if params.get('create_date') else None
         self.update_date = datetime.strptime(params.get('update_date'), '%Y-%m-%d %H:%M') if params.get('update_date') else None
         self.create_user = params.get('create_user').strip() if params.get('create_user') else None
         self.update_user = params.get('update_user').strip() if params.get('update_user') else None
         self.location_id = params.get('location_id').strip() if params.get('location_id') else None
-        self.calendar = Calendar.find_by_id(self.clndr_id)
+        self.calendar = data.calendars.find_by_id(self.clndr_id) if data is not None and getattr(data, 'calendars', None) is not None else Calendar.find_by_id(self.clndr_id)
         # self.wbs = WBS.find_by_id(int(self.wbs_id) if self.wbs_id else None)
         # Task.obj_list.append(self)
         self.data = data
@@ -238,7 +241,7 @@ class Task:
                self.cstr_type, self.priority_type,
                self.suspend_date.strftime('%Y-%m-%d %H:%M') if self.suspend_date else None,
                self.resume_date.strftime('%Y-%m-%d %H:%M') if self.resume_date else None,
-               self.int_path, self.int_path_order, self.guid, self.tmpl_guid,
+               self.float_path, self.float_path_order, self.guid, self.tmpl_guid,
                self.cstr_date2.strftime('%Y-%m-%d %H:%M') if self.cstr_date2 else None,
                self.cstr_type2, self.driving_path_flag,
                self.act_this_per_work_qty, self.act_this_per_equip_qty,
@@ -255,11 +258,10 @@ class Task:
 
     @property
     def totalint(self):
-        if self.total_int_hr_cnt:
-            tf = int(self.total_int_hr_cnt)/8.0
-        else:
-            return None
-        return tf
+        if self.total_float_hr_cnt:
+            day_hours = self.calendar.day_hr_cnt if self.calendar is not None and self.calendar.day_hr_cnt else 8.0
+            return float(self.total_float_hr_cnt) / day_hours
+        return None
 
     @property
     def resources(self):
@@ -278,12 +280,12 @@ class Task:
     def duration(self):
         dur = None
         if self.target_drtn_hr_cnt:
-            if self.calendar.day_hr_cnt:
+            if self.calendar is not None and self.calendar.day_hr_cnt:
                 dur = self.target_drtn_hr_cnt / self.calendar.day_hr_cnt
             else:
                 dur = self.target_drtn_hr_cnt / 8.0
         else:
-            dur =0.0
+            dur = 0.0
         return dur
 
     @property

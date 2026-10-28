@@ -26,7 +26,7 @@ class TaskPred:
         self.task_id = int(params.get('task_id')) if params.get('task_id') else None
         self.pred_task_id = int(params.get('pred_task_id')) if params.get('pred_task_id') else None
         self.proj_id = int(params.get('proj_id').strip()) if params.get('proj_id') else None
-        self.pred_proj_id = int(params.get('proj_id').strip()) if params.get('pred_proj_id') else None
+        self.pred_proj_id = int(params.get('pred_proj_id').strip()) if params.get('pred_proj_id') else None
         self.pred_type = params.get('pred_type').strip() if params.get('pred_type') else None
         self.lag_hr_cnt = float(params.get('lag_hr_cnt').strip()) if params.get('lag_hr_cnt') else None
         self.float_path = params.get('float_path').strip() if params.get('float_path') else None

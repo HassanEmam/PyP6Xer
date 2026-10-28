@@ -84,7 +84,7 @@ class Project:
         self.allow_neg_act_flag = params.get('allow_neg_act_flag').strip() if params.get('allow_neg_act_flag') else None
         self.sum_assign_level = params.get('sum_assign_level').strip() if params.get('sum_assign_level') else None
         self.last_fin_dates_id = params.get('last_fin_dates_id').strip() if params.get('last_fin_dates_id') else None
-        self.last_baseline_update_date = params.get('last_fin_dates_id').strip() if params.get('last_fin_dates_id') else None
+        self.last_baseline_update_date = params.get('last_baseline_update_date').strip() if params.get('last_baseline_update_date') else None
         self.cr_external_key = params.get('cr_external_key').strip() if params.get('cr_external_key') else None
         self.apply_actuals_date = params.get('apply_actuals_date').strip() if params.get('apply_actuals_date') else None
         self.location_id = params.get('location_id') if params.get('location_id') else None

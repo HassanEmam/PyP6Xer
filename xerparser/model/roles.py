@@ -29,7 +29,7 @@ class Roles:
     def get_tsv(self):
         if len(self._roles) > 0:
             tsv = []
-            tsv.append(['%T', 'ROLE'])
+            tsv.append(['%T', 'ROLES'])
             tsv.append(['%F', 'role_id', 'parent_role_id', 'seq_num', 'role_name',
                    'role_short_name', 'pobs_id', 'def_cost_qty_link_flag', 'cost_qty_type',
                    'role_descr', 'last_checksum'])

@@ -33,6 +33,13 @@ class Tasks:
     def __init__(self):
         self.index = 0
         self._tasks = []
+        self.data = None
+
+    def _preds(self):
+        """Relationship records for this file, or the legacy global list."""
+        if self.data is not None and getattr(self.data, 'predecessors', None) is not None:
+            return self.data.predecessors.task_pred
+        return TaskPred.obj_list
 
     def add(self, params, data):
         task = Task(params, data)
@@ -48,12 +55,14 @@ class Tasks:
 
     @property
     def has_no_successor(self):
-        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
+        preds = self._preds()
+        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in preds], self._tasks))
         return objs
 
     @property
     def has_no_predecessor(self):
-        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
+        preds = self._preds()
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in preds], self._tasks))
         return objs
 
     def __len__(self):
@@ -84,39 +93,39 @@ class Tasks:
         return obj
 
     def duration_greater_than(self, duration):
-        obj = list(filter(lambda x: x.target_drtn_hr_cnt > duration * float(self.calendar.day_hr_cnt), self._tasks))
+        obj = list(filter(lambda x: x.target_drtn_hr_cnt is not None and x.target_drtn_hr_cnt > duration, self._tasks))
         if obj:
             return obj
         return obj
 
     def float_less_than(self, Tfloat):
-        objs = list(filter(lambda x: x.status_code != "TK_Complete", self._tasks))
-        obj = list(filter(lambda x: x.total_float_hr_cnt < Tfloat * float(x.calendar.day_hr_cnt), objs))
+        objs = list(filter(lambda x: x.status_code != "TK_Complete" and x.total_float_hr_cnt is not None, self._tasks))
+        obj = list(filter(lambda x: x.total_float_hr_cnt < Tfloat * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0), objs))
         if obj:
             return obj
         return obj
 
     def float_greater_than(self, Tfloat):
-        objs = list(filter(lambda x: x.status_code != "TK_Complete", self._tasks))
-        obj = list(filter(lambda x: x.total_float_hr_cnt > Tfloat * float(x.calendar.day_hr_cnt), objs))
+        objs = list(filter(lambda x: x.status_code != "TK_Complete" and x.total_float_hr_cnt is not None, self._tasks))
+        obj = list(filter(lambda x: x.total_float_hr_cnt > Tfloat * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0), objs))
         if obj:
             return obj
         return obj
 
     def float_within_range(self, float1, float2):
         obj = None
-        objs = list(filter(lambda x: x.status_code != "TK_Complete", self._tasks))
+        objs = list(filter(lambda x: x.status_code != "TK_Complete" and x.total_float_hr_cnt is not None, self._tasks))
         if float1 < float2:
-            obj = list(filter(lambda x: x.total_float_hr_cnt >= float1 * float(x.calendar.day_hr_cnt) and x.total_float_hr_cnt <= float2 * float(x.calendar.day_hr_cnt), objs))
+            obj = list(filter(lambda x: float1 * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0) <= x.total_float_hr_cnt <= float2 * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0), objs))
             if obj:
                 return obj
         return obj
 
     def float_within_range_exclusive(self, float1, float2):
         obj = None
-        objs = list(filter(lambda x: x.status_code != "TK_Complete", self._tasks))
+        objs = list(filter(lambda x: x.status_code != "TK_Complete" and x.total_float_hr_cnt is not None, self._tasks))
         if float1 < float2:
-            obj = list(filter(lambda x: x.total_float_hr_cnt > float1 * float(x.calendar.day_hr_cnt) and x.total_float_hr_cnt < float2 * float(x.calendar.day_hr_cnt), objs))
+            obj = list(filter(lambda x: float1 * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0) < x.total_float_hr_cnt < float2 * float(x.calendar.day_hr_cnt if x.calendar is not None and x.calendar.day_hr_cnt else 8.0), objs))
             if obj:
                 return obj
         return obj
@@ -137,11 +146,13 @@ class Tasks:
         return activities
 
     def no_predecessors(self):
-        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in TaskPred.obj_list], self._tasks))
+        preds = self._preds()
+        objs = list(filter(lambda x: x.task_id not in [z.task_id for z in preds], self._tasks))
         return objs
 
     def no_successors(self):
-        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in TaskPred.obj_list], self._tasks))
+        preds = self._preds()
+        objs = list(filter(lambda x: x.task_id not in [z.pred_task_id for z in preds], self._tasks))
         return objs
 
     def activities_with_hard_contratints(self):
@@ -178,11 +189,4 @@ class Tasks:
         return obj
 
     def __iter__(self):
-        return self
-
-    def __next__(self) -> Task:
-        if self.index >= len(self._tasks):
-            raise StopIteration
-        idx = self.index
-        self.index +=1
-        return self._tasks[idx]
+        return iter(self._tasks)
