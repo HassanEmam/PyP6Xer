@@ -1,0 +1,45 @@
+xerparser.model.rsrccats
+========================
+
+.. py:module:: xerparser.model.rsrccats
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.rsrccats.ResourceCategories
+
+
+Module Contents
+---------------
+
+.. py:class:: ResourceCategories
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.rsrcrcat.ResourceCat
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rsrcrcat.ResourceCat
+
+

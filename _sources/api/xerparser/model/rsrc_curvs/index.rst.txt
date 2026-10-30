@@ -1,0 +1,48 @@
+xerparser.model.rsrc_curvs
+==========================
+
+.. py:module:: xerparser.model.rsrc_curvs
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.rsrc_curvs.RsrcCurves
+
+
+Module Contents
+---------------
+
+.. py:class:: RsrcCurves
+
+   Collection of RSRCCURV resource-curve definition rows.
+
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.rsrc_curv.RsrcCurv
+
+

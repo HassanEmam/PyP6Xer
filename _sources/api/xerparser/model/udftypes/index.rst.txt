@@ -1,0 +1,45 @@
+xerparser.model.udftypes
+========================
+
+.. py:module:: xerparser.model.udftypes
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.udftypes.UDFTypes
+
+
+Module Contents
+---------------
+
+.. py:class:: UDFTypes
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.udftype.UDFType
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.udftype.UDFType
+
+

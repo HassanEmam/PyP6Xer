@@ -1,0 +1,126 @@
+xerparser.model.predecessors
+============================
+
+.. py:module:: xerparser.model.predecessors
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.predecessors.Predecessors
+
+
+Module Contents
+---------------
+
+.. py:class:: Predecessors
+
+   Collection of TASKPRED relationship records.
+
+   Editing API: :meth:`add_relationship`, :meth:`remove_relationship`
+   and :meth:`replace_relationship` modify the collection in place;
+   a subsequent ``writeXER`` writes the edited relationships back.
+
+
+   .. py:attribute:: PRED_TYPES
+      :value: ('PR_FS', 'PR_SS', 'PR_FF', 'PR_SF')
+
+
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:attribute:: task_pred
+      :value: []
+
+
+
+   .. py:method:: find_by_id(code_id) -> xerparser.model.classes.taskpred.TaskPred
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: next_task_pred_id()
+
+      Next free numeric task_pred_id (max existing numeric id + 1).
+
+
+
+   .. py:method:: add_relationship(task_id, pred_task_id, pred_type='PR_FS', lag_hr_cnt=None, comments=None, proj_id=None, pred_proj_id=None, tasks=None)
+
+      Add a relationship and return the new TaskPred.
+
+      :param task_id: id of the successor activity.
+      :param pred_task_id: id of the predecessor activity.
+      :param pred_type: one of PR_FS, PR_SS, PR_FF, PR_SF (default PR_FS).
+      :param lag_hr_cnt: lag in hours; negative for leads. Optional.
+      :param comments: optional comment text.
+      :param proj_id: project of the successor; derived from the task when
+                      a Tasks collection is available (the Reader wires one).
+      :param pred_proj_id: project of the predecessor. Defaults to
+                           ``proj_id``; set it explicitly for cross-project links.
+      :param tasks: Tasks collection used for validation/project lookup.
+                    Optional when the Reader wired one automatically.
+
+      :returns: The appended TaskPred relationship.
+
+      :raises ValueError: on an unknown pred_type, non-numeric lag, unknown
+          task, duplicate relationship, or missing project context.
+
+
+
+   .. py:method:: remove_relationship(rel)
+
+      Remove a relationship (TaskPred instance or task_pred_id).
+
+      :raises ValueError: if the relationship is not in this collection.
+
+
+
+   .. py:method:: replace_relationship(rel, task_id=None, pred_task_id=None, pred_type=None, lag_hr_cnt=None, comments=None, tasks=None)
+
+      Atomically re-route a relationship.
+
+      Builds the replacement first (so validation failures leave the
+      collection untouched), then swaps it for ``rel`` (TaskPred
+      instance or task_pred_id). Unspecified fields are inherited from
+      the old relationship.
+
+
+
+   .. py:property:: relations
+      :type: List[xerparser.model.classes.taskpred.TaskPred]
+
+
+
+   .. py:property:: leads
+
+
+   .. py:property:: finish_to_start
+      :type: List[xerparser.model.classes.taskpred.TaskPred]
+
+
+
+   .. py:method:: get_successors(act_id) -> List[xerparser.model.classes.taskpred.TaskPred]
+
+
+   .. py:method:: get_predecessors(act_id) -> List[xerparser.model.classes.taskpred.TaskPred]
+
+
+   .. py:method:: count()
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+

@@ -1,0 +1,45 @@
+xerparser.model.schedoptions
+============================
+
+.. py:module:: xerparser.model.schedoptions
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.schedoptions.SchedOptions
+
+
+Module Contents
+---------------
+
+.. py:class:: SchedOptions
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.schedoption.SchedOption
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.schedoption.SchedOption
+
+

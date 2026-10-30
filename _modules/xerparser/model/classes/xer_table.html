@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xerparser.model.classes.xer_table &mdash; PyP6Xer v2.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyP6Xer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quick_reference.html">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced_examples.html">Advanced Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Installation and Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/xerparser/index.html">xerparser</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to PyP6Xer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyP6Xer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../../xerparser.html">xerparser</a></li>
+      <li class="breadcrumb-item active">xerparser.model.classes.xer_table</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for xerparser.model.classes.xer_table</h1><div class="highlight"><pre>
+<span></span><span class="c1"># PyP6XER</span>
+<span class="c1"># Copyright (C) 2020, 2021 Hassan Emam &lt;hassan@constology.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of PyP6XER.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER library is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU Lesser General Public License v2.1 as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># PyP6XER is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with PyP6XER.  If not, see &lt;https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html.</span>
+
+
+<span class="sd">"""Generic storage for XER tables that have no dedicated model class.</span>
+
+<span class="sd">PyP6Xer models the commonly used P6 tables with typed classes. Every other</span>
+<span class="sd">table in an export (PROJCOST, WBSSTEP, TASKMEMO, ...) used to be silently</span>
+<span class="sd">dropped on read. ``XerTable``/``XerTables`` preserve those records</span>
+<span class="sd">losslessly — original headers, column order and row values — and expose</span>
+<span class="sd">them with dict- and attribute-style access, so a parse followed by a</span>
+<span class="sd">write round-trips any table the library has no typed model for.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Column-name suffixes that mark a foreign-key to a type/lookup table</span>
+<span class="c1"># rather than a row's own identifier (best-effort heuristic).</span>
+<span class="n">_FK_SUFFIXES</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'_type_id'</span><span class="p">,</span> <span class="s1">'_status_id'</span><span class="p">,</span> <span class="s1">'_catg_id'</span><span class="p">,</span> <span class="s1">'_catg_type_id'</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="XerRecord">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">XerRecord</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""One %R row of a generic table.</span>
+
+<span class="sd">    Supports attribute access (``record.task_id``), mapping access</span>
+<span class="sd">    (``record['task_id']``) and ``.get()`` — missing columns yield ``None``</span>
+<span class="sd">    so older schemas (short rows) never raise.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_table</span> <span class="o">=</span> <span class="n">table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_raw</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="XerRecord.__getattr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.__getattr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">'_data'</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.__getitem__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.__getitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.__contains__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.__contains__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.__repr__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;XerRecord </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_table</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="si">!r}</span><span class="s2">&gt;"</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.get">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.get">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.keys">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.keys">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerRecord.to_dict">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerRecord.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="XerTable">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">XerTable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""All records of one non-modeled XER table, in file order.</span>
+
+<span class="sd">    Handles files where the same table appears in several blocks with</span>
+<span class="sd">    different header sets (each block is preserved separately).</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="XerTable.name">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.name">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list of (headers, [raw row lists])</span>
+
+<div class="viewcode-block" id="XerTable.add_block">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.add_block">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">rows</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">existing_headers</span><span class="p">,</span> <span class="n">existing_rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">existing_headers</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">headers</span><span class="p">):</span>
+                <span class="n">existing_rows</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">list</span><span class="p">(</span><span class="n">headers</span><span class="p">),</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="XerTable.add">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.add">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_block</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="p">[</span><span class="n">values</span><span class="p">])</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="XerTable.headers">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.headers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span> <span class="k">else</span> <span class="p">[]</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="XerTable.records">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.records">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">records</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">headers</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">XerRecord</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="XerTable.raw_rows">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.raw_rows">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">raw_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="XerTable.__len__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.__len__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerTable.__getitem__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.__getitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="XerTable.__iter__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.__iter__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_id_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">headers</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">h</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'_id'</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">candidates</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">stripped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+        <span class="n">exact</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">candidates</span> <span class="k">if</span> <span class="n">h</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="o">==</span> <span class="n">stripped</span> <span class="o">+</span> <span class="s1">'id'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">exact</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">exact</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">own</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">candidates</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">h</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">_FK_SUFFIXES</span><span class="p">)]</span>
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">own</span> <span class="ow">or</span> <span class="n">candidates</span>
+        <span class="c1"># Own ids are conventionally the first remaining column; prefer the</span>
+        <span class="c1"># shortest name as a tiebreak (memo_id over memo_type_id).</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+
+<div class="viewcode-block" id="XerTable.find_by_id">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.find_by_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Best-effort lookup by the table's own id column.</span>
+
+<span class="sd">        Uses the header that matches the table name when present</span>
+<span class="sd">        (e.g. ``wbs_step_id`` for WBSSTEP), otherwise the most plausible</span>
+<span class="sd">        non-foreign-key ``*_id`` column. Returns None when the table has</span>
+<span class="sd">        no usable id column (e.g. TASKFDBK) or no record matches.</span>
+<span class="sd">        """</span>
+        <span class="k">for</span> <span class="n">headers</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">:</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_column</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">XerRecord</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="XerTable.get_tsv">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTable.get_tsv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_tsv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Re-emit this table exactly as parsed (%T/%F/%R blocks, in order)."""</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">headers</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocks</span><span class="p">:</span>
+            <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">'%T'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+            <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">'</span><span class="si">%F</span><span class="s1">'</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+                <span class="n">tsv</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">'%R'</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tsv</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="XerTables">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">XerTables</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Container for every non-modeled table in a file, in first-seen order."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># name -&gt; XerTable, insertion ordered</span>
+
+<div class="viewcode-block" id="XerTables.add">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.add">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">XerTable</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerTables.get">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.get">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XerTables.__getitem__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.__getitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="XerTables.__contains__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.__contains__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tables</span></div>
+
+
+<div class="viewcode-block" id="XerTables.__iter__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.__iter__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="XerTables.__len__">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.__len__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="XerTables.table_names">
+<a class="viewcode-back" href="../../../../api/xerparser/model/classes/xer_table/index.html#xerparser.XerTables.table_names">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">table_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tables</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Hassan Emam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

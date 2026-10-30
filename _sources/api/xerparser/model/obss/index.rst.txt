@@ -1,0 +1,45 @@
+xerparser.model.obss
+====================
+
+.. py:module:: xerparser.model.obss
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.obss.OBSs
+
+
+Module Contents
+---------------
+
+.. py:class:: OBSs
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params)
+
+
+   .. py:method:: find_by_id(id) -> xerparser.model.classes.obs.OBS
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:property:: count
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.obs.OBS
+
+

@@ -1,0 +1,139 @@
+xerparser.model.classes.xer_table
+=================================
+
+.. py:module:: xerparser.model.classes.xer_table
+
+.. autoapi-nested-parse::
+
+   Generic storage for XER tables that have no dedicated model class.
+
+   PyP6Xer models the commonly used P6 tables with typed classes. Every other
+   table in an export (PROJCOST, WBSSTEP, TASKMEMO, ...) used to be silently
+   dropped on read. ``XerTable``/``XerTables`` preserve those records
+   losslessly — original headers, column order and row values — and expose
+   them with dict- and attribute-style access, so a parse followed by a
+   write round-trips any table the library has no typed model for.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.xer_table.XerRecord
+   xerparser.model.classes.xer_table.XerTable
+   xerparser.model.classes.xer_table.XerTables
+
+
+Module Contents
+---------------
+
+.. py:class:: XerRecord(table, headers, values)
+
+   One %R row of a generic table.
+
+   Supports attribute access (``record.task_id``), mapping access
+   (``record['task_id']``) and ``.get()`` — missing columns yield ``None``
+   so older schemas (short rows) never raise.
+
+
+   .. py:method:: __getattr__(name)
+
+
+   .. py:method:: __getitem__(name)
+
+
+   .. py:method:: __contains__(name)
+
+
+   .. py:method:: __repr__()
+
+
+   .. py:method:: get(name, default=None)
+
+
+   .. py:method:: keys()
+
+
+   .. py:method:: to_dict()
+
+
+.. py:class:: XerTable(name)
+
+   All records of one non-modeled XER table, in file order.
+
+   Handles files where the same table appears in several blocks with
+   different header sets (each block is preserved separately).
+
+
+   .. py:attribute:: name
+
+
+   .. py:method:: add_block(headers, rows)
+
+
+   .. py:method:: add(headers, values)
+
+
+   .. py:property:: headers
+
+
+   .. py:property:: records
+
+
+   .. py:property:: raw_rows
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __getitem__(index)
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: find_by_id(id)
+
+      Best-effort lookup by the table's own id column.
+
+      Uses the header that matches the table name when present
+      (e.g. ``wbs_step_id`` for WBSSTEP), otherwise the most plausible
+      non-foreign-key ``*_id`` column. Returns None when the table has
+      no usable id column (e.g. TASKFDBK) or no record matches.
+
+
+
+   .. py:method:: get_tsv()
+
+      Re-emit this table exactly as parsed (%T/%F/%R blocks, in order).
+
+
+
+.. py:class:: XerTables
+
+   Container for every non-modeled table in a file, in first-seen order.
+
+
+   .. py:method:: add(table_name, headers, values)
+
+
+   .. py:method:: get(table_name)
+
+
+   .. py:method:: __getitem__(table_name)
+
+
+   .. py:method:: __contains__(table_name)
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __len__()
+
+
+   .. py:property:: table_names
+
+

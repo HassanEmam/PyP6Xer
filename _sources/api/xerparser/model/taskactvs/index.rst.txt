@@ -1,0 +1,48 @@
+xerparser.model.taskactvs
+=========================
+
+.. py:module:: xerparser.model.taskactvs
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.taskactvs.TaskActvs
+
+
+Module Contents
+---------------
+
+.. py:class:: TaskActvs
+
+   .. py:attribute:: index
+      :value: 0
+
+
+
+   .. py:method:: add(params, data)
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_code_id(id) -> xerparser.model.classes.taskactv.TaskActv
+
+
+   .. py:method:: find_by_activity_id(id) -> xerparser.model.classes.taskactv.TaskActv
+
+
+   .. py:method:: count()
+
+
+   .. py:method:: __len__()
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __next__() -> xerparser.model.classes.taskactv.TaskActv
+
+

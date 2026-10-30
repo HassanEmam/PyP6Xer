@@ -1,0 +1,71 @@
+xerparser.model.classes.udftype
+===============================
+
+.. py:module:: xerparser.model.classes.udftype
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.udftype.UDFType
+
+
+Module Contents
+---------------
+
+.. py:class:: UDFType(params)
+
+   .. py:attribute:: udf_type_id
+      :value: None
+
+
+
+   .. py:attribute:: table_name
+      :value: None
+
+
+
+   .. py:attribute:: udf_type_name
+      :value: None
+
+
+
+   .. py:attribute:: udf_type_label
+      :value: None
+
+
+
+   .. py:attribute:: logical_data_type
+      :value: None
+
+
+
+   .. py:attribute:: super_flag
+      :value: None
+
+
+
+   .. py:attribute:: indicator_expression
+      :value: None
+
+
+
+   .. py:attribute:: summary_indicator_expression
+      :value: None
+
+
+
+   .. py:attribute:: export_flag
+
+
+   .. py:method:: get_id()
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: __repr__()
+
+

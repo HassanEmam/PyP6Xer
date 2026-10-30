@@ -1,0 +1,53 @@
+xerparser.model.classes.rsrc_curv
+=================================
+
+.. py:module:: xerparser.model.classes.rsrc_curv
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.rsrc_curv.RsrcCurv
+
+
+Module Contents
+---------------
+
+.. py:class:: RsrcCurv(params)
+
+   A resource curve definition (RSRCCURV table).
+
+   The percentage usage data for a curve lives in RSRCCURVDATA rows that
+   reference the curve by curv_id (see xerparser.model.rsrccurves).
+
+
+   .. py:attribute:: obj_list
+      :value: []
+
+
+
+   .. py:attribute:: curv_data
+
+
+   .. py:attribute:: curv_id
+
+
+   .. py:attribute:: curv_name
+
+
+   .. py:attribute:: default_flag
+
+
+   .. py:method:: get_tsv()
+
+
+   .. py:method:: find_by_id(id)
+      :classmethod:
+
+
+
+   .. py:method:: __repr__()
+
+

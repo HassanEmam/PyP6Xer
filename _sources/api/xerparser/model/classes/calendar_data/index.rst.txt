@@ -1,0 +1,45 @@
+xerparser.model.classes.calendar_data
+=====================================
+
+.. py:module:: xerparser.model.classes.calendar_data
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   xerparser.model.classes.calendar_data.CalendarData
+
+
+Module Contents
+---------------
+
+.. py:class:: CalendarData(text)
+
+   .. py:attribute:: working_days
+
+
+   .. py:attribute:: exceptions
+      :value: []
+
+
+
+   .. py:attribute:: text
+
+
+   .. py:attribute:: data
+
+
+   .. py:method:: xldate_to_datetime(xldate)
+
+
+   .. py:method:: get_work_pattern()
+
+
+   .. py:method:: get_exceptions()
+
+
+   .. py:method:: get_days()
+
+
