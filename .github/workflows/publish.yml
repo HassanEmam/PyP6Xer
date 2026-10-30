@@ -99,7 +99,7 @@ jobs:
 
   publish-pypi:
     name: Publish to PyPI 🚀
-    needs: [build, test-install, publish-testpypi]
+    needs: [build, test-install]
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'published'
     environment:
