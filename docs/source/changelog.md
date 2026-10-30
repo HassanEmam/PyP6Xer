@@ -5,6 +5,14 @@ All notable changes to PyP6Xer will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0] - 2026-10-30
+
+### Changed
+- Version bumped to 2.0 — the 1.016.00 feature set (programmatic relationship
+  editing, generic table store, RSRCCURV support, expanded field coverage,
+  hardened DCMA 14-point analysis, and the comprehensive test suite) is now
+  the stable 2.0 baseline
+
 ## [1.016.00] - 2026-10-28
 
 ### Added

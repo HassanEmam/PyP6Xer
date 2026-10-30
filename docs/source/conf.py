@@ -13,8 +13,8 @@ sys.path.insert(0, os.path.abspath('../../'))
 project = 'PyP6Xer'
 copyright = '2020-2025, Hassan Emam'
 author = 'Hassan Emam'
-release = '1.015.00'
-version = '1.015.00'
+release = '2.0'
+version = '2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

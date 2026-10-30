@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with PyP6XER.  If not, see <https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html>.
 
-__version__ = "1.016.00"
+__version__ = "2.0"
 __author__ = "Hassan Emam"
 __email__ = "hassan.emam@hotmail.com"
 __license__ = "LGPL-2.1"
